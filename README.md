@@ -4,8 +4,8 @@ Ponto de partida do projeto final da disciplina de desenvolvimento com agentes d
 
 ## Como começar
 
-1. Um integrante clica em **Use this template → Create a new repository**, escolhe **Private** e dá o nome do repositório do grupo.
-2. Em **Settings → Collaborators**, adiciona os colegas e o professor (`gustavo-qss`).
+1. Um integrante clica em **Use this template → Create a new repository**, escolhe **PUBLIC** e dá o nome do repositório do grupo.
+2. Em **Settings → Collaborators**, adiciona os colegas .
 3. Cada integrante clona o repositório, abre o OpenCode na raiz e confere as skills da aula: `opencode debug skill` precisa listar `grilling`, `to-spec`, `tdd` e `novo-subagente`.
 4. Preencham o `EQUIPE.md` e o `projeto.json`.
 5. Escrevam o `AGENTS.md` da raiz (com a stack escolhida) e o de cada subprojeto.
