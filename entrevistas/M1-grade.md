@@ -9,7 +9,22 @@
 
 ---
 
-## Pendentes (rodada 2 concluída — 7 resolvidas, 2 sem resposta no documento)
+## Pendentes
+
+**Rodada 1B — todos "consultar requisitos" (10) — aguardando rodada 2:**
+
+- **P10 — Campos editáveis no PATCH**: recusa atômica se vier campo não editável?
+- **P11 — PATCH em andamento/encerrada**: há restrição temporal?
+- **P12 — "Inscritos" para `VAGAS_ABAIXO_DOS_INSCRITOS`**: confirmada/convocada/em_espera?
+- **P13 — PATCH em atividade cancelada**: sempre `ATIVIDADE_CANCELADA`?
+- **P14 — PATCH `{}` e regra do título**: corpo vazio; título vazio/em branco/limite de caracteres.
+- **P15 — Precedência no PATCH**: `ATIVIDADE_CANCELADA` → `CAMPO_NAO_EDITAVEL` → `VAGAS_ACIMA_DA_CAPACIDADE` → `VAGAS_ABAIXO_DOS_INSCRITOS`?
+- **P16 — Cancelamento negado**: só `prevista`; `em_andamento`/`encerrada` → `ATIVIDADE_JA_INICIADA`?
+- **P17 — Cancelamento duplo e corpo**: já `cancelada` → `ATIVIDADE_CANCELADA`; corpo ignorado?
+- **P18 — Efeito nas inscrições**: só `situacao` no M1?
+- **P19 — Autorização**: sem dono; qualquer organização em qualquer atividade?
+
+**Rodada 2 anterior — 7 resolvidas, 2 sem resposta no documento:**
 
 Do usuário ("responder consultar requisitos") — rodada 1 completa:
 
@@ -19,9 +34,9 @@ Do usuário ("responder consultar requisitos") — rodada 1 completa:
 - ~~**P4 — Conflito de sala**~~ — resolvida: intervalo ≥ 15 min na mesma sala; encostados conflitam; canceladas não contam (RN-108); edição só de título e vagas (RN-110).
 - ~~**P5 — Situação**~~ — resolvida: prevista → em_andamento (início do 1º encontro) → encerrada (fim do último); sem tolerância; cancelada prevalece (RN-114).
 - ~~**P6 — Listagem e filtros**~~ — resolvida: ordem por 1º encontro, empate por título; canceladas aparecem (RN-115); `dia` = encontro no dia de Brasília, combina com `tipo` (RN-116).
-- **P7 — Fronteira do escopo**: `ocupadas/vagasRestantes/emEspera` = 0 no M1?
+- **P7 — Fronteira do escopo**: `ocupadas/vagasRestantes/emEspera` = 0 no M1? — sem resposta no documento de requisitos.
 - ~~**P8 — Carga horária**~~ — resolvida: soma das durações dos encontros em minutos; valor enviado é ignorado (RN-109).
-- **P9 — Precedência ao criar**: ordem entre as regras do recurso no POST
+- **P9 — Precedência ao criar**: ordem entre as regras do recurso no POST — sem resposta no documento de requisitos.
 
 ---
 
@@ -87,3 +102,42 @@ Permaneceram pendentes (2), sem regra RN atribuída — o documento de requisito
 - **P9 — Precedência ao criar**: ordem entre as regras do recurso no `POST /atividades` (sem regra no documento)
 
 Próximos passos: (edição `PATCH`, cancelamento, ordem interna dessas operações, cenários de verificação).
+
+---
+
+## Rodada 1B — Alteração (PATCH), cancelamento e autorização
+
+Em andamento — perguntas formuladas, aguardando respostas.
+
+Perguntas desta rodada:
+
+- **P10 — Campos editáveis no PATCH**: o contrato diz que a entrada do PATCH é qualquer subconjunto dos campos do POST. P4/RN-110 fixa que a edição limita a `titulo` e `vagas`. Enviar `tipo`, `salaId` ou `encontros` → `CAMPO_NAO_EDITAVEL`. Se o corpo misturar um campo não editável com `titulo`/`vagas` válidos, o PATCH é recusado por inteiro (nada é aplicado) ou aplica só o editável?
+  - ➡️ recomendação: recusa atômica — presença de qualquer campo não editável → `CAMPO_NAO_EDITAVEL` e nada é alterado.
+  - Resposta: consultar requisitos — **pendente**.
+- **P11 — PATCH depois de a atividade começar**: existe restrição de tempo para alterar? O contrato lista `ATIVIDADE_JA_INICIADA` para cancelar atividade e cancelar inscrição, mas não para alterar — alterar `titulo`/`vagas` continua permitido em `em_andamento` e `encerrada`?
+  - ➡️ recomendação: sim, sem restrição temporal; `titulo` e `vagas` são editáveis em qualquer situação (exceto `cancelada`).
+  - Resposta: consultar requisitos — **pendente**.
+- **P12 — O que conta como "inscritos" para `VAGAS_ABAIXO_DOS_INSCRITOS`**: para decidir se `vagas` pode cair para um valor, o que é "inscrição"? Só `confirmada`? `convocada` também ocupa vaga? `em_espera` bloqueia a redução?
+  - ➡️ recomendação: inscritos = ocupadas (confirmadas + convocadas); `em_espera` não impede a redução.
+  - Resposta: consultar requisitos — **pendente**.
+- **P13 — PATCH em atividade cancelada**: qualquer PATCH (mesmo só `titulo`) em atividade `cancelada` → `ATIVIDADE_CANCELADA`?
+  - ➡️ recomendação: sim, `ATIVIDADE_CANCELADA` sempre, independentemente dos campos.
+  - Resposta: consultar requisitos — **pendente**.
+- **P14 — PATCH com corpo vazio e regra do título**: PATCH com corpo `{}` (nenhum campo) → 200 sem efeito, ou `DADOS_INVALIDOS`? E o `titulo`: aceita vazio/em branco? Existe limite mínimo/máximo de caracteres? Vale para POST e PATCH?
+  - ➡️ recomendação: `{}` → `DADOS_INVALIDOS`; título vazio ou em branco → `DADOS_INVALIDOS`; sem limite de tamanho definido a menos que o documento fixe.
+  - Resposta: consultar requisitos — **pendente**.
+- **P15 — Precedência no PATCH**: quando mais de uma regra do recurso recusa o mesmo PATCH, qual erro vem primeiro? (`ATIVIDADE_CANCELADA`, `CAMPO_NAO_EDITAVEL`, `VAGAS_ACIMA_DA_CAPACIDADE`, `VAGAS_ABAIXO_DOS_INSCRITOS`)
+  - ➡️ recomendação: `ATIVIDADE_CANCELADA` → `CAMPO_NAO_EDITAVEL` → `VAGAS_ACIMA_DA_CAPACIDADE` → `VAGAS_ABAIXO_DOS_INSCRITOS`.
+  - Resposta: consultar requisitos — **pendente**.
+- **P16 — Quando o cancelamento é negado**: cancelar só é permitido enquanto `prevista`? A partir do início do 1º encontro (`em_andamento`) → `ATIVIDADE_JA_INICIADA`. E `encerrada` também retorna `ATIVIDADE_JA_INICIADA`, ou é permitido/outro código?
+  - ➡️ recomendação: qualquer atividade cujo relógio já passou do início do 1º encontro (`em_andamento` ou `encerrada`) → `ATIVIDADE_JA_INICIADA`.
+  - Resposta: consultar requisitos — **pendente**.
+- **P17 — Cancelamento duplo e corpo**: cancelar uma atividade já `cancelada` → `ATIVIDADE_CANCELADA`? Um corpo enviado no cancelamento é ignorado ou recusado?
+  - ➡️ recomendação: `ATIVIDADE_CANCELADA` na segunda chamada; corpo do cancelamento é ignorado.
+  - Resposta: consultar requisitos — **pendente**.
+- **P18 — Efeito do cancelamento nas inscrições**: o cancelamento de uma atividade (que no sistema completo tem inscrições) muda apenas `situacao` da atividade, ou também gera efeito nas inscrições (p. ex., encerrar a espera)? No M1 o efeito é só sobre a atividade?
+  - ➡️ recomendação: no M1, só `situacao = cancelada`; efeitos em inscrições pertencem ao M2.
+  - Resposta: consultar requisitos — **pendente**.
+- **P19 — Autorização: dono da atividade**: existe conceito de dono/criador? Qualquer organização pode alterar/cancelar qualquer atividade? Há alguma regra de perfil além de `SOMENTE_ORGANIZACAO` nas rotas de escrita e "todos" nas de leitura?
+  - ➡️ recomendação: não há dono; qualquer organização opera qualquer atividade; nenhuma regra adicional.
+  - Resposta: consultar requisitos — **pendente**.
