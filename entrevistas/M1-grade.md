@@ -11,18 +11,18 @@
 
 ## Pendentes
 
-**Rodada 1B — todos "consultar requisitos" (10) — aguardando rodada 2:**
+**Rodada 1B — rodada 2 concluída: 5 resolvidas, 3 pendentes, 2 parcialmente resolvidas (só a parte sem regra permanece pendente).**
 
-- **P10 — Campos editáveis no PATCH**: recusa atômica se vier campo não editável?
-- **P11 — PATCH em andamento/encerrada**: há restrição temporal?
-- **P12 — "Inscritos" para `VAGAS_ABAIXO_DOS_INSCRITOS`**: confirmada/convocada/em_espera?
-- **P13 — PATCH em atividade cancelada**: sempre `ATIVIDADE_CANCELADA`?
-- **P14 — PATCH `{}` e regra do título**: corpo vazio; título vazio/em branco/limite de caracteres.
-- **P15 — Precedência no PATCH**: `ATIVIDADE_CANCELADA` → `CAMPO_NAO_EDITAVEL` → `VAGAS_ACIMA_DA_CAPACIDADE` → `VAGAS_ABAIXO_DOS_INSCRITOS`?
-- **P16 — Cancelamento negado**: só `prevista`; `em_andamento`/`encerrada` → `ATIVIDADE_JA_INICIADA`?
-- **P17 — Cancelamento duplo e corpo**: já `cancelada` → `ATIVIDADE_CANCELADA`; corpo ignorado?
-- **P18 — Efeito nas inscrições**: só `situacao` no M1?
-- **P19 — Autorização**: sem dono; qualquer organização em qualquer atividade?
+- **P10 — Campos editáveis no PATCH**: recusa atômica se vier campo não editável? — parcial: RN-110 (só título e vagas); recusa atômica sem regra.
+- **P11 — PATCH em andamento/encerrada**: há restrição temporal? — sem regra no documento.
+- **P12 — "Inscritos" para `VAGAS_ABAIXO_DOS_INSCRITOS`**: confirmada/convocada/em_espera? — resolvida: RN-111 (confirmadas + convocadas ocupam vaga; em espera não conta).
+- **P13 — PATCH em atividade cancelada**: sempre `ATIVIDADE_CANCELADA`? — resolvida: RN-113 (cancelada não pode ser alterada).
+- **P14 — PATCH `{}` e regra do título**: corpo vazio; título vazio/em branco/limite de caracteres. — sem regra no documento.
+- **P15 — Precedência no PATCH**: `ATIVIDADE_CANCELADA` → `CAMPO_NAO_EDITAVEL` → `VAGAS_ACIMA_DA_CAPACIDADE` → `VAGAS_ABAIXO_DOS_INSCRITOS`? — sem regra no documento.
+- **P16 — Cancelamento negado**: só `prevista`; `em_andamento`/`encerrada` → `ATIVIDADE_JA_INICIADA`? — resolvida: RN-112.
+- **P17 — Cancelamento duplo e corpo**: já `cancelada` → `ATIVIDADE_CANCELADA`; corpo ignorado? — parcial: RN-113 (duplo cancelado); corpo sem regra.
+- **P18 — Efeito nas inscrições**: só `situacao` no M1? — resolvida: RN-217 (efeito nas inscrições é do M2).
+- **P19 — Autorização**: sem dono; qualquer organização em qualquer atividade? — resolvida: RN-101 (só organização cria/altera/cancela; sem dono individual).
 
 **Rodada 2 anterior — 7 resolvidas, 2 sem resposta no documento:**
 
@@ -107,37 +107,47 @@ Próximos passos: (edição `PATCH`, cancelamento, ordem interna dessas operaç�
 
 ## Rodada 1B — Alteração (PATCH), cancelamento e autorização
 
-Em andamento — perguntas formuladas, aguardando respostas.
+Rodada 2 concluída — 5 resolvidas (P12/P13/P16/P18/P19), 3 pendentes (P11/P14/P15), 2 parciais (P10/P17): a parte sem regra no documento continua pendente.
 
 Perguntas desta rodada:
 
 - **P10 — Campos editáveis no PATCH**: o contrato diz que a entrada do PATCH é qualquer subconjunto dos campos do POST. P4/RN-110 fixa que a edição limita a `titulo` e `vagas`. Enviar `tipo`, `salaId` ou `encontros` → `CAMPO_NAO_EDITAVEL`. Se o corpo misturar um campo não editável com `titulo`/`vagas` válidos, o PATCH é recusado por inteiro (nada é aplicado) ou aplica só o editável?
   - ➡️ recomendação: recusa atômica — presença de qualquer campo não editável → `CAMPO_NAO_EDITAVEL` e nada é alterado.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: depois de criada, a atividade só permite alteração de título e vagas; sala, tipo e encontros não podem ser alterados. O documento não especifica se, ao enviar campos editáveis e não editáveis juntos, o PATCH inteiro deve ser recusado sem aplicar nenhuma alteração — **pendente** (em parte).
+  - Fonte: RN-110; recusa atômica sem regra no documento de requisitos.
 - **P11 — PATCH depois de a atividade começar**: existe restrição de tempo para alterar? O contrato lista `ATIVIDADE_JA_INICIADA` para cancelar atividade e cancelar inscrição, mas não para alterar — alterar `titulo`/`vagas` continua permitido em `em_andamento` e `encerrada`?
   - ➡️ recomendação: sim, sem restrição temporal; `titulo` e `vagas` são editáveis em qualquer situação (exceto `cancelada`).
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: o documento não define explicitamente se título e vagas podem continuar sendo alterados quando a atividade está em andamento ou encerrada. A RN-110 define apenas quais campos são editáveis, sem estabelecer restrição temporal para o PATCH. A questão permanece **pendente**.
+  - Fonte: (sem regra no documento de requisitos — RN-110 não trata restrição temporal).
 - **P12 — O que conta como "inscritos" para `VAGAS_ABAIXO_DOS_INSCRITOS`**: para decidir se `vagas` pode cair para um valor, o que é "inscrição"? Só `confirmada`? `convocada` também ocupa vaga? `em_espera` bloqueia a redução?
   - ➡️ recomendação: inscritos = ocupadas (confirmadas + convocadas); `em_espera` não impede a redução.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: para impedir a redução de vagas contam as inscrições confirmadas e convocadas, pois são as que ocupam vaga. Inscrições em espera não entram na contagem.
+  - Fonte: RN-111.
 - **P13 — PATCH em atividade cancelada**: qualquer PATCH (mesmo só `titulo`) em atividade `cancelada` → `ATIVIDADE_CANCELADA`?
   - ➡️ recomendação: sim, `ATIVIDADE_CANCELADA` sempre, independentemente dos campos.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: uma atividade cancelada não pode ser alterada novamente; portanto, não é permitido fazer PATCH em uma atividade cancelada.
+  - Fonte: RN-113.
 - **P14 — PATCH com corpo vazio e regra do título**: PATCH com corpo `{}` (nenhum campo) → 200 sem efeito, ou `DADOS_INVALIDOS`? E o `titulo`: aceita vazio/em branco? Existe limite mínimo/máximo de caracteres? Vale para POST e PATCH?
   - ➡️ recomendação: `{}` → `DADOS_INVALIDOS`; título vazio ou em branco → `DADOS_INVALIDOS`; sem limite de tamanho definido a menos que o documento fixe.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: o documento não define o comportamento de PATCH com corpo vazio, nem estabelece regras para título vazio, em branco ou limites de tamanho. A RN-110 apenas determina que título e vagas são os campos editáveis. A questão permanece **pendente**.
+  - Fonte: (sem regra no documento de requisitos — RN-110 não trata corpo vazio nem regras do título).
 - **P15 — Precedência no PATCH**: quando mais de uma regra do recurso recusa o mesmo PATCH, qual erro vem primeiro? (`ATIVIDADE_CANCELADA`, `CAMPO_NAO_EDITAVEL`, `VAGAS_ACIMA_DA_CAPACIDADE`, `VAGAS_ABAIXO_DOS_INSCRITOS`)
   - ➡️ recomendação: `ATIVIDADE_CANCELADA` → `CAMPO_NAO_EDITAVEL` → `VAGAS_ACIMA_DA_CAPACIDADE` → `VAGAS_ABAIXO_DOS_INSCRITOS`.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: o documento não define uma ordem de precedência para os erros no PATCH. A questão permanece **pendente**.
+  - Fonte: (sem regra no documento de requisitos).
 - **P16 — Quando o cancelamento é negado**: cancelar só é permitido enquanto `prevista`? A partir do início do 1º encontro (`em_andamento`) → `ATIVIDADE_JA_INICIADA`. E `encerrada` também retorna `ATIVIDADE_JA_INICIADA`, ou é permitido/outro código?
   - ➡️ recomendação: qualquer atividade cujo relógio já passou do início do 1º encontro (`em_andamento` ou `encerrada`) → `ATIVIDADE_JA_INICIADA`.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: o cancelamento só é permitido antes de a atividade começar. A partir do instante de início do primeiro encontro, inclusive, o cancelamento é negado com `ATIVIDADE_JA_INICIADA`; isso também vale para uma atividade já encerrada.
+  - Fonte: RN-112.
 - **P17 — Cancelamento duplo e corpo**: cancelar uma atividade já `cancelada` → `ATIVIDADE_CANCELADA`? Um corpo enviado no cancelamento é ignorado ou recusado?
   - ➡️ recomendação: `ATIVIDADE_CANCELADA` na segunda chamada; corpo do cancelamento é ignorado.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: uma atividade já cancelada não pode ser cancelada novamente, devendo resultar em `ATIVIDADE_CANCELADA`. O documento não especifica se um corpo enviado na requisição de cancelamento deve ser ignorado ou recusado — **pendente** (em parte).
+  - Fonte: RN-113; corpo do cancelamento sem regra no documento de requisitos.
 - **P18 — Efeito do cancelamento nas inscrições**: o cancelamento de uma atividade (que no sistema completo tem inscrições) muda apenas `situacao` da atividade, ou também gera efeito nas inscrições (p. ex., encerrar a espera)? No M1 o efeito é só sobre a atividade?
   - ➡️ recomendação: no M1, só `situacao = cancelada`; efeitos em inscrições pertencem ao M2.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: o cancelamento da atividade também cancela todas as inscrições ativas vinculadas a ela. Esse efeito está definido no módulo M2.
+  - Fonte: RN-217 (efeito nas inscrições é do M2; no M1 o efeito é só `situacao`).
 - **P19 — Autorização: dono da atividade**: existe conceito de dono/criador? Qualquer organização pode alterar/cancelar qualquer atividade? Há alguma regra de perfil além de `SOMENTE_ORGANIZACAO` nas rotas de escrita e "todos" nas de leitura?
   - ➡️ recomendação: não há dono; qualquer organização opera qualquer atividade; nenhuma regra adicional.
-  - Resposta: consultar requisitos — **pendente**.
+  - Resposta: somente a organização pode criar, alterar e cancelar atividades. O documento não define dono ou criador individual da atividade, nem estabelece regras adicionais de autorização entre usuários da organização.
+  - Fonte: RN-101.
