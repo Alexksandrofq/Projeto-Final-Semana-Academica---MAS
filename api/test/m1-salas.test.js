@@ -10,10 +10,10 @@ describe('GET /salas', () => {
     app = criarServidor();
   });
 
-  it('retorna a lista de salas sem exigir X-Usuario', async () => {
+  it('retorna a lista de salas para usuário identificado', async () => {
     await request(app).post('/_teste/reset').expect(204);
 
-    const resposta = await request(app).get('/salas');
+    const resposta = await request(app).get('/salas').set('X-Usuario', 'p-carla');
 
     expect(resposta.status).toBe(200);
     expect(resposta.body).toHaveLength(4);
@@ -22,7 +22,7 @@ describe('GET /salas', () => {
   it('devolve o shape Sala conforme o contrato', async () => {
     await request(app).post('/_teste/reset').expect(204);
 
-    const resposta = await request(app).get('/salas');
+    const resposta = await request(app).get('/salas').set('X-Usuario', 'p-carla');
 
     const porId = Object.fromEntries(resposta.body.map((sala) => [sala.id, sala]));
     expect(porId['auditorio']).toEqual({ id: 'auditorio', nome: 'Auditório Central', capacidade: 200 });

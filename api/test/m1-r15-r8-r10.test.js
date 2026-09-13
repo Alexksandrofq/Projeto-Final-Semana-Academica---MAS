@@ -49,6 +49,18 @@ describe('Fechamentos pós-cancelamento', () => {
     expect(resposta.body.erro).toBe('ATIVIDADE_CANCELADA');
   });
 
+  it('ordem do contrato — PATCH em cancelada com titulo de tipo errado responde 422 DADOS_INVALIDOS (corpo antes da regra do recurso)', async () => {
+    const atividade = await criarECancelar();
+
+    const resposta = await request(app)
+      .patch(`/atividades/${atividade.id}`)
+      .set('X-Usuario', 'org-ana')
+      .send({ titulo: 123 });
+
+    expect(resposta.status).toBe(422);
+    expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
+  });
+
   it('R8 — encontros de atividade cancelada não geram CONFLITO_DE_SALA', async () => {
     const atividade = await criarECancelar();
 
@@ -70,7 +82,7 @@ describe('Fechamentos pós-cancelamento', () => {
   it('R10 — atividade cancelada continua aparecendo no GET /atividades', async () => {
     const atividade = await criarECancelar();
 
-    const lista = await request(app).get('/atividades');
+    const lista = await request(app).get('/atividades').set('X-Usuario', 'p-carla');
 
     expect(lista.status).toBe(200);
     const encontrada = lista.body.find((a) => a.id === atividade.id);

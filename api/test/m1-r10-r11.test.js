@@ -46,7 +46,7 @@ describe('M1-R10 — GET /atividades ordena por início do primeiro encontro (em
     await criar(app, palestra('ZZZ Tarde', 'sala-101', '2026-10-19T10:00:00-03:00', '2026-10-19T11:00:00-03:00'));
     await criar(app, palestra('AAA Manhã', 'sala-102', '2026-10-19T08:00:00-03:00', '2026-10-19T09:00:00-03:00'));
 
-    const resposta = await request(app).get('/atividades');
+    const resposta = await request(app).get('/atividades').set('X-Usuario', 'p-carla');
 
     expect(resposta.status).toBe(200);
     expect(titulos(resposta.body)).toEqual(['AAA Manhã', 'ZZZ Tarde']);
@@ -58,7 +58,7 @@ describe('M1-R10 — GET /atividades ordena por início do primeiro encontro (em
     await criar(app, palestra('Bravo', 'sala-101', '2026-10-19T10:00:00-03:00', '2026-10-19T11:00:00-03:00'));
     await criar(app, palestra('Alfa', 'sala-102', '2026-10-19T10:00:00-03:00', '2026-10-19T11:00:00-03:00'));
 
-    const resposta = await request(app).get('/atividades');
+    const resposta = await request(app).get('/atividades').set('X-Usuario', 'p-carla');
 
     expect(resposta.status).toBe(200);
     expect(titulos(resposta.body)).toEqual(['Alfa', 'Bravo']);
@@ -84,10 +84,10 @@ describe('M1-R11 — filtros dia e tipo de GET /atividades', () => {
       ])
     );
 
-    const soPalestras = await request(app).get('/atividades?tipo=palestra');
+    const soPalestras = await request(app).get('/atividades?tipo=palestra').set('X-Usuario', 'p-carla');
     expect(titulos(soPalestras.body)).toEqual(['Palestra X']);
 
-    const soMinicursos = await request(app).get('/atividades?tipo=minicurso');
+    const soMinicursos = await request(app).get('/atividades?tipo=minicurso').set('X-Usuario', 'p-carla');
     expect(titulos(soMinicursos.body)).toEqual(['Minicurso Y']);
   });
 
@@ -103,13 +103,13 @@ describe('M1-R11 — filtros dia e tipo de GET /atividades', () => {
     );
     await criar(app, palestra('Outro Dia', 'sala-101', '2026-10-21T09:00:00-03:00', '2026-10-21T10:00:00-03:00'));
 
-    const dia19 = await request(app).get('/atividades?dia=2026-10-19');
+    const dia19 = await request(app).get('/atividades?dia=2026-10-19').set('X-Usuario', 'p-carla');
     expect(titulos(dia19.body)).toEqual(['Dois Dias']);
 
-    const dia20 = await request(app).get('/atividades?dia=2026-10-20');
+    const dia20 = await request(app).get('/atividades?dia=2026-10-20').set('X-Usuario', 'p-carla');
     expect(titulos(dia20.body)).toEqual(['Dois Dias']);
 
-    const dia21 = await request(app).get('/atividades?dia=2026-10-21');
+    const dia21 = await request(app).get('/atividades?dia=2026-10-21').set('X-Usuario', 'p-carla');
     expect(titulos(dia21.body)).toEqual(['Outro Dia']);
   });
 
@@ -125,10 +125,10 @@ describe('M1-R11 — filtros dia e tipo de GET /atividades', () => {
       ])
     );
 
-    const combMinicurso = await request(app).get('/atividades?dia=2026-10-19&tipo=minicurso');
+    const combMinicurso = await request(app).get('/atividades?dia=2026-10-19&tipo=minicurso').set('X-Usuario', 'p-carla');
     expect(titulos(combMinicurso.body)).toEqual(['M2 na 19/20']);
 
-    const combPalestra = await request(app).get('/atividades?dia=2026-10-19&tipo=palestra');
+    const combPalestra = await request(app).get('/atividades?dia=2026-10-19&tipo=palestra').set('X-Usuario', 'p-carla');
     expect(titulos(combPalestra.body)).toEqual(['M1 na 19']);
   });
 
@@ -143,10 +143,10 @@ describe('M1-R11 — filtros dia e tipo de GET /atividades', () => {
       ])
     );
 
-    const dia19 = await request(app).get('/atividades?dia=2026-10-19');
+    const dia19 = await request(app).get('/atividades?dia=2026-10-19').set('X-Usuario', 'p-carla');
     expect(dia19.body.map((a) => a.id)).toContain(criada.id);
 
-    const dia20 = await request(app).get('/atividades?dia=2026-10-20');
+    const dia20 = await request(app).get('/atividades?dia=2026-10-20').set('X-Usuario', 'p-carla');
     expect(dia20.body.map((a) => a.id)).toContain(criada.id);
   });
 });

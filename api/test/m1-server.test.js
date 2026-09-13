@@ -47,7 +47,7 @@ describe('npm start — servidor real', () => {
     const portaDeFato = Number(stdout.match(/ouvindo na porta (\d+)/)[1]);
     expect(portaDeFato).toBe(porta);
 
-    const resposta = await request(`http://127.0.0.1:${porta}`).get('/salas');
+    const resposta = await request(`http://127.0.0.1:${porta}`).get('/salas').set('X-Usuario', 'p-carla');
 
     expect(resposta.status).toBe(200);
     expect(resposta.body).toHaveLength(4);

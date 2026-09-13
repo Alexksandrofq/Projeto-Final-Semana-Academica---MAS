@@ -42,7 +42,7 @@ describe('PATCH /atividades/:id — tipo de campo (422 DADOS_INVALIDOS)', () => 
     expect(resposta.status).toBe(422);
     expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
 
-    const atual = await request(app).get(`/atividades/${atividade.id}`);
+    const atual = await request(app).get(`/atividades/${atividade.id}`).set('X-Usuario', 'p-diego');
     expect(atual.body.titulo).toBe('Flutter do zero');
   });
 
@@ -57,7 +57,7 @@ describe('PATCH /atividades/:id — tipo de campo (422 DADOS_INVALIDOS)', () => 
     expect(resposta.status).toBe(422);
     expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
 
-    const atual = await request(app).get(`/atividades/${atividade.id}`);
+    const atual = await request(app).get(`/atividades/${atividade.id}`).set('X-Usuario', 'p-diego');
     expect(atual.body.vagas).toBe(20);
   });
 });

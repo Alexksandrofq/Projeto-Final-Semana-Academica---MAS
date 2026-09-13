@@ -21,7 +21,7 @@ describe('Casos menores da auditoria', () => {
   it('GET /atividades/:id com id inexistente responde 404 NAO_ENCONTRADO', async () => {
     await request(app).post('/_teste/reset').expect(204);
 
-    const resposta = await request(app).get('/atividades/atv_00000000');
+    const resposta = await request(app).get('/atividades/atv_00000000').set('X-Usuario', 'p-carla');
 
     expect(resposta.status).toBe(404);
     expect(resposta.body.erro).toBe('NAO_ENCONTRADO');

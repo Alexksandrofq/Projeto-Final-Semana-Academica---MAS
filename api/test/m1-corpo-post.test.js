@@ -62,6 +62,42 @@ describe('POST /atividades — validação de corpo (422 DADOS_INVALIDOS)', () =
     expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
   });
 
+  it('encontro sem inicio/fim responde 422 DADOS_INVALIDOS', async () => {
+    await request(app).post('/_teste/reset').expect(204);
+
+    const resposta = await request(app)
+      .post('/atividades')
+      .set('X-Usuario', 'org-ana')
+      .send({ ...atividadeValida, encontros: [{}] });
+
+    expect(resposta.status).toBe(422);
+    expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
+  });
+
+  it('encontro com inicio/fim inválido responde 422 DADOS_INVALIDOS', async () => {
+    await request(app).post('/_teste/reset').expect(204);
+
+    const resposta = await request(app)
+      .post('/atividades')
+      .set('X-Usuario', 'org-ana')
+      .send({ ...atividadeValida, encontros: [{ inicio: 'x', fim: 'y' }] });
+
+    expect(resposta.status).toBe(422);
+    expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
+  });
+
+  it('tipo fora de palestra|minicurso responde 422 DADOS_INVALIDOS', async () => {
+    await request(app).post('/_teste/reset').expect(204);
+
+    const resposta = await request(app)
+      .post('/atividades')
+      .set('X-Usuario', 'org-ana')
+      .send({ ...atividadeValida, tipo: 'oficina' });
+
+    expect(resposta.status).toBe(422);
+    expect(resposta.body.erro).toBe('DADOS_INVALIDOS');
+  });
+
   it('corpo que não é JSON válido responde 422 DADOS_INVALIDOS', async () => {
     await request(app).post('/_teste/reset').expect(204);
 

@@ -1,33 +1,6 @@
 const express = require('express');
 const crypto = require('crypto');
-
-const SALAS_INICIAIS = [
-  { id: 'auditorio', nome: 'Auditório Central', capacidade: 200 },
-  { id: 'sala-101', nome: 'Sala 101', capacidade: 40 },
-  { id: 'sala-102', nome: 'Sala 102', capacidade: 40 },
-  { id: 'lab-3', nome: 'Laboratório 3', capacidade: 20 }
-];
-
-const USUARIOS_INICIAIS = [
-  { id: 'org-ana', papel: 'organizacao' },
-  { id: 'org-bruno', papel: 'organizacao' },
-  { id: 'p-carla', papel: 'participante' },
-  { id: 'p-diego', papel: 'participante' },
-  { id: 'p-elisa', papel: 'participante' },
-  { id: 'p-fabio', papel: 'participante' },
-  { id: 'p-gabriela', papel: 'participante' },
-  { id: 'p-heitor', papel: 'participante' },
-  { id: 'p-isadora', papel: 'participante' },
-  { id: 'p-joao', papel: 'participante' }
-];
-
-function carregarSalas() {
-  return new Map(SALAS_INICIAIS.map((sala) => [sala.id, sala]));
-}
-
-function carregarUsuarios() {
-  return new Map(USUARIOS_INICIAIS.map((usuario) => [usuario.id, usuario]));
-}
+const { criarBanco } = require('./banco');
 
 function gerarId(prefixo) {
   return `${prefixo}${crypto.randomBytes(4).toString('hex')}`;
@@ -43,6 +16,9 @@ function validarCorpoAtividade(corpo) {
   if (typeof corpo.tipo !== 'string') {
     return 'Campo tipo (string) é obrigatório.';
   }
+  if (corpo.tipo !== 'palestra' && corpo.tipo !== 'minicurso') {
+    return 'Campo tipo deve ser palestra ou minicurso.';
+  }
   if (typeof corpo.salaId !== 'string') {
     return 'Campo salaId (string) é obrigatório.';
   }
@@ -51,6 +27,17 @@ function validarCorpoAtividade(corpo) {
   }
   if (!Array.isArray(corpo.encontros)) {
     return 'Campo encontros (array) é obrigatório.';
+  }
+  for (const encontro of corpo.encontros) {
+    if (!encontro || typeof encontro !== 'object' || Array.isArray(encontro)) {
+      return 'Cada encontro deve ser um objeto.';
+    }
+    if (typeof encontro.inicio !== 'string' || typeof encontro.fim !== 'string') {
+      return 'Cada encontro deve ter inicio e fim como string.';
+    }
+    if (Number.isNaN(Date.parse(encontro.inicio)) || Number.isNaN(Date.parse(encontro.fim))) {
+      return 'Cada encontro deve ter inicio e fim como instante válido.';
+    }
   }
   return null;
 }
@@ -91,7 +78,7 @@ function serializarAtividade(atividade, agora) {
 
 const ORIGEM_INTERFACE = 'http://localhost:5500';
 
-function criarServidor() {
+function criarServidor(opcoes = {}) {
   const app = express();
 
   app.use((req, res, next) => {
@@ -108,9 +95,8 @@ function criarServidor() {
 
   app.use(express.json());
 
-  let salas = carregarSalas();
-  let usuarios = carregarUsuarios();
-  let atividades = new Map();
+  let banco = criarBanco(opcoes);
+  app.locals.banco = banco;
   let relogio = new Date('2026-10-13T09:00:00-03:00');
 
   const agora = () => (process.env.MODO_TESTE === '1' ? relogio : new Date());
@@ -119,9 +105,7 @@ function criarServidor() {
     if (process.env.MODO_TESTE !== '1') {
       return res.status(404).end();
     }
-    salas = carregarSalas();
-    usuarios = carregarUsuarios();
-    atividades = new Map();
+    banco.recarregarDadosIniciais();
     relogio = new Date('2026-10-13T09:00:00-03:00');
     res.status(204).end();
   });
@@ -142,11 +126,18 @@ function criarServidor() {
   });
 
   app.get('/salas', (req, res) => {
-    res.status(200).json([...salas.values()]);
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
+    res.status(200).json(banco.listarSalas());
   });
 
   app.post('/atividades', (req, res) => {
-    const usuario = usuarios.get(req.get('X-Usuario'));
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
     if (!usuario) {
       return res.status(401).json({
         erro: 'USUARIO_DESCONHECIDO',
@@ -177,7 +168,7 @@ function criarServidor() {
       });
     }
 
-    const capacidade = salas.get(salaId)?.capacidade;
+    const capacidade = banco.obterSala(salaId)?.capacidade;
     if (capacidade !== undefined && vagas > capacidade) {
       return res.status(422).json({
         erro: 'VAGAS_ACIMA_DA_CAPACIDADE',
@@ -240,7 +231,7 @@ function criarServidor() {
     }
 
     const SEPARACAO_MIN_MS = 15 * 60 * 1000;
-    for (const outra of atividades.values()) {
+    for (const outra of banco.listarAtividades()) {
       if (outra.cancelada || outra.salaId !== salaId) {
         continue;
       }
@@ -279,15 +270,23 @@ function criarServidor() {
       cargaHorariaMinutos
     };
 
-    atividades.set(atividade.id, atividade);
+    banco.inserirAtividade(atividade);
 
     res.status(201).json(serializarAtividade(atividade, agora()));
   });
 
   app.get('/atividades', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
     const { dia, tipo } = req.query;
 
-    const lista = [...atividades.values()]
+    const lista = banco
+      .listarAtividades()
       .filter((atividade) => {
         if (tipo !== undefined && atividade.tipo !== tipo) {
           return false;
@@ -321,7 +320,14 @@ function criarServidor() {
   });
 
   app.get('/atividades/:id', (req, res) => {
-    const atividade = atividades.get(req.params.id);
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
+    const atividade = banco.obterAtividade(req.params.id);
     if (!atividade) {
       return res.status(404).json({
         erro: 'NAO_ENCONTRADO',
@@ -332,7 +338,7 @@ function criarServidor() {
   });
 
   app.patch('/atividades/:id', (req, res) => {
-    const usuario = usuarios.get(req.get('X-Usuario'));
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
     if (!usuario) {
       return res.status(401).json({
         erro: 'USUARIO_DESCONHECIDO',
@@ -346,18 +352,11 @@ function criarServidor() {
       });
     }
 
-    const atividade = atividades.get(req.params.id);
+    const atividade = banco.obterAtividade(req.params.id);
     if (!atividade) {
       return res.status(404).json({
         erro: 'NAO_ENCONTRADO',
         mensagem: 'Atividade não encontrada.'
-      });
-    }
-
-    if (atividade.cancelada) {
-      return res.status(422).json({
-        erro: 'ATIVIDADE_CANCELADA',
-        mensagem: 'Atividade cancelada não pode ser alterada.'
       });
     }
 
@@ -376,6 +375,13 @@ function criarServidor() {
       });
     }
 
+    if (atividade.cancelada) {
+      return res.status(422).json({
+        erro: 'ATIVIDADE_CANCELADA',
+        mensagem: 'Atividade cancelada não pode ser alterada.'
+      });
+    }
+
     if (tipo !== undefined || salaId !== undefined || encontros !== undefined) {
       return res.status(422).json({
         erro: 'CAMPO_NAO_EDITAVEL',
@@ -385,6 +391,7 @@ function criarServidor() {
 
     if (titulo !== undefined) {
       atividade.titulo = titulo;
+      banco.atualizarTitulo(atividade.id, titulo);
     }
     if (vagas !== undefined) {
       if (vagas < 1) {
@@ -393,7 +400,7 @@ function criarServidor() {
           mensagem: 'vagas deve ser no mínimo 1 (código específico pendente).'
         });
       }
-      const capacidade = salas.get(atividade.salaId)?.capacidade;
+      const capacidade = banco.obterSala(atividade.salaId)?.capacidade;
       if (capacidade !== undefined && vagas > capacidade) {
         return res.status(422).json({
           erro: 'VAGAS_ACIMA_DA_CAPACIDADE',
@@ -401,13 +408,14 @@ function criarServidor() {
         });
       }
       atividade.vagas = vagas;
+      banco.atualizarVagas(atividade.id, vagas);
     }
 
     res.status(200).json(serializarAtividade(atividade, agora()));
   });
 
   app.post('/atividades/:id/cancelamento', (req, res) => {
-    const usuario = usuarios.get(req.get('X-Usuario'));
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
     if (!usuario) {
       return res.status(401).json({
         erro: 'USUARIO_DESCONHECIDO',
@@ -421,7 +429,7 @@ function criarServidor() {
       });
     }
 
-    const atividade = atividades.get(req.params.id);
+    const atividade = banco.obterAtividade(req.params.id);
     if (!atividade) {
       return res.status(404).json({
         erro: 'NAO_ENCONTRADO',
@@ -447,12 +455,13 @@ function criarServidor() {
     }
 
     atividade.cancelada = true;
+    banco.atualizarCancelada(atividade.id);
     res.status(200).json(serializarAtividade(atividade, agora()));
   });
 
   app.use((err, req, res, next) => {
     if (err && err.type === 'entity.parse.failed') {
-      if (!req.path.startsWith('/_teste/') && !usuarios.get(req.get('X-Usuario'))) {
+      if (!req.path.startsWith('/_teste/') && !banco.obterUsuario(req.get('X-Usuario'))) {
         return res.status(401).json({
           erro: 'USUARIO_DESCONHECIDO',
           mensagem: 'Usuário não identificado.'

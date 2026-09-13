@@ -60,7 +60,7 @@ describe('M1-R19 — só organização cria atividades (POST /atividades)', () =
     expect(resposta.status).toBe(403);
     expect(resposta.body.erro).toBe('SOMENTE_ORGANIZACAO');
 
-    const lista = await request(app).get('/atividades');
+    const lista = await request(app).get('/atividades').set('X-Usuario', 'p-carla');
     expect(lista.body).toEqual([]);
   });
 
