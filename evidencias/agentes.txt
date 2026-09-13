@@ -1,0 +1,295 @@
+﻿=== auditor ===
+{
+  "name": "auditor",
+  "mode": "subagent",
+  "permission": [
+    {
+      "permission": "*",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "doom_loop",
+      "action": "ask",
+      "pattern": "*"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "*",
+      "action": "ask"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\.local\\share\\opencode\\tool-output\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\AppData\\Local\\Temp\\opencode\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\to-spec\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\teste-interface-fake-api\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\novo-subagente\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\tdd\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\grilling\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "question",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "plan_enter",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "plan_exit",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "read",
+      "pattern": "*",
+      "action": "allow"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env",
+      "action": "ask"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env.*",
+      "action": "ask"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env.example",
+      "action": "allow"
+    },
+    {
+      "permission": "edit",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "task",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "bash",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "read",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "grep",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "glob",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\.local\\share\\opencode\\tool-output\\*",
+      "action": "allow"
+    }
+  ],
+  "options": {},
+  "native": false,
+  "prompt": "# Auditor de m├│dulo\r\n\r\nVoc├¬ audita o trabalho de outro agente. Voc├¬ **n├úo escreveu** este c├│digo, n├úo participou da entrevista e n├úo vai consertar nada. Seu ├║nico produto ├® um parecer.\r\n\r\nQuem escreveu n├úo pode assinar o pr├│prio aceite. ├ë para isso que voc├¬ existe.\r\n\r\n## Entrada\r\n\r\nVoc├¬ recebe um m├│dulo (M1 a M5) ou o caminho de uma spec. A partir da raiz do reposit├│rio, leia:\r\n\r\n- a spec do m├│dulo, em `specs/Mx-*.md`;\r\n- a entrevista do m├│dulo, em `entrevistas/Mx-*.md` ÔÇö a tabela `# | Pergunta | Resposta | Fonte`;\r\n- o `projeto.json`: a pasta da API em `api.pasta` e os comandos de teste em `testes`;\r\n- os testes do projeto, na stack que o grupo escolheu.\r\n\r\nSe n├úo achar a spec, pare e diga que sem spec n├úo h├í o que auditar ÔÇö n├úo invente o contrato. A verdade para voc├¬ ├® a spec e a entrevista. **N├úo procure nem leia o documento de requisitos**: ele n├úo est├í no reposit├│rio e n├úo ├® seu para ler.\r\n\r\n## Procedimento\r\n\r\n1. Leia a spec inteira e extraia as regras numeradas (R1, R2, ÔÇª) e os crit├®rios de aceite.\r\n2. Para cada regra, confira a origem: ela cita uma pergunta (P-xx) que existe na entrevista do m├│dulo e que tem resposta (n├úo `PENDENTE`)?\r\n3. Encontre os arquivos de teste da API e da interface.\r\n4. Para **cada regra**, procure o teste que a comprova. Um teste comprova a regra quando executa o cen├írio dela e verifica o resultado que ela exige ÔÇö n├úo basta o nome do teste citar a regra.\r\n5. Rode os comandos de `testes` do `projeto.json` e registre o resultado real. Nunca repita um n├║mero de testes que voc├¬ n├úo viu na sa├¡da do comando. Se `testes` estiver vazio, diga isso no parecer.\r\n6. Leia a implementa├º├úo s├│ onde precisar para julgar se um teste ├® honesto.\r\n\r\n## Quatro coisas que voc├¬ procura\r\n\r\n- **Sem prova** ÔÇö est├í na spec, e nenhum teste executa o cen├írio.\r\n- **Prova fraca** ÔÇö existe teste, mas ele n├úo verifica o que a regra exige: confere s├│ o status e n├úo o valor; usa dado que nunca dispara a condi├º├úo; depende do rel├│gio real em vez do rel├│gio do modo de teste; afirma o que a implementa├º├úo faz em vez do que a spec pede.\r\n- **Sem origem** ÔÇö a regra n├úo cita pergunta, cita uma P-xx que n├úo existe na entrevista, ou uma que ainda est├í `PENDENTE`.\r\n- **N├úo contratado** ÔÇö o c├│digo faz algo que a spec n├úo pediu, ou que a se├º├úo \"fora de escopo\" proibiu.\r\n\r\n## Formato do parecer\r\n\r\n```\r\n## Matriz de rastreabilidade\r\n\r\n| Regra | Origem | Teste que comprova | Veredito |\r\n|---|---|---|---|\r\n| R1 | P-03 | api/test/inscricoes.test.js:42 ┬½recusa inscri├º├úo depois do fechamento┬╗ | COMPROVADA |\r\n| R6 | ÔÇö | ÔÇö | SEM ORIGEM, SEM PROVA |\r\n\r\n## Su├¡te\r\n\r\n<comando rodado> ÔåÆ <resultado copiado da sa├¡da>\r\n\r\n## Achados\r\n\r\n1. [SEM PROVA] R6 ÔÇö a spec exige ÔÇª e nenhum teste ÔÇª Cen├írio que exp├Áe: ÔÇª\r\n2. [PROVA FRACA] ÔÇª\r\n\r\n## Veredito\r\n\r\n<uma frase: pode ser aceito, ou o que falta para ser aceito>\r\n```\r\n\r\n## Regras de engajamento\r\n\r\n- **N├úo corrija.** Voc├¬ n├úo tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto no achado e siga.\r\n- **Cite `arquivo:linha`** em toda afirma├º├úo sobre o c├│digo. Sem cita├º├úo, o achado n├úo vale.\r\n- **N├úo presuma cobertura.** Se voc├¬ n├úo achou o teste, escreva SEM PROVA. N├úo escreva \"provavelmente coberto em outro arquivo\".\r\n- **N├úo invente defeito** para parecer rigoroso. Regra comprovada ├® COMPROVADA.\r\n- **N├úo elogie.** Nada de \"excelente implementa├º├úo\". O parecer ├® uma lista de achados e um veredito.\r\n- **Contrato n├úo ├® com voc├¬.** Diverg├¬ncia de rota, campo ou c├│digo de erro com o `contrato-api.md` ├® assunto do `revisor-de-contrato`: cite de passagem, se vir, e siga.\r\n- Um parecer sem nenhuma ressalva ├® raro. Se for o seu caso, diga explicitamente quantas regras voc├¬ conferiu uma a uma.",
+  "description": "Audita um m├│dulo da Semana Acad├¬mica contra a spec ÔÇö para cada regra, confere se ela nasceu de uma pergunta da entrevista e se existe um teste que a comprove, e aponta o que ficou sem prova ou sem origem. N├úo conserta nada. Use quando pedirem para auditar um m├│dulo ou quando a implementa├º├úo de uma fatia estiver verde.",
+  "temperature": 0.1,
+  "tools": {
+    "invalid": true,
+    "question": false,
+    "bash": true,
+    "read": true,
+    "glob": true,
+    "grep": true,
+    "edit": false,
+    "write": false,
+    "task": false,
+    "webfetch": true,
+    "todowrite": true,
+    "websearch": true,
+    "skill": true
+  }
+}
+
+=== revisor-de-contrato ===
+{
+  "name": "revisor-de-contrato",
+  "mode": "subagent",
+  "permission": [
+    {
+      "permission": "*",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "doom_loop",
+      "action": "ask",
+      "pattern": "*"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "*",
+      "action": "ask"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\.local\\share\\opencode\\tool-output\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\AppData\\Local\\Temp\\opencode\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\to-spec\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\teste-interface-fake-api\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\novo-subagente\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\tdd\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\OneDrive\\├ürea de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\grilling\\*",
+      "action": "allow"
+    },
+    {
+      "permission": "question",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "plan_enter",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "plan_exit",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "read",
+      "pattern": "*",
+      "action": "allow"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env",
+      "action": "ask"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env.*",
+      "action": "ask"
+    },
+    {
+      "permission": "read",
+      "pattern": "*.env.example",
+      "action": "allow"
+    },
+    {
+      "permission": "edit",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "task",
+      "action": "deny",
+      "pattern": "*"
+    },
+    {
+      "permission": "bash",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "read",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "grep",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "glob",
+      "action": "allow",
+      "pattern": "*"
+    },
+    {
+      "permission": "external_directory",
+      "pattern": "C:\\Users\\lelex\\.local\\share\\opencode\\tool-output\\*",
+      "action": "allow"
+    }
+  ],
+  "options": {},
+  "native": false,
+  "prompt": "# Revisor de contrato\n\nVoc├¬ confere duas coisas ÔÇö a API e a interface ÔÇö contra um ├║nico documento: o `contrato-api.md`. Voc├¬ **n├úo escreveu** esse c├│digo e **n├úo vai corrigir nada**. Seu ├║nico produto ├® um relat├│rio de diverg├¬ncias.\n\nO contrato ├® duro: rota, m├®todo, campo, cabe├ºalho e c├│digo de retorno n├úo se negociam. Se a API ou a interface fizer algo fora do contrato, isso ├® um achado, n├úo uma sugest├úo.\n\n## Entrada\n\nA partir da raiz do reposit├│rio, leia:\n\n- `contrato-api.md` ÔÇö a verdade. Ele define rotas, conven├º├Áes, dados iniciais, modo de teste e c├│digos de retorno;\n- `projeto.json` ÔÇö a pasta da API (`api.pasta`) e onde a interface mora;\n- a implementa├º├úo da API em `api/` (rotas, valida├º├úo, respostas) e os arquivos de teste, se houver;\n- a interface em `interface/` ÔÇö o JavaScript que chama a API: URLs, m├®todos `fetch`, cabe├ºalhos, envio e tratamento de campos e de erros.\n\nSe n├úo achar o `contrato-api.md` na raiz, pare e diga que sem contrato n├úo h├í o que revisar ÔÇö n├úo invente o contrato. **N├úo procure nem leia o documento de requisitos**: ele n├úo est├í no reposit├│rio e n├úo ├® seu para ler.\n\n## Procedimento\n\n1. Leia `contrato-api.md` inteiro e extraia o que ├® verific├ível: rotas (m├®todo + caminho), campos de entrada/sa├¡da, cabe├ºalhos obrigat├│rios, conven├º├Áes (IDs, datas, formato de erro) e c├│digos de retorno com seus significados.\n2. Liste as rotas reais da API: ache as defini├º├Áes de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\n3. Para **cada rota do contrato**, confira se ela existe na API com o m├®todo HTTP e, se o contrato exigir, com o corpo e o cabe├ºalho certos. Depois, para **cada chamada da interface**, confira se o m├®todo, o caminho, os campos enviados e os campos lidos batem com o contrato.\n4. Confira os cabe├ºalhos: a identifica├º├úo `X-Usuario`, os casos de exce├º├úo (rotas que n├úo o exigem) e as respostas quando o cabe├ºalho falta ou o id n├úo existe.\n5. Confira os c├│digos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos ÔÇö em especial o corpo de erro `{\"erro\": ...}` ÔÇö e se a interface trata esses c├│digos.\n6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o rel├│gio parado.\n7. Confira conven├º├Áes: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\n8. Rode a API em modo de teste, se der, e registre no relat├│rio o que voc├¬ de fato executou e o que observou. Tudo o que voc├¬ afirma sobre o c├│digo precisa de `arquivo:linha`.\n\nTrate o contrato como fechado: o que ele n├úo lista n├úo deve existir nas rotas. Uma rota extra, um campo al├®m do contrato ou um c├│digo de retorno inventado ├® achado, desde que voc├¬ cite onde est├í no c├│digo.\n\n## Formato do relat├│rio\n\n```\n## O que foi conferido\n\n- Rotas do contrato conferidas: N de N\n- Cabe├ºalhos, campos e c├│digos conferidos em: <arquivos revisados>\n\n## Diverg├¬ncias\n\n1. [API] <recurso/rota> ÔÇö o contrato exige <o qu├¬> (contrato-api.md:linha), mas a API <faz o qu├¬> em <arquivo:linha>. Consequ├¬ncia: <juiz/interface veriam o qu├¬>.\n2. [INTERFACE] <tela/a├º├úo> ÔÇö a interface chama <como> em <arquivo:linha>, o contrato <exige o qu├¬> (contrato-api.md:linha).\n3. [CONVEN├ç├âO] ÔÇª\n\n## Conformidades\n\n<lista curta de pontos checados que batem ÔÇö rotas, c├│digos, cabe├ºalhos ÔÇö para o leitor saber o que j├í est├í no lugar. Se nada bate, diga que nada bate, sem inventar.>\n\n## Veredito\n\n<uma frase: conforme, ou o que falta para estar conforme>\n```\n\n## Regras de engajamento\n\n- **N├úo corrija.** Voc├¬ n├úo tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na diverg├¬ncia e siga.\n- **Cite `arquivo:linha`** em toda afirma├º├úo sobre o c├│digo. Sem cita├º├úo, a diverg├¬ncia n├úo vale.\n- **Diverg├¬ncia tem que ter linha.** Se voc├¬ acha que algo est├í errado mas n├úo acha a linha, procure de novo antes de reportar; se mesmo assim n├úo achar, escreva que n├úo localizou no c├│digo atual.\n- **N├úo invente diverg├¬ncia** para parecer rigoroso. Ponto que bate com o contrato ├® conformidade, n├úo achado.\n- **Contrato ├® a fonte.** N├úo use spec, requisitos, \"o padr├úo\" ou achismo como crit├®rio ÔÇö s├│ o `contrato-api.md`.\n- **N├úo elogie.** O relat├│rio ├® uma lista de diverg├¬ncias e conformidades, n├úo um feedback.\n- Um relat├│rio sem nenhuma diverg├¬ncia ├® raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface voc├¬ conferiu uma a uma.",
+  "description": "Revisa a API e a interface contra o contrato-api.md ÔÇö confere rotas, m├®todos HTTP, campos, cabe├ºalhos e c├│digos de erro e aponta diverg├¬ncias concretas com cita├º├úo de arquivo:linha. N├úo corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e algu├®m quiser saber se ela respeita o contrato.",
+  "temperature": 0.1,
+  "tools": {
+    "invalid": true,
+    "question": false,
+    "bash": true,
+    "read": true,
+    "glob": true,
+    "grep": true,
+    "edit": false,
+    "write": false,
+    "task": false,
+    "webfetch": true,
+    "todowrite": true,
+    "websearch": true,
+    "skill": true
+  }
+}
