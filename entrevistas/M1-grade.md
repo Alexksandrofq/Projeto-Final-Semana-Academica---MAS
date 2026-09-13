@@ -1,7 +1,7 @@
 # Entrevista M1 — Grade de atividades
 
 - Módulo: M1 — Grade de atividades
-- Dono: (a preencher)
+- Dono: Alexksandro Queiroz
 - Início: 2026-09-12
 - Contrato: `contrato-api.md`, seção M1 + códigos da seção 6
 - Método: rodada 1 = perguntas do agente, respostas do usuário; resposta **"consultar requisitos"** marca a pergunta como **pendente**; rodada 2 = consulta ao documento de requisitos para resolver os pendentes.
