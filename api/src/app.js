@@ -89,8 +89,23 @@ function serializarAtividade(atividade, agora) {
   };
 }
 
+const ORIGEM_INTERFACE = 'http://localhost:5500';
+
 function criarServidor() {
   const app = express();
+
+  app.use((req, res, next) => {
+    if (req.headers.origin === ORIGEM_INTERFACE) {
+      res.setHeader('Access-Control-Allow-Origin', ORIGEM_INTERFACE);
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Usuario');
+    }
+    if (req.method === 'OPTIONS') {
+      return res.status(204).end();
+    }
+    next();
+  });
+
   app.use(express.json());
 
   let salas = carregarSalas();
