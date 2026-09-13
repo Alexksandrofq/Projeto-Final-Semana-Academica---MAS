@@ -1,9 +1,9 @@
 {
-  "stack": "PREENCHER — linguagem e framework da API; tipo e framework da interface",
+  "stack": "JavaScript; API com Node.js e Express; testes com Jest e Supertest; interface web em JavaScript",
   "api": {
     "pasta": "api",
-    "instalar": "PREENCHER — por exemplo: npm install",
-    "iniciar": "PREENCHER — por exemplo: npm start"
+    "instalar": "npm install",
+    "iniciar": "npm start"
   },
-  "testes": []
+  "testes": ["npm test"]
 }
