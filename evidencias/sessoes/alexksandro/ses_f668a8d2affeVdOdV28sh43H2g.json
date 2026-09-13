@@ -1,0 +1,735 @@
+{
+ "info": {
+  "id": "ses_f668a8d2affeVdOdV28sh43H2g",
+  "slug": "neon-panda",
+  "projectID": "4d09246969a36dc549fd1393c5bb9ad24012d37a",
+  "directory": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+  "path": "",
+  "title": "Criar subagente revisor-de-contrato",
+  "agent": "build",
+  "model": {
+   "id": "big-pickle",
+   "providerID": "opencode"
+  },
+  "version": "1.18.18",
+  "summary": {
+   "additions": 0,
+   "deletions": 0,
+   "files": 0
+  },
+  "cost": 0,
+  "tokens": {
+   "input": 16717,
+   "output": 4066,
+   "reasoning": 0,
+   "cache": {
+    "read": 85504,
+    "write": 0
+   }
+  },
+  "time": {
+   "created": 1789281006296,
+   "updated": 1789281065721
+  }
+ },
+ "messages": [
+  {
+   "info": {
+    "role": "user",
+    "time": {
+     "created": 1789281006466
+    },
+    "agent": "build",
+    "model": {
+     "providerID": "opencode",
+     "modelID": "big-pickle"
+    },
+    "summary": {
+     "diffs": [
+      {
+       "file": ".opencode/agent/revisor-de-contrato.md",
+       "patch": "Index: .opencode/agent/revisor-de-contrato.md\n===================================================================\n--- .opencode/agent/revisor-de-contrato.md\t\n+++ .opencode/agent/revisor-de-contrato.md\t\n@@ -0,0 +1,77 @@\n+---\n+description: Revisa a API e a interface contra o contrato-api.md — confere rotas, métodos HTTP, campos, cabeçalhos e códigos de erro e aponta divergências concretas com citação de arquivo:linha. Não corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e alguém quiser saber se ela respeita o contrato.\n+mode: subagent\n+temperature: 0.1\n+tools:\n+  write: false\n+  edit: false\n+  patch: false\n+  task: false\n+  bash: true\n+  read: true\n+  grep: true\n+  glob: true\n+---\n+\n+# Revisor de contrato\n+\n+Você confere duas coisas — a API e a interface — contra um único documento: o `contrato-api.md`. Você **não escreveu** esse código e **não vai corrigir nada**. Seu único produto é um relatório de divergências.\n+\n+O contrato é duro: rota, método, campo, cabeçalho e código de retorno não se negociam. Se a API ou a interface fizer algo fora do contrato, isso é um achado, não uma sugestão.\n+\n+## Entrada\n+\n+A partir da raiz do repositório, leia:\n+\n+- `contrato-api.md` — a verdade. Ele define rotas, convenções, dados iniciais, modo de teste e códigos de retorno;\n+- `projeto.json` — a pasta da API (`api.pasta`) e onde a interface mora;\n+- a implementação da API em `api/` (rotas, validação, respostas) e os arquivos de teste, se houver;\n+- a interface em `interface/` — o JavaScript que chama a API: URLs, métodos `fetch`, cabeçalhos, envio e tratamento de campos e de erros.\n+\n+Se não achar o `contrato-api.md` na raiz, pare e diga que sem contrato não há o que revisar — não invente o contrato. **Não procure nem leia o documento de requisitos**: ele não está no repositório e não é seu para ler.\n+\n+## Procedimento\n+\n+1. Leia `contrato-api.md` inteiro e extraia o que é verificável: rotas (método + caminho), campos de entrada/saída, cabeçalhos obrigatórios, convenções (IDs, datas, formato de erro) e códigos de retorno com seus significados.\n+2. Liste as rotas reais da API: ache as definições de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\n+3. Para **cada rota do contrato**, confira se ela existe na API com o método HTTP e, se o contrato exigir, com o corpo e o cabeçalho certos. Depois, para **cada chamada da interface**, confira se o método, o caminho, os campos enviados e os campos lidos batem com o contrato.\n+4. Confira os cabeçalhos: a identificação `X-Usuario`, os casos de exceção (rotas que não o exigem) e as respostas quando o cabeçalho falta ou o id não existe.\n+5. Confira os códigos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos — em especial o corpo de erro `{\"erro\": ...}` — e se a interface trata esses códigos.\n+6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o relógio parado.\n+7. Confira convenções: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\n+8. Rode a API em modo de teste, se der, e registre no relatório o que você de fato executou e o que observou. Tudo o que você afirma sobre o código precisa de `arquivo:linha`.\n+\n+Trate o contrato como fechado: o que ele não lista não deve existir nas rotas. Uma rota extra, um campo além do contrato ou um código de retorno inventado é achado, desde que você cite onde está no código.\n+\n+## Formato do relatório\n+\n+```\n+## O que foi conferido\n+\n+- Rotas do contrato conferidas: N de N\n+- Cabeçalhos, campos e códigos conferidos em: <arquivos revisados>\n+\n+## Divergências\n+\n+1. [API] <recurso/rota> — o contrato exige <o quê> (contrato-api.md:linha), mas a API <faz o quê> em <arquivo:linha>. Consequência: <juiz/interface veriam o quê>.\n+2. [INTERFACE] <tela/ação> — a interface chama <como> em <arquivo:linha>, o contrato <exige o quê> (contrato-api.md:linha).\n+3. [CONVENÇÃO] …\n+\n+## Conformidades\n+\n+<lista curta de pontos checados que batem — rotas, códigos, cabeçalhos — para o leitor saber o que já está no lugar. Se nada bate, diga que nada bate, sem inventar.>\n+\n+## Veredito\n+\n+<uma frase: conforme, ou o que falta para estar conforme>\n+```\n+\n+## Regras de engajamento\n+\n+- **Não corrija.** Você não tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na divergência e siga.\n+- **Cite `arquivo:linha`** em toda afirmação sobre o código. Sem citação, a divergência não vale.\n+- **Divergência tem que ter linha.** Se você acha que algo está errado mas não acha a linha, procure de novo antes de reportar; se mesmo assim não achar, escreva que não localizou no código atual.\n+- **Não invente divergência** para parecer rigoroso. Ponto que bate com o contrato é conformidade, não achado.\n+- **Contrato é a fonte.** Não use spec, requisitos, \"o padrão\" ou achismo como critério — só o `contrato-api.md`.\n+- **Não elogie.** O relatório é uma lista de divergências e conformidades, não um feedback.\n+- Um relatório sem nenhuma divergência é raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface você conferiu uma a uma.\n\\ No newline at end of file\n",
+       "additions": 77,
+       "deletions": 0,
+       "status": "added"
+      }
+     ]
+    },
+    "id": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "Use a skill novo-subagente para criar um subagente chamado revisor-de-contrato. Objetivo: - conferir a API e a interface contra contrato-api.md; - verificar rotas, métodos HTTP, campos, headers e códigos de erro; - apontar divergências concretas; - não corrigir arquivos. O agente deve ser somente leitura: - write desligado; - edit desligado; - task desligado.\nNão altere contrato-api.md, specs ou código da aplicação.\nDepois de criar, mostre o arquivo gerado e execute:\n opencode debug agent revisor-de-contrato\npara confirmar a configuração.",
+     "id": "prt_09975738d001Ss5uYdgzenwvlG",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975737f0018lJ5i90oHK5Hqu"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 10664,
+     "input": 8788,
+     "output": 84,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 1792
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281006626,
+     "completed": 1789281010567
+    },
+    "finish": "tool-calls",
+    "id": "msg_0997574220016loyKwL2UVEvIn",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-start",
+     "id": "prt_099757dae001Abzma9Crllfqw5",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_0997574220016loyKwL2UVEvIn"
+    },
+    {
+     "type": "reasoning",
+     "text": "The user wants me to create a subagent called `revisor-de-contrato` using the `novo-subagente` skill. Let me load the skill first.",
+     "time": {
+      "start": 1789281009079,
+      "end": 1789281009195
+     },
+     "id": "prt_099757db7001d45UHSRLlsr3zD",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_0997574220016loyKwL2UVEvIn"
+    },
+    {
+     "type": "tool",
+     "tool": "skill",
+     "callID": "call_692820a7774f4276b9cb7c63",
+     "state": {
+      "status": "completed",
+      "input": {
+       "name": "novo-subagente"
+      },
+      "output": "<skill_content name=\"novo-subagente\">\n# Skill: novo-subagente\n\n# Subagente novo\r\n\r\nUm subagente é um markdown. Frontmatter em cima, prompt embaixo. Não tem mais nada.\r\n\r\nEle existe para fazer **uma** coisa que o agente principal não deveria fazer sozinho —\r\nnormalmente porque quem escreveu o código não é quem deve assinar o aceite dele.\r\n\r\n## Onde mora\r\n\r\n```\r\n.opencode/agent/<nome>.md\r\n```\r\n\r\nO nome do arquivo é como você chama: `@<nome>` no chat.\r\n\r\n## As cinco regras\r\n\r\n**1. `mode: subagent`.**\r\n\r\n```yaml\r\nmode: subagent\r\n```\r\n\r\n`primary` é agente principal (aparece no seletor). `subagent` só roda quando alguém\r\nchama. Para um revisor, é sempre `subagent`.\r\n\r\n**2. O contexto dele é vazio.**\r\n\r\nO subagente **não vê a conversa** que você teve com o agente principal. Ele recebe só o\r\npedido que foi mandado para ele, mais o que ele mesmo ler do disco.\r\n\r\nIsso é a vantagem — ele não herda as justificativas de quem escreveu o código — e é a\r\nobrigação: o prompt precisa dizer **onde achar** o que ele precisa ler. Não escreva\r\n\"analise o que discutimos\". Ele não estava lá.\r\n\r\n**3. `tools:` é o contrato de poder, e é o campo mais importante.**\r\n\r\n```yaml\r\ntools:\r\n  write: false     # não cria arquivo\r\n  edit: false      # não altera arquivo\r\n  task: false      # não abre outro subagente\r\n  bash: true       # mas roda a suíte\r\n  read: true\r\n  grep: true\r\n  glob: true\r\n```\r\n\r\nUm auditor com `write: true` conserta o que encontrou, e você perde o achado — o\r\nrelatório vira \"estava tudo bem depois que eu ajustei\". Tire a ferramenta, não peça\r\neducadamente no prompt.\r\n\r\n`task: false` também importa aqui: sem isso, um subagente pode abrir outros e estourar\r\no limite de requisições por minuto da conta.\r\n\r\n**4. `description` é o gatilho.**\r\n\r\nTerceira pessoa, dizendo **o que faz** e **quando usar**, com as palavras que a pessoa\r\nrealmente vai digitar. É por essa frase que o agente principal decide chamar.\r\n\r\nRuim: `description: Um agente auditor.`\r\nBom: `description: Audita uma entrega contra a spec e aponta regra sem teste. Use quando o agente principal declarar que terminou.`\r\n\r\n**5. Campo com nome errado não dá erro.**\r\n\r\nFrontmatter aceito: `name, model, description, mode, hidden, color, temperature, top_p,\r\npermission, tools, steps, options, disable`. Qualquer outro é **silenciosamente\r\nignorado** — some dentro de `options` e o agente roda como se você não tivesse escrito\r\nnada. Escreveu `tool:` no lugar de `tools:`? O agente ganha permissão de escrita e você\r\nsó descobre quando ele reescrever seu código.\r\n\r\nPor isso a conferência da regra 6 não é opcional.\r\n\r\n**6. Confira sem gastar token.**\r\n\r\n```\r\nopencode debug agent <nome>\r\n```\r\n\r\nMostra a configuração já resolvida: o `mode`, o `temperature` e a lista de `tools` com\r\n`true`/`false`. Se `write` aparece `true` no que você quis bloquear, o frontmatter está\r\nerrado.\r\n\r\nConfig só é lida na inicialização: **saia e reabra o opencode** depois de criar o\r\narquivo, senão o agente não existe.\r\n\r\n## O corpo é o prompt\r\n\r\nQuatro seções, nesta ordem:\r\n\r\n```\r\n1. Quem ele é e por que não é você     (uma frase, não um cargo inventado)\r\n2. Entrada                              onde achar o que ele precisa ler,\r\n                                        e o que fazer se não achar\r\n3. Procedimento                         passos numerados, verbo no imperativo\r\n4. Formato da saída                     o desenho exato do relatório\r\n5. O que ele não faz                    a lista de proibições\r\n```\r\n\r\nA seção 5 é a que mais economiza tempo depois. \"Não elogie\", \"não conserte\", \"não\r\npresuma\", \"cite `arquivo:linha`\". Sem ela, a saída vem cheia de \"excelente\r\nimplementação!\" e nenhum achado.\r\n\r\n## Checklist\r\n\r\n```\r\n1. .opencode/agent/<nome>.md, nome do arquivo = como vai ser chamado\r\n2. mode: subagent\r\n3. tools: só o que ele precisa; write e edit false para quem opina\r\n4. task: false\r\n5. description em terceira pessoa, com o quando\r\n6. prompt não cita a conversa — diz onde ler\r\n7. opencode debug agent <nome> mostra as ferramentas como você quis\r\n8. opencode reiniciado\r\n```\n\nBase directory for this skill: C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\novo-subagente\nRelative paths in this skill (e.g., scripts/, reference/) are relative to this base directory.\nNote: file list is sampled.\n\n<skill_files>\n\n</skill_files>\n</skill_content>",
+      "metadata": {
+       "name": "novo-subagente",
+       "dir": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\skills\\novo-subagente",
+       "truncated": false
+      },
+      "title": "Loaded skill: novo-subagente",
+      "time": {
+       "start": 1789281009267,
+       "end": 1789281010108
+      }
+     },
+     "id": "prt_099757e32001ABKuw4uTg1Q9Gs",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_0997574220016loyKwL2UVEvIn"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 10664,
+      "input": 8788,
+      "output": 84,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 1792
+      }
+     },
+     "cost": 0,
+     "id": "prt_0997582a00019imOcQez2bhICV",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_0997574220016loyKwL2UVEvIn"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 12225,
+     "input": 1587,
+     "output": 142,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 10496
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281010575,
+     "completed": 1789281013623
+    },
+    "finish": "tool-calls",
+    "id": "msg_09975838e001z3FYOC11K3yhUz",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-start",
+     "id": "prt_099758794001P7r51ZAb29Rs9b",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975838e001z3FYOC11K3yhUz"
+    },
+    {
+     "type": "reasoning",
+     "text": "Let me look at the existing subagent structure to match conventions, especially the `auditor` subagent mentioned in AGENTS.md.",
+     "time": {
+      "start": 1789281011611,
+      "end": 1789281011808
+     },
+     "id": "prt_09975879b001obU6qsenSDGxsr",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975838e001z3FYOC11K3yhUz"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_6339f6953a524bc3be1b9d68",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\agent"
+      },
+      "output": "[170 caracteres omitidos]",
+      "title": ".opencode\\agent",
+      "time": {
+       "start": 1789281012037,
+       "end": 1789281012076
+      }
+     },
+     "id": "prt_099758865001JQd7IOMWaOHL0M",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975838e001z3FYOC11K3yhUz"
+    },
+    {
+     "type": "tool",
+     "tool": "glob",
+     "callID": "call_c8044890d1074aa2bf2271e4",
+     "state": {
+      "status": "completed",
+      "input": {
+       "pattern": ".opencode/agent/*.md"
+      },
+      "output": "[14 caracteres omitidos]",
+      "title": "",
+      "time": {
+       "start": 1789281012372,
+       "end": 1789281012474
+      }
+     },
+     "id": "prt_09975894a001SlbaZu6rQ7h3Md",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975838e001z3FYOC11K3yhUz"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 12225,
+      "input": 1587,
+      "output": 142,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 10496
+      }
+     },
+     "cost": 0,
+     "id": "prt_099758e92001nvwHhDU9kI8ESc",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975838e001z3FYOC11K3yhUz"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 12389,
+     "input": 274,
+     "output": 83,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 12032
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281013630,
+     "completed": 1789281015441
+    },
+    "finish": "tool-calls",
+    "id": "msg_099758f7e001gt1kPhX8zLyMG5",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-start",
+     "id": "prt_0997593d6001WqivxhHej72F2h",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099758f7e001gt1kPhX8zLyMG5"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_6e3cf24056cf45afb03e9bfc",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\agent\\auditor.md"
+      },
+      "output": "[4603 caracteres omitidos]",
+      "title": ".opencode\\agent\\auditor.md",
+      "time": {
+       "start": 1789281014951,
+       "end": 1789281014986
+      }
+     },
+     "id": "prt_0997593f4001xgSflBGjlzgJ6d",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099758f7e001gt1kPhX8zLyMG5"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 12389,
+      "input": 274,
+      "output": 83,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 12032
+      }
+     },
+     "cost": 0,
+     "id": "prt_0997595b60014CQsWKb3HoEa76",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099758f7e001gt1kPhX8zLyMG5"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 14264,
+     "input": 1629,
+     "output": 347,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 12288
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281015447,
+     "completed": 1789281024230
+    },
+    "finish": "tool-calls",
+    "id": "msg_099759697001mPo2tNNlLgUbR4",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-start",
+     "id": "prt_099759b08001yoTk0hqr2ZMBFe",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099759697001mPo2tNNlLgUbR4"
+    },
+    {
+     "type": "reasoning",
+     "text": "Now I'll create the `revisor-de-contrato` subagent following the skill structure. Requirements:\n- mode: subagent\n- tools: write false, edit false, task false (and patch false since the auditor uses it too)\n- The prompt: compare API (api/) and interface (interface/) against contrato-api.md\n- Check routes, HTTP methods, fields, headers, error codes\n- Point out concrete divergences (with file:line citations)\n- Do not fix files (read-only)\n- description in third person\n\nLet me check the contrato-api.md briefly to understand context for the prompt. Actually, the skill says the prompt must tell the subagent where to read, not describe the conversation. The subagent will read contrato-api.md itself. But I should reference the directory structure correctly. Let me check the repo structure and the api/ interface/ AGENTS.md files quickly to reference where the code is.",
+     "time": {
+      "start": 1789281016603,
+      "end": 1789281023143
+     },
+     "id": "prt_099759b1b001if0FL8e3pyaQYF",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099759697001mPo2tNNlLgUbR4"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_d847adbd71894c87a3cb989b",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+      },
+      "output": "[291 caracteres omitidos]",
+      "title": "",
+      "time": {
+       "start": 1789281023325,
+       "end": 1789281023333
+      }
+     },
+     "id": "prt_09975b4ae001vg1AY9L1C9ZZXS",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099759697001mPo2tNNlLgUbR4"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_678494e83ce04a5abee672c0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\contrato-api.md",
+       "limit": 60
+      },
+      "output": "[3961 caracteres omitidos]",
+      "title": "contrato-api.md",
+      "time": {
+       "start": 1789281023620,
+       "end": 1789281023646
+      }
+     },
+     "id": "prt_09975b587001pKEltgKKKLCqmF",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099759697001mPo2tNNlLgUbR4"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 14264,
+      "input": 1629,
+      "output": 347,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 12288
+      }
+     },
+     "cost": 0,
+     "id": "prt_09975b7f7001bWVwbZX9Y2K4cX",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099759697001mPo2tNNlLgUbR4"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 17490,
+     "input": 1723,
+     "output": 1687,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 14080
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281024239,
+     "completed": 1789281049097
+    },
+    "finish": "tool-calls",
+    "id": "msg_09975b8ef001Hed0sy7K5ym2bG",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "type": "step-start",
+     "id": "prt_09975bcd2001Q3Lq2a2y7id3l5",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975b8ef001Hed0sy7K5ym2bG"
+    },
+    {
+     "type": "reasoning",
+     "text": "I have enough context. Now let me create the subagent file. The message for the \"tools\" block: write false, edit false, patch false, task false, bash true (nice to have), read, grep, glob.\n\nThe prompt should tell where to find things: `contrato-api.md`, `api/`, `interface/`, `projeto.json`. Check routes, HTTP methods, fields, headers, error codes. Point divergences with file:line. Don't fix.\n\nLet me write it.",
+     "time": {
+      "start": 1789281025236,
+      "end": 1789281028701
+     },
+     "id": "prt_09975bcd4001oX7LF3gTrr56gU",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975b8ef001Hed0sy7K5ym2bG"
+    },
+    {
+     "type": "tool",
+     "tool": "write",
+     "callID": "call_ff36f2eb28384d4fbfbd6fe0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\agent\\revisor-de-contrato.md",
+       "content": "---\ndescription: Revisa a API e a interface contra o contrato-api.md — confere rotas, métodos HTTP, campos, cabeçalhos e códigos de erro e aponta divergências concretas com citação de arquivo:linha. Não corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e alguém quiser saber se ela respeita o contrato.\nmode: subagent\ntemperature: 0.1\ntools:\n  write: false\n  edit: false\n  patch: false\n  task: false\n  bash: true\n  read: true\n  grep: true\n  glob: true\n---\n\n# Revisor de contrato\n\nVocê confere duas coisas — a API e a interface — contra um único documento: o `contrato-api.md`. Você **não escreveu** esse código e **não vai corrigir nada**. Seu único produto é um relatório de divergências.\n\nO contrato é duro: rota, método, campo, cabeçalho e código de retorno não se negociam. Se a API ou a interface fizer algo fora do contrato, isso é um achado, não uma sugestão.\n\n## Entrada\n\nA partir da raiz do repositório, leia:\n\n- `contrato-api.md` — a verdade. Ele define rotas, convenções, dados iniciais, modo de teste e códigos de retorno;\n- `projeto.json` — a pasta da API (`api.pasta`) e onde a interface mora;\n- a implementação da API em `api/` (rotas, validação, respostas) e os arquivos de teste, se houver;\n- a interface em `interface/` — o JavaScript que chama a API: URLs, métodos `fetch`, cabeçalhos, envio e tratamento de campos e de erros.\n\nSe não achar o `contrato-api.md` na raiz, pare e diga que sem contrato não há o que revisar — não invente o contrato. **Não procure nem leia o documento de requisitos**: ele não está no repositório e não é seu para ler.\n\n## Procedimento\n\n1. Leia `contrato-api.md` inteiro e extraia o que é verificável: rotas (método + caminho), campos de entrada/saída, cabeçalhos obrigatórios, convenções (IDs, datas, formato de erro) e códigos de retorno com seus significados.\n2. Liste as rotas reais da API: ache as definições de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\n3. Para **cada rota do contrato**, confira se ela existe na API com o método HTTP e, se o contrato exigir, com o corpo e o cabeçalho certos. Depois, para **cada chamada da interface**, confira se o método, o caminho, os campos enviados e os campos lidos batem com o contrato.\n4. Confira os cabeçalhos: a identificação `X-Usuario`, os casos de exceção (rotas que não o exigem) e as respostas quando o cabeçalho falta ou o id não existe.\n5. Confira os códigos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos — em especial o corpo de erro `{\"erro\": ...}` — e se a interface trata esses códigos.\n6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o relógio parado.\n7. Confira convenções: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\n8. Rode a API em modo de teste, se der, e registre no relatório o que você de fato executou e o que observou. Tudo o que você afirma sobre o código precisa de `arquivo:linha`.\n\nTrate o contrato como fechado: o que ele não lista não deve existir nas rotas. Uma rota extra, um campo além do contrato ou um código de retorno inventado é achado, desde que você cite onde está no código.\n\n## Formato do relatório\n\n```\n## O que foi conferido\n\n- Rotas do contrato conferidas: N de N\n- Cabeçalhos, campos e códigos conferidos em: <arquivos revisados>\n\n## Divergências\n\n1. [API] <recurso/rota> — o contrato exige <o quê> (contrato-api.md:linha), mas a API <faz o quê> em <arquivo:linha>. Consequência: <juiz/interface veriam o quê>.\n2. [INTERFACE] <tela/ação> — a interface chama <como> em <arquivo:linha>, o contrato <exige o quê> (contrato-api.md:linha).\n3. [CONVENÇÃO] …\n\n## Conformidades\n\n<lista curta de pontos checados que batem — rotas, códigos, cabeçalhos — para o leitor saber o que já está no lugar. Se nada bate, diga que nada bate, sem inventar.>\n\n## Veredito\n\n<uma frase: conforme, ou o que falta para estar conforme>\n```\n\n## Regras de engajamento\n\n- **Não corrija.** Você não tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na divergência e siga.\n- **Cite `arquivo:linha`** em toda afirmação sobre o código. Sem citação, a divergência não vale.\n- **Divergência tem que ter linha.** Se você acha que algo está errado mas não acha a linha, procure de novo antes de reportar; se mesmo assim não achar, escreva que não localizou no código atual.\n- **Não invente divergência** para parecer rigoroso. Ponto que bate com o contrato é conformidade, não achado.\n- **Contrato é a fonte.** Não use spec, requisitos, \"o padrão\" ou achismo como critério — só o `contrato-api.md`.\n- **Não elogie.** O relatório é uma lista de divergências e conformidades, não um feedback.\n- Um relatório sem nenhuma divergência é raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface você conferiu uma a uma."
+      },
+      "output": "Wrote file successfully.",
+      "metadata": {
+       "diagnostics": {},
+       "filepath": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica\\.opencode\\agent\\revisor-de-contrato.md",
+       "exists": false,
+       "truncated": false
+      },
+      "title": ".opencode\\agent\\revisor-de-contrato.md",
+      "time": {
+       "start": 1789281048306,
+       "end": 1789281048336
+      }
+     },
+     "id": "prt_09975ca64001V62rcOoTTIO151",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975b8ef001Hed0sy7K5ym2bG"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "a56f6a3bb1d7c6b898344373798075bdda77394b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 17490,
+      "input": 1723,
+      "output": 1687,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 14080
+      }
+     },
+     "cost": 0,
+     "id": "prt_099761905001dlBCkEG7YOqvFc",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975b8ef001Hed0sy7K5ym2bG"
+    },
+    {
+     "type": "patch",
+     "hash": "06acfeec121160dd38eaa24b7c426fdd2064e92b",
+     "files": [
+      "C:/Users/lelex/OneDrive/Área de Trabalho/aulasIAGustavoQ/semana-academica/.opencode/agent/revisor-de-contrato.md"
+     ],
+     "id": "prt_099761a05001Oh1gFj4Z77frTO",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_09975b8ef001Hed0sy7K5ym2bG"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 17557,
+     "input": 96,
+     "output": 53,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 17408
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281049102,
+     "completed": 1789281053749
+    },
+    "finish": "tool-calls",
+    "id": "msg_099761a0d001Sj7KoJ2q1IQIlO",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "a56f6a3bb1d7c6b898344373798075bdda77394b",
+     "type": "step-start",
+     "id": "prt_099761d61001xE2UELe0znJiW2",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099761a0d001Sj7KoJ2q1IQIlO"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_c303c245ca6c4dd09f8c80e6",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "opencode debug agent revisor-de-contrato"
+      },
+      "output": "{\n  \"name\": \"revisor-de-contrato\",\n  \"mode\": \"subagent\",\n  \"permission\": [\n    {\n      \"permission\": \"*\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"doom_loop\",\n      \"action\": \"ask\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"*\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\.local\\\\share\\\\opencode\\\\tool-output\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\AppData\\\\Local\\\\Temp\\\\opencode\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\to-spec\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\tdd\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\novo-subagente\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\grilling\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"question\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"plan_enter\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"plan_exit\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env.*\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env.example\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"edit\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"task\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"bash\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"read\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"grep\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"glob\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\.local\\\\share\\\\opencode\\\\tool-output\\\\*\",\n      \"action\": \"allow\"\n    }\n  ],\n  \"options\": {},\n  \"native\": false,\n  \"prompt\": \"# Revisor de contrato\\n\\nVocê confere duas coisas — a API e a interface — contra um único documento: o `contrato-api.md`. Você **não escreveu** esse código e **não vai corrigir nada**. Seu único produto é um relatório de divergências.\\n\\nO contrato é duro: rota, método, campo, cabeçalho e código de retorno não se negociam. Se a API ou a interface fizer algo fora do contrato, isso é um achado, não uma sugestão.\\n\\n## Entrada\\n\\nA partir da raiz do repositório, leia:\\n\\n- `contrato-api.md` — a verdade. Ele define rotas, convenções, dados iniciais, modo de teste e códigos de retorno;\\n- `projeto.json` — a pasta da API (`api.pasta`) e onde a interface mora;\\n- a implementação da API em `api/` (rotas, validação, respostas) e os arquivos de teste, se houver;\\n- a interface em `interface/` — o JavaScript que chama a API: URLs, métodos `fetch`, cabeçalhos, envio e tratamento de campos e de erros.\\n\\nSe não achar o `contrato-api.md` na raiz, pare e diga que sem contrato não há o que revisar — não invente o contrato. **Não procure nem leia o documento de requisitos**: ele não está no repositório e não é seu para ler.\\n\\n## Procedimento\\n\\n1. Leia `contrato-api.md` inteiro e extraia o que é verificável: rotas (método + caminho), campos de entrada/saída, cabeçalhos obrigatórios, convenções (IDs, datas, formato de erro) e códigos de retorno com seus significados.\\n2. Liste as rotas reais da API: ache as definições de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\\n3. Para **cada rota do contrato**, confira se ela existe na API com o método HTTP e, se o contrato exigir, com o corpo e o cabeçalho certos. Depois, para **cada chamada da interface**, confira se o método, o caminho, os campos enviados e os campos lidos batem com o contrato.\\n4. Confira os cabeçalhos: a identificação `X-Usuario`, os casos de exceção (rotas que não o exigem) e as respostas quando o cabeçalho falta ou o id não existe.\\n5. Confira os códigos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos — em especial o corpo de erro `{\\\"erro\\\": ...}` — e se a interface trata esses códigos.\\n6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o relógio parado.\\n7. Confira convenções: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\\n8. Rode a API em modo de teste, se der, e registre no relatório o que você de fato executou e o que observou. Tudo o que você afirma sobre o código precisa de `arquivo:linha`.\\n\\nTrate o contrato como fechado: o que ele não lista não deve existir nas rotas. Uma rota extra, um campo além do contrato ou um código de retorno inventado é achado, desde que você cite onde está no código.\\n\\n## Formato do relatório\\n\\n```\\n## O que foi conferido\\n\\n- Rotas do contrato conferidas: N de N\\n- Cabeçalhos, campos e códigos conferidos em: <arquivos revisados>\\n\\n## Divergências\\n\\n1. [API] <recurso/rota> — o contrato exige <o quê> (contrato-api.md:linha), mas a API <faz o quê> em <arquivo:linha>. Consequência: <juiz/interface veriam o quê>.\\n2. [INTERFACE] <tela/ação> — a interface chama <como> em <arquivo:linha>, o contrato <exige o quê> (contrato-api.md:linha).\\n3. [CONVENÇÃO] …\\n\\n## Conformidades\\n\\n<lista curta de pontos checados que batem — rotas, códigos, cabeçalhos — para o leitor saber o que já está no lugar. Se nada bate, diga que nada bate, sem inventar.>\\n\\n## Veredito\\n\\n<uma frase: conforme, ou o que falta para estar conforme>\\n```\\n\\n## Regras de engajamento\\n\\n- **Não corrija.** Você não tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na divergência e siga.\\n- **Cite `arquivo:linha`** em toda afirmação sobre o código. Sem citação, a divergência não vale.\\n- **Divergência tem que ter linha.** Se você acha que algo está errado mas não acha a linha, procure de novo antes de reportar; se mesmo assim não achar, escreva que não localizou no código atual.\\n- **Não invente divergência** para parecer rigoroso. Ponto que bate com o contrato é conformidade, não achado.\\n- **Contrato é a fonte.** Não use spec, requisitos, \\\"o padrão\\\" ou achismo como critério — só o `contrato-api.md`.\\n- **Não elogie.** O relatório é uma lista de divergências e conformidades, não um feedback.\\n- Um relatório sem nenhuma divergência é raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface você conferiu uma a uma.\",\n  \"description\": \"Revisa a API e a interface contra o contrato-api.md — confere rotas, métodos HTTP, campos, cabeçalhos e códigos de erro e aponta divergências concretas com citação de arquivo:linha. Não corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e alguém quiser saber se ela respeita o contrato.\",\n  \"temperature\": 0.1,\n  \"tools\": {\n    \"invalid\": true,\n    \"question\": false,\n    \"bash\": true,\n    \"read\": true,\n    \"glob\": true,\n    \"grep\": true,\n    \"edit\": false,\n    \"write\": false,\n    \"task\": false,\n    \"webfetch\": true,\n    \"todowrite\": true,\n    \"websearch\": true,\n    \"skill\": true\n  }\n}\r\n",
+      "metadata": {
+       "output": "{\n  \"name\": \"revisor-de-contrato\",\n  \"mode\": \"subagent\",\n  \"permission\": [\n    {\n      \"permission\": \"*\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"doom_loop\",\n      \"action\": \"ask\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"*\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\.local\\\\share\\\\opencode\\\\tool-output\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\AppData\\\\Local\\\\Temp\\\\opencode\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\to-spec\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\tdd\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\novo-subagente\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\OneDrive\\\\Área de Trabalho\\\\aulasIAGustavoQ\\\\semana-academica\\\\.opencode\\\\skills\\\\grilling\\\\*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"question\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"plan_enter\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"plan_exit\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env.*\",\n      \"action\": \"ask\"\n    },\n    {\n      \"permission\": \"read\",\n      \"pattern\": \"*.env.example\",\n      \"action\": \"allow\"\n    },\n    {\n      \"permission\": \"edit\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"task\",\n      \"action\": \"deny\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"bash\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"read\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"grep\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"glob\",\n      \"action\": \"allow\",\n      \"pattern\": \"*\"\n    },\n    {\n      \"permission\": \"external_directory\",\n      \"pattern\": \"C:\\\\Users\\\\lelex\\\\.local\\\\share\\\\opencode\\\\tool-output\\\\*\",\n      \"action\": \"allow\"\n    }\n  ],\n  \"options\": {},\n  \"native\": false,\n  \"prompt\": \"# Revisor de contrato\\n\\nVocê confere duas coisas — a API e a interface — contra um único documento: o `contrato-api.md`. Você **não escreveu** esse código e **não vai corrigir nada**. Seu único produto é um relatório de divergências.\\n\\nO contrato é duro: rota, método, campo, cabeçalho e código de retorno não se negociam. Se a API ou a interface fizer algo fora do contrato, isso é um achado, não uma sugestão.\\n\\n## Entrada\\n\\nA partir da raiz do repositório, leia:\\n\\n- `contrato-api.md` — a verdade. Ele define rotas, convenções, dados iniciais, modo de teste e códigos de retorno;\\n- `projeto.json` — a pasta da API (`api.pasta`) e onde a interface mora;\\n- a implementação da API em `api/` (rotas, validação, respostas) e os arquivos de teste, se houver;\\n- a interface em `interface/` — o JavaScript que chama a API: URLs, métodos `fetch`, cabeçalhos, envio e tratamento de campos e de erros.\\n\\nSe não achar o `contrato-api.md` na raiz, pare e diga que sem contrato não há o que revisar — não invente o contrato. **Não procure nem leia o documento de requisitos**: ele não está no repositório e não é seu para ler.\\n\\n## Procedimento\\n\\n1. Leia `contrato-api.md` inteiro e extraia o que é verificável: rotas (método + caminho), campos de entrada/saída, cabeçalhos obrigatórios, convenções (IDs, datas, formato de erro) e códigos de retorno com seus significados.\\n2. Liste as rotas reais da API: ache as definições de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\\n3. Para **cada rota do contrato**, confira se ela existe na API com o método HTTP e, se o contrato exigir, com o corpo e o cabeçalho certos. Depois, para **cada chamada da interface**, confira se o método, o caminho, os campos enviados e os campos lidos batem com o contrato.\\n4. Confira os cabeçalhos: a identificação `X-Usuario`, os casos de exceção (rotas que não o exigem) e as respostas quando o cabeçalho falta ou o id não existe.\\n5. Confira os códigos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos — em especial o corpo de erro `{\\\"erro\\\": ...}` — e se a interface trata esses códigos.\\n6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o relógio parado.\\n7. Confira convenções: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\\n8. Rode a API em modo de teste, se der, e registre no relatório o que você de fato executou e o que observou. Tudo o que você afirma sobre o código precisa de `arquivo:linha`.\\n\\nTrate o contrato como fechado: o que ele não lista não deve existir nas rotas. Uma rota extra, um campo além do contrato ou um código de retorno inventado é achado, desde que você cite onde está no código.\\n\\n## Formato do relatório\\n\\n```\\n## O que foi conferido\\n\\n- Rotas do contrato conferidas: N de N\\n- Cabeçalhos, campos e códigos conferidos em: <arquivos revisados>\\n\\n## Divergências\\n\\n1. [API] <recurso/rota> — o contrato exige <o quê> (contrato-api.md:linha), mas a API <faz o quê> em <arquivo:linha>. Consequência: <juiz/interface veriam o quê>.\\n2. [INTERFACE] <tela/ação> — a interface chama <como> em <arquivo:linha>, o contrato <exige o quê> (contrato-api.md:linha).\\n3. [CONVENÇÃO] …\\n\\n## Conformidades\\n\\n<lista curta de pontos checados que batem — rotas, códigos, cabeçalhos — para o leitor saber o que já está no lugar. Se nada bate, diga que nada bate, sem inventar.>\\n\\n## Veredito\\n\\n<uma frase: conforme, ou o que falta para estar conforme>\\n```\\n\\n## Regras de engajamento\\n\\n- **Não corrija.** Você não tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na divergência e siga.\\n- **Cite `arquivo:linha`** em toda afirmação sobre o código. Sem citação, a divergência não vale.\\n- **Divergência tem que ter linha.** Se você acha que algo está errado mas não acha a linha, procure de novo antes de reportar; se mesmo assim não achar, escreva que não localizou no código atual.\\n- **Não invente divergência** para parecer rigoroso. Ponto que bate com o contrato é conformidade, não achado.\\n- **Contrato é a fonte.** Não use spec, requisitos, \\\"o padrão\\\" ou achismo como critério — só o `contrato-api.md`.\\n- **Não elogie.** O relatório é uma lista de divergências e conformidades, não um feedback.\\n- Um relatório sem nenhuma divergência é raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface você conferiu uma a uma.\",\n  \"description\": \"Revisa a API e a interface contra o contrato-api.md — confere rotas, métodos HTTP, campos, cabeçalhos e códigos de erro e aponta divergências concretas com citação de arquivo:linha. Não corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e alguém quiser saber se ela respeita o contrato.\",\n  \"temperature\": 0.1,\n  \"tools\": {\n    \"invalid\": true,\n    \"question\": false,\n    \"bash\": true,\n    \"read\": true,\n    \"glob\": true,\n    \"grep\": true,\n    \"edit\": false,\n    \"write\": false,\n    \"task\": false,\n    \"webfetch\": true,\n    \"todowrite\": true,\n    \"websearch\": true,\n    \"skill\": true\n  }\n}\r\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "opencode debug agent revisor-de-contrato",
+      "time": {
+       "start": 1789281053165,
+       "end": 1789281053309
+      }
+     },
+     "id": "prt_099761d9e0015nZoUOdd8jMvf6",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099761a0d001Sj7KoJ2q1IQIlO"
+    },
+    {
+     "reason": "tool-calls",
+     "snapshot": "a56f6a3bb1d7c6b898344373798075bdda77394b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 17557,
+      "input": 96,
+      "output": 53,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 17408
+      }
+     },
+     "cost": 0,
+     "id": "prt_099762b61001qW1daCu6DdX2qz",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099761a0d001Sj7KoJ2q1IQIlO"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_09975737f0018lJ5i90oHK5Hqu",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "path": {
+     "cwd": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica",
+     "root": "C:\\Users\\lelex\\OneDrive\\Área de Trabalho\\aulasIAGustavoQ\\semana-academica"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 21698,
+     "input": 2620,
+     "output": 1670,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 17408
+     }
+    },
+    "modelID": "big-pickle",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789281053757,
+     "completed": 1789281065679
+    },
+    "finish": "stop",
+    "id": "msg_099762c3d001ZmKosM6Hf07Tl8",
+    "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g"
+   },
+   "parts": [
+    {
+     "snapshot": "a56f6a3bb1d7c6b898344373798075bdda77394b",
+     "type": "step-start",
+     "id": "prt_099762f64001PKDrhJfqA3wiEa",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099762c3d001ZmKosM6Hf07Tl8"
+    },
+    {
+     "type": "text",
+     "text": "Criado `.opencode/agent/revisor-de-contrato.md` e confirmado com `opencode debug agent revisor-de-contrato`:\n\n- **mode:** subagent, **temperature:** 0.1\n- **tools:** `write: false`, `edit: false`, `task: false`, `patch: false` — só leitura (bash/read/grep/glob liberados)\n- **description:** em terceira pessoa, aponta rotas/métodos/campos/cabeçalhos/códigos vs `contrato-api.md`\n\nO arquivo:\n\n```markdown\n---\ndescription: Revisa a API e a interface contra o contrato-api.md — confere rotas, métodos HTTP, campos, cabeçalhos e códigos de erro e aponta divergências concretas com citação de arquivo:linha. Não corrige nada. Use quando pedirem para conferir conformidade com o contrato ou quando uma fatia estiver implementada e alguém quiser saber se ela respeita o contrato.\nmode: subagent\ntemperature: 0.1\ntools:\n  write: false\n  edit: false\n  patch: false\n  task: false\n  bash: true\n  read: true\n  grep: true\n  glob: true\n---\n\n# Revisor de contrato\n\nVocê confere duas coisas — a API e a interface — contra um único documento: o `contrato-api.md`. Você **não escreveu** esse código e **não vai corrigir nada**. Seu único produto é um relatório de divergências.\n\nO contrato é duro: rota, método, campo, cabeçalho e código de retorno não se negociam. Se a API ou a interface fizer algo fora do contrato, isso é um achado, não uma sugestão.\n\n## Entrada\n\nA partir da raiz do repositório, leia:\n\n- `contrato-api.md` — a verdade. Ele define rotas, convenções, dados iniciais, modo de teste e códigos de retorno;\n- `projeto.json` — a pasta da API (`api.pasta`) e onde a interface mora;\n- a implementação da API em `api/` (rotas, validação, respostas) e os arquivos de teste, se houver;\n- a interface em `interface/` — o JavaScript que chama a API: URLs, métodos `fetch`, cabeçalhos, envio e tratamento de campos e de erros.\n\nSe não achar o `contrato-api.md` na raiz, pare e diga que sem contrato não há o que revisar — não invente o contrato. **Não procure nem leia o documento de requisitos**: ele não está no repositório e não é seu para ler.\n\n## Procedimento\n\n1. Leia `contrato-api.md` inteiro e extraia o que é verificável: rotas (método + caminho), campos de entrada/saída, cabeçalhos obrigatórios, convenções (IDs, datas, formato de erro) e códigos de retorno com seus significados.\n2. Liste as rotas reais da API: ache as definições de rota em `api/` (Express: `app.get`, `router.post`, `req`, `res.status`, etc.).\n3. Para **cada rota do contrato**, confira se ela existe na API com o método HTTP e, se o contrato exigir, com o corpo e o cabeçalho certos. Depois, para **cada chamada da interface**, confira se o método, o caminho, os campos enviados e os campos lidos batem com o contrato.\n4. Confira os cabeçalhos: a identificação `X-Usuario`, os casos de exceção (rotas que não o exigem) e as respostas quando o cabeçalho falta ou o id não existe.\n5. Confira os códigos de retorno: para cada resposta que o contrato especifica, verifique se a API devolve o status e o corpo exatos — em especial o corpo de erro `{\"erro\": ...}` — e se a interface trata esses códigos.\n6. Confira o modo de teste: as rotas `/_teste/*`, o comportamento com e sem `MODO_TESTE` e o relógio parado.\n7. Confira convenções: formato de datas ISO 8601 com fuso, identificadores `prefixo + 8 hexadecimais`, erros no formato do contrato.\n8. Rode a API em modo de teste, se der, e registre no relatório o que você de fato executou e o que observou. Tudo o que você afirma sobre o código precisa de `arquivo:linha`.\n\nTrate o contrato como fechado: o que ele não lista não deve existir nas rotas. Uma rota extra, um campo além do contrato ou um código de retorno inventado é achado, desde que você cite onde está no código.\n\n## Formato do relatório\n\n```\n## O que foi conferido\n\n- Rotas do contrato conferidas: N de N\n- Cabeçalhos, campos e códigos conferidos em: <arquivos revisados>\n\n## Divergências\n\n1. [API] <recurso/rota> — o contrato exige <o quê> (contrato-api.md:linha), mas a API <faz o quê> em <arquivo:linha>. Consequência: <juiz/interface veriam o quê>.\n2. [INTERFACE] <tela/ação> — a interface chama <como> em <arquivo:linha>, o contrato <exige o quê> (contrato-api.md:linha).\n3. [CONVENÇÃO] …\n\n## Conformidades\n\n<lista curta de pontos checados que batem — rotas, códigos, cabeçalhos — para o leitor saber o que já está no lugar. Se nada bate, diga que nada bate, sem inventar.>\n\n## Veredito\n\n<uma frase: conforme, ou o que falta para estar conforme>\n```\n\n## Regras de engajamento\n\n- **Não corrija.** Você não tem `write` nem `edit`. Se vier vontade de consertar, descreva o conserto na divergência e siga.\n- **Cite `arquivo:linha`** em toda afirmação sobre o código. Sem citação, a divergência não vale.\n- **Divergência tem que ter linha.** Se você acha que algo está errado mas não acha a linha, procure de novo antes de reportar; se mesmo assim não achar, escreva que não localizou no código atual.\n- **Não invente divergência** para parecer rigoroso. Ponto que bate com o contrato é conformidade, não achado.\n- **Contrato é a fonte.** Não use spec, requisitos, \"o padrão\" ou achismo como critério — só o `contrato-api.md`.\n- **Não elogie.** O relatório é uma lista de divergências e conformidades, não um feedback.\n- Um relatório sem nenhuma divergência é raro. Se for o seu caso, diga explicitamente quantas rotas e quantas chamadas da interface você conferiu uma a uma.\n```\n\nConfig confirmada pelo debug: `write: false`, `edit: false`, `task: false`. Para usar, **saia e reabra o opencode** (a config só é lida na inicialização) e chame `@revisor-de-contrato ...`.",
+     "time": {
+      "start": 1789281054571,
+      "end": 1789281065182
+     },
+     "id": "prt_099762f6b001LgzTimJ1OQg1V4",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099762c3d001ZmKosM6Hf07Tl8"
+    },
+    {
+     "reason": "stop",
+     "snapshot": "a56f6a3bb1d7c6b898344373798075bdda77394b",
+     "type": "step-finish",
+     "tokens": {
+      "total": 21698,
+      "input": 2620,
+      "output": 1670,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 17408
+      }
+     },
+     "cost": 0,
+     "id": "prt_0997659e8001iN5uEnq1fNP3xu",
+     "sessionID": "ses_f668a8d2affeVdOdV28sh43H2g",
+     "messageID": "msg_099762c3d001ZmKosM6Hf07Tl8"
+    }
+   ]
+  }
+ ]
+}

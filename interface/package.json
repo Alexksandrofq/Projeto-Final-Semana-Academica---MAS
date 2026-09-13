@@ -1,0 +1,16 @@
+{
+  "name": "interface",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": ["**/test/**/*.test.js"]
+  },
+  "devDependencies": {
+    "jest": "^30.5.1",
+    "jest-environment-jsdom": "^30.5.1"
+  }
+}

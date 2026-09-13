@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana Acadêmica — Grade de atividades</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="pagina">
+    <section id="grade">
+      <div class="barra-topo">
+        <h1>Grade de atividades</h1>
+        <button type="button" id="botao-nova-atividade" class="botao">Nova atividade</button>
+      </div>
+
+      <section class="filtros" aria-label="Filtros da grade">
+        <div class="filtro">
+          <label for="filtro-usuario">Usuário</label>
+          <select id="filtro-usuario"></select>
+        </div>
+        <div class="filtro">
+          <label for="filtro-dia">Dia</label>
+          <input type="date" id="filtro-dia">
+        </div>
+        <div class="filtro">
+          <label for="filtro-tipo">Tipo</label>
+          <select id="filtro-tipo">
+            <option value="">Todos</option>
+            <option value="palestra">Palestra</option>
+            <option value="minicurso">Minicurso</option>
+          </select>
+        </div>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <ul id="lista-atividades" class="lista-atividades"></ul>
+    </section>
+
+    <section id="detalhes" class="detalhes" hidden>
+      <button type="button" id="botao-voltar" class="botao">Voltar para a grade</button>
+      <h2 id="detalhes-titulo"></h2>
+      <p id="status-detalhes" class="status" role="status" aria-live="polite"></p>
+      <div id="conteudo-detalhes"></div>
+    </section>
+
+    <section id="criacao" class="criacao" hidden>
+      <button type="button" id="botao-cancelar-criacao" class="botao">Voltar para a grade</button>
+      <h2>Nova atividade</h2>
+      <p id="status-criacao" class="status" role="status" aria-live="polite"></p>
+
+      <form id="form-criacao">
+        <div class="campo">
+          <label for="campo-titulo">Título</label>
+          <input type="text" id="campo-titulo" name="titulo">
+        </div>
+        <div class="campo">
+          <label for="campo-tipo">Tipo</label>
+          <select id="campo-tipo" name="tipo">
+            <option value="palestra">Palestra</option>
+            <option value="minicurso">Minicurso</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="campo-sala">Sala</label>
+          <select id="campo-sala" name="salaId"></select>
+        </div>
+        <div class="campo">
+          <label for="campo-vagas">Vagas</label>
+          <input type="text" inputmode="numeric" id="campo-vagas" name="vagas">
+        </div>
+
+        <fieldset class="encontros-criacao">
+          <legend>Encontros</legend>
+          <div id="lista-encontros"></div>
+          <button type="button" id="botao-adicionar-encontro" class="botao">Adicionar encontro</button>
+        </fieldset>
+
+        <div id="confirmacao-criacao" class="confirmacao" hidden></div>
+
+        <button type="submit" id="botao-enviar-criacao" class="botao">Criar atividade</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "stack": "Front-end: HTML5, CSS3 e JavaScript puro (sem framework); API: Node.js com Express; Banco: SQLite com better-sqlite3; Testes da API: Jest com Supertest",
+  "api": {
+    "pasta": "api",
+    "instalar": "npm install",
+    "iniciar": "npm start"
+  },
+  "testes": ["npm test"]
+}
