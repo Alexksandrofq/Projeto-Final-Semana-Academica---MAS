@@ -459,6 +459,49 @@ function criarServidor(opcoes = {}) {
     res.status(200).json(serializarAtividade(atividade, agora()));
   });
 
+  app.post('/atividades/:id/inscricoes', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
+    if (usuario.papel !== 'participante') {
+      return res.status(403).json({
+        erro: 'SOMENTE_PARTICIPANTE',
+        mensagem: 'Apenas participante pode se inscrever.'
+      });
+    }
+
+    const atividade = banco.obterAtividade(req.params.id);
+    if (!atividade) {
+      return res.status(404).json({
+        erro: 'NAO_ENCONTRADO',
+        mensagem: 'Atividade não encontrada.'
+      });
+    }
+
+    if (atividade.cancelada) {
+      return res.status(422).json({
+        erro: 'ATIVIDADE_CANCELADA',
+        mensagem: 'Atividade cancelada.'
+      });
+    }
+
+    const inicioPrimeiroEncontro = Math.min(
+      ...atividade.encontros.map((e) => new Date(e.inicio).getTime())
+    );
+    if (agora().getTime() >= inicioPrimeiroEncontro - 30 * 60 * 1000) {
+      return res.status(422).json({
+        erro: 'INSCRICOES_ENCERRADAS',
+        mensagem: 'Inscrições encerradas.'
+      });
+    }
+
+    res.status(501).send();
+  });
+
   app.use((err, req, res, next) => {
     if (err && err.type === 'entity.parse.failed') {
       if (!req.path.startsWith('/_teste/') && !banco.obterUsuario(req.get('X-Usuario'))) {
