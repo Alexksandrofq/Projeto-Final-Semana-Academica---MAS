@@ -28,9 +28,9 @@
 
 ## Pendentes
 
-- **P15 (parcial) - Ordenacao padrao de GET /inscricoes**: ordem padrao da listagem de inscricoes nao especificada no documento de regras (sem regra).
-- **P16 - Filtro atividadeId inexistente**: comportamento de `GET /inscricoes?atividadeId=atv_inexistente` (se 200 `[]` ou 404) nao coberto pelas regras (pendente).
-- **P18 - Relogio e regras de fuso/arredondamento adicionais**: nao ha regras alem do contrato basico de data/hora (pendente de regra externa).
+- **P15 (parcial) - Ordenacao padrao de GET /inscricoes**: A ordem padrao da listagem de inscricoes e por data de criacao (criadoEm).
+- **P16 - Filtro atividadeId inexistente**: comportamento de `GET /inscricoes?atividadeId=atv_inexistente` retorna 200 `[]`.
+- **P18 - Relogio e regras de fuso/arredondamento adicionais**: nao ha regras alem do contrato basico de data/hora.
 
 ---
 
