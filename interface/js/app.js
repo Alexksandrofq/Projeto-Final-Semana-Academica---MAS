@@ -25,6 +25,49 @@ const ROTULO_SITUACAO = {
   cancelada: 'Cancelada'
 };
 
+const ROTULO_STATUS_INSCRICAO = {
+  confirmada: 'Confirmado (vaga garantida)',
+  em_espera: 'Na espera',
+  convocada: 'Convocado',
+  cancelada: 'Cancelado',
+  expirada: 'Perdeu a vaga'
+};
+
+const STATUS_ATIVOS_INSCRICAO = ['confirmada', 'em_espera', 'convocada'];
+
+function formatarPosicaoEspera(posicao) {
+  return `${posicao}º na fila`;
+}
+
+function formatarContagemRegressiva(msRestantes) {
+  if (msRestantes <= 0) {
+    return 'prazo expirado';
+  }
+  const totalSegundos = Math.floor(msRestantes / 1000);
+  const horas = Math.floor(totalSegundos / 3600);
+  const minutos = Math.floor((totalSegundos % 3600) / 60);
+  const segundos = totalSegundos % 60;
+  return `${horas}h ${String(minutos).padStart(2, '0')}m ${String(segundos).padStart(2, '0')}s`;
+}
+
+async function lerCorpoErro(resposta) {
+  try {
+    return await resposta.json();
+  } catch (_) {
+    return null;
+  }
+}
+
+function mensagemDeErro(corpo, statusHTTP) {
+  if (corpo && corpo.mensagem) {
+    return corpo.mensagem;
+  }
+  if (statusHTTP) {
+    return `Erro ${statusHTTP} ao acessar a API.`;
+  }
+  return 'Não foi possível acessar a API.';
+}
+
 function formatarDataEHora(iso) {
   return new Date(iso).toLocaleString('pt-BR', {
     day: '2-digit',
@@ -76,6 +119,12 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
   const statusDetalhes = document.getElementById('status-detalhes');
   const conteudoDetalhes = document.getElementById('conteudo-detalhes');
   const botaoNovaAtividade = document.getElementById('botao-nova-atividade');
+  const botaoMinhasInscricoes = document.getElementById('botao-minhas-inscricoes');
+  const secaoMinhas = document.getElementById('minhas-inscricoes');
+  const botaoVoltarMinhas = document.getElementById('botao-voltar-minhas');
+  const statusMinhas = document.getElementById('status-minhas');
+  const listaInscricoes = document.getElementById('lista-inscricoes');
+  const botaoTentarMinhas = document.getElementById('botao-tentar-minhas');
   const secaoCriacao = document.getElementById('criacao');
   const botaoCancelarCriacao = document.getElementById('botao-cancelar-criacao');
   const statusCriacao = document.getElementById('status-criacao');
@@ -88,6 +137,8 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
   const botaoAdicionarEncontro = document.getElementById('botao-adicionar-encontro');
   const confirmacaoCriacao = document.getElementById('confirmacao-criacao');
   const botaoEnviarCriacao = document.getElementById('botao-enviar-criacao');
+
+  let atividadeAtualId = null;
 
   function preencherUsuarios() {
     for (const id of USUARIOS_CONTRATO) {
@@ -290,10 +341,617 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
       encontros.appendChild(item);
     }
     conteudoDetalhes.appendChild(encontros);
+
+    const area = document.createElement('div');
+    area.id = 'area-inscricao';
+    area.className = 'area-inscricao';
+    conteudoDetalhes.appendChild(area);
+  }
+
+  function obterAreaInscricao() {
+    let area = document.getElementById('area-inscricao');
+    if (!area) {
+      area = document.createElement('div');
+      area.id = 'area-inscricao';
+      area.className = 'area-inscricao';
+      conteudoDetalhes.appendChild(area);
+    }
+    return area;
+  }
+
+  function mostrarCarregandoInscricaoDetalhe() {
+    const area = obterAreaInscricao();
+    area.innerHTML = '';
+    const info = document.createElement('p');
+    info.id = 'status-inscricao';
+    info.className = 'status carregando';
+    info.setAttribute('role', 'status');
+    info.textContent = 'Carregando inscrição…';
+    area.appendChild(info);
+  }
+
+  function mostrarErroInscricaoDetalhe(statusHTTP, corpo) {
+    const area = obterAreaInscricao();
+    area.innerHTML = '';
+    const info = document.createElement('p');
+    info.id = 'status-inscricao';
+    info.className = 'status erro';
+    info.setAttribute('role', 'status');
+    info.textContent = mensagemDeErro(corpo, statusHTTP);
+    if (corpo && corpo.erro) {
+      info.dataset.erro = corpo.erro;
+    }
+    area.appendChild(info);
+  }
+
+  function rotuloBotaoInscrever(atividade) {
+    if (
+      atividade &&
+      atividade.vagasRestantes !== undefined &&
+      atividade.vagasRestantes !== null &&
+      Number(atividade.vagasRestantes) <= 0
+    ) {
+      return 'Entrar na fila de espera';
+    }
+    return 'Inscrever-se';
+  }
+
+  function textoStatusInscricao(inscricao) {
+    if (inscricao.status === 'em_espera') {
+      const pos = inscricao.posicaoNaEspera;
+      if (pos !== undefined && pos !== null) {
+        return `Sua inscrição: Na espera — ${formatarPosicaoEspera(pos)}`;
+      }
+      return 'Sua inscrição: Na espera';
+    }
+    return `Sua inscrição: ${ROTULO_STATUS_INSCRICAO[inscricao.status] || inscricao.status}`;
+  }
+
+  function renderizarAreaInscricaoDetalhe(atividade, minhaInscricao) {
+    const area = obterAreaInscricao();
+    area.innerHTML = '';
+
+    const info = document.createElement('p');
+    info.id = 'status-inscricao';
+    info.className = 'status';
+    info.setAttribute('role', 'status');
+    info.setAttribute('aria-live', 'polite');
+    area.appendChild(info);
+
+    if (!minhaInscricao) {
+      const botao = document.createElement('button');
+      botao.type = 'button';
+      botao.id = 'botao-inscrever';
+      botao.className = 'botao botao-inscrever';
+      botao.dataset.atividadeId = atividade.id;
+      botao.textContent = rotuloBotaoInscrever(atividade);
+      area.appendChild(botao);
+      return;
+    }
+
+    info.textContent = textoStatusInscricao(minhaInscricao);
+    info.className = `status status-inscricao status-${minhaInscricao.status.replace('_', '-')}`;
+    info.dataset.status = minhaInscricao.status;
+
+    if (minhaInscricao.status === 'convocada' && minhaInscricao.convocadaAte) {
+      const contagem = document.createElement('p');
+      contagem.className = 'contagem-regressiva';
+      contagem.dataset.convocadaAte = minhaInscricao.convocadaAte;
+      contagem.textContent = `Expira em ${formatarContagemRegressiva(new Date(minhaInscricao.convocadaAte).getTime() - Date.now())}`;
+      area.appendChild(contagem);
+
+      const botaoConfirmar = document.createElement('button');
+      botaoConfirmar.type = 'button';
+      botaoConfirmar.id = 'botao-confirmar-detalhe';
+      botaoConfirmar.className = 'botao confirmar-vaga';
+      botaoConfirmar.dataset.id = minhaInscricao.id;
+      botaoConfirmar.textContent = 'Confirmar vaga';
+      if (new Date(minhaInscricao.convocadaAte).getTime() <= Date.now()) {
+        botaoConfirmar.disabled = true;
+      }
+      area.appendChild(botaoConfirmar);
+    }
+
+    const botaoCancelar = document.createElement('button');
+    botaoCancelar.type = 'button';
+    botaoCancelar.id = 'botao-cancelar-inscricao';
+    botaoCancelar.className = 'botao botao-cancelar cancelar-inscricao';
+    botaoCancelar.dataset.id = minhaInscricao.id;
+    botaoCancelar.textContent = 'Cancelar inscrição';
+    area.appendChild(botaoCancelar);
+
+    iniciarContagemRegressiva();
+  }
+
+  async function buscarMinhaInscricao(atividadeId) {
+    const resposta = await fetch(
+      `${ENDERECO_API}/inscricoes?atividadeId=${encodeURIComponent(atividadeId)}`,
+      { headers: { 'X-Usuario': seletorUsuario.value } }
+    );
+    if (!resposta.ok) {
+      const corpo = await lerCorpoErro(resposta);
+      return { erro: { status: resposta.status, corpo } };
+    }
+    const lista = await resposta.json();
+    const usuarioAtual = seletorUsuario.value;
+    const minha = (Array.isArray(lista) ? lista : []).find(
+      (i) =>
+        i.atividadeId === atividadeId &&
+        (i.participanteId === undefined || i.participanteId === usuarioAtual) &&
+        STATUS_ATIVOS_INSCRICAO.includes(i.status)
+    );
+    return { inscricao: minha || null };
+  }
+
+  async function carregarEstadoInscricao(atividade) {
+    mostrarCarregandoInscricaoDetalhe();
+    try {
+      const resultado = await buscarMinhaInscricao(atividade.id);
+      if (resultado.erro) {
+        mostrarErroInscricaoDetalhe(resultado.erro.status, resultado.erro.corpo);
+        return;
+      }
+      renderizarAreaInscricaoDetalhe(atividade, resultado.inscricao);
+    } catch (_) {
+      mostrarErroInscricaoDetalhe(null, null);
+    }
+  }
+
+  async function recarregarDetalhes(atividadeId) {
+    atividadeAtualId = atividadeId;
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/atividades/${atividadeId}`, {
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      if (!resposta.ok) {
+        const corpo = await lerCorpoErro(resposta);
+        mostrarErroDetalhes(resposta.status, corpo);
+        return;
+      }
+      const atividade = await resposta.json();
+      renderizarDetalhes(atividade);
+      await carregarEstadoInscricao(atividade);
+    } catch (_) {
+      mostrarErroDetalhes(null, null);
+    }
+  }
+
+  async function inscreverNaAtividade(atividadeId, botao) {
+    const rotuloOriginal = botao ? botao.textContent : 'Inscrever-se';
+    if (botao) {
+      botao.disabled = true;
+      botao.textContent = 'Enviando…';
+    }
+    const infoInicial = document.getElementById('status-inscricao');
+    if (infoInicial) {
+      infoInicial.textContent = 'Enviando inscrição…';
+      infoInicial.className = 'status carregando';
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/atividades/${atividadeId}/inscricoes`, {
+        method: 'POST',
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      if (!resposta.ok) {
+        const corpo = await lerCorpoErro(resposta);
+        const area = obterAreaInscricao();
+        let alvo = document.getElementById('status-inscricao');
+        if (!alvo) {
+          alvo = document.createElement('p');
+          alvo.id = 'status-inscricao';
+          alvo.setAttribute('role', 'status');
+          area.appendChild(alvo);
+        }
+        alvo.textContent = mensagemDeErro(corpo, resposta.status);
+        alvo.className = 'status erro';
+        if (corpo && corpo.erro) {
+          alvo.dataset.erro = corpo.erro;
+        }
+        if (botao && document.contains(botao)) {
+          botao.disabled = false;
+          botao.textContent = rotuloOriginal;
+        }
+        return;
+      }
+      await recarregarDetalhes(atividadeId);
+    } catch (_) {
+      mostrarErroInscricaoDetalhe(null, null);
+    }
+  }
+
+  async function cancelarInscricao(inscricaoId, elementos) {
+    const { botao, erroAlvo, atividadeId } = elementos || {};
+    if (botao) {
+      botao.disabled = true;
+      botao.textContent = 'Cancelando…';
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/inscricoes/${inscricaoId}/cancelamento`, {
+        method: 'POST',
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      if (!resposta.ok) {
+        const corpo = await lerCorpoErro(resposta);
+        const mensagem = mensagemDeErro(corpo, resposta.status);
+        if (erroAlvo) {
+          erroAlvo.textContent = mensagem;
+          erroAlvo.className = 'status erro';
+          if (corpo && corpo.erro) {
+            erroAlvo.dataset.erro = corpo.erro;
+          }
+        } else {
+          mostrarErroInscricaoDetalhe(resposta.status, corpo);
+        }
+        if (botao) {
+          botao.disabled = false;
+          delete botao.dataset.armado;
+          botao.textContent = 'Cancelar inscrição';
+        }
+        return;
+      }
+      const idDetalhe = atividadeId || atividadeAtualId;
+      const detalheVisivel = secaoDetalhes && !secaoDetalhes.hidden && idDetalhe;
+      if (detalheVisivel) {
+        await recarregarDetalhes(idDetalhe);
+      } else {
+        await carregarMinhasInscricoes();
+      }
+    } catch (_) {
+      if (erroAlvo) {
+        erroAlvo.textContent = 'Não foi possível acessar a API.';
+        erroAlvo.className = 'status erro';
+      } else {
+        mostrarErroInscricaoDetalhe(null, null);
+      }
+      if (botao) {
+        botao.disabled = false;
+        delete botao.dataset.armado;
+        botao.textContent = 'Cancelar inscrição';
+      }
+    }
+  }
+
+  async function confirmarVaga(inscricaoId, elementos) {
+    const { botao, erroAlvo } = elementos || {};
+    if (botao) {
+      botao.disabled = true;
+      botao.textContent = 'Confirmando…';
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/inscricoes/${inscricaoId}/confirmacao`, {
+        method: 'POST',
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      if (!resposta.ok) {
+        const corpo = await lerCorpoErro(resposta);
+        const mensagem = mensagemDeErro(corpo, resposta.status);
+        if (erroAlvo) {
+          erroAlvo.textContent = mensagem;
+          erroAlvo.className = 'status erro';
+          if (corpo && corpo.erro) {
+            erroAlvo.dataset.erro = corpo.erro;
+          }
+        } else {
+          const area = obterAreaInscricao();
+          let alvo = document.getElementById('status-inscricao');
+          if (!alvo) {
+            alvo = document.createElement('p');
+            alvo.id = 'status-inscricao';
+            area.appendChild(alvo);
+          }
+          alvo.textContent = mensagem;
+          alvo.className = 'status erro';
+          if (corpo && corpo.erro) {
+            alvo.dataset.erro = corpo.erro;
+          }
+        }
+        if (botao) {
+          botao.disabled = false;
+          botao.textContent = 'Confirmar vaga';
+          const cartao = botao.closest ? botao.closest('li, div') : null;
+          const ate = cartao ? cartao.querySelector('[data-convocada-ate]') : document.querySelector('[data-convocada-ate]');
+          if (ate && ate.dataset.convocadaAte && new Date(ate.dataset.convocadaAte).getTime() <= Date.now()) {
+            botao.disabled = true;
+          }
+        }
+        return;
+      }
+      const detalheVisivel = secaoDetalhes && !secaoDetalhes.hidden && atividadeAtualId;
+      if (detalheVisivel) {
+        await recarregarDetalhes(atividadeAtualId);
+      } else {
+        await carregarMinhasInscricoes();
+      }
+    } catch (_) {
+      if (erroAlvo) {
+        erroAlvo.textContent = 'Não foi possível acessar a API.';
+        erroAlvo.className = 'status erro';
+      }
+      if (botao) {
+        botao.disabled = false;
+        botao.textContent = 'Confirmar vaga';
+      }
+    }
+  }
+
+  function atualizarContagens() {
+    const agoraMs = Date.now();
+    const nos = document.querySelectorAll('[data-convocada-ate]');
+    for (const no of nos) {
+      const ate = no.dataset.convocadaAte;
+      if (!ate) {
+        continue;
+      }
+      const restante = new Date(ate).getTime() - agoraMs;
+      if (restante <= 0) {
+        no.textContent = 'Prazo expirado';
+      } else {
+        no.textContent = `Expira em ${formatarContagemRegressiva(restante)}`;
+      }
+      const escopo = no.closest ? no.closest('li, div') : null;
+      const botao = escopo ? escopo.querySelector('.confirmar-vaga') : null;
+      if (botao && !botao.dataset.ocupado) {
+        botao.disabled = restante <= 0;
+      }
+    }
+  }
+
+  let intervaloContagem = null;
+  function iniciarContagemRegressiva() {
+    atualizarContagens();
+    if (intervaloContagem !== null) {
+      return;
+    }
+    intervaloContagem = setInterval(atualizarContagens, 1000);
+    if (intervaloContagem && typeof intervaloContagem.unref === 'function') {
+      intervaloContagem.unref();
+    }
+  }
+
+  function montarCartaoInscricao(inscricao, atividade) {
+    const cartao = document.createElement('li');
+    cartao.className = 'cartao cartao-inscricao';
+    cartao.dataset.id = inscricao.id;
+    if (atividade) {
+      cartao.dataset.atividadeId = atividade.id;
+    } else {
+      cartao.dataset.atividadeId = inscricao.atividadeId;
+    }
+
+    const titulo = document.createElement('h3');
+    titulo.textContent = atividade ? atividade.titulo : inscricao.atividadeId;
+    cartao.appendChild(titulo);
+
+    if (atividade && Array.isArray(atividade.encontros)) {
+      const lista = document.createElement('ul');
+      for (const encontro of atividade.encontros) {
+        const item = document.createElement('li');
+        item.className = 'encontro';
+        item.textContent = `${formatarDataEHora(encontro.inicio)} – ${formatarDataEHora(encontro.fim)}`;
+        lista.appendChild(item);
+      }
+      cartao.appendChild(lista);
+    }
+
+    const estado = document.createElement('p');
+    estado.className = `status-inscricao status-${inscricao.status.replace('_', '-')}`;
+    estado.dataset.status = inscricao.status;
+    if (inscricao.status === 'confirmada') {
+      estado.textContent = ROTULO_STATUS_INSCRICAO.confirmada;
+    } else if (inscricao.status === 'em_espera') {
+      if (inscricao.posicaoNaEspera !== undefined && inscricao.posicaoNaEspera !== null) {
+        estado.textContent = `Na espera — ${formatarPosicaoEspera(inscricao.posicaoNaEspera)}`;
+      } else {
+        estado.textContent = ROTULO_STATUS_INSCRICAO.em_espera;
+      }
+    } else if (inscricao.status === 'convocada') {
+      estado.textContent = ROTULO_STATUS_INSCRICAO.convocada;
+      if (inscricao.convocadaAte) {
+        const contagem = document.createElement('span');
+        contagem.className = 'contagem-regressiva';
+        contagem.dataset.convocadaAte = inscricao.convocadaAte;
+        const restante = new Date(inscricao.convocadaAte).getTime() - Date.now();
+        contagem.textContent = restante <= 0 ? 'Prazo expirado' : `Expira em ${formatarContagemRegressiva(restante)}`;
+        estado.appendChild(document.createTextNode(' — '));
+        estado.appendChild(contagem);
+      }
+    } else if (inscricao.status === 'cancelada') {
+      estado.textContent = ROTULO_STATUS_INSCRICAO.cancelada;
+    } else if (inscricao.status === 'expirada') {
+      estado.textContent = `${ROTULO_STATUS_INSCRICAO.expirada} (prazo expirado)`;
+    } else {
+      estado.textContent = inscricao.status;
+    }
+    cartao.appendChild(estado);
+
+    const erroLinha = document.createElement('p');
+    erroLinha.className = 'status';
+    erroLinha.dataset.papel = 'erro-inscricao';
+    erroLinha.setAttribute('role', 'status');
+    cartao.appendChild(erroLinha);
+
+    const acoes = document.createElement('div');
+    acoes.className = 'acoes-inscricao';
+
+    if (inscricao.status === 'convocada') {
+      const botaoConfirmar = document.createElement('button');
+      botaoConfirmar.type = 'button';
+      botaoConfirmar.className = 'botao confirmar-vaga';
+      botaoConfirmar.dataset.id = inscricao.id;
+      botaoConfirmar.textContent = 'Confirmar vaga';
+      if (inscricao.convocadaAte && new Date(inscricao.convocadaAte).getTime() <= Date.now()) {
+        botaoConfirmar.disabled = true;
+      }
+      acoes.appendChild(botaoConfirmar);
+    }
+
+    if (STATUS_ATIVOS_INSCRICAO.includes(inscricao.status)) {
+      const botaoCancelar = document.createElement('button');
+      botaoCancelar.type = 'button';
+      botaoCancelar.className = 'ver-detalhes cancelar-inscricao';
+      botaoCancelar.dataset.id = inscricao.id;
+      botaoCancelar.textContent = 'Cancelar inscrição';
+      acoes.appendChild(botaoCancelar);
+    }
+
+    if (acoes.children.length > 0) {
+      cartao.appendChild(acoes);
+    }
+
+    return cartao;
+  }
+
+  function mostrarCarregandoMinhas() {
+    if (statusMinhas) {
+      statusMinhas.textContent = 'Carregando inscrições…';
+      statusMinhas.className = 'status carregando';
+    }
+    if (listaInscricoes) {
+      listaInscricoes.innerHTML = '';
+    }
+    if (botaoTentarMinhas) {
+      botaoTentarMinhas.hidden = true;
+    }
+  }
+
+  function mostrarErroMinhas(statusHTTP, corpo) {
+    if (statusMinhas) {
+      statusMinhas.textContent = mensagemDeErro(corpo, statusHTTP);
+      statusMinhas.className = 'status erro';
+      if (corpo && corpo.erro) {
+        statusMinhas.dataset.erro = corpo.erro;
+      } else {
+        delete statusMinhas.dataset.erro;
+      }
+    }
+    if (listaInscricoes) {
+      listaInscricoes.innerHTML = '';
+    }
+    if (botaoTentarMinhas) {
+      botaoTentarMinhas.hidden = false;
+    }
+  }
+
+  function mostrarVazioMinhas() {
+    if (statusMinhas) {
+      statusMinhas.textContent = 'Você ainda não tem inscrições.';
+      statusMinhas.className = 'status';
+      delete statusMinhas.dataset.erro;
+    }
+    if (listaInscricoes) {
+      listaInscricoes.innerHTML = '';
+      const item = document.createElement('li');
+      item.className = 'cartao';
+      const texto = document.createElement('p');
+      texto.textContent = 'Explore a grade e inscreva-se em uma atividade.';
+      item.appendChild(texto);
+      const link = document.createElement('button');
+      link.type = 'button';
+      link.id = 'link-grade';
+      link.className = 'botao';
+      link.textContent = 'Ver grade de atividades';
+      item.appendChild(link);
+      listaInscricoes.appendChild(item);
+    }
+    if (botaoTentarMinhas) {
+      botaoTentarMinhas.hidden = true;
+    }
+  }
+
+  async function carregarMinhasInscricoes() {
+    if (!secaoMinhas || !statusMinhas || !listaInscricoes) {
+      return;
+    }
+    mostrarCarregandoMinhas();
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/inscricoes`, {
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      if (!resposta.ok) {
+        const corpo = await lerCorpoErro(resposta);
+        mostrarErroMinhas(resposta.status, corpo);
+        return;
+      }
+      const inscricoes = await resposta.json();
+      if (!Array.isArray(inscricoes) || inscricoes.length === 0) {
+        mostrarVazioMinhas();
+        return;
+      }
+
+      statusMinhas.textContent = '';
+      statusMinhas.className = 'status';
+      delete statusMinhas.dataset.erro;
+      listaInscricoes.innerHTML = '';
+      if (botaoTentarMinhas) {
+        botaoTentarMinhas.hidden = true;
+      }
+
+      let mapaAtividades = {};
+      try {
+        const respAtividades = await fetch(`${ENDERECO_API}/atividades`, {
+          headers: { 'X-Usuario': seletorUsuario.value }
+        });
+        if (respAtividades.ok) {
+          const atividades = await respAtividades.json();
+          for (const atv of atividades) {
+            mapaAtividades[atv.id] = atv;
+          }
+        }
+      } catch (_) {
+        mapaAtividades = {};
+      }
+
+      const faltantes = inscricoes.filter((i) => !mapaAtividades[i.atividadeId]);
+      for (const ins of faltantes) {
+        try {
+          const r = await fetch(`${ENDERECO_API}/atividades/${ins.atividadeId}`, {
+            headers: { 'X-Usuario': seletorUsuario.value }
+          });
+          if (r.ok) {
+            const atv = await r.json();
+            mapaAtividades[atv.id] = atv;
+          }
+        } catch (_) {
+          // mantém fallback por atividadeId
+        }
+      }
+
+      const fragmento = document.createDocumentFragment();
+      for (const inscricao of inscricoes) {
+        fragmento.appendChild(montarCartaoInscricao(inscricao, mapaAtividades[inscricao.atividadeId] || null));
+      }
+      listaInscricoes.appendChild(fragmento);
+      iniciarContagemRegressiva();
+    } catch (_) {
+      mostrarErroMinhas(null, null);
+    }
+  }
+
+  function abrirMinhasInscricoes() {
+    if (secaoGrade) {
+      secaoGrade.hidden = true;
+    }
+    if (secaoDetalhes) {
+      secaoDetalhes.hidden = true;
+    }
+    if (secaoCriacao) {
+      secaoCriacao.hidden = true;
+    }
+    if (secaoMinhas) {
+      secaoMinhas.hidden = false;
+    }
+    carregarMinhasInscricoes();
   }
 
   async function abrirDetalhes(id) {
+    atividadeAtualId = id;
     secaoGrade.hidden = true;
+    if (secaoMinhas) {
+      secaoMinhas.hidden = true;
+    }
+    if (secaoCriacao) {
+      secaoCriacao.hidden = true;
+    }
     secaoDetalhes.hidden = false;
     mostrarCarregandoDetalhes();
 
@@ -315,14 +973,19 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
 
       const atividade = await resposta.json();
       renderizarDetalhes(atividade);
+      await carregarEstadoInscricao(atividade);
     } catch (erro) {
       mostrarErroDetalhes(null, null);
     }
   }
 
   function voltarParaGrade() {
+    atividadeAtualId = null;
     secaoDetalhes.hidden = true;
     secaoCriacao.hidden = true;
+    if (secaoMinhas) {
+      secaoMinhas.hidden = true;
+    }
     secaoGrade.hidden = false;
     carregarAtividades();
   }
@@ -404,6 +1067,9 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
   function abrirCriacao() {
     secaoGrade.hidden = true;
     secaoDetalhes.hidden = true;
+    if (secaoMinhas) {
+      secaoMinhas.hidden = true;
+    }
     secaoCriacao.hidden = false;
 
     campoTitulo.value = '';
@@ -512,6 +1178,95 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
   });
   formCriacao.addEventListener('submit', enviarCriacao);
 
+  if (botaoMinhasInscricoes) {
+    botaoMinhasInscricoes.addEventListener('click', abrirMinhasInscricoes);
+  }
+  if (botaoVoltarMinhas) {
+    botaoVoltarMinhas.addEventListener('click', voltarParaGrade);
+  }
+  if (botaoTentarMinhas) {
+    botaoTentarMinhas.addEventListener('click', carregarMinhasInscricoes);
+  }
+
+  conteudoDetalhes.addEventListener('click', async (evento) => {
+    const botaoInscrever = evento.target.closest('#botao-inscrever');
+    if (botaoInscrever) {
+      await inscreverNaAtividade(botaoInscrever.dataset.atividadeId, botaoInscrever);
+      return;
+    }
+    const botaoConfirmar = evento.target.closest('#botao-confirmar-detalhe');
+    if (botaoConfirmar) {
+      botaoConfirmar.dataset.ocupado = '1';
+      const erroAlvo = document.getElementById('status-inscricao');
+      await confirmarVaga(botaoConfirmar.dataset.id, {
+        botao: botaoConfirmar,
+        erroAlvo
+      });
+      delete botaoConfirmar.dataset.ocupado;
+      return;
+    }
+    const botaoCancelar = evento.target.closest('#botao-cancelar-inscricao');
+    if (botaoCancelar) {
+      if (botaoCancelar.dataset.armado !== '1') {
+        botaoCancelar.dataset.armado = '1';
+        botaoCancelar.textContent = 'Confirmar cancelamento';
+        return;
+      }
+      delete botaoCancelar.dataset.armado;
+      const area = obterAreaInscricao();
+      const atividadeId = botaoInscreverAtividadeAtual();
+      await cancelarInscricao(botaoCancelar.dataset.id, {
+        botao: botaoCancelar,
+        erroAlvo: document.getElementById('status-inscricao'),
+        atividadeId
+      });
+      void area;
+    }
+  });
+
+  function botaoInscreverAtividadeAtual() {
+    const botao = document.getElementById('botao-inscrever');
+    if (botao && botao.dataset.atividadeId) {
+      return botao.dataset.atividadeId;
+    }
+    const cancelar = document.getElementById('botao-cancelar-inscricao');
+    if (cancelar && cancelar.dataset.atividadeId) {
+      return cancelar.dataset.atividadeId;
+    }
+    return atividadeAtualId;
+  }
+
+  if (listaInscricoes) {
+    listaInscricoes.addEventListener('click', async (evento) => {
+      const linkGrade = evento.target.closest('#link-grade');
+      if (linkGrade) {
+        voltarParaGrade();
+        return;
+      }
+      const botaoConfirmar = evento.target.closest('.confirmar-vaga');
+      if (botaoConfirmar) {
+        botaoConfirmar.dataset.ocupado = '1';
+        const cartao = botaoConfirmar.closest('li');
+        const erroAlvo = cartao ? cartao.querySelector('[data-papel="erro-inscricao"]') : null;
+        await confirmarVaga(botaoConfirmar.dataset.id, { botao: botaoConfirmar, erroAlvo });
+        delete botaoConfirmar.dataset.ocupado;
+        return;
+      }
+      const botaoCancelar = evento.target.closest('.cancelar-inscricao');
+      if (botaoCancelar) {
+        if (botaoCancelar.dataset.armado !== '1') {
+          botaoCancelar.dataset.armado = '1';
+          botaoCancelar.textContent = 'Confirmar cancelamento';
+          return;
+        }
+        delete botaoCancelar.dataset.armado;
+        const cartao = botaoCancelar.closest('li');
+        const erroAlvo = cartao ? cartao.querySelector('[data-papel="erro-inscricao"]') : null;
+        await cancelarInscricao(botaoCancelar.dataset.id, { botao: botaoCancelar, erroAlvo });
+      }
+    });
+  }
+
   carregarAtividades();
 
   return {
@@ -520,12 +1275,26 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
     abrirCriacao,
     voltarParaGrade,
     carregarSalas,
-    enviarCriacao
+    enviarCriacao,
+    abrirMinhasInscricoes,
+    carregarMinhasInscricoes,
+    inscreverNaAtividade,
+    cancelarInscricao,
+    confirmarVaga,
+    atualizarContagens,
+    iniciarContagemRegressiva
   };
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { criarPainel, USUARIOS_CONTRATO };
+  module.exports = {
+    criarPainel,
+    USUARIOS_CONTRATO,
+    ROTULO_STATUS_INSCRICAO,
+    STATUS_ATIVOS_INSCRICAO,
+    formatarContagemRegressiva,
+    formatarPosicaoEspera
+  };
 } else {
   // Navegador: inicia a interface contra a API local.
   criarPainel({

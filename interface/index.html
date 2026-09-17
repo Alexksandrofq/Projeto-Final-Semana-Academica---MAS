@@ -11,7 +11,10 @@
     <section id="grade">
       <div class="barra-topo">
         <h1>Grade de atividades</h1>
-        <button type="button" id="botao-nova-atividade" class="botao">Nova atividade</button>
+        <div class="acoes-topo">
+          <button type="button" id="botao-minhas-inscricoes" class="botao">Minhas inscrições</button>
+          <button type="button" id="botao-nova-atividade" class="botao">Nova atividade</button>
+        </div>
       </div>
 
       <section class="filtros" aria-label="Filtros da grade">
@@ -43,6 +46,14 @@
       <h2 id="detalhes-titulo"></h2>
       <p id="status-detalhes" class="status" role="status" aria-live="polite"></p>
       <div id="conteudo-detalhes"></div>
+    </section>
+
+    <section id="minhas-inscricoes" class="minhas" hidden>
+      <button type="button" id="botao-voltar-minhas" class="botao">Voltar para a grade</button>
+      <h2>Minhas inscrições</h2>
+      <p id="status-minhas" class="status" role="status" aria-live="polite"></p>
+      <button type="button" id="botao-tentar-minhas" class="botao" hidden>Tentar novamente</button>
+      <ul id="lista-inscricoes" class="lista-atividades"></ul>
     </section>
 
     <section id="criacao" class="criacao" hidden>
