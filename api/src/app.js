@@ -60,6 +60,81 @@ function calcularSituacao(atividade, agora) {
   return 'prevista';
 }
 
+function encontrosSobrepostos(a, b) {
+  const aI = new Date(a.inicio).getTime();
+  const aF = new Date(a.fim).getTime();
+  const bI = new Date(b.inicio).getTime();
+  const bF = new Date(b.fim).getTime();
+  return aI < bF && bI < aF;
+}
+
+function temConflitoDeHorario(banco, participanteId, novaAtividade) {
+  const inscricoes = banco.listarInscricoesPorParticipante(participanteId)
+    .filter((i) => i.status === 'confirmada' || i.status === 'convocada');
+  for (const ins of inscricoes) {
+    const outra = banco.obterAtividade(ins.atividadeId);
+    if (!outra || outra.cancelada) continue;
+    for (const eNovo of novaAtividade.encontros) {
+      for (const eOutro of outra.encontros) {
+        if (encontrosSobrepostos(eNovo, eOutro)) return true;
+      }
+    }
+  }
+  return false;
+}
+
+function contarMinicursosOcupados(banco, participanteId, ignorarInscricaoId = null) {
+  const inscricoes = banco.listarInscricoesPorParticipante(participanteId)
+    .filter((i) => (i.status === 'confirmada' || i.status === 'convocada') && i.id !== ignorarInscricaoId);
+  let n = 0;
+  for (const ins of inscricoes) {
+    const atv = banco.obterAtividade(ins.atividadeId);
+    if (atv && !atv.cancelada && atv.tipo === 'minicurso') n++;
+  }
+  return n;
+}
+
+function temConflitoDeHorarioIgnorando(banco, participanteId, novaAtividade, ignorarInscricaoId = null) {
+  const inscricoes = banco.listarInscricoesPorParticipante(participanteId)
+    .filter((i) => (i.status === 'confirmada' || i.status === 'convocada') && i.id !== ignorarInscricaoId);
+  for (const ins of inscricoes) {
+    const outra = banco.obterAtividade(ins.atividadeId);
+    if (!outra || outra.cancelada) continue;
+    for (const eNovo of novaAtividade.encontros) {
+      for (const eOutro of outra.encontros) {
+        if (encontrosSobrepostos(eNovo, eOutro)) return true;
+      }
+    }
+  }
+  return false;
+}
+
+function convocarProximaErecomputar(banco, atividadeId, agoraInstante, liberouVaga = true) {
+  const inscricoes = banco.listarInscricoesPorAtividade(atividadeId);
+  const emEspera = inscricoes
+    .filter((i) => i.status === 'em_espera')
+    .sort((a, b) => new Date(a.criadaEm) - new Date(b.criadaEm));
+  let convocadoId = null;
+  // Só convoca quando uma vaga foi liberada (cancelamento de confirmada/convocada
+  // ou expiração). Cancelar em_espera apenas recomputa posições (RN-204/RN-212).
+  if (liberouVaga && emEspera.length > 0) {
+    const primeira = emEspera[0];
+    primeira.status = 'convocada';
+    primeira.convocadaAte = new Date(agoraInstante.getTime() + 2 * 60 * 60 * 1000).toISOString();
+    primeira.posicaoNaEspera = null;
+    banco.atualizarInscricao(primeira);
+    convocadoId = primeira.id;
+  }
+  const restantes = banco.listarInscricoesPorAtividade(atividadeId)
+    .filter((i) => i.status === 'em_espera')
+    .sort((a, b) => new Date(a.criadaEm) - new Date(b.criadaEm));
+  restantes.forEach((ins, index) => {
+    ins.posicaoNaEspera = index + 1;
+    banco.atualizarInscricao(ins);
+  });
+  return convocadoId;
+}
+
 function serializarAtividade(atividade, agora) {
   return {
     id: atividade.id,
@@ -456,10 +531,18 @@ function criarServidor(opcoes = {}) {
 
     atividade.cancelada = true;
     banco.atualizarCancelada(atividade.id);
+    for (const ins of banco.listarInscricoesPorAtividade(atividade.id)) {
+      if (['confirmada', 'em_espera', 'convocada'].includes(ins.status)) {
+        ins.status = 'cancelada';
+        ins.posicaoNaEspera = null;
+        ins.convocadaAte = null;
+        banco.atualizarInscricao(ins);
+      }
+    }
     res.status(200).json(serializarAtividade(atividade, agora()));
   });
 
-  app.post('/atividades/:id/inscricoes', (req, res) => {
+    app.post('/atividades/:id/inscricoes', (req, res) => {
     const usuario = banco.obterUsuario(req.get('X-Usuario'));
     if (!usuario) {
       return res.status(401).json({
@@ -499,7 +582,174 @@ function criarServidor(opcoes = {}) {
       });
     }
 
-    res.status(501).send();
+    if (banco.jaInscrito(atividade.id, usuario.id)) {
+      return res.status(409).json({
+        erro: 'JA_INSCRITO',
+        mensagem: 'Participante já inscrito nesta atividade.'
+      });
+    }
+
+    if (temConflitoDeHorario(banco, usuario.id, atividade)) {
+      return res.status(409).json({
+        erro: 'CONFLITO_DE_HORARIO',
+        mensagem: 'Conflito de horário com outra inscrição.'
+      });
+    }
+
+    if (atividade.tipo === 'minicurso' && contarMinicursosOcupados(banco, usuario.id) >= 3) {
+      return res.status(422).json({
+        erro: 'LIMITE_DE_MINICURSOS',
+        mensagem: 'Limite de 3 minicursos por participante.'
+      });
+    }
+
+    const ativas = banco.contarInscricoesAtivasPorAtividade(atividade.id);
+    const status = ativas < atividade.vagas ? 'confirmada' : 'em_espera';
+    const posicaoNaEspera = status === 'em_espera' ? ativas - atividade.vagas + 1 : null;
+    const inscricao = {
+      id: gerarId('ins_'),
+      atividadeId: atividade.id,
+      participanteId: usuario.id,
+      status,
+      posicaoNaEspera,
+      convocadaAte: null,
+      criadaEm: agora().toISOString()
+    };
+
+    banco.inserirInscricao(inscricao);
+    res.status(201).json(inscricao);
+  });
+
+  app.get('/inscricoes', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    let lista = banco.listarTodasInscricoes();
+    if (usuario.papel === 'participante') {
+      lista = lista.filter((i) => i.participanteId === usuario.id);
+    }
+    // Filtro ?atividadeId= existe no contrato (§5 M2). Sem ordenação garantida:
+    // P15/P16 são pendentes sem regra definitiva (spec M2), então nenhuma
+    // ordem é imposta aqui.
+    if (req.query.atividadeId !== undefined) {
+      lista = lista.filter((i) => i.atividadeId === req.query.atividadeId);
+    }
+    res.status(200).json(lista);
+  });
+
+  app.get('/inscricoes/:id', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
+
+    // Need to implement banc.obterInscricao(id)
+    const inscricao = banco.obterInscricao(req.params.id);
+    if (!inscricao) {
+      return res.status(404).json({
+        erro: 'NAO_ENCONTRADO',
+        mensagem: 'Inscrição não encontrada.'
+      });
+    }
+    
+    if (usuario.papel === 'participante' && inscricao.participanteId !== usuario.id) {
+      return res.status(404).json({
+        erro: 'NAO_ENCONTRADO',
+        mensagem: 'Inscrição não encontrada.'
+      });
+    }
+
+    res.status(200).json(inscricao);
+  });
+
+  app.post('/inscricoes/:id/cancelamento', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({
+        erro: 'USUARIO_DESCONHECIDO',
+        mensagem: 'Usuário não identificado.'
+      });
+    }
+    if (usuario.papel !== 'participante') {
+      return res.status(403).json({
+        erro: 'SOMENTE_PARTICIPANTE',
+        mensagem: 'Apenas participante pode cancelar inscrição.'
+      });
+    }
+
+    const inscricao = banco.obterInscricao(req.params.id);
+    if (!inscricao || (usuario.papel === 'participante' && inscricao.participanteId !== usuario.id)) {
+      return res.status(404).json({
+        erro: 'NAO_ENCONTRADO',
+        mensagem: 'Inscrição não encontrada.'
+      });
+    }
+
+    if (['cancelada', 'expirada'].includes(inscricao.status)) {
+      return res.status(422).json({
+        erro: 'INSCRICAO_INATIVA',
+        mensagem: 'Inscrição já está inativa.'
+      });
+    }
+
+    const atividade = banco.obterAtividade(inscricao.atividadeId);
+    const inicioPrimeiroEncontro = Math.min(...atividade.encontros.map((e) => new Date(e.inicio).getTime()));
+    if (agora().getTime() >= inicioPrimeiroEncontro) {
+      return res.status(422).json({
+        erro: 'ATIVIDADE_JA_INICIADA',
+        mensagem: 'Atividade já iniciada.'
+      });
+    }
+
+    const liberouVaga = inscricao.status === 'confirmada' || inscricao.status === 'convocada';
+    inscricao.status = 'cancelada';
+    inscricao.posicaoNaEspera = null;
+    inscricao.convocadaAte = null;
+    banco.atualizarInscricao(inscricao);
+
+    convocarProximaErecomputar(banco, atividade.id, agora(), liberouVaga);
+
+    res.status(200).json(inscricao);
+  });
+
+  app.post('/inscricoes/:id/confirmacao', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    if (usuario.papel !== 'participante') {
+      return res.status(403).json({ erro: 'SOMENTE_PARTICIPANTE', mensagem: 'Apenas participante pode confirmar inscrição.' });
+    }
+    const inscricao = banco.obterInscricao(req.params.id);
+    if (!inscricao || (usuario.papel === 'participante' && inscricao.participanteId !== usuario.id)) {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Inscrição não encontrada.' });
+    }
+    if (inscricao.status !== 'convocada') {
+      return res.status(422).json({ erro: 'SEM_CONVOCACAO', mensagem: 'Inscrição não está convocada.' });
+    }
+    if (inscricao.convocadaAte && agora().getTime() > new Date(inscricao.convocadaAte).getTime()) {
+      inscricao.status = 'expirada';
+      inscricao.posicaoNaEspera = null;
+      banco.atualizarInscricao(inscricao);
+      convocarProximaErecomputar(banco, inscricao.atividadeId, agora());
+      return res.status(422).json({ erro: 'CONVOCACAO_EXPIRADA', mensagem: 'Prazo de convocação expirado.' });
+    }
+    const atividade = banco.obterAtividade(inscricao.atividadeId);
+    if (temConflitoDeHorarioIgnorando(banco, usuario.id, atividade, inscricao.id)) {
+      return res.status(409).json({ erro: 'CONFLITO_DE_HORARIO', mensagem: 'Conflito de horário.' });
+    }
+    if (atividade.tipo === 'minicurso' && contarMinicursosOcupados(banco, usuario.id, inscricao.id) >= 3) {
+      return res.status(422).json({ erro: 'LIMITE_DE_MINICURSOS', mensagem: 'Limite de 3 minicursos.' });
+    }
+    inscricao.status = 'confirmada';
+    inscricao.convocadaAte = null;
+    inscricao.posicaoNaEspera = null;
+    banco.atualizarInscricao(inscricao);
+    res.status(200).json(inscricao);
   });
 
   app.use((err, req, res, next) => {

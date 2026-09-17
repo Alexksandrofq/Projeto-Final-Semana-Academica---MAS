@@ -14,10 +14,8 @@ Esta especificação define as regras de negócio para o módulo de inscrições
 | 6 (P6) | RN-208 | Limite de até 3 minicursos por participante. |
 | 7 (P7) | RN-218, RN-219, RN-210, RN-209 | Precedência de recusa no POST de inscrição. |
 | 8 (P8, P11, P12, P13) | RN-211, RN-212, RN-213, RN-215 | Cancelamento pelo dono, prazos de convocação e recusas de confirmação. |
-| 9 (P9, P14) | RN-206, RN-207, RN-215, RN-220 | Status ativos/inativos e precedência na confirmação. |
+| 9 (P9, P14) | RN-206, RN-207, RN-215 | Status ativos/inativos e precedência na confirmação. |
 | 10 (P10, P17) | RN-217 | Cancelamento restrito até o início da atividade e cancelamento em cascata. |
-| 11 (P15) | RN-221 | Ordenação padrão por data de criação (`criadoEm`). |
-| 12 (P16) | RN-222 | Filtro `atividadeId` inexistente retorna `[]`. |
 
 ## Detalhamento das Regras
 
@@ -63,11 +61,8 @@ Esta especificação define as regras de negócio para o módulo de inscrições
 ### RN-217: Cancelamento de Atividade
 - Ao cancelar uma atividade, todas as inscrições ativas (`confirmada`, `em_espera`, `convocada`) mudam para `cancelada`. Inscrições inativas permanecem inalteradas.
 
-### RN-221: Listagem de Inscrições
-- A ordenação padrão de `GET /inscricoes` é por data de criação (`criadoEm`).
-
-### RN-222: Filtro de Atividade
-- Caso o filtro `GET /inscricoes?atividadeId=atv_inexistente` seja utilizado com um ID inexistente, a API deve retornar 200 com uma lista vazia `[]`.
-
 ## Pendentes (Não implementar)
 - P18: Regras de fuso horário além do contrato base.
+- `INSCRICAO_BLOQUEADA` (P7, contrato §6 "só em grupos com M5"): sem M5 neste repositório não há como dispará-la; a precedência implementável/testável do POST é `ATIVIDADE_CANCELADA` → `INSCRICOES_ENCERRADAS` → `JA_INSCRITO` → `CONFLITO_DE_HORARIO` → `LIMITE_DE_MINICURSOS`.
+- P15 (ordenação de `GET /inscricoes`): sem regra definitiva — sem ordenação garantida.
+- P16 (filtro `atividadeId` inexistente): sem regra definitiva — o filtro `?atividadeId=` existe no contrato, mas o comportamento para ID inexistente (`[]` vs `NAO_ENCONTRADO`) não tem origem definitiva.

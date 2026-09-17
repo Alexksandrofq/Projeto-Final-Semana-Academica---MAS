@@ -72,6 +72,16 @@ function criarBanco(opcoes = {}) {
       cancelada INTEGER NOT NULL DEFAULT 0,
       encontros TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS inscricoes (
+      id TEXT PRIMARY KEY,
+      atividadeId TEXT NOT NULL,
+      participanteId TEXT NOT NULL,
+      status TEXT NOT NULL,
+      posicaoNaEspera INTEGER,
+      convocadaAte TEXT,
+      criadaEm TEXT NOT NULL,
+      FOREIGN KEY (atividadeId) REFERENCES atividades(id)
+    );
   `);
 
   const inserirSala = db.prepare('INSERT OR IGNORE INTO salas (id, nome, capacidade) VALUES (?, ?, ?)');
@@ -100,6 +110,18 @@ function criarBanco(opcoes = {}) {
   const stmtAtualizarVagas = db.prepare('UPDATE atividades SET vagas = ? WHERE id = ?');
   const stmtAtualizarCancelada = db.prepare('UPDATE atividades SET cancelada = 1 WHERE id = ?');
   const stmtApagarAtividades = db.prepare('DELETE FROM atividades');
+  const stmtInserirInscricao = db.prepare(`
+    INSERT INTO inscricoes (id, atividadeId, participanteId, status, posicaoNaEspera, convocadaAte, criadaEm)
+    VALUES (@id, @atividadeId, @participanteId, @status, @posicaoNaEspera, @convocadaAte, @criadaEm)
+  `);
+  const stmtListarInscricoesPorAtividade = db.prepare('SELECT * FROM inscricoes WHERE atividadeId = ?');
+  const stmtContarInscricoesAtivasPorAtividade = db.prepare("SELECT COUNT(*) as count FROM inscricoes WHERE atividadeId = ? AND status IN ('confirmada', 'convocada', 'em_espera')");
+  const stmtVerificarJaInscrito = db.prepare("SELECT 1 as um FROM inscricoes WHERE atividadeId = ? AND participanteId = ? AND status IN ('confirmada', 'convocada', 'em_espera')");
+  const stmtListarInscricoesPorParticipante = db.prepare('SELECT * FROM inscricoes WHERE participanteId = ?');
+  const stmtListarTodasInscricoes = db.prepare('SELECT * FROM inscricoes');
+  const stmtObterInscricao = db.prepare('SELECT * FROM inscricoes WHERE id = ?');
+  const stmtAtualizarInscricao = db.prepare('UPDATE inscricoes SET status = @status, posicaoNaEspera = @posicaoNaEspera, convocadaAte = @convocadaAte WHERE id = @id');
+  const stmtApagarInscricoes = db.prepare('DELETE FROM inscricoes');
 
   return {
     obterSala(id) {
@@ -140,8 +162,38 @@ function criarBanco(opcoes = {}) {
     atualizarCancelada(id) {
       stmtAtualizarCancelada.run(id);
     },
+    inserirInscricao(inscricao) {
+      stmtInserirInscricao.run(inscricao);
+    },
+    listarInscricoesPorAtividade(atividadeId) {
+      return stmtListarInscricoesPorAtividade.all(atividadeId);
+    },
+    obterInscricao(id) {
+      return stmtObterInscricao.get(id) || null;
+    },
+    atualizarInscricao(inscricao) {
+      stmtAtualizarInscricao.run({
+        id: inscricao.id,
+        status: inscricao.status,
+        posicaoNaEspera: inscricao.posicaoNaEspera ?? null,
+        convocadaAte: inscricao.convocadaAte || null
+      });
+    },
+    contarInscricoesAtivasPorAtividade(atividadeId) {
+      return stmtContarInscricoesAtivasPorAtividade.get(atividadeId).count;
+    },
+    jaInscrito(atividadeId, participanteId) {
+      return !!stmtVerificarJaInscrito.get(atividadeId, participanteId);
+    },
+    listarInscricoesPorParticipante(participanteId) {
+      return stmtListarInscricoesPorParticipante.all(participanteId);
+    },
+    listarTodasInscricoes() {
+      return stmtListarTodasInscricoes.all();
+    },
     recarregarDadosIniciais() {
       const resetar = db.transaction(() => {
+        stmtApagarInscricoes.run();
         stmtApagarAtividades.run();
         plantarDadosIniciais();
       });
