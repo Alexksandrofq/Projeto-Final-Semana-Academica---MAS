@@ -1,0 +1,3679 @@
+{
+ "info": {
+  "id": "ses_f53324241ffeuPtDmTj6FSOtKE",
+  "slug": "misty-eagle",
+  "projectID": "a9e58c9c67713e9ce98e1906487f3965ac99bcf8",
+  "directory": "/home/fussumam/Documents/SDD",
+  "path": "home/fussumam/Documents/SDD",
+  "title": "Auditoria M2 contra M2-inscricoes.md",
+  "agent": "build",
+  "model": {
+   "id": "muse-spark-1.3-contributor-free",
+   "providerID": "opencode",
+   "variant": "high"
+  },
+  "version": "1.18.31",
+  "summary": {
+   "additions": 0,
+   "deletions": 0,
+   "files": 0
+  },
+  "cost": 0,
+  "tokens": {
+   "input": 92977,
+   "output": 8592,
+   "reasoning": 6610,
+   "cache": {
+    "read": 1521756,
+    "write": 0
+   }
+  },
+  "time": {
+   "created": 1789605559742,
+   "updated": 1789607540359
+  }
+ },
+ "messages": [
+  {
+   "info": {
+    "role": "user",
+    "time": {
+     "created": 1789605559753
+    },
+    "agent": "build",
+    "model": {
+     "providerID": "opencode",
+     "modelID": "muse-spark-1.3-contributor-free",
+     "variant": "high"
+    },
+    "summary": {
+     "diffs": []
+    },
+    "id": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "@auditor audite o módulo M2 novamente contra spces/M2-inscricoes.md",
+     "id": "prt_0accdbdca001t3IERRomjKtXKl",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdc9001wqVLU3juMB9wJq"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 8199,
+     "input": 305,
+     "output": 80,
+     "reasoning": 21,
+     "cache": {
+      "write": 0,
+      "read": 7793
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605559761,
+     "completed": 1789605561675
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdbdd1001TSv975QN3vYm84",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdc324001KLyfsdfKkGs1sl",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdd1001TSv975QN3vYm84"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605561126,
+      "end": 1789605561128
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36b8e66dc74ce9c642de:rs_01a0accdc1cf751f88c5c6d701bd0af2",
+       "reasoningEncryptedContent": "Q-PaDgG2yW2cs0x_op_LXYbwdnulo-SZ8vzXik1bpH2RUaNOU0drEvge1Vq1AW9jhe2-wLy0chAhIcdC-q07eH-wJzvnXQ1inBRXcsFbQhA2ARq3OAuPCRMTGdDE_BSYeK4dXcbv_3z8hTldduFCfTNs6mlr7N0Kxg1PjJXGZrGxyNdq_YmwujjNbkrEYV6nDJar4TXkgsuyEHXFe-ommsQybVNJ2JL8GcAEuaBmsX5Rs5ZX_cD_QiXquyTrg6fWhc1BASbMDoHDA9jEMqJU6FnIvfsQHVRYsq1NZ2eig0yOKFcxLBdoexKV3PlBdKULs5VHHdkTxCjlHCmTJN6mnYUaqEQ9KWgAxdWDeffA6R5zHV6s1TsmRN4RJl8nwsMp_CipFM6OTQbVk0AhXGzZDU6_-QbNFK3vfewv_30QVaXANSUJEx_9M2P0cM9WRy1_Uk8loCW2CCHlh4WCpIFAAwKCdYkouUZjNulu5_WciR0A6VMz7lhHPrmo6i8FQ71yDunomCrW0i5yRsCqtJPK-Q2wTd6C9tGRFoPqyAdr5t3hyAMET90NxP3Q_abUcNe-hI9R-hc6hrdSa58abAoO0nKf9qwlAz51gSBxJkPA5GqtJ1Ar4mY1DsPP5EjmCafT_ObVYXBiKUXg-IoQOSPS9kOZRonbCu2LfM9gXn8u2M00hPFXLevdlQKbXdxvMOCJrZManoJNm5bHRMQNoNrpapwcK2Glw9FEkERj8yYg89NE6y8ijbO-5od5IFuAmRISR793U9VtfjzFtbLikRiyW52IwuziB3xYE18KxTvFswDGbM57ZyHWTmZ2YVK2jAcCrI-N084O6qxbPdLey0EqG1Pli_V2NrvBQWoiTkh431lm8FhAtDuY-EPa6sgQ1OGxBuxEH_WUlmkDeyz6j-vSwFME1WuD1xo260chaFYcdQORq3K9GJEmc6Q7p3WvNvX4T5pv2D4NP6CZuanNOqJC_LTBBf40m06uf_thE-NZQ_vRHiDvNDPJVcJbnhXcAE13npI_TmgWNFsbDy0leFuklmsOhbq0A4tk2ZjqY10FILxTWyHdY15wmH6GvRC8L4aFm2Z670YENDGC2fmqVbY7HUXyv5zZiwW85S5BdTod2GGHzlQOiCrsPK0ELQLxHynlpM0tFxyr7OrY9OV5WrOIu7wg9O0DE-Zbvwoj6YordD_5ZbB7ub4CEOhl4IHQ-lwdf0jJpw57Jq9INHCvpgow8U2pOcAu3Wv1z2V6Ec3fP2_7XG888Dyu-D6P-aJjJCrY4kE2k8N1UeLo--_62ngqwE2A_N4OcSomv8KLLPw6oJ7d-jJ1WlVE_S8s_IADAiyIzcaJNZzn8SxyBQLeCtetUwTJPg2Nm5OtSY8DUSV69nRxq2N7bEZaClHsf251_uYeqi3cfkMHzU3i10hkhA"
+      }
+     },
+     "id": "prt_0accdc326001qqUDdswiLrOQVT",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdd1001TSv975QN3vYm84"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605561129,
+      "end": 1789605561344
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36b8e66dc74ce9c642de:rs_01a0accdc25b74a583510cb4740092b0",
+       "reasoningEncryptedContent": "Q-PaDgH9Z0laxn1nWhx_8HItsv7k71vhzZZPP4hw2OpXiz7_Frynmrd9N2RdsjOD7IPAnx6FohZnEkT1ZBhE5jJwXW0RxlzTudyzIeV7ScfXBegu8y96S7hPn1i1ksOPZ9-UAflGSQo1IFRW6uig0ARrdG-2_H4gTvaon6qUydJbMbeJEEuGorTRuDXIdsNa16ficJ9fDUd5ixF2ExsJn3Yf51qSAIdk7wvQMN-xsMNb_Tfdp3aOnYzlaH68hU4nE79t4tCeHg6K8QP2MLGURILbZUWc5DHMg1nSdpOBNLueoY3D9sbBMDQ6Ed1TZpUkBr9FNjfgb6HE9jwStNwbu9BkCaFnih8y9XTmWCsWsbuDsfVDxU3HMWAEBYu7gucwmBMsdwghn1tmM1x818jFs4YxFkvfWE9Onn4bNZ91uf_a-ajhvtl1YED0zODxgYhKQYpeoqPzLuNaN7ddbVhbgBNe4f_I6ydoFro533HYR2-kDTNEEhmCj4ZAS_BXU4_-V6UD8UMj6_sOMmwqiP0iKBVk5-7WfrLIhzLz1wqsfajDkKWKLEzfZsKJiiWxV87oA73DL99tM1FlyPeJQd0KCGwlAOOQQAAEVfsugGBHlI2tZhqeYDK5LDhHZII0xTvR3uJhtz196FCMh8ZDp2Cvd-vAwh59PHmn1SNEnRuhu_PrU7iRvMOD-dXwY2FfNtaBVrZoDeRSr41-BnfoxxP1evwzVHhX7iYAUuoeR2ccLeTfrEbflhEvUIu6SVcgmPPfV7CFQOAWuQJ8uKjokCcsskglaKJ-KR6tYiBI1fu7pgYbVtqhdXGF6ALS0Nd_mhSHG4svx74UimllpAeX5bAdXmVVvwiafGgrcqhAo8IFkm_vYdr2PdOxgA_bu_zkUl86C-wbUzLT7pTwxltoDtShjOICCNOuxZ9-RNEdLXLt7XRx3W2rtfM3wqquUKRCLtRWL1m8S-rzwzXuP3kY9uAMtg1I1zxYBX3WaGOeP9qMyn_P92aKvlWLxUu_J6MKffIdVaToX4F9f3GiC9qa6KR6S58kCKMnXyhBsOJz1CPl2m3V56nNUHXi_BFs0AI19BnSWGifUsMVV7i4JAVWXBHetUWEOk-v--71R--sDoSRXYX6nFwi06EXQV92cCjw1gcUbP_hF96-CPVjVSPY4Z9Pd5_KVoDRGEJGKJFBnIcq2mOfUwOE089W1gA-GPkq3wAKyP_rZ_WSHVcMoAdjxr_6rRAdlSjeeyKnZZ6W_ezH-_fyZVydf0BL5nrwSdu8AqYksCi4HdKjgsoRgJGes0yzDAvR88LFnXOyZdpUeJBBTX_bizaikfxsEwKCRUxJlfFf1F83kCfqo02djjz1ZEdgjl3DI2Gd6dyR_LvTY3kToVM1qATnAiw95xnTvnzv5cffWzw4YhPp9-FWECzpLQ"
+      }
+     },
+     "id": "prt_0accdc32900174xSQPEKVb1Waf",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdd1001TSv975QN3vYm84"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdc33971d6808b8010ae721e68",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD"
+      },
+      "output": "[136 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD",
+      "time": {
+       "start": 1789605561450,
+       "end": 1789605561454
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdc33971d6808b8010ae721e68"
+      }
+     },
+     "id": "prt_0accdc402001IylIC66DJ2pAHK",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdd1001TSv975QN3vYm84"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 8199,
+      "input": 305,
+      "output": 80,
+      "reasoning": 21,
+      "cache": {
+       "write": 0,
+       "read": 7793
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdc546001Hw8ngVwe88P79s",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdbdd1001TSv975QN3vYm84"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 8335,
+     "input": 213,
+     "output": 70,
+     "reasoning": 3,
+     "cache": {
+      "write": 0,
+      "read": 8049
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605561678,
+     "completed": 1789605563012
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdc54e001e7OXVT8ADnx2sM",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdca1c001Nzh1mSnzOKNP1C",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdc54e001e7OXVT8ADnx2sM"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605562911,
+      "end": 1789605562915
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36bac503c09d07604588:rs_01a0accdc8cd760da35acdf9cebf11cb",
+       "reasoningEncryptedContent": "Q-PaDgF7Rzqr1PeXJHgFumVEkw9fdSzX2tve8At4h52b7lGy-gI45HPr7gHOEUChofJatfm7nrKc6J7bxIm8E4EJSgg-zvpR29swQ0GfgTnShKL47POavZBkeANxIfQYJFw-Zn_k_UVkRWtoTMeYjLZwJH0MTQsTPo8nDCi3I_uLH3rONheAhLMkLrUR7YLxM4fkiAtrzsDP-mxLOEDKptP-gUsRP9fsoSjRumAZzuBnarhhhL1Xx9fbFk-WSdJ24pMDzpl10z7mrlQp3AMrn9-HZUiIrtRkkhqw_-0ElAbSlQVUWyQ0psXXNBi3FVb4lq4PmDih5GowfvwHGXdR2VMVLeYqyjh5kJFW_LLDqs8bNzCwcoFGfZvl0-hWKMbrYVerKndcc2KrGmFNcKI7TWdkO2G4tccqUUtmOUWDvI7-OAjG6vsH8NcZ833YcUabc_I9WhSV3EP2K5a4aRYVm7seaXoIZQFDV-VPQ3SCFYZ_NkVDw9RhXK7oXbsCrSny61Ht4UDpnBpIK0hLXpzUtZDICZFF2oByX9WavcmteqtxmlUHK8jQ6GK_0HZGqau-06UiMrjCLJF-eE8Qo3VAyw6l_0aqwv4E7c0a9Gx_XAqYbtPwXwpArMkBGZylV2IjFvl20sQ2vKIG4WB9Mg-NvRTAkP34fCmoGVx5yek9JwBIxu2AONimnH-hcZjf2ZsJUswuLe2nEy1j4aG-YZF6M1Qz05KS4Uc4ZX3pnyg7yPapGurJ6mjN8N0Nup5Pe420_RVdzt3Jzns67X4ozreQe0Z0uukzAMwdCEG-zkju5Je-q5dIJ5GZymAPkhdorVdnn-8oVu9A6l9Nj08R3NFbSCIAFPITQ0kqhYMfAY8T95dmjlvOVLcyExSz3u6utLwaCnpDDUuF6RD1jgtC2JzbbTJEwMgylZoC0fiZBb6dVsGh7nV2TktYcxpLL_iiV1uS2dwKOzRhRurIqwd-KlLYHkpb4qXvtdnWKXm3ditQJDFiwVk3U7vGloNAyppBCgK7cDmylhGIy3ZTSvIC2afYZfAXC7ZbnUKk8jhwRGoBiOOf7wOpBJtfoGFj5vMtcrL0LUNT2OlbAhf-xxUHDcbZY_AxPf7oz_5C_j6ky3WHXML9IUT1NMYgKWlwkHcqM4KkR3CvTXdW9VILGowSpLdyW808VBaUY5knEjmc7r5vlp6TAuOHcctHBKbOqNV6Mc54ol2cvlv10wnPdtJE6CIh6hg7j3ezk09vd7Xt5cS8sWpnx3XyUV7lAJT5Hz3ORv1d6BuMj28ougjahJkznvLlS2PBFEpeotqg32kIeu-bE-qPnYNv4B_PnJ_W2k1QEbKw5JiEEf3UXUCxE35_Hgs-oPtwQmUXUydDhc2YGVXav51h_aEWtoVa2mB8VKxv0jUqSPxKWEpGKEphiVv49w"
+      }
+     },
+     "id": "prt_0accdca1f0014tnZ3WH1FZ8r3M",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdc54e001e7OXVT8ADnx2sM"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdc8ec7217af6a4d56f4a2e420",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS"
+      },
+      "output": "[283 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS",
+      "time": {
+       "start": 1789605562945,
+       "end": 1789605562948
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdc8ec7217af6a4d56f4a2e420"
+      }
+     },
+     "id": "prt_0accdca2c001oEpzGwCUpO9IQ6",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdc54e001e7OXVT8ADnx2sM"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 8335,
+      "input": 213,
+      "output": 70,
+      "reasoning": 3,
+      "cache": {
+       "write": 0,
+       "read": 8049
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdca81001gtIzSO2Io8e01L",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdc54e001e7OXVT8ADnx2sM"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 8519,
+     "input": 269,
+     "output": 73,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 8177
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605563015,
+     "completed": 1789605564042
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdca86001UqieFB0Oe0h0GV",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdcdd6001ldkjyHz6AZ9U1f",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdca86001UqieFB0Oe0h0GV"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdcce371a188e44973e5a390d0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md"
+      },
+      "output": "[8796 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md",
+      "time": {
+       "start": 1789605563985,
+       "end": 1789605564000
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdcce371a188e44973e5a390d0"
+      }
+     },
+     "id": "prt_0accdcdd8001CgMUJfJWmbCn8k",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdca86001UqieFB0Oe0h0GV"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 8519,
+      "input": 269,
+      "output": 73,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 8177
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdce840016vFnckaNGY0BVb",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdca86001UqieFB0Oe0h0GV"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 11487,
+     "input": 2741,
+     "output": 281,
+     "reasoning": 32,
+     "cache": {
+      "write": 0,
+      "read": 8433
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605564045,
+     "completed": 1789605566378
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdce8d001jHzTuuSRWttw0M",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdd4da001uwWg7VySQc2nsQ",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605565660,
+      "end": 1789605565976
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36bd9bb36267136f44e7:rs_01a0accdd424766493717f7f7ca1019a",
+       "reasoningEncryptedContent": "Q-PaDgGkEHjqiBYbvWS_8mcUgPkXeMSlEbggHROD__4w7eAhz0s-wSZaNVgZB7-jrwN3uvXn0nQyyp0D6gDTe5HTLETxp7kj80bpmsTZTfw26MhNJxhk9dxG5H39BJdqRQ8lHAr2vjnEHXAkdkHx5lzEbqaq6FFYdr39jwTv8lzc_ZDyHp_RmxTmuHOAubSMZ8DOmChiJOorKrlocviSbJIOfu3h5GmdWRjiIRs80iPHRquSbE7g6wxpMMoCOeSZqXUG1teGG-N1HPgNOWVCuTvwFOAJFuBnUp6EbMuJVRxK-CPOYnqpJ4wk3b3sRGesmNPyJ7MsSCYTyGlVZEjlV1e62YC3UZZhVUqx8YRv7t9FutYd2EPy6Ww5Y4VCsH9aBgTGojRMoPsNSSy0OG9Svqb0ORPh05oodkAjdZ-ucVwJjmaIbBd15zxtKFoOKb5WK9XqxdbCumyunimtlL8dPm00uErZRsAajL76H77QOuJPQTcrLUIt94kAy7pWT3GDFsn_MxlQTbHLTMaOFFhSicce1wwGAp5Vi0VAgxag2_GeEfdqC52jDiI4CmOhlzMP27SwGkmSeqhD3uhpCVNY4vzk380GkP17AHZnBDhyPESMAc9ailkKD9_w_srta6_cEtOXPhQoUs0NRWCV88GVL671kjyTnzcseVYgjlyQyQGcx2IqFuLEhuwZ_nDvpe7HZvWwC6Erv2Ni5e1tdosRnJ91uJ5wlCaaYhDy4RBRVTxbUuBZ5z4E_Ozx6WGRbkogys4tPg6o012q9nWJOPhT6Pb2hkZqae0aqeaN118SgMUTqtxZGYHU50lI7IW4VdFwATRZci9VjPsm_HDaJIFZcq2Ro9mYESeXd400DPQxtQltDDLNbkODqYYUrEP8fTS0hDQegNG2jSSZZX9Ec2whFw3rTzqHBLrRN2Hbh1HIWMDe4MhzKibievQKp1vy3C8mYlLBPzUs_PxM98medLdZgUl0rKih0SHTTAXtK7vfZ-vzmIWlcTtMVdZ7-7yt1wdu3-FDB2C7agY6TuYraQaNxvNKLGpQLYEPNMVvy8Q117C3lPtI62FB9xw1j7CqcBBrtKaCFtqVaBS3Si_X3Kh2HafQx8ulmOREw3KFHg-iUhqBbweyXFJq_A2m8vJRDst86E70XrECVADlw2NEoLPYGqaiPAZP2lRbJG1VjWTx5An5SDc1mss1aNJlNb1j8JxvixInXfpkFzG5GbIDX-oVV58oqbgDkAuaJVSzvH1TGKU2tCi89c2Bcg02tzR_QDhkrbJ5GxL76TXgW4ssEz3wSywtUD_66aYo0qEjUuHCwiafBlhcOj3Y5A7OiK4f0lePWKMQOsQaUdl5NiSzUx6-Lgt5oNhw-fE-36HKe3R4pqlOBZyIPKrTiuQd2wCKk_BGCILgs9V8aLpxO8uBOA"
+      }
+     },
+     "id": "prt_0accdd4dc0015jexgaKH1SApKg",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdd58672e28b7c094f26c0506d",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode"
+      },
+      "output": "[160 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode",
+      "time": {
+       "start": 1789605566337,
+       "end": 1789605566350
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdd58672e28b7c094f26c0506d"
+      }
+     },
+     "id": "prt_0accdd62e001c4r6yF6peGm3DC",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdd5ee73ba8fdfae6d04aeee1a",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/contrato-api.md"
+      },
+      "output": "[13912 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/contrato-api.md",
+      "time": {
+       "start": 1789605566341,
+       "end": 1789605566370
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdd5ee73ba8fdfae6d04aeee1a"
+      }
+     },
+     "id": "prt_0accdd68a001vdj55XJq6hVM81",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdd64377688af668b134032ba7",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "[205 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api",
+      "time": {
+       "start": 1789605566344,
+       "end": 1789605566352
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdd64377688af668b134032ba7"
+      }
+     },
+     "id": "prt_0accdd6d8001L0B2nldCuSkq6W",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdd69874adb12d3a281e064ced",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/auditorias"
+      },
+      "output": "[260 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/auditorias",
+      "time": {
+       "start": 1789605566347,
+       "end": 1789605566354
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdd69874adb12d3a281e064ced"
+      }
+     },
+     "id": "prt_0accdd72a001uoGXq5qkyAEiQ6",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 11487,
+      "input": 2741,
+      "output": 281,
+      "reasoning": 32,
+      "cache": {
+       "write": 0,
+       "read": 8433
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdd7a50015F0Qoabhk89Nyh",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdce8d001jHzTuuSRWttw0M"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 16798,
+     "input": 5402,
+     "output": 275,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 11121
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605566381,
+     "completed": 1789605567714
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdd7ad001xMaPlGSEOxbbFW",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accddaf3001oXa2bS9PG2IOAj",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdda0171a394d27e4f44e6426d",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode/agent"
+      },
+      "output": "[185 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode/agent",
+      "time": {
+       "start": 1789605567677,
+       "end": 1789605567691
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdda0171a394d27e4f44e6426d"
+      }
+     },
+     "id": "prt_0accddaf5001LnaoOk2YKrEkvl",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdda917314ae1367e41ce436fe",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/AGENTS.md"
+      },
+      "output": "[3447 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/AGENTS.md",
+      "time": {
+       "start": 1789605567681,
+       "end": 1789605567709
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdda917314ae1367e41ce436fe"
+      }
+     },
+     "id": "prt_0accddb20001f7YSktjK1czd2f",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accddb0f7585bcfd889d9f8e2ca6",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src"
+      },
+      "output": "[169 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src",
+      "time": {
+       "start": 1789605567685,
+       "end": 1789605567693
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accddb0f7585bcfd889d9f8e2ca6"
+      }
+     },
+     "id": "prt_0accddba0001IJNjyQQ6J20lXb",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accddb9071839977333d501131b4",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test"
+      },
+      "output": "[1000 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test",
+      "time": {
+       "start": 1789605567687,
+       "end": 1789605567695
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accddb9071839977333d501131b4"
+      }
+     },
+     "id": "prt_0accddc24001nGq4jcnwSvtGvV",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 16798,
+      "input": 5402,
+      "output": 275,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 11121
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accddcdf001lmDZ1hFh5Y3IZ2",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdd7ad001xMaPlGSEOxbbFW"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 18557,
+     "input": 1918,
+     "output": 142,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 16497
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605567717,
+     "completed": 1789605568947
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accddce5001b00PnqKgZSnkSd",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accde033001LtxWgN0iaSkVXn",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accddce5001b00PnqKgZSnkSd"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accddf747433a900f62aee15f520",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode/agent/auditor.md"
+      },
+      "output": "[4595 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/.opencode/agent/auditor.md",
+      "time": {
+       "start": 1789605568889,
+       "end": 1789605568902
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accddf747433a900f62aee15f520"
+      }
+     },
+     "id": "prt_0accde035001uWXqCw2Y61mSxv",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accddce5001b00PnqKgZSnkSd"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accde029723cb8f902dd85791b55",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js"
+      },
+      "output": "[33000 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js",
+      "time": {
+       "start": 1789605568894,
+       "end": 1789605568906
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accde029723cb8f902dd85791b55"
+      }
+     },
+     "id": "prt_0accde0bf001EiEjiQX8giMe8z",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accddce5001b00PnqKgZSnkSd"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 18557,
+      "input": 1918,
+      "output": 142,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 16497
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accde1af001Ff0Cbzzng11Pz5",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accddce5001b00PnqKgZSnkSd"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 29924,
+     "input": 11377,
+     "output": 240,
+     "reasoning": 18,
+     "cache": {
+      "write": 0,
+      "read": 18289
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605568951,
+     "completed": 1789605570836
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accde1b7001DW7HaGahJPLeG2",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accde586001p63KovpupXarQ1",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605569928,
+      "end": 1789605570022
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36c16137591b971c4276:rs_01a0accde4cf7669858f07cd4913ed0f",
+       "reasoningEncryptedContent": "Q-PaDgGv44_ao00t6cHfLsoVO5-dlLWhyEdkd8Ts22uI1fbMTh0KmUPtUfmXMh1LIwvgQr-o3n506alGZsVdTYp-9C1r2cbdWCIkU_IZjYNVcUmJE2NsdKj74Q_sylS5CbUs1NYyi35l1zvipJ3I9L_puLWw0_gq6RoobsmB3F0T1MTA-LSVIxJUBpk4E9qWaMqkiDXiHD-GUY5Wp2yOHumtSP7nK25H8jvyI0Z6teXFqLz7Ju2FyYmEPuDm5jcpWyc4zQhaowoCLhvLcyEx3SqCC13yx68zUQDLwht3PpQUDVvqgzoTnRrXzWI6Z1GF1Tw98PbviG2rwkd-YRVsr0GOaeEC477cOeMubOwndyZQgsB_hqOOTCVJAi4x6SxXyu91il19brSNHwcaq4KsEaxjtrYkWx1dpxMvjpE9BPeCItfYxUqlFuYx07VkJRUqxamoNuA_UuvTK1NngDhboaOEelPxBhaCBxrXVF3oY4K1CTdf8RMv9dkZPkix-fP1Sj0l8JPgYW2L43bhEVvj0tGtsa-ll2hOX4ZXb8y9E1MzNL2HaxulUpBqsvP8Dq2Iogd5VdzD_dzp0dkyU90YriCXwA6wRhkZLJF_oNv6dHnXgcP4WVLErSbzMo2YpOXNhRlq9NIAq39MzamKCrTDaWlfdJ8x08t-F5gs4fMw3hLZJIn7VOk48tQLLLzYZInr_BR8EM_HAPdDkU76mxUgCQ6ayHmlpHbiEiF4Q60H6MyAGqZ8epjLso4kLrdo7FnJpuopndSwJZ8EN33t187o2qsfeXNf4P035ztifstjD35Bx3QoZOGN_vuTjqsrSzktOhS_i7FLm79e0VHCOXx-ubB4RY63_K4Kxtq_ifPJcjyYN9ev0wqTEJux0YhvI3rrfnmDfM_tWM3EkiWuEb75wJxVNacnJP96mzBEih0qGahjSaR-mYEWad76Hvq2QT3kY_APYqwiGe5fj4FfD7f5zFiYut9cLVKWRIiOyUbJDedZkql9dKnjcuo_Ta5oc7_HZffhlqm4VNWyD9A170eboPdMFNiZZTpxm7Z8Oooum57DyqhWuzhsTcupHOGrIzvyLfYILDUeuX3fiMuVUmvxSta1UZd19NkBe63z232p1RthrJ4lQ4BakF-CGJ0CYBv2tfvgk0uItPJB3Kzk0hlmS_-ktgiZjSzZRLqXR2pc1hl3-hDJJ-oSiFQ7ZoSI6OVUG7S8jhOob3h4PgixbeRoOpQOC_705vB0WnQSkziFRHEdR_GsNqc2nPRgK2xLPSJI5gJXVCQ6tdFznm7EORMBc3kXH-EEtLCnvvAT_0FptKRiUuIS25w7JDhjxm6foC9ehULYZCw2103BBu5dKLEEA3k4CWsXchB8OdLKGMAUE2Wm8owHQ_0IHg_dOH7InlEIzrLgc7p8_sSQZLyErg"
+      }
+     },
+     "id": "prt_0accde5880017OZZc5sSXmWkgS",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605570032,
+      "end": 1789605570276
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36c16137591b971c4276:rs_01a0accde5597448a030a5b3fbd7665b",
+       "reasoningEncryptedContent": "Q-PaDgExW0yyXMX-Q08E3BvtvE8JAmb5iqSOHXQlW8N10NcLbq6-7usVlmZ1IFcziYsB7L4IRAvIPcO4UFwiajYrE2RN2NuHCNFik0eOK3jOGmVHhs8-c6SnOAetbzulVXEyyivS-9lViWX_bo44fnfgwun3oyBBuffB7seazYPjW1mRnG06sb_3J1Pvw0-022Dd6P-VFiLvYX1H07ik3EghE2FEsxYUnQBfbO8h4j9kj_vPMBDN4f-_jrn21vyiMiBJ-uZ6boYrYtXMvSYtBkTYDRV7dBFfagGVVLxW-N7ZsmkhWVLvFYk_EZFdifhY6tSAcg2AbuZYP5HajYOtq_L2NCigFcNBbY7nXrXzw8A9bDR_i4gqHSv2zXkYxZWHkIDYVbEhn2oXGH0eiya0Wemt_uvmx8-KK-2wBwj6CsT7WMY_n5ccNxs4Bx7bCOnL-I1HDMlNrcZHiMYTbpfqRXBI19oRDKMA0AvTmt6vOulqzWOy9XRK57gOTScRKKixe0xaCi__ktHOeyTYHsUd3PDnISqNEtIYH6K4KC8cpH-r_AGGrSASBuiDZ9hYHFPdm1aXPOlROJ8tLxHDfEcqtzax9HHaJ7oYTtioAiDpdqKa-iTmRgbNFedp7F76A87ows-7YMRcBfnsPbjfaHp8r0FVz8tDr-FEinkKSK0zJvWWC1OTx-JDbIUtMsLj7D6j2S_E-scGiUaqtsMaCwXjcdnea5B16ydOsb2V2eZScv5AJe2gj7WaHKU2UKIiggSww-C1MtRSKv8ke_uXrisN7Hg-Ebe7k3g-iZwnBkt9dMrkvw2YsSC404HwQfslAQth_XkN2XOyyausUL7mPN5jxA13PLZ-QdKnuSza70UjdT-zR_8J4JT9c4Tm6rl4FkQPx4c-M1et0S41ofQgMECY4uPkLc6NSsRdzXqtljCeHBXbC9qRvW-NiW7FBRzN6xlBiWiX2JmK1C7dcQkkMHgCZb0ON2UvkrvNv_Z33AGgJ_un_80W92Na_ZdFwcqifGDk6caSHlaKV8ucvLv7KuJvRu3SMpAIZrICAsyehi4_Sfrmgz8E822tpGsJU5p6prmyFmy7kb7lWuDUfCP69qqgAKYKAR8P_oF3pbAXNDmpkZ3e9ncfqjfGt6tyoUIIACRHL3SSizEc3CCqlL3UUso1zI8J8XXvJuu3V96um-0Yc4SSOUOV768qnP0YJwv11mvnc68YjeWc7gosCpYqTmzqZf8GHU9v2NQP9tBvkcGyG7zzm_l5eCZJt7M-yZeYXSsPUPTQu1fVNFAhpxLpG_dYDGSd5gGmwFtE7oDVxJQr5g6TCfEO3_WMS49ms_ybiotHNmNfM-AFPeykZ5d-XEcDI0R3qwGi4IIXTDhhbZLut0V4bMup1f9vnTsYbFZbwpiM-eZtNxhqgtdaHGAl4w"
+      }
+     },
+     "id": "prt_0accde5f0001NJaPneh3Er0Dlp",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accde65573809a402185e22425cc",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas"
+      },
+      "output": "[185 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas",
+      "time": {
+       "start": 1789605570796,
+       "end": 1789605570807
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accde65573809a402185e22425cc"
+      }
+     },
+     "id": "prt_0accde6e6001MeczQppDeT0HPa",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accde71371a391d139cd080f5698",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/projeto.json"
+      },
+      "output": "[477 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/projeto.json",
+      "time": {
+       "start": 1789605570800,
+       "end": 1789605570817
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accde71371a391d139cd080f5698"
+      }
+     },
+     "id": "prt_0accde7a3001ey2O6rI2zSvdbx",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accde79677d9867305e1c7c14573",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/banco.js"
+      },
+      "output": "[8696 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/banco.js",
+      "time": {
+       "start": 1789605570804,
+       "end": 1789605570820
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accde79677d9867305e1c7c14573"
+      }
+     },
+     "id": "prt_0accde844001xvYAvgCT9lP0N6",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 29924,
+      "input": 11377,
+      "output": 240,
+      "reasoning": 18,
+      "cache": {
+       "write": 0,
+       "read": 18289
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accde911001FkPJ77ZLJxb3vI",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde1b7001DW7HaGahJPLeG2"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 32827,
+     "input": 3200,
+     "output": 74,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 29553
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605570839,
+     "completed": 1789605571929
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accde917001VCqS9pZ77eTuRS",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdecfb001zCUwZBWUcPJw6H",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde917001VCqS9pZ77eTuRS"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdeba67440b760305d2c43f58a",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas/M2-inscricoes.mc"
+      },
+      "output": "[9616 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas/M2-inscricoes.mc",
+      "time": {
+       "start": 1789605571855,
+       "end": 1789605571860
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdeba67440b760305d2c43f58a"
+      }
+     },
+     "id": "prt_0accdecfd0012liY6fW7iePtwO",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde917001VCqS9pZ77eTuRS"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 32827,
+      "input": 3200,
+      "output": 74,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 29553
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accded55001xb6dRv8PLdkyOw",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accde917001VCqS9pZ77eTuRS"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 35880,
+     "input": 3013,
+     "output": 100,
+     "reasoning": 14,
+     "cache": {
+      "write": 0,
+      "read": 32753
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605571933,
+     "completed": 1789605573842
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accded5d001QRbMUNsCgOanU3",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdf13b001fhhOuy0bEqHj3r",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accded5d001QRbMUNsCgOanU3"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605572926,
+      "end": 1789605573156
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36c44119c956f9be451a:rs_01a0accdf054702693a8b48861b9a1bb",
+       "reasoningEncryptedContent": "Q-PaDgFsL6CbyCr2sRmnVULBfTQn5_AQgi3LGVPchQV4gh5zV54aMpmXoXdb7j5IYRrpQKFvoclcHxasVaFSurlPzP9TZM5cWCwGy3h623gOmOJ8Gg5_cnicha_VavkK8QAd_rpil9XktePzUDS7miMsKGq5vKwmCckpB-LYQFBai_RNp0SdC3hFQAlFkB3nd3-s1tGjVKhVy2slZZKXieL2rakVCFp_BtgFSHDhlYrH0cKgOmoDmVTyxnT4UqmptsDp66tNsfQnYRh0mb5TLZZiRskzn2DSpG3vqmQi98Ln8-0QMs5MnOUbw83CdcFbwDSTy7JlCwDppDWLf1fguJ7cBYwjsoSJM92wFnNvrd1ST6mhXRd--DwGkYF6Jj3rjTvTL2fHOfERWDOFvj0tZYlMeEPNQiHARgWDIiRYEzO6n17S9zpV9E0f4QcP1DvaMI3zUDdnmNvZDAho59sSvAg-J-Qncd5TvoZV4Kl8uVYU1gf8CV5b7KGtiSKZRY3G-dOb-aMif4RTGBESFOnaqdINBu7pS_T0SC5b2zynCJhgTf12kTUxskKcBETucHvZJMe3o_zvKCwbh5zrBrgx2cpePnZ-y8-2UKyLmfhh0xTq__RDbZQ5tR_M17knTRR-FbjJNuUaHqdN_drfCRMIWCrCxl5dbac-JgtvFrlyKV3-vudtFjPuWVgexx5kOmgusxiCHJPR9jtru0B6jDrxv_CwcSCnCaJlTUhA1WprwEpVVK8XbHdno5CtyDhSztw0bJOUWIhBj-roskkAAi6bRqLzNT_ZSYk_R-gDFFvA7T6KuOfiX034Eg7DxZtqmUZiTn5922U-OF-SfRhKJzuLHcJ0nGR4hYN2yehajC7liC1dspdgs7uI0HKfoa4ZtEXZeSz9RLSKAxbFlgmGexU4gkIwqfy468X3inLoWBxcXTQXjrlwCFZuNOtyBduULyg5-uDz3FidtQSVck2eY1xb0A8NHlth9ZqbV3NOUCCRCDnPtYKB-xgMw1hiqONdH8gYas63Ni-Y0Po96MsW6ld9rtAgIdp-oCAtR3Mj4unN4Z2z2segwVPSyPGS-yJCP48-hfv3ovKCnfYoFwcT2NU9_16TnJkKSwaFQlgFkQbFG5jXpIeh4sq-xgfpL64NPfhxoFgkVEW_3NfYrY5rziYCZtlrA4-VWvAbtceAwXYwas3JJeZg2oZIWXw6xsqhAuQhgkH1Eoot9L83qccjJ19WVdNkyc_fPUAAHHwqqy2UQ3ISbqExti9hsvaQFJMLId3Un04nw-so9yRnDTrp8EL6Pzv2XbjJk3573f4nxczzIb7367eHADqN7hbwJi7njaAFJqpnnhVcGURgzy8IhOka9S3DFbL-q7P-lNMxxYW9w1-Sb1wwAYjZsLysMmPXbF9zD9dIM9gkcCLu5uGRow"
+      }
+     },
+     "id": "prt_0accdf13e001eUQ4vSPIGA6SZ8",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accded5d001QRbMUNsCgOanU3"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0accdf17f751aaa7f09dc729f5d7c",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "ls -l test/m2* && wc -l test/m2*",
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "-rw-rw-r-- 1 fussumam fussumam  2731 Sep 16 21:28 test/m2-p15-perfil.test.js\n-rw-rw-r-- 1 fussumam fussumam  1437 Sep 15 22:41 test/m2-r202.test.js\n-rw-rw-r-- 1 fussumam fussumam  4273 Sep 16 21:27 test/m2-r204-expiracao.test.js\n-rw-rw-r-- 1 fussumam fussumam  2860 Sep 15 23:05 test/m2-r204.test.js\n-rw-rw-r-- 1 fussumam fussumam  2283 Sep 15 22:58 test/m2-r205.test.js\n-rw-rw-r-- 1 fussumam fussumam  2686 Sep 16 21:27 test/m2-r206-reinscricao.test.js\n-rw-rw-r-- 1 fussumam fussumam  1300 Sep 16 21:17 test/m2-r206.test.js\n-rw-rw-r-- 1 fussumam fussumam  3747 Sep 16 21:28 test/m2-r207-convocada.test.js\n-rw-rw-r-- 1 fussumam fussumam  3278 Sep 16 21:19 test/m2-r207.test.js\n-rw-rw-r-- 1 fussumam fussumam  5156 Sep 16 21:28 test/m2-r208-contagem.test.js\n-rw-rw-r-- 1 fussumam fussumam  1462 Sep 16 21:20 test/m2-r208.test.js\n-rw-rw-r-- 1 fussumam fussumam  3820 Sep 16 21:28 test/m2-r211-inativa.test.js\n-rw-rw-r-- 1 fussumam fussumam  2305 Sep 16 21:20 test/m2-r211.test.js\n-rw-rw-r-- 1 fussumam fussumam 13791 Sep 16 21:34 test/m2-r215-confirmacao.test.js\n-rw-rw-r-- 1 fussumam fussumam  3126 Sep 16 21:21 test/m2-r215.test.js\n-rw-rw-r-- 1 fussumam fussumam  2838 Sep 16 21:28 test/m2-r217-cascata.test.js\n-rw-rw-r-- 1 fussumam fussumam  2009 Sep 16 21:21 test/m2-r217.test.js\n-rw-rw-r-- 1 fussumam fussumam  7529 Sep 16 21:34 test/m2-r218-precedencia.test.js\n-rw-rw-r-- 1 fussumam fussumam  3901 Sep 16 21:20 test/m2-r218.test.js\n   54 test/m2-p15-perfil.test.js\n   48 test/m2-r202.test.js\n   73 test/m2-r204-expiracao.test.js\n   90 test/m2-r204.test.js\n   77 test/m2-r205.test.js\n   48 test/m2-r206-reinscricao.test.js\n   46 test/m2-r206.test.js\n   64 test/m2-r207-convocada.test.js\n   63 test/m2-r207.test.js\n  103 test/m2-r208-contagem.test.js\n   37 test/m2-r208.test.js\n   63 test/m2-r211-inativa.test.js\n   48 test/m2-r211.test.js\n  215 test/m2-r215-confirmacao.test.js\n   62 test/m2-r215.test.js\n   45 test/m2-r217-cascata.test.js\n   35 test/m2-r217.test.js\n  137 test/m2-r218-precedencia.test.js\n   74 test/m2-r218.test.js\n 1382 total\n",
+      "metadata": {
+       "output": "-rw-rw-r-- 1 fussumam fussumam  2731 Sep 16 21:28 test/m2-p15-perfil.test.js\n-rw-rw-r-- 1 fussumam fussumam  1437 Sep 15 22:41 test/m2-r202.test.js\n-rw-rw-r-- 1 fussumam fussumam  4273 Sep 16 21:27 test/m2-r204-expiracao.test.js\n-rw-rw-r-- 1 fussumam fussumam  2860 Sep 15 23:05 test/m2-r204.test.js\n-rw-rw-r-- 1 fussumam fussumam  2283 Sep 15 22:58 test/m2-r205.test.js\n-rw-rw-r-- 1 fussumam fussumam  2686 Sep 16 21:27 test/m2-r206-reinscricao.test.js\n-rw-rw-r-- 1 fussumam fussumam  1300 Sep 16 21:17 test/m2-r206.test.js\n-rw-rw-r-- 1 fussumam fussumam  3747 Sep 16 21:28 test/m2-r207-convocada.test.js\n-rw-rw-r-- 1 fussumam fussumam  3278 Sep 16 21:19 test/m2-r207.test.js\n-rw-rw-r-- 1 fussumam fussumam  5156 Sep 16 21:28 test/m2-r208-contagem.test.js\n-rw-rw-r-- 1 fussumam fussumam  1462 Sep 16 21:20 test/m2-r208.test.js\n-rw-rw-r-- 1 fussumam fussumam  3820 Sep 16 21:28 test/m2-r211-inativa.test.js\n-rw-rw-r-- 1 fussumam fussumam  2305 Sep 16 21:20 test/m2-r211.test.js\n-rw-rw-r-- 1 fussumam fussumam 13791 Sep 16 21:34 test/m2-r215-confirmacao.test.js\n-rw-rw-r-- 1 fussumam fussumam  3126 Sep 16 21:21 test/m2-r215.test.js\n-rw-rw-r-- 1 fussumam fussumam  2838 Sep 16 21:28 test/m2-r217-cascata.test.js\n-rw-rw-r-- 1 fussumam fussumam  2009 Sep 16 21:21 test/m2-r217.test.js\n-rw-rw-r-- 1 fussumam fussumam  7529 Sep 16 21:34 test/m2-r218-precedencia.test.js\n-rw-rw-r-- 1 fussumam fussumam  3901 Sep 16 21:20 test/m2-r218.test.js\n   54 test/m2-p15-perfil.test.js\n   48 test/m2-r202.test.js\n   73 test/m2-r204-expiracao.test.js\n   90 test/m2-r204.test.js\n   77 test/m2-r205.test.js\n   48 test/m2-r206-reinscricao.test.js\n   46 test/m2-r206.test.js\n   64 test/m2-r207-convocada.test.js\n   63 test/m2-r207.test.js\n  103 test/m2-r208-contagem.test.js\n   37 test/m2-r208.test.js\n   63 test/m2-r211-inativa.test.js\n   48 test/m2-r211.test.js\n  215 test/m2-r215-confirmacao.test.js\n   62 test/m2-r215.test.js\n   45 test/m2-r217-cascata.test.js\n   35 test/m2-r217.test.js\n  137 test/m2-r218-precedencia.test.js\n   74 test/m2-r218.test.js\n 1382 total\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "ls -l test/m2* && wc -l test/m2*",
+      "time": {
+       "start": 1789605573658,
+       "end": 1789605573686
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdf17f751aaa7f09dc729f5d7c"
+      }
+     },
+     "id": "prt_0accdf26a001ISKiwU4pOtfPZc",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accded5d001QRbMUNsCgOanU3"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 35880,
+      "input": 3013,
+      "output": 100,
+      "reasoning": 14,
+      "cache": {
+       "write": 0,
+       "read": 32753
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdf4ca0013EpOk7bu6N7ZTP",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accded5d001QRbMUNsCgOanU3"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 37314,
+     "input": 1017,
+     "output": 600,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 35697
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605573848,
+     "completed": 1789605576209
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdf4d8001p0uAjbSZESUQP1",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0accdf9e0001W5trIdAssanVOp",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdf7f271d58f07bc21e2b6fa95",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r202.test.js"
+      },
+      "output": "[1784 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r202.test.js",
+      "time": {
+       "start": 1789605576144,
+       "end": 1789605576183
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdf7f271d58f07bc21e2b6fa95"
+      }
+     },
+     "id": "prt_0accdf9e1001Wj4jOTIzromJ2T",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdf89a706caee53b033f4c4d45",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r204.test.js"
+      },
+      "output": "[3370 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r204.test.js",
+      "time": {
+       "start": 1789605576148,
+       "end": 1789605576187
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdf89a706caee53b033f4c4d45"
+      }
+     },
+     "id": "prt_0accdf9e3001I4f6b4g3nNeGqV",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdf910765daf73f76634854cde",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r204-expiracao.test.js"
+      },
+      "output": "[4707 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r204-expiracao.test.js",
+      "time": {
+       "start": 1789605576150,
+       "end": 1789605576190
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdf910765daf73f76634854cde"
+      }
+     },
+     "id": "prt_0accdf9f3001qq9a1EiBZCgz5x",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdf9d077f8ba7ed9ff31fa7146",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r205.test.js"
+      },
+      "output": "[2749 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r205.test.js",
+      "time": {
+       "start": 1789605576155,
+       "end": 1789605576193
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdf9d077f8ba7ed9ff31fa7146"
+      }
+     },
+     "id": "prt_0accdfb06001qbMR3gTvD5xahd",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdfa62719eb24fb4053fe2abc4",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206.test.js"
+      },
+      "output": "[1641 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206.test.js",
+      "time": {
+       "start": 1789605576158,
+       "end": 1789605576196
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdfa62719eb24fb4053fe2abc4"
+      }
+     },
+     "id": "prt_0accdfb43001goBiNl0wNytaV4",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdfb0b76f994128bbd2de6a3c9",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206-reinscricao.test.js"
+      },
+      "output": "[3042 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206-reinscricao.test.js",
+      "time": {
+       "start": 1789605576161,
+       "end": 1789605576198
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdfb0b76f994128bbd2de6a3c9"
+      }
+     },
+     "id": "prt_0accdfbe7001npFF5vmpLLAleN",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdfbb2722fafb44a83f1066868",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r207.test.js"
+      },
+      "output": "[3686 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r207.test.js",
+      "time": {
+       "start": 1789605576164,
+       "end": 1789605576201
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdfbb2722fafb44a83f1066868"
+      }
+     },
+     "id": "prt_0accdfc78001j6BVcfnMFIDFmb",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0accdfc4f75ebaa0bf042fca2aa42",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r207-convocada.test.js"
+      },
+      "output": "[4166 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r207-convocada.test.js",
+      "time": {
+       "start": 1789605576168,
+       "end": 1789605576204
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0accdfc4f75ebaa0bf042fca2aa42"
+      }
+     },
+     "id": "prt_0accdfcff001YZqAAjgSEp1tqi",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 37314,
+      "input": 1017,
+      "output": 600,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 35697
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accdfe0e001a8V5ds33wCQBnP",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdf4d8001p0uAjbSZESUQP1"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 46780,
+     "input": 9588,
+     "output": 599,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 36593
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605576212,
+     "completed": 1789605578851
+    },
+    "finish": "tool-calls",
+    "id": "msg_0accdfe140016lAtsudxxB5yZI",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce027500112KoZ3In2oVQ2X",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce019574c3926892aad2167522",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r208.test.js"
+      },
+      "output": "[1772 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r208.test.js",
+      "time": {
+       "start": 1789605578760,
+       "end": 1789605578822
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce019574c3926892aad2167522"
+      }
+     },
+     "id": "prt_0acce0277001jNzm21sdAuddxh",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce024a7764b5c03c296f2371e3",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r208-contagem.test.js"
+      },
+      "output": "[5723 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r208-contagem.test.js",
+      "time": {
+       "start": 1789605578764,
+       "end": 1789605578841
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce024a7764b5c03c296f2371e3"
+      }
+     },
+     "id": "prt_0acce030a001nHP0PAfu7XJLC5",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce02ff72e180403c216f40f61f",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r211.test.js"
+      },
+      "output": "[2658 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r211.test.js",
+      "time": {
+       "start": 1789605578768,
+       "end": 1789605578817
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce02ff72e180403c216f40f61f"
+      }
+     },
+     "id": "prt_0acce03bb001OrTnr5vRZU6O3r",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce03b5750ea4f74e8a3eb67e53",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r211-inativa.test.js"
+      },
+      "output": "[4233 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r211-inativa.test.js",
+      "time": {
+       "start": 1789605578772,
+       "end": 1789605578839
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce03b5750ea4f74e8a3eb67e53"
+      }
+     },
+     "id": "prt_0acce0486001T9Z801JXzWNdCl",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce046777c7b45313f5f6fbdb72",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r215.test.js"
+      },
+      "output": "[3533 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r215.test.js",
+      "time": {
+       "start": 1789605578775,
+       "end": 1789605578844
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce046777c7b45313f5f6fbdb72"
+      }
+     },
+     "id": "prt_0acce0543001RHAftVqqkLJEPr",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce050b724eb971be1468b308e5",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r215-confirmacao.test.js"
+      },
+      "output": "[14884 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r215-confirmacao.test.js",
+      "time": {
+       "start": 1789605578781,
+       "end": 1789605578830
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce050b724eb971be1468b308e5"
+      }
+     },
+     "id": "prt_0acce05e9001IkYKBA9NoZde0P",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce05c971b9977e7878c30748dc",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r217.test.js"
+      },
+      "output": "[2311 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r217.test.js",
+      "time": {
+       "start": 1789605578785,
+       "end": 1789605578826
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce05c971b9977e7878c30748dc"
+      }
+     },
+     "id": "prt_0acce06b6001mlW6pGh6rxopuH",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce066c7224b409b170d429eb7e",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r217-cascata.test.js"
+      },
+      "output": "[3177 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r217-cascata.test.js",
+      "time": {
+       "start": 1789605578792,
+       "end": 1789605578834
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce066c7224b409b170d429eb7e"
+      }
+     },
+     "id": "prt_0acce0760001BMP6cyn0jDA05V",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 46780,
+      "input": 9588,
+      "output": 599,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 36593
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce085f001TmrkcSNUwO6tCT",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0accdfe140016lAtsudxxB5yZI"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 60357,
+     "input": 14067,
+     "output": 225,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 46065
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605578856,
+     "completed": 1789605580753
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce0868001MTiXldX0UaXYxJ",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce0ce3001BUDDTSVz8aY3Ge",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0868001MTiXldX0UaXYxJ"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce0c2775109b4187bfbfefda1c",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218.test.js"
+      },
+      "output": "[4351 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218.test.js",
+      "time": {
+       "start": 1789605580712,
+       "end": 1789605580734
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce0c2775109b4187bfbfefda1c"
+      }
+     },
+     "id": "prt_0acce0ce6001H8psz2SuFgC3Tx",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0868001MTiXldX0UaXYxJ"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce0cfe70d1b15d67a544adf5ce",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218-precedencia.test.js"
+      },
+      "output": "[8262 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218-precedencia.test.js",
+      "time": {
+       "start": 1789605580716,
+       "end": 1789605580743
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce0cfe70d1b15d67a544adf5ce"
+      }
+     },
+     "id": "prt_0acce0da7001I11oazWdK9r32j",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0868001MTiXldX0UaXYxJ"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acce0dd375cda92a3415f763c9a8",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-p15-perfil.test.js"
+      },
+      "output": "[3095 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-p15-perfil.test.js",
+      "time": {
+       "start": 1789605580721,
+       "end": 1789605580739
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce0dd375cda92a3415f763c9a8"
+      }
+     },
+     "id": "prt_0acce0e81001IhNeaXrdtOFuhO",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0868001MTiXldX0UaXYxJ"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 60357,
+      "input": 14067,
+      "output": 225,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 46065
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce0fcc001p2vZpBpkYYGwNi",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0868001MTiXldX0UaXYxJ"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 66672,
+     "input": 5967,
+     "output": 137,
+     "reasoning": 551,
+     "cache": {
+      "write": 0,
+      "read": 60017
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605580759,
+     "completed": 1789605587846
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce0fd7001w8s412onmAmJgu",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce1465001Z6036o5Y9d0PE4",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0fd7001w8s412onmAmJgu"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605581929,
+      "end": 1789605585103
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36cdcd26d8835c5b47b9:rs_01a0acce135a7320b0b23164ae89fc78",
+       "reasoningEncryptedContent": "Q-PaDgGYoMPzdWS84pdeND4MxlH2TkBkidZZypUVnjBDPzgtLeUz6gZKooTJ3T2q9dweUxtoRf1OuTIhdbBQhx7QR3BI9Bn72o0t2nRGwb1BVN2f3KPK_HJACSsm3SgnENn-eA0Dub_b2UvqC2tQYUIEgkq-hMoXhQYLadFAUFFB6rlGK-kwrGdIHklfY4ysWF5fUcSgUZlG9mK9lRfzOSRpQjACvoEv0jxpRoliGTNmUB9rMwcHKsmh6qbZ9h3HryN6Fi4RnfBQPOHbG7o10wPYfNZT4t-m5Uh2MfXderYxBrF_eAmgo5xVBJJmrTZc6Uu_cU84r8KYZMNiTc9PlP7dgsmEYWc1n6O5KrdSJoYgXheyalN0gqPLPnZtBvfv7WwZmDvSBD38ptIaHbz7EBSthUGYeV2m-DqgySpILMMSrG7v1mFZWqKyuf5sjd75SGJs6LWyqoV5cjLJDqAF4A7qdJGhtjHDuMw7-UnJdG_kFnOEGpc-bEpii6fME53aBfNhX1eLGjFBzFM33KvVcyYroJuVE968md2hP5uWxr_iCAgXnzJoYJgNhtH-JAf7ZjeFIlPJ58GgY2F5A6yLvEv14k1eXCaKna7XWROgnKh_p6BsXj2YSswrhFHMp-uZBRQQSi5ArR-X-65xDlG5q-9DeCwNomauO_Oq0vx40_ZxJBXNVv_1pOT30x2XLLEo_RNmj8aC3QSOJ6qKQ-H4uZLUx0tjDRN6h8XoUelIyyqdWsw_dYCws70j31QUMaDcvxDFUOs6KGVyeAra5w4IT0K6Z4BEo_LpzF_rwk8rfgoUhgQD-sZ534Bs9P9r0DOGO94-HOHKcHjbj_gtFuHg6cKkFhR2QsjFSd-p1ovp9VnNTpiK7T3Yq1KWGxnR_wtXaDVXl0NvIn9-pVrlgeAVNjoVbrQOdXEw2c_hbE9fmPNV_lbLvtOaBrGPzVJf2213jj0fd79aLCgC1Ry0A5vrlUeYgpFa3iN0mTdHOAS767beGk7nXstyJ-aRW11MqIQtqMg-bS87B0BMNLwsw83rakwx8uH1tHsmuLehLxGVNu7qn2sHUqhgvH6724yVwsyyziaUfBbeR3GOtlcFRJFtwHX2ukmeUGXVRXOOC_oc5Y8C9vF-uZvyZTGJ4rUYg95GAePadJLGIL-mDWW_dpeNqhut4b4XZSWu_1p_VF595aK0qIONM7byTLqOO9wmTJyRxB9B-frmVg75qez5Zs7wTW5g2CANebeUTAqKcAYgUoMpjuO0wMtieTWKY--K1OjqERxzvXMbot41wLRFMo3RQF2Fe31AKSI6xMXSL12YXgkNgzYyW5ETc8G_rF0vRDmZF1r8UhfuwY9mm3i4ARAlmGLpr73EabOJoH84aGuqIfGIDAkH2FFOQHTuHqGzymf9CEKvgi69-9U8kyoNAhg-LOYHqIIJun4RF7AN_nXOEDW9EK8cnQkPSvoFxFyDYneccQd3HvM53m5mTdqDmYZEvkfRPovneyC-8aO9xX_cA0j16OaXxznsy24Hhf6RITd9reILoXPKzoB3KYtly8mxtsO6rl0mMNs3erw-6iub9KMPVScwrgE_mJHsN52tBdq0x-2visIsl1hJ-CpO29TGHuicUa94q3b4KTJwY-WEH4jppx7WjdvP6SPCxRH-MvhdyiIJ_pdQirMuXubfjvcNCPp8GaYbLo3qASxulrDWYHcW28ZkUEK_Z-PumvUi70T8dtF3OiBZmTXYgzj9N8JDfl9gl3h1hqrCPUEQYO7KcYOjTdaIfk2PIKQJnfbXj9TRqN9PYQ5fDh7FfaWodPQwcHuoAG4cKP6HBLq-06QJjcK1PkvxfTXTMv1bHxRQWaq5YAYqvjrV-cL-0Q7c4QqLRkyNbXC52Hb2xap8GyQ93d9LmNTXjJE-oQPnKkB96HUeU0RH8ySwJiULJAWy9mdPqNKyim07kX1_tStMs3gSON9E_dDKqrqbl-PsZw0imuHRf8wJ1PJuMh-mh3ro2Hfw0T1hfHkuz4K4kEMqK07C73WqyM9l5uOL0yPQsiKEQPRqTBCnUbut-Pcnfc8BPs-wX5-K-xGvTMYsAB9UuMbpPGXI1_tjyFVXWEHYlFNzsqb7QX1rrdfSJNet75BKCHgpqQ76kr5Ja3qT47po7Nzu-ZLbj9AVn1yjZV60feqJaC_DXnAeSw5YgfjI85aSHB-ZnfCbAojyTf47XJdKE5sCYjVVE3PgLq0gUbK3GPKWx3cbOuwyhS3EXx2MDgrQ1jJGGImlYfKlVqT0Ppto52RAhvsG2B6ROcoATZiATpCa-T1dbmeJX1AE9-Js-phDn7WUwuXrtJlxVdSOzjitBiVE0Maml95UrbNw0nUoUPaGsGFZVbn9hsjLnuYpmVK7DtGMbeYSLRjpwOhAoJwzYsPyPZq_ikoYsW8UumasFREE-fMsO6Mv3Uu93bGeMSftISs3JM5_k6vx1ovPjc3g7qwKYoycaiNhIx6lwSlQTuC68CAPqnf4PxC1VyM4EixmqUWo-_e8LKYhy2BcE9mMmkBoiVJ3vDCsUClp2l5snU11zkFg5NNfWoCVak0DpeJBwkfVvMDcVc3Z7hPqnrNk1qrEZBceECxoh3-2VdE6iu8n7cxXOeSt_GqImRsaCNEyx-G1TP1NQEPY7NlNL68EgEAs5Hy5PrSAWiS1ZYjCNRSxD1y7dySWvrT-lo7vpGGOFjWMuxAtlAxX379qNDLbtYghCodmeplb7Yb9zXPbm2OhzBWLUyAKDaPzQ8ahBIYdTQH9sLHPzpwlTxommNq69ejJtrPKQZUwKAQpDdclJx_YO8SoMalkip0wgo_vMJ526qbXSM39L-5M0q0LunWnpCZJecbFYRBhLqx58AROlVbGP36E0ofDvBNRWq1juLvi-9DGPAfo8rX2iWB2lOG6weJDYxFrKQrE8SMS1XpwnQIaGXc6hh0z-GTeTq6stcplEv76ObhXPWc_DaPPcMOL1a86cDclCxetnamziS7qgz82UeKdiO2qKjIVgO1LPRW97cQTiuqavojkzQb3UpVY_0NP3ZcIFez_xzHSx9cAmRciefRCNCjyZ57zZpwPtW7iKqN_h97MIsWAiMSMdOzbEIk_dgf-HGb1gGx0gW7dlQP4AhlVYwneRVUHg4GWhjecCixEiMHUk9st7neqKqVz74cqdKsWg60cI_6m9rhV9D0j6mXsxYD4wDwVV5LGzI59EpNg3t29DvUmKlxsMU61JL2wh0XM3irOOhaGNHh5i_0WBkAkh6qfD2B81WSLeVvcXkraSDc-XOiVPeC6h3xccXMx-KEIRSIdrT3oIZlvI10LXbFIMNW83-T1TvsLJSt-PgDo7cwsIpbp252lbGwxUcmHwCrxz-jV7zv44HUTgACTI02GOcxNVA4RVnZfmEYLGXfiHuUfF4WdyowixYL2UpJfrcE5wGe1b5FK93wDHDBjoMyB6R5MmSaXCplZ9LUQThAbeO44_Lkdhf9fGN2B2Nx2WJX1sH0ccoewLH28_wPNsazlpdngd4du8GomFbTIjsTkbIO1iLLaKnqDiJICTM6hgu9NlndxHrxUotusBDJ_8mVKegypX2g4Ifmr4ClG1hljoVf8DL6rT8LbQ6pdRQhela02mHhqSZw56aQAk5NFabsN87zz0g-ZCGqIE9kXYOVRCbWHbKMqNW5tXRS8MNrdJioTHdsbo1vIkRVW2Z8cGy_rovvv3MtpeCQE-PSaYhmQ9j__8gqnZD3dIe8LYcjTt_GorQ9NMXg4-eaimF0RIE_gmiONUp4JEQIbbaBUBlVC6ibsTOinK0NXcVfvf2MFK0xPaxRB7prcSlcAbfvmm24yM3K1779WcYsuXq5wZsmXw19rD8MHpA3dMkfUxwsnK_F7fiRa5l_0f3begv_YCXXBGaQRlkjCeBYYdC9ymBFhUs1qBR5RfMo4-mN15cHSe3Z22v8tXCfGW--bW5ArLtxrUA4ej6GXvs4gbX7sCKZFjLZFf6Hs-HqGqY1WidfNMecNtWfxJX1Zh7hoadqxqo5QIoj6fZMztL0eNQNnoHhw098cRTPwWavL1jaFSh94vWyKZtKRm_L9If3RG3UIvXAhAVb2TUwL0lYH8_s5qAJrlpgLiOE1p67Jf_c1zf8G_5rK5rAIe2yigBDx2Rxww7TK7WbvQjhHvpBfv_8z9yv7pMg7Z7iroklfKuH8-Jq40lZAXSeqjtWr3m50zV5AwsI-ic_2eS3TKWTXLn129ueyjXjC-EJYXXThGW0xs-NK7gAZyyFJUORu5Ehcbz4_cyTMipgObl2Cf3IQQR6iM4K8WIAvWFLLp8KFJSId19980ZIl4Zx-rhjDnLK4cLg6NDwhUwFrAOlTdRrh4CAOoMtqejAlscI2zWLlWQadGypGCSdKaR7K5eupJW6IV4UUOAKUkrnZuuV8v1s_qzXLXNB6CT76j6dHZ5-YZ5gNk5Cg5zDx2vwK6XsooCC336gCdWI60eYsYtWa1eYGD_m3qnI2jcpky4CRLbqdj6sfZTZdJH0GhSnydGFzvZYvN3ob0x8glroBv63CcBTlA0j8nlHa5Vh6aFDOqkQhRAuNvo_QgJN1tpLDYx-U7DhH7jsgye7kgo5rhl42liimXuly-yTTR9cXqPrU1kc9uO5fc1dr80E0J_mgPCYtOgwT-18boTj_HlkJEg9AFI3ANEFCv36AvhTUotNNfDY4WeQZfK0ZlEiVqJtABVv_xL2W_6WoMkbzpwEOZ4eTwKWVJ8Y9zB2Sx95k5jRghDiGvq1WfNVi9oKIkkZnXvszkLRFIVuZhsUWqO-g-n8UNu2Qq4pNiYAWNOSlgf_qnDFnUMqWMGy9eL8o7R3Irw9w95wUW4d6z028eGOINhJCNAxGpSG3FHeEJVqQ6iV4Xu_gxuQt1EgN7qjNTPDtcPfTTMDO-pq4huqgBVhwO5MIh2XUSu21uAUMFQl78CN32QHk_lMEPTSiFJEqZclv2tUPwJFq-ttuPTgVWmSOHJ_8tVWkOVvgqzw3AT5q_wV2VYj2IUQVEw8LR3VYecyYi-mx3NoFYNesrMgQnDuJ9qBWe72kh-sFcMfqCHgUhixnGgy_2xv6w62ao7KYe-snWuYs3txGzMcHDJp7yendMKcoPNoOGy2WrrfMULtgt3bqZ7SHBS8ousZiOwSoJIYvYFa4MZxsUvj1g2ahUacj5Z10EHc4z5o6J2RnxUn21QW7KsWlVx09Q4y-Jt0QLUWPTxvrCYKfgqwgKxtW4Qv4ls-SXTyh9RR837Aib1cniqOmy4sJvuH_T1EXUlyKPSL4ARnvZAk2edmv2wzjIMFaCBxsrWrlAzXVvs21i5wQXDRW73X74hDhrF2eU27nT-lPf4FALQaxfXD4JhBMtfh9XnZuZvN4Uz2eRWqEp58d-Qna39mRTkYEh5ZC32giZPIS7JyJuQcWUrgH9EJSIY9k1FvrNbT0vj30sNdsPhi6kVEpk9VH8TfmouM-lqdDuNwOs1qGoJHPaKKqWPR7Plboho2PE42eEZEhcg"
+      }
+     },
+     "id": "prt_0acce1469001ZmRBzstoedJken",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0fd7001w8s412onmAmJgu"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605585107,
+      "end": 1789605585203
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36cdcd26d8835c5b47b9:rs_01a0acce1fc17662b04702fa3c57c6e4",
+       "reasoningEncryptedContent": "Q-PaDgFNKzrDYLYyD1SbndSJPqft9TbiQPyxrxj7QNp42Fw--2CPqC6g75eI861oIQnBhUocT8ZB9Ck7Zll2uqJN6NskrZ6UjGZxbeJb8KWcGURrbNE-Ghy2sfqnR-OmQCCOlNoLjMaJtopkbbloxnI3mVFEh7UfBVnXRCGyUKIUXmuAshbmRKjJnWHB7LdHh_N8SEV2_hv4ONb745vLfRRl6RWNQUXi6ZsumPJoLVk55hids7thp6V9pVza0maSFmw_iulBH8Z9NiHpMRKaOC0ZzIGMaw2B1VJu5tDWKCWCMZDpRehZ1-BGpqgcUJSfBnBz_pnMDX28fa1ruRBNnzWLRkD_fPKOPujB12dt0d1OkE_3ZPejXsQX3thlZ1Qfh51PjcBZTOPTJTdJA77fyH5jFscEqo2hhiyr-WZV40AO-QzUzBcInQKeji_pzYvWrqXdVFDTeboi5DyPA6JBoqPclK285Yqckk5UIMmX1FeQ8liSRzNZoQxo35ebafO2Tu39Lr-ZOSypgrCN0mwcgyojKxO9plCqyo9U-v50Pwr6CUOF7IR6-VQeJgTcTsP2Ovhc1sGkF5Bk49hsk8IWV83avfK6i1cf9QkgRoWS1od7VgLVCmL6bBwKHYk-voRgTBldgHf2ASxZGhE71gfRQErIG-am_Vh94ngDuL_9UqlvB00TSWEzyrC_3swcjPdSfDrsvWYFQ34CtAxb3isfeTpLv6J1x9ZLt1zcwtiDwLXrovfjGdD0SuhhRmfZb2qUcn8GO-iiQJSDFBGsqogG1lWw1wPGDWa3DR9lAsvgViHnqLM8UjB6DxEjP3sEXOnGMLZDcn2Z6F3xgDsoy9Z9RJ_kpQUnZXh9IWLSfT8cwq9UUqz2f_7N2xmdmo04TG3y2QMDuIDVTCEimL5-Hr2BHRGwzkzAn62KZ2JrSaMaYvgcW3Om6nEmqB94NccydQ6My-lJm58ZE3T-LwtbnLzfZ3dpqv9UDBS9ts8p8RyawnuEa5rUI5-jfaOJI_4njrnJ4z5OQE5Xwx1T4LHb8TLG0ClEe9T0xpApsvI6wuQxq3Dbji_j7W-9g7L3M7YjbQgyqgbZ6kxsxnchKGSixZTBsn5P0xPK8OJnjv8q4iDRu64DH1zW7NNt8xBpmwE7Hw79MtJ4sDzwmEs7VkAg9cMXRVlfnT6E0AkMWoXL6MN0BPOIoa0ndU69zoOrYNf0ztd8hErD3yIeM0k-5Mm7636MedLwvskdRaBgwSWt2GeZvK_5WPUnOcxAgvigKs2rTfHuUUEQJP--Rcgu-SpiZk9rZydnt8J0ScIVolbxWHJwwcgvHnkEa1kxywViidiwHBXFKNQ8spuJKQGcW4G43XT-VdnT6AG96tSqdLXBKhLrtsHrPvhgnSL94llUioOlM-_nHjmahsgcsuqiSWX8qA"
+      }
+     },
+     "id": "prt_0acce20d3001nvA7G2Mrw3gjRi",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0fd7001w8s412onmAmJgu"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acce201a7658bf6ca019e6e8a094",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "npm test 2>&1 | tail -n 60",
+       "timeout": 180000,
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "\n> api@1.0.0 test\n> jest\n\n\nTest Suites: 44 passed, 44 total\nTests:       145 passed, 145 total\nSnapshots:   0 total\nTime:        2.015 s\nRan all test suites.\n",
+      "metadata": {
+       "output": "\n> api@1.0.0 test\n> jest\n\n\nTest Suites: 44 passed, 44 total\nTests:       145 passed, 145 total\nSnapshots:   0 total\nTime:        2.015 s\nRan all test suites.\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "npm test 2>&1 | tail -n 60",
+      "time": {
+       "start": 1789605585520,
+       "end": 1789605587824
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce201a7658bf6ca019e6e8a094"
+      }
+     },
+     "id": "prt_0acce2136001Zv3kfmXGhLbe7Q",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0fd7001w8s412onmAmJgu"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 66672,
+      "input": 5967,
+      "output": 137,
+      "reasoning": 551,
+      "cache": {
+       "write": 0,
+       "read": 60017
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce2b740012cmwNdpQvaH55Y",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce0fd7001w8s412onmAmJgu"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 66882,
+     "input": 846,
+     "output": 119,
+     "reasoning": 12,
+     "cache": {
+      "write": 0,
+      "read": 65905
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605587852,
+     "completed": 1789605592006
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce2b8c001rCB2lsB772lwZ9",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce319b001CkH8LlICSR42eW",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce2b8c001rCB2lsB772lwZ9"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605589405,
+      "end": 1789605589407
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36d43088a4b719a7407c:rs_01a0acce2f1e7151942a90984d1287b4",
+       "reasoningEncryptedContent": "Q-PaDgEJEziDrKWR3OMXfKeAnLd8o4Csz4ggW333bYJGEsskaWwfUdF47GY1i5osoSioxAVU1jFPxWp3zr2o4ZXHBLTuW8aecaXgdcRd0tAD5MSpZZ2YFBnRPae9VaFogFgIXfsEQ8Wz1AVX4pUwh3KKy2LatvhFCC1F2BkIHIS5BSTSGPS_o7wsFa5f6uJxs_B2VO1vH1d9nPOlhlQC3ZcVZSWzoOrtqMs1M4Li5iNijYPpW1lVM-zydNQ8mZUr4jVSy0gqmMAEaXh6qAJorvqTVbbCZrSK09g4_XDBfN_5sIW1K7Xytso-fsFynUqvZ1_3VNIWFBPNMRTKRkwaSjA7oCb2mDRt8lx46TUH6e5R14vaze--GBzqzim9GKAPhmTIPt2FCEeB5myc145cT_jpN2KEj43zbfm1-vkbHiYSVbLncsB9bzcuz9Qbx_PqDS0EI140UoJmWoDXqfy-mD6zLCFrtXYR4tg8OpYMSebvm4vm7BaLKcBorgbxepQ5NxOuq2DBLxB12SRwK0O8UaNatXsYLsUbH0uqdfcA9xsmkjMunfevHF7tJ2soX83tpZT6q4Mvrc4ac4fBzWifTdY1kTP7RKw3WtFidqdoeFjQCBls7nAmi8iwXH__JSwrPg-FA2Oh_GUQwYJj7O96ImVH6hNxQyu31IDky-hg4yZWga1Q_EkYaEcj4rt1hsRMtdJF03wPGIeg2-kjZ_nVGvb6RUNeJDHpx2TR3KXTVSHiKb675aqQpl3b-9aWZqJ83j-7zqW1Dg6M0skOx_dU0DL9wX72Qcvi2-KX_CyT4VjxTCRU0pAxFoxvYJGSZwCCovhCxZydVQcI496KCaDpblzlAfv0R6_i31maxayGKz96xJoC-rA33g5UuP3AwLe7SYDKuR7QF5ps06Lfvk10tI8XfIQuib8igO5HkY-QJVhusTeHhffODNJlaABFsApzDTEIpzWZ3e8QfjSxY4w8qj5DqnUca8arpQmU4S6r3rkmfrUH_6t6d8XSphvzBJVpQH9lGO4hBiMrCn2UTb8-E-oKQdznCueLZjwq7UdObk2WptkZnqVTWswRyd-czkKrUd_DxO8JXQOL3rL0jncN5163167DppxSckt0m2XdDpnLH0_hctTvXKFAabwB_3isy0UPQjXbYCx4yE0ptnwksarC3Em78-H5X3qoeNoObjAFf5tHZO-nGHC-WcbEDYx4eukWgZ5fwzSu25cIaDUzqkfx2JhtJm9iqjDyepeGpDS-DGETvZFz6cUIiGk_n8Vg5RxNRBNv2PyAb87AyenxkrrHPpQcTqrbb5Ffq-KQNbyn8RbNJ6JowZ7FBZ976qh7cAkC7_r0XiEnWA5mbYkpfo4rF13zZjzVdzrju2_zmdo_KtY8m4TRXv7h7-1UUcf_UdanZXKj_4QwdP5Iuw"
+      }
+     },
+     "id": "prt_0acce319d001vyrR9nyu5xyHZc",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce2b8c001rCB2lsB772lwZ9"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acce2f6a73bebc8305cf282eb8f8",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "npx jest test/m2 --verbose 2>&1 | tail -n 100",
+       "timeout": 120000,
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "  console.log\n    ins2 {\n      id: 'ins_2eb0fa62',\n      atividadeId: 'atv_c478b166',\n      participanteId: 'p-joao',\n      status: 'convocada',\n      posicaoNaEspera: null,\n      convocadaAte: '2026-10-13T16:00:00.000Z',\n      criadaEm: '2026-10-13T13:00:00.000Z'\n    }\n\n      at Object.log (test/m2-r204.test.js:85:13)\n\n  console.log\n    ins3 {\n      id: 'ins_c434b83e',\n      atividadeId: 'atv_c478b166',\n      participanteId: 'p-diego',\n      status: 'em_espera',\n      posicaoNaEspera: 1,\n      convocadaAte: null,\n      criadaEm: '2026-10-13T14:00:00.000Z'\n    }\n\n      at Object.log (test/m2-r204.test.js:86:13)\n\nTest Suites: 19 passed, 19 total\nTests:       52 passed, 52 total\nSnapshots:   0 total\nTime:        2.116 s\nRan all test suites matching test/m2.\n",
+      "metadata": {
+       "output": "  console.log\n    ins2 {\n      id: 'ins_2eb0fa62',\n      atividadeId: 'atv_c478b166',\n      participanteId: 'p-joao',\n      status: 'convocada',\n      posicaoNaEspera: null,\n      convocadaAte: '2026-10-13T16:00:00.000Z',\n      criadaEm: '2026-10-13T13:00:00.000Z'\n    }\n\n      at Object.log (test/m2-r204.test.js:85:13)\n\n  console.log\n    ins3 {\n      id: 'ins_c434b83e',\n      atividadeId: 'atv_c478b166',\n      participanteId: 'p-diego',\n      status: 'em_espera',\n      posicaoNaEspera: 1,\n      convocadaAte: null,\n      criadaEm: '2026-10-13T14:00:00.000Z'\n    }\n\n      at Object.log (test/m2-r204.test.js:86:13)\n\nTest Suites: 19 passed, 19 total\nTests:       52 passed, 52 total\nSnapshots:   0 total\nTime:        2.116 s\nRan all test suites matching test/m2.\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "npx jest test/m2 --verbose 2>&1 | tail -n 100",
+      "time": {
+       "start": 1789605589414,
+       "end": 1789605591996
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce2f6a73bebc8305cf282eb8f8"
+      }
+     },
+     "id": "prt_0acce31a1001aaESGsm5hD1u74",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce2b8c001rCB2lsB772lwZ9"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 66882,
+      "input": 846,
+      "output": 119,
+      "reasoning": 12,
+      "cache": {
+       "write": 0,
+       "read": 65905
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce3bc1001xMQ8J0eppzY0JI",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce2b8c001rCB2lsB772lwZ9"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 67959,
+     "input": 508,
+     "output": 176,
+     "reasoning": 602,
+     "cache": {
+      "write": 0,
+      "read": 66673
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605592011,
+     "completed": 1789605598467
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce3bcb001OVkLASTr1vwqpw",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce4068001V9o54VPPmryphK",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce3bcb001OVkLASTr1vwqpw"
+    },
+    {
+     "type": "reasoning",
+     "text": "Mapping specification rules to tests and checking boundary coverage and acceptance window gaps.",
+     "time": {
+      "start": 1789605593194,
+      "end": 1789605597798
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36d848473590aecc4e43:rs_01a0acce3f30719e97c32a54f857c5b3",
+       "reasoningEncryptedContent": "Q-PaDgHfd9ULsR8s_vQsr2ABuVaa9snjmRLpmjR95ZDBr408ytqpM030OgOIBQex4fNRG97OVOkwJtLU3rr9kImxeUOHUna6qbcyp5d4Wh2KUUpWnwAAO4CXP9nBUrkitl5wrk9VbReb5k7OL8h2jAvrW3qv12WhIdRfxh_hRK1lQsL4RLXnzBFpMtVAylx_jwM9iN43UnFpEzbKFrG-H50_brt4X3f73PVUw1xUxMXiJFPu-bJchzXtObLYCku6TTOQhxEkwQ7MSHB81gI2sZRZGozTwBPSCiKBd0rumy9jr7edaNA95psDPRzKaJk3zvko7JkbX53EDottv-rBVpy39Rh9F50KtV2Ta1ZDcTJ-JfWdCbhowdCD5O6UJh7ch3vvLcCUoob9USOQVEoOYHHPXdQOhmzVVKkldv7Ykxfojbcq_jvUveAMq487wQwHyOHCz7SHVS1VGIwK2pTS7oDbUyUO1Z0MKuyWF15EiJQTx6MxbruYtBwvome_Oe6r6HjqI1-zYa8YYZHwK2FcXBb8_veqJm8CYX7nmBoysAVAZGz-3l3d5cPPygnubDZf06FZmIdxp-h-CIGpWgjEug_aHl15fyITEETGG2uEEIPmJV0b0GHiKv8aWgCl0-CWMODqQIvCZoPYKw4vkfrA7dFnfbhsOfMtnTz-uUWKlhRcI0GWjQx-uQZHLsuAs3uJPCaWDPf_viadyojAzPr5a_YJ-1rhFb7hpoyKurbX2XRGQP5te9SoQxyXp0N3UdVHZiY0zrC7qQh6W0lihsP0qnUbhhj6zYaUt-UGfaLifYydaCh1e2Hd7NR3xhqfanDK5Ul1rpODIGqj-1Fdj7mNTUT7oeEv1rJlqY8JIeVH3yidZrTj8Xw87XRWg9EqahbdTcVS6tGjOV3dAdOOatBIjx0uXKrdQSBiS9UcA8_JvJY5GwdxJ6dMdfG57Q_AoH8_BZScunJIGda1LqD8hbCsIl4nlKz5L2eCP7Kdm7GXwzHkgkFCWvHDlKVQ5PSgE_MjUlsB0ob_2z4LHr7yePsuJLYTpsTGenDh4pTr8kwP31OLmSjKww8jAlmHTtky2NazDMzWEDDFBhtExscYAl8yTwiEZPTqhZPO6ohgzV_q6Dmd0q_iSXq2miiuPhyyl3d92dOqlE9eH5e2EbFHZd4V_qJ_swRXdAKhGsB1p9kjrKw4EG-1bLxV72Y1oj3ZLTnj15ggzNDjXY7pfHQVAY-pGBKW3wAr8-XyuM60LCnxS5qjZNbfcG_l2IKfN4MvjDLZ9Ryw-GBlUPHUjlVlGrp4EZ9nSo7MiUTDF49P1Pf3c_t_UPHeTYwb0iGjQ4eeTr5ISbeZ2zO9BojXfjH288Dks_qYIOgJagWaJMua3cN8uAmExQZyTGpC6_QrwUErNsVNsm5cOmViTh1dTG3wO5h2A3YhrkALtysgxjQs3gU473tAvEptaRXiRq6cDREvOnEXGyM4sQZ2wi_TRQQ8dIVuRoh9hTe26wOH1PtAV0F47zdrshUE5BS92w3vli8GoDepM1C-bWhafdNBqH5baZmxulowumDDPauJtd4B9BhK-iq7izk6NE__kvhPdJ6p0AValPQ86DfiZPqjbJGcJzgDAR-OCFz6GDii2pVhHPYqhU1gDiGNMQjdgUgoAD7AUsAOIxidPMmLhMmoRyE_6dLrZ6ML4vXuOhGWXkfrOaY_PA8tJPv7CIlLw4ZhaG3p7EZxob9LuRO7wFKHYWbDEY_g5zcyFzOibwj9BBopdST2dBmFw6Cb9zLtKPtPatdgBIpMXnUhtORNlYSgBn8rel4DdPHjdv05tV1B7VWf17Y06hIBfTQaOEtQ9hOzu4p0LeW56N1UV3R-ADi52y2c6gcPyKDlgzzIxKS-1xiKLsPhA_M1gtl150waR_GWJXopOnf2ITW_6A-l_mrgl03rG42FV2PpQgDWozkptPxY5Nih7EX3k1PMcfUnb-KucsPkBI2bHcG-pgKz_KFj5dUkR5HmQVjyLBahDjDLOKWmBrr18aHPYi26ORmAwh61oCcIlKbeIAX8sD_1TMexygPWRa05XCJRXY2p8comZZokFzD065agAWMnAEdjROTWMQgqTtsYh7h0AYbH0f3bFxpZpxq10OK1NAy3qx7ssu62_JPIQTYXHf1xDMGNvS21PkXHfGW2qxgrfwGEadn-dX3L-PiskzuDQ-QlMAdCClojKCRc1EBAD67eZW-rDRmVMZjjUhTOmckTDavZHC5E-QoZZgrL08y-xdGV-COf4QXaWV2cNWGpoRerzJnxfM3dWXkmZJ25lndoQOG0JENeKjM38596yu-7y26_Tjr_721HtawzIqahh_kbjPWECQvOY0nsR7MJyviOBlb-7ThnIPU4qYlUSV_ryiOgh44HU7LLoeNb0K5_VqVy6zb_rdxwvQa4_M3Kmstu5S7dxQznjxQPHo7XY2cqEPbRSjQZ5356ViwOyE1cl9QqTn-NErJXBROGwC8P5ooWTl0lKwsutvbgEfQAI5nCulRv4Qij_KGfthW5C09orX6lV1iOGt8MeFBdVykEf4Rb6XEkgWBOeGinpUpGaebhwYyp8sRqy_JTxSha2_xv5oP1H1EgUAZknR7BsNu6QehJG_vD3Jgvi1sVRNlXV5QP_Yto6gUimJ329HZhuDU_HgrXT36njZIxIAOfH6rmvUJVLP0eUuhKwlDpCxtZMArUGbl96SOiRKamVb3mSU7-My6XVUhBOLcVdqDx9w1QbnIfIg_z92GwAUPfGFQny715qzT8T1IDsbGGxRK7NuDW4Zy0dhEQs8QOenG1uQsu-L44t0o462UHYptDzTwRHyjPPUfAriwOsemlOqFjHMFRs2qnWFQN9yNFHW7PLRmN4aBhAr4eEI2I9hcPozbR2pvmSM49CFEsfTkcSEPKBGvPG5TJ1Omz8ujhXkjY7tMO4-XAZVhcZFEd5dqa1oao2ac9yf-QEf8khX8f168BxNWb_rTQnTzYfpbie8wrujfMM3o4zca0lxXryM4vrcTCex74cnzatdtTRbojKoVJUIZH9CQcn2RFVKdgmBqjpZrvomuB-0J-1R0Tiv7bj4bFwJbs-ZiQhkCjLpn6M1CZTtA1l-5InkU_pSKbBBSlCEYWynrlnxEqEvWOh6Vk-W1pOa-61ytJGpUfkc1DCCtB6Z2onakdcOEfs8uDk7i91xTU67xtnS9nSiiiluFiBBBMBTQNaBy7iCg4-6sqG-dEXpL_VGj9boJBJzpE3dRc-aqnLxGLc4vyd3XCeyHi5L5WeuhNfsXeJfhv9jM3RjfVKt2fLGeCbSqgAdRx9Qi3cWcnXXUH253tehVYzmOzbOQpXAjbzOJMZvKu8ahQ3Kz0XiiokJcJjiLo1u-dhsbw3memMu7u_p_dxIzZ2Jo0a_jaAgPZ_w2RxeXRKCvzHn1X2MyeCDDxyjkdykElBpGkVBiSyU0Gz_AgUVRnYHUs-Mt_eD8w7pMzyvru6nC-L3jWkUvNSGPaDm12pKys9aojk4ZFSXVU-RX6dSHGkTz4YKmB7SGyZcNQvt9VRAbMgIjlbVHF-jNSfPRC98qUlSIobP6R0WG3b1wz7c4D0uEwZw2e9MxB0lHgV-tEPVxhbNDWq0_kdKOz9wN3YZUUyqS07kSQrDh_njaU9OTAX67qkVEldk_cFIdXP4R01atSjJlHKdSDkOiuLC23-vs26bZ4lLWDg-cvE0wRmaJqSO4FRrph8xzVBQrAZKWylThIs1j2x0jyhIRS-rbRsnGrataRrNlUsNWSzJMQ3ah2SFRFDuofLCfeiaR3R2x46Bd34CTIj5TY7ht4zK4AUdVIS03m2OC84ZZwsrlDjLmO2OOcIJDyD1PKCZuIrARvR-0ZwKWll2GeyLAKH9xTp4FeOyCqJqxNM4ZivaCQ5t1aI06YQ7pL2MAnxBHhufwJag8DNX0M50nkZ6FNYzFnqBR9Rid-ppAwDawP_1qmvWb3Heg2_9h9ONG6_Db81qiDfdbpTVkA9nhemum9rz5N0eoUb_B7e9klcA_Wig04PRtvt0w6X34qCj4C1pFHMJG1UAQAyQ97pTyTNsaWE823CcL-T7Fvqo-2F-5voUAWIpMuPNL9etkMUe9cAONKONPoDf28VaTS0UAVUReyohnUpBNzMEZeb63n58oNwVKfy1lplgYYT8TxfHCdPjAut7erMkLXxBSXRgayzFKufvI8mOSrbaJaf7YCEBPRPJSYT2my0q1qIP2M3W8LrVZy0h0yjGHSrHovyBbhI1Z1ySa9o25blsiBVMbuN5YppM1GDPS-vudiwHhkznU2by8So_67kpYFaNcTzEaN8QnizdVhOUfFyELBAgU2G87rrDHT-qgnErzUJXjlBPleLk7bqH1ko3s0L11fteNZ0Vp_wmC_MJXUpO6y3NWALONhd9bzUqDPeXMhy1O68tsHVB-EKQiNKYKAkbrVs0TcpKJYbrr2-eFwGYY3aGGtMV_zL_9ZKRMdTKTygBRhbEh1Nt_1EXar0DFvdSwgbdTTFaNbGQGm_kN9FtgqyipWKLuSBSbZu_jVlavl4q42nzqQt1U67WjGh3mpPq2YldgrfzALuS_hYrNUPHCbwhTD_5J_O-_UtgKXggnZx3T2mDdkkMVoKvrE-UmKU5RIVa5ew1ubFffhs4_cvF2ygT-110QBxnWaX3l9CdzZinlZrRXRagu-YZRKBPLfRb4D6pO4fEejH3DwxLsRab4BHGl1L1dkdHXI7dhmcEmc8yAB9Tg43u6nUQTlGI6WsLSZF0zBd7EmRMX3Y-5xsIoRdiARmEDtvHYDKK101kzrzlQwrcnSonXahz1bnQjG6A01KTppcJ-VVzmFFhVONeCZTaiAclNC36GGOo2uI60pgDzTyl_lc_SkoFTmZmsKXnJW_nhZTeXDD_f_k7T3rkQwo6Bwt7iQLU5q4KXj3eJPP3pTk5Fnmlbug4d1VfE2u7r7Pf65vJc704d9N2XGW4UMUzSPyvouYDeR9icUb8x1p8LlP6Ss2qnaLnkGu5wjvsTRti7DT1NXP53UkspCSKZyZzX0fDxBtN0YjGKHUOiAqMpjYAPc40nMOv8xrMlHxDZvGRyQgbeapOlKqklZ6plNLcJREqgJW8w1QhYEpN7JS2w1t1mTzdcjbzHgVZIvP2iZ-hxsr5dt1WF645RHENRLVjhkmVDMODU-1qzVJnBdhG1TNSwZzVNIjCeXVCpZmPHizxwzuvfWToJ_hxpVgkCWB94ZkDun_itOuEcHKtr0ezA2c2D144nWra9om86VqU56wd1g6MxQe4pM-yXiZ9gVNGjX1RT6oE1h9r_oq0ay-XcIx61z4qbm8kBo2pL-UVlQjUkqeOvUQSeOHvP2wLpGHl5_0CTjVgYO92hn91TT1OsEoq-_5Vg0bIY-KlSSJJUWyTCZ4i97jXifRIWjgOTPunTLOUqCzy2l8NTfdSWoTz5vulEUe2R64xBRosjjjM1vXpvQ1SYI3hcAVo_49bdVmxf_jlL1G9RYIfYRJZEh0A"
+      }
+     },
+     "id": "prt_0acce406a001yNhkBSDjVkVryR",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce3bcb001OVkLASTr1vwqpw"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acce51da72ce8afaec88e84a8af1",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "rg -n \"JA_INSCRITO|posicaoNaEspera|convocadaAte|criadaEm\" test/m2* | head -n 80; echo ---; rg -n \"jaInscrito|contarInscricoesAtivas|ocupadas|vagasRestantes|emEspera\" src/*.js",
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "/bin/bash: line 1: rg: command not found\n---\n/bin/bash: line 1: rg: command not found\n",
+      "metadata": {
+       "output": "/bin/bash: line 1: rg: command not found\n---\n/bin/bash: line 1: rg: command not found\n",
+       "exit": 127,
+       "truncated": false
+      },
+      "title": "rg -n \"JA_INSCRITO|posicaoNaEspera|convocadaAte|criadaEm\" test/m2* | head -n 80; echo ---; rg -n \"jaInscrito|contarInscricoesAtivas|ocupadas|vagasRestantes|emEspera\" src/*.js",
+      "time": {
+       "start": 1789605598340,
+       "end": 1789605598375
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce51da72ce8afaec88e84a8af1"
+      }
+     },
+     "id": "prt_0acce52cc001kSpQSteJ3zZh59",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce3bcb001OVkLASTr1vwqpw"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 67959,
+      "input": 508,
+      "output": 176,
+      "reasoning": 602,
+      "cache": {
+       "write": 0,
+       "read": 66673
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce54fd001nJECTdZ54CCVEC",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce3bcb001OVkLASTr1vwqpw"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 68091,
+     "input": 935,
+     "output": 99,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 67057
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605598474,
+     "completed": 1789605600327
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce550a00190MkPdMQzfIF5s",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce5be9001Hk6qNezJB7mnFO",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce550a00190MkPdMQzfIF5s"
+    },
+    {
+     "type": "tool",
+     "tool": "grep",
+     "callID": "call_01a0acce597377eaae7b1ba46a2e0494",
+     "state": {
+      "status": "completed",
+      "input": {
+       "include": "m2*",
+       "path": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test",
+       "pattern": "JA_INSCRITO"
+      },
+      "output": "[1015 caracteres omitidos]",
+      "title": "JA_INSCRITO",
+      "time": {
+       "start": 1789605600266,
+       "end": 1789605600295
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acce597377eaae7b1ba46a2e0494"
+      }
+     },
+     "id": "prt_0acce5bf5001fw7ktp2qbtrqlp",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce550a00190MkPdMQzfIF5s"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 68091,
+      "input": 935,
+      "output": 99,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 67057
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acce5c34001kJpDjiz1n1oNta",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce550a00190MkPdMQzfIF5s"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 71573,
+     "input": 478,
+     "output": 249,
+     "reasoning": 2893,
+     "cache": {
+      "write": 0,
+      "read": 67953
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605600343,
+     "completed": 1789605622737
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acce5c57001ar3C9TifcdILXL",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acce633d001Ep9OHG2XeEhwsV",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    },
+    {
+     "type": "reasoning",
+     "text": "Evaluating RN-206 partial proof gap and confirming RN-207 test coverage with implementation check.",
+     "time": {
+      "start": 1789605602119,
+      "end": 1789605608858
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36e131efb3f2299a4d3c:rs_01a0acce6259741583d42a32879a95c2"
+      }
+     },
+     "id": "prt_0acce6346001fII1KOyD93oIV1",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    },
+    {
+     "type": "reasoning",
+     "text": "Verifying RN-208 occupancy counting and RN-218/219/210/209 precedence coverage with a noted weak test case.",
+     "time": {
+      "start": 1789605608865,
+      "end": 1789605621910
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36e131efb3f2299a4d3c:rs_01a0acce6259741583d42a32879a95c2",
+       "reasoningEncryptedContent": "Q-PaDgHg3WNR9DAYAH3NrveYNgTcibALnO4QSSt-SSY3HYVQyERY9DcRC6Prx5VDAcULBFawUOxm0i2O9IgJqLS9cJPdJSx-NGu05mbdZt1buF752CIicN7hiQBoZShW-Q9Z3mI4BFdcq25pCIJnfRbGr9S0AsSU9g_Q_oUOn7SB9pY0dKvMhtFjEBjVhhwrPOE2ZPHfG5oZAxVcN2yXNpVAYy3MV5dbcOoC1flwNzh8KliFV7KNkxEQfrKF2E0aaiCmPlAJ9o-2EhoA_L7sX5bYfFs3Vvo_PxLq-oZOcMuFIA-00WS45RvaYb1j0BWa95fIG2uhBBE5Q5LDwlUUftxsvc7XUQMpzh1Maecl9e7bI5Sg3qd4SXJxw70N9A7QQ3ojiaKnD9pazDoFotth2z60CfmxJPOq-BWBAMIHV_mCsTgGFzlxToMZdOAci3HHzux28tqVBwAB1b6zi-oh1I5HB0_2dA67By1RHRb-s-buUp2ZhPgHWAFVSRjgOP7LtvxgDVnJT14LTqLrn3DWxQEOrMIIBO4AfHPmAhG-X67FDg5-LfwVmKorSV6Fp_PlKWgULMrEb04bpeSszOaeCQnS8LgnQjNUhSsSHY36hRIuOKxuD0HyDdMzerwCuqrEKGMqOilgRhFybwJI8eTXq46uxepvNJl9q5g6nAYrFUGwAXLTp1_wwsQCw5YPCS7oTUfySFLYSYEI2LDUsrqppFzG2WQdPz7rG7VnNXbscQmQ-XSZnYBBIBNjXhJJHevbAmuhygPdktNx8kmfQeFKg29w7b2-5GYrW1HNZMHz-a_KtLuaoWMQQQB2UhggYQ0CjkK-9wXRon7l_xwHQauJGvkmMe8TepM1gMiQp-y8Big_F-4TxDAMPMsUOqs7VGq1earFsTOGdPqL_zZo0gU7r98anVv40G6CK8PiYBCJL7dr_u3tf7K9auNhegvAfCcCDwi_WuydAOxo7gaqw3DGjZV1_QKf3exB4aBngGMblqOg4B1QOyvKIBPCkiLcgiPCki72pWJRjihGePm95lMmO2YSR0FgJqyYXOT29a6UEzYl3xMJazhPmakyJ04BmRneTq_pgZ5R5MEbiPCYhkXgF4G7DuJlnacz6-CNXxKOH3USKj-mfOVMnqaW_3VgqTZXSglG0Ym_IJsRSmFLBYfazcpwDKbbLdD5k9TAJ22yCknnKc1zbsHfaBm1hpQkORSJxsdRoidOslhqicATLHP409pVEp0F-N1A3hbXeol712HHxc12Grz0vzK5CXN4ckk8vTinIXDwCTX-r6GVqHMGMrTos9kMrM5aZIaL8HKznsSY_-RZj_HRnZmFKAgYZbBDn0CsGZe15J21BmkjSByv-6GIqfLijhmQh8cOwf8dc7wU1E0mpOgO9GHWgVH_07P5xpSgp565wIjKKOCTgJ3xLpCo0gtOfh-W8bJ9Z2p1g_ZvECzf0I9iOJvR26rEr12Wz0vLy2dT0Rjnf-R2jacBgB1yvIwWrbfLZMSWjExrcGcNxZz6knLBqbZnLDDpZmMl2perbAq3hIFHdDHo4hJ7H89nZP8BWAP4OooBYEXmBQWdTx69n6u4Qz4ywRq57sslkO_WNWANHW_7-9nGBv9_H_Hq5zlCowiwOdCwUmOI5rTTpuuMtRgO94Uc3LdVwOtF78QmUpfsXRyI8ZvXpYLYzxYb0UswGHaf90_WV9ki_Y6ErGOJyqKA0rLUFPWGwo4tcYQ97Z9piP7eUm5rCkcJlWF-LG8qJWuytfVmnnJJqLQzfI02lyc_gmOBQ8xZ0Wp21FrsMcZkovJmTsAsl3bUWcFIDAunH_fRqUzCSdfMJZJXtR70778-YuX6bHZ6To29GQ4xwisPJG-j-XGcbDlvyr3zJHcY0hyCmfi6lQyTlp-jh-WS7qLdOAqZsa4GM_V80ySbInuZhIPKb-qh7mlP9VJOsutA5jffKexLcCYsRTGXnd568EZ03QkmkDOiL6CgqHCREyzE11lPmdo5M-rDwG1ILo8KcXkwIYWfELBFbIxnEGj4q_ZULR9bS_u6ShRDW68XmxZZcfL-divr6kApQtySrFKQoKnn-q0kUNlpAcOKMdndQyvV10c3TFcrHDBO1PvsOJmLERj5KE1xdtKfAAYjXwb2-6F_AydTVyw-2X5-dBVpG-k0G6M9f5qFMn4Ukrs4xiqjHWOKegF1CEotdwclRiar_MpFmxb17pu9b9BOFb9cGj25jKovA8ZA5gV0HkdBDulNqVZZJ4LT6OANjUVZxw0cmgqWaeAJ9Ij8wMoOkfJJ5QJu2_krVxkXlrOmL8zJflj8BoZ3qT58OyE2Z-9VXL9XqbVir-O6ZlK4qTrQlqY2coIUxt9mFre-2brPPkbRhCvDXuv2eTKMiU4KcBiHOlYcorgnzZM2qtL-xsc6RPkqtLobvHBcKa6Tf6PI14npEchpadScnYWv8cIRnqib-GY96GOJlQj2dge6LdP7Cje3LKx_IpnShQUKVU7929oRAbWLWAkLT-g_5IUvlfx5bkyP3srrjB-mQ1UtOSjqOzm2eQpLOsqkrovKHN47V8WZQXu8aIzrCY-5yMIlD7hVFJmGNnm2nFZbkYMmek7a87nE-7yao7KFzjQmfANMpVA8P-PK6Q9fT-PoSFXzTStFX0Whh_X4Nx_QXvvzDkWdAlmo-DPQFQM0OwvpoEzcGUiMUzyZvhJT5v_vyALmD2HhbHNt84E9NABt_dIqhefpELSOOApL-o-BS-a758nt-CFRR3cv3CjCEy17RxsYC6QdNLv0r4ByNLwZWIx7bhnlONEfmVcpGSQq9HxT0FPrqTk1I-ZDqvQ2VY9CEDXI7kj1ik9HSWu3mTWAqApbSMvlqRREp-YWILSh9xQBJfJId3xfpfhARZhaqhpUFPF08-IRVPV1hXfeR-bT1otOmXBf24StMinmCZX9l8L5mS-ftuAsoQhua76lcE8o4kJfpEczLavuQoq0z_kBbsulcBVpGMFmmsEpgTScN_1s36zv3AuMp7LIFPpwbywb93sWVMUlHBISLDrYKRaZxUjq_KL3OaWNU_H4AG2RsqYOOpfYIkN_TG1y7lO0YDM6DDMk5eEvgOtBB3ce4m6VPBHUCvgOj2mDWmuNRgVFu5izdskMBIiaBmGrZO-eLCFpHJUYhF5NgpFW-qwc5H5ircfN_6EKJVmDw0kKtxtvdPJ8yfgQp1B40Ot26g2TLkZdRvQbx78eKXviaImYySY6TGUj0XCW4iYRGOiKqyaAcZ-yy1l_BAf2flBZ5ectU31Eyksk_T35NFleGvFRDmhw1AivBT9ATjMOPY2p0wtX8iCFyfLrEb-ISuJv59iBB9XwElhMTIpSYM-jOK-Yyzwu3AFfQBxSetDt7POoPQQsEBXho0tkxFA4ngr1q_H-9W1E72DpOdxuUMc54ovjzJzU7ZTvOpCHlaWSW-PpCynGTxSLuQ3CVqX01zIRQruoFaLisM_eOpkWQPe4qIrSQo3vzZY1MUWOt3IrdwGBjo6mg_Ymln-Zbgssd-rAPiVAbqunjHWgTAX5sKEDFup6GGUwZxfM5Cd4wDQF8Fc6FbPqtmL83_C2M4ZW71jzyJK2zuiqZVsaVLzpLGW2c7chz4a4eVKnuEYk6kyh9PF2LO5ixnuyaZIGtDFvEmqA6O5ZfR7QZCyNq0hslAZiGtqbWfo6PzpQ21k-GBDkFQMRJuuSQXD9eGkpMnIqrysDTVtOGmfpWN1NOF6d-b3FY9KIP-9iL88MA3UHr80gTXn6ekJIE-Ts1XtBxobprg444gVhFTMVylNRcHp_u34XGP5Hfqmdx_AlvF-IeThnDGt-7o0H8XDagn2x2tenfpDbeYemFxN322v7WXk4EXF5Y6-kbkIO3mr8RXzMB0DcNzGcpd2UroZbXL_tQEN8DKcmV38TavJpx4Zr9JAkP7QlVhJSA2V4aBWfS8hGMGWpEyVh8dPS9Ih1be5jK6um7cDulmemto0_4ei8c94h5_DuG0n9DCFxSWCiJ6M6JXs10DmBcyCmHMLxFLHOr5RMRphBELjFAKJ68JzmiDYMhw2QT5qz8HbdCoYV438NkbWpESjJ5_3xzYr3a1jnp1RIH4NOcr9o_P4n4miBSDoQm0Add9VLtPivCl0Shssl4Icrj-IU9rpn71sKWVeIrGdDHzWPEf9UmF7DP2eLfQ0XfETmPI6HtQ5P66zxtCjitdntaHZEO611fVo59R0rg73WItCT08P6m9HGgHOM2Mx9-mMLlfPtRgpBw9qNNd1Ab0h8kQ_xGoCL7HE0HIpUai4ypfw2NnDFow9PndV9-h7IRuQ-PhYgOfhr1td6rFXIxHdyeOs3pOep7kcEArgnV7RIuGSpYzfhK_lSxT4MeIZTtontaLhGAKrMJL76bB2TY-M3PbNbXIHQmoBvzJWpBf_Cd-WHL6VQNuGtFeR4D7KiPM5PWVr6VgprXlf1XDYp3PkdW7KFrwnhV_mp8LoqpBQ8Dvg2KMkCtQ-nK3uRztQn_kN6Gcq-UMilGKM49YqN4lriKCThlP2yYj12NdH-oFXZmQCuHHI5BZW_oQrpPfJwWcJj8IwEuxWOMHPA2ehXJmeglLyCfut-Wtu5SEvEFQI0PJvSA92G7nR3wA1q9u-q9gZgQg03O9J_aVTB6GNgDMFrzAVxvjo_hlN7GORzWJgZS8rx5tccKQdY5OstY0rtomb1qZLSO-9trEhmIIE8evvRK8YKfVjlUKxPxjRnr2dZsVxinMo6jDf2UDw3DOObnS-zbtVpnen9l8B_YOd867smVHpOaw3kLoSMHbILyWvTD9g1hXCkR71wHB_hWgNz3vxqs3g_3WfV3uXe07sx6Pd7TYXapl74698tWiIH-pphPL4g_eJBdOc7JBfkbfP_yAMSGdvf-Jz9v2xxwwCILK2VUSqeOvLY_32Kpy8wVWUyRS5XKJAnNJwQsUJAOrtmcyGDHULrwmmCMuiAkiE7AO3EZiUILvlo4RBpj7ycrGvpMhc-eHdDyFa_JQ4kOp9YuTO7iQiX_Zfb7WrvGoVvd9NWNFknytjAxo8SJCuUl5db3f9Tsf8F86GkSb64aIC9p-yHKamT0hmXf2UA4s6HEBtBI8J5wBBJGACmLhsgjCQ27y4UttuNc9iui6rPoxv2P81kJ-jb8n_2mV0RUBDduDlGYX3_HbheT_rG2UzS_h7KbvTTC4tzdYCbfND8VBPgC2e3sEnCL2UUhbJ8Knh1jnAv33BeVitMy-KX1jbjw9qfCIf-v8NueAkqTU2FOiFjAMVyT9-aozZvTOe4uq-TQhtdpccyJt0PvsdDAkSbJCQ9zpPIa1jSe3fAp9dd0TGQ2_NDCY38cmOj3QncZkOOPhnpW_dfbSWIB9QSv1p6J0xNtmXqeQrzuXtYmn562ZsZOHbAENhFASp2FY3wKuNFaN9YHrUTMdsU9_0u1fv6O5b6vHuEWVWKor5G7L1tszpWpCG6rmM8eYXAPuE7FC3FWca5_P5jmxXK3Aa_JbCAisl83mgKsBwBNfB7v-y3s3rEllkpiXjYCeWwdhzQ5bFGvyAax0N6xSA0YIxXhjhSsj1kDVnx4MHPt3ox8EFMHu733OExo1pJzVuGenRCV8TVUnQEwztq0rPsyKeFtc5DYRiNp4okIiv9WWQ9HcYhyBD1Mnw-1l4ynKjXReA-qniQb8pMSh-RrLEgeTtCPym6pDh54It3hIfG6qDiKv8QOA_bQVT49id7b72-44HI-edauveSa5HGEPCXqJFP05R--9oQnSbAAzcfOFzmFL_NNbtRorpNFDzode7fTGBU9Hk1X8-wO6Unm5eR-ShkPdGi9CVHRKmcAkWnkmUuBmtsunQbesDILNrTce1sf6Oh_VgfOAEFfJk_izLsik7y_bHshcnpqcBAbYqK7-UOn_HTX2F1OVaSsoZFfpl7suHkkUOHQH3D6Exeod7qCbYgr0_tnUh8RBwYFUutuMZW5wLBvYH4bKqUC3plKEsP_Fsvem6f3rq4yMw-VLJLOcz6l08YFU1lEAFNmuP2Iz1Feqfmr95gbMm-BXJW9gwjLdyf0v1sltutE96uCot13W3B7Oth--7UQ9ZyYYPuf1T_JlUaZBx0KJypobtkq7H7k3nCsBLLjy5KTSTiCw8iA74yose5WmHAfgUPP8FdApH0w30ZmWvD9nbRO5iEjVYDXzbkcxSYYsLvg1BuB9sTM3xrxgwKWSx0WA-5K--CMTIaBDZTu8PIgUuERl5oino0Xx70OW2FZpk5vM50Hvm9KJy6kEKSu_UdfZXOQcwBNm643ye4uFj1OW3q2P6GsR5664cG7e7n_pksGdQvw16q66CNU94WYaBfiEr2yAlj_AFcX-t7cqy1vo3x-zA0-m6Gi9zCP8-YLx0VuEUeOuGLmZBXfJy5sTLVe0OtaTKLGPpGmxxU6nnSx5cO4q3etC4Nc2fEzel9g9wsCU2o1m1pSNzrC2mx1B4YI1mhZv6yMny1zqDzFMSHrqteWthJA2a4YyzNUTl80i1m1Jbm1pfRPlEcesLCtVi9u-Cp2NVViWfIeQ6wTMGYUOuGel-TqqguvK9HV3JJ_I-YL5CUTb8LgPL8hm_EyUnEK5PA5qOzgTlv1BdDsmSk7EoqEvG0duVLdlbbtVGimHGPT1AYoXqrQzhFJTlDn4bzXjRsbmUUkWbeW0XbvUNk6U0LyClBK9T4sYMLQoEpm3AVN5E7JuNwVKzQnqp6JiurO5LGqhntzVuP_xEePgEiWfVfsKloPkfRbRFm5Oa9AJ7CbiMVC0Oa9R5ddBwwFivnPrDgY_RJOuAopZldSy7chSGVfgdHsjNKJEcdalOdtt7wdDFxWiNyouUzC894tlg8d0b2zHJv7XK8UB3ME3uk0HMgZCJZ5GmSs9ZHECd3Pvys2_enm5G11BfTdCinw7mB6Pn5W5PFB8sq0mGyux9K_Nou2j408h3l2nocV0wQaST_WjXEdiKe9Za4LGD-g016iaOU7aZXXLrxE8RpLJUhlkRJ0x5N9pM6Tl61k9_99AkWHVxETfH7EZuJ2ulS-gAavw2S4WaxJ2mZNjDIOWH2WYU-7z39sTyh1ayLsOKPs3-TiWS95zXFC09eOVG5wp9RJmeAzeF9hPHOrIne6ZAHtZN4SCY6QA9V1VSPckZTCmYwwCcvTqc5Z97aLM-xmX_Sth-ZhSbKkLi1Dh6TabKIxqbPAc85pmjrphQI8Gif31WkvKlu7wmgu0dAmlwSxAX5IsoI3ovK06anx7sjFh7NweOaDf_0vx4rzViEuDO52vcYofwV99d7XTydNLWpX2FCzy1xD-7285E6feja-UXthHZBSh7uvSo19vq22Khcizu1QqbXMxEVYoIf4NcIiaoZhxo-rnj2ct1iYJCkbcNyd-X7p4wYpfIx1sNlArKjf4o5rOUicJX60fNLfeJVcnz7enaIadPrfy4ipUwUVA5oLswBmv3lCYSkppjVeCqqaBHkrZ9LccmCffE3dEOV0Gv35eJuF3F5UxDf9PqeGnrURaAez94hUkPxLo3NZxcXGAj48jhcQiCh9hf1Z1N0TpyB2FmAb3okYic5pC4KOT8VRNDXSNLLLgFnKAYxTWvvQhFmv2S9GapzCCFlTeKUFH89qsZsfs7UsM2oZeCaM2b_fRZM7Q6EehhfnnUTefZSCZv9rhJRmKOR72FzXBKjaEW5nNsMROGzba0xmP_mESMkJ14bnLsCqDZ3FJdqfZnZdAJZlt69Uh0T3prT7RtV0uk9FKXAYf2XtUp287gcv6nbcIk9gsD__O0tMMfdotOoTSBFOlkHT4UbuhSBZwcfXZ3eKtIPyhKf_PRURjYHxCtEl6v_hXweJEHwhCwMNtXiMLRzVrLA3v_KaNgMu1B9WTS2TOar22X0TaZmVxlxPO0bV0QLO9sAWJiAU2PFBB1lskM0h_nKIuHZWEftAKfbBkwdmVmSre7Mj385dEKI9vJXVlVSsIiTBchpj3yO2Rc5ovFjkUn--qedt21FsQul8urdJIkh-x75fJPLN2qpzZE0sDfqFaPh-NYcP_ZIIWoiScvJaNN5T9iPFfDmHc2del5uzJ_rHrgdLDYSJ_pg6MgTKD73afUr-VMnOHyje1mrZzIrb_27Yge7JuYfvZDXEO-2vPgcVMNHRDLzWdi1Ins3HnXAFC9-uBm6nmw6qI66om3lhCuuilUlQSwiJHx4ci3YLB7pT0DHiWxfV_rXtNbd0Qnx5SfIzezGRiz2kYL5JBthaSXgdTNBRNLXpx-3on6TqU0I9PLtLtBfYbCBj5FZdaM_Q8ydswTeTztBLj4ek_EqCw0ZzWK0kvylUOEtHJn_0t70V9FNw82I2l84SC-W6Fsu5A2kx2EM2bVzH9L2WXVhvE-GbddaLqt-H80XqGXPGqhf80ZxUXyM4FMoxBHCF1Z7OahzzyGrbKdZD1A6K6qtvPusqn1e76BDkCNQyzX0PkXicAJYjGQcHQgLmNH1lcDH03JiR8GNnuIrw1XjkFpejjuU5ihx9warVvqC3MhNnmhyjnjLCNPUv-6wB5hkJikSAzq5ZlkHYToFchCXpTCjobZWRXyvSLurzB63dUf8zYRmfxujII75zEb4v4mOluDLpLZBPaO9f7VXOl7xgQxYzXLP-mi-9MdbtJqC5ToTnzh37kyg60oNfz07A5-lUIG4OzNQt8_Ezv0XfhlFEMOyzp-Z6h91maTReKlzSLC21qw1mzuSRoAkhrWLyl8nEWi5vaMU6MIl7VIw_79g_j70lHCLiNF99U6mEOngd3JnVHhYJnFcj9w1_c6EcIU986RSbES-SDFCgEPvRV9reG_fw-f2GNsNUFn8tkehI88WeovuYGvWwtn9a3RiXzzmYJI-zRGkqonEVLqxx6H3ajDsxfssAIO2zF7u1fwBu4Iif6LM_RRA5vo4s5sAwH24AOn1VGPDT3dz9zh6bUkbCBlH4cE1LhPG7yd9KLh42I_vRQZr16JyDhsn9oAcS6wAY5jpTXnsmpGINeQxgo2SFD3BJ2smBbDFR3LuBBbtMDSoKh5XZ5aQVaTlb0a10eNUnsmu6F3fwwdvBSKPIjImKtV_o5lMbzmLF7vXF5wKa4fXfMoLuSntdfXpU_x-0qs72lfDemtf3hf3YmJD7TkoukDtuoZrpvzB_9AEOFTCgOVTCtqld8Op1rSzsAGjMxtaLELgH_4PLx9CLDDrsUHSd-sqLlCyqi4Jwq-ivM6kAqVRhAKBeNVb8ELJGV_Z6hcArtWwr9TI9pyqUlfGgWj34viXEMsPD2E7MejyNSe6S54H_mDzJUJuNl3lUkol3WrpchDZuVOGuuFBr2kkAtdVU7LOuTF9GlKOaY-L-qsIgcae542CFZqdPyCfihpa-PQ6kR9fgXOg2I6U29_z4UMVcHLmaf08LLxVMQyDGbU0n61Ch48a_kgfPGS1dIR_65n6WQIej_2aCCaSIoDz3g41sV0zD9gGf_sawHbRKWWqPp9idYBPSCJFgBk1QxXjaiiZXgCirVBjYLSp5mR79mpJPwuhrr13OrvAVlgzVNe-EYuyH8pGLsiX_6Q0pJBEHrxkGAky4RsT13pauzLOH3L4Njqxp-Xg8S7dyQkuofxAv6n3ydo3aXgx9egrY7hwFvcWnwJQiXLqiOIs-six5T1978PLwTBY05natonh69BJ4bejTbIhLKlpQEBtV3NBkplkcoYOYZn-w2_Q-tMXfAWVanjXn-0NbaewCR0Ekg858XmsOjn4Yz-YvXwM41KBZpz1Wh5dm27X-UISabN9LDfo1Xnu1briGM2zG2XLnpdex5rAMbbpVKWk65SFX6VQaUxQmo_NqEvufzz14NQ22JKkAdy2ngFof1tCjsEpyFMpT_No_tECZ65TG90cNSRsuubvi8HVL_vfevGelzRVW7rekc9udy5kcuLoPokqOj55XRbTHy56juTWknkmjUruT5cLQ0LYL7HNkp5clT7BvFDBOqZRaN0QjhodimlTFB2efkGEA5ik1W6wXTI2YL-aOf-79eaqVpXf9uxSn-U6-wdky-y_udKVjuUGGici8mU3agFdHLdkrphdv4ZB7YH0OtaY1HOHKbVBiUmoAuitVB1TEPnf3sxZrQ6386Z0PJr99hPiCgfxV0kTiIQZYOtbj_aSJPDoOZX2qhGa6EHU6AOOO52ErbcyM1gI9pNJ5L7SPXdQ11kFUxlH0KxwcBQZMQXDI5QiSf0gPMJeIIsweDvYcRYmgtPAsKcFOSH5MOC5EQmXP3J4-779mfjrrqT3nuLbFir499F-m_zGy7B5ar6621aorj-1h6FQcX0xUIqvlaJ4ejOFTGkkqpY0_T7qf6FIjoj5YPRFdKZJFL52xn5NulM-C6qZECStYlOBO7ryO22AVw_p5hTLXa69ewfPth7TQixQC7s02kwswSlOPGSnMxeimhDywZVD3EPhbwcwM8MJXJhGWZM7L518Sd0nB9uNEsPzbyyBqkQDJ9R4VVFE-GM8q2K-rBiaG8gl_qym7x5QeqRd0rUMv-bIn4U1XeUP0bctZJ53ZZyb5zQfcmezCptx15a36eNdHvDHh0PzJOiUmOQzRtsbSPbVi4654xtPWfC28RN6FBf9YZPG5T8dlmdLRzBixnJ3Wmxh0TN5x1R8fjRzsgxZnPHgaNkLT8hXCsePgopZtA9KkZdU2aDSUS_XwIzQEhW3aUXYFSklVbwf2LlDiy4sKPm7Rc9uLbjxim6AYQf8SNNDUIPDhRuOa2-TbCrw4OfBzoW7CKmzFZiidgniz9AL15SKCH9TRbGU8uOXgTmjg-ku6yBcqPzcVjFL9IizChTW16UI-PS74Iyfg1XbayNfSqlzqx0BqT8YIn9GSwQLyxsNVinlkg5Pt00-55dbO2ocHPwkj3vQFRR1zOfW3uJtxr78lpk5aFDNtyxZxlEakw80XuNUjoRlevLpHnYyhAW6-Qz0b1WyKpDYGsuf1OsU6V9BPjljG6GLcQ4vZlqOsO4SVwq4G96k8J28a2bGCiWVOS7yt51Aw1rMj7k76o0K-Ukv5hbXBjv5I77Cy_kgxyrKrCN84f4rllmFB1JbX_vTsafU0_ApaXl41I48TSV0UiXMqakejnND5vPeWlVQMausiJWksZXLGdktQ-FgcHrLiKkhY2xklJuKP9FrEiR1vo3Cz2l1-enHdPGO9dkIXp6tiWBGiGDY9iQQ1G6Plk_JrXSpahLuziV7Ax6UUobGjzDX3rkb3a1kwYDVfQtWyzeb-3jTCiUZ0zlpsvYkp28-yD_JgsERm8pG6pRCXnCKxBKsb8cDTEYtc1SNIwiYO20bQYUAGXYEqfAWAxzN3CrcpwyJgZf_2-olKbxt24qgfEvortnR2mpPXegJpj37hkUZgx7F-WZh61qZPjpy0QAd5DNFRPapis6kyAXDUc1U71-1blS1_QmJSzelq1RWDFsCnWulIjGoc7_FdK0O9Z4ciGvha_8sSfg5EFOS3tgwZTH6S4vAM7xCT_hRPt_IWPJS5gpEtL-Wvk3_0rNP_LDpTZ0iLi0qAmFYe-M53PE9I0_NcGd0hSdz0nmj2QYs17HKiBJstP10yYVg04jmOnCVYvkkSaUU9Oqxk0w9EWqE6lIb8-MXvh-6p376ZhfCAth-etc_7cE0e9Ki2t5NxzTUIXNkZtVYl5-tFg30q1KtGiRwTrY6Cb-1rejkKQ5Y6r4WPBh3lwlTcisAh97PLlV-7j1V0Vd2ElYkVWuUjzonyPZ97iq2dOUEQ1tY_lG5sEbmuO9MlcCGjZGsW-EDWxBhC4I-hfLVphjuMKEdnFvz2cGbq7bIH7fLXwf_yDN6lobUqmriqQ7u4RBbH-b1HdJwZqthhhY603SxkmmaQ61ddrbVJQfntKPSqdcFIfSkUFOZ2kiLpBpYCNtDATwBERYHPJ-NTJix2sdH4wWHit5wQ8bC6HLFYk0-1PnJ2mPuvoJjYpTE8ZZwvY9QNbFjydN1toRrOG2wLQ2lY1vJvQNZVxXDuRPmDCQO3plEcWTiOgET7VwQwYKcRCDujlwAjYE0U9zi9acf6G-zx0F_7wDwJeVHQCww8BY79tJ-sCKRoTtdT-14s1Dd8261fIpBCCY7PfmrQViMYZHJxNUlyqeEOTVRtOrdoWtFUDzBK5031IZON23sv3Zb_7AkstETDCFXtaXXD3_3Tam4sWU1eBVEl6JeaVGzgBENOW3on173XLLbV8SZGSGngdGNvtBxZiKwFl9AOsMs7hyEAlTib_TkpqTtv9mEKHfZIfpObpD4r63oAuJ8FXYVUphrCAw0Yu4nyMoCULoMtDHfokXP69e3sDQ8XaPcW64-KAnRuDnS90pai-apUbhnkBvkQYLZR_bg7sULrgU7rAQN-00pSa2Mpuo-_BqkV7HqgAXA08zVToTj6p5Ycs23ngIkN1uZwByQPQNF8kNJA89EnQMB8e-tGadKITrMivZ5n9rQx6R65VfFDwsVP8utlUXMz_K4Mj0jwHLofuh75wC3j0-4KmD8k5PhU_WOW7t34apuVv475GODt2dFGogRE9EEXxGnxhqH-iMF1MSPdnZJd2y9LQdoOt3e-Lq9TEuC4BkP6OxVHV6EQCdfSQrk8tvXBKpSwK_W0JvbELl7SrenVaZ6zk2EYEbIx4b5XGR1lq1heNHeUjOgrQrOpH5iVKm24lLZFgcdMLy9NvOYFmCA6WcHkzDDHQgiAyjPK9V2EQ9k_a6my--m2jrggUxsREvKSEYG5nqp0pzg7s98-wm5saZ-Pm91SfuzMKqbcqAGTTGHGu4EoIQ_hmSSJ2Iv8K9XRLqU7_hmJwpmfvmEELAUnvLH7fIVgbpydAsZ4CXOuCcQFlswIKHSaqalQqis6LMh4B6Sn_-ThQbGl1Pn7UF-l5vDLf4iBById027OjAsdTWWPUe2zTQsqOmrh9nYq8I9mmwsd2i44qix8e4qDgF1T1-ik0wyZf58Crwz48zs53jhbYCOg1Vg9NUdYabKEqGSp21hjXy1NKox2Uvj7bI352qch2AanjTPYyFyHbZnt3Xj5GTCWehci7Pe_gn1NDK0UGWhouxhJ1h8kaoDcuuG44dw7SDHaM27gIjBbOm5muUNoZXeq7T8_NiOtsTdVFJ6m9bcZ1mqD6UR4B_Sv7CI1zwIwLbmnw7s1A_zn6PpD8EUsAkglzvOHI3fPqVPMUALVXxEAYNWNjj64Ns3EiipmXKU_eo1nKiXdGRutjWnJOqzAZi7YDxKLd9MHCutVZUBfzRy1McOWFENYY-kffrwDjfMoFOzfD2CmVBEAx76OQcas6AbfKE-ec8M8JvAEfjBwlJsQThbQUjx_mihKfpunZyhEECvIh5XoXW1MIt8LPAb1wtXfdNOWMPdrLjGwbJMj8ENckEpaaeEl7MDkwj3n9x_bMahA9PcPvjn_0elXgln1FWly2GvtYFC9aJMvWxiqyfOXS3inKeCqOKS6k1M0B32PHEaROnWsrycDvzsbu9zy1RGzbvKMXCfYhfCT5JNdL8QSjKAkQVv2XAAHTZQglgzaS7-HvWCRb0x4R--gtmRW5B9-lD3sBpSVKDGq1aGs1MRj041IKW2hS1g1Y1RHvzGVIUIwviBFy1AFB2UnvqzIFCsOK3YLJAR12kTymDYj_-zWZAkwp-kPx5PNHPA89J4Bhwc7vuhtD-txP-VKDyLmvHgYr-8fYjos6OFctCOmYmXMCJLMBXd-PMZE4sIvNxF0_HtOlnadEcXff6KSUo0qImjvg-z71lw6_oWJg_dWyd1tJryLvtkaMIK3ryR6B0ZyI8tqHSyGrTqwDg9pCFHR-kFlLIKllBNqteM028mmw5CX1O1b7gpTjo6JsvN8ZuVVolgef6oXZSeyHRnogLO0WYPYIE0AGE0oCxOiCRRXZ3jWIpu3OdsI2OHukgWwceaIXb2bTfycoVS75SmunNdhAwXJTAYxY-0PgHuOVr_diGLw5LVtkjjyfQk2ScHg9Y_Rber75ELFFY1pw83JlySu_dE9Qyemx81u169ogZaS4bqqTUYyZ3w1C26Zsfr_UaseLoW2vrlSDOtnBRqCgIwkYIQEyzE0CCNotEXMmVANqa1sPWRd1VJM3BvZR05WodVMLwinWlMs2hqTvspV77bCa1Bb7vuLqu99zwk5Duu49eff-5FdppGGNCi-jUa1ovLhRW9JRdNYnkMPB0tIoUUe-cF-7RA-mJWt3_KvBMs9KELYLgDVdIDt_iNQ_UoVLi4qG7FymWeq3Y49ZKemk-K7YgePQKqCwpVIhbEiCPx7ZGpGvnmStiWSta21G5Zs6wAEW73JOlrUzw8Gl1KrRhyJZ9di7lQbu0HbhDuRyZWm2FqNpicGf6qAW7nYLqM-pDXi_AUiAW0V1uCAxiYjIyPcUH9QNF3O55cvawhbhMPkqJJRuBirrOHhw358pqVZ8_4q5kQ0K9-vHfw7kak4PVSM3w9zaYfvjakg9awzUVMUycsvr8LhSfspgHtQZcXP01QtSctAKc1qu4ds_ARsYTuYKOpn5_kM7YNIIojx0PWpLPIFD3RF4WqErUwTppKoJhGZs4G2RKSLSNAo_5YsU4J6KhGrJ-4faeBD0aXLoF_W4inOKDkjyeRrVKmxKq58qjsxpaYg3LALUZnd1hCliGjpGMpA8Z7m0II6tcbj3dmYjqmgd82DHTm19O_XSTD-BMUud8xHAZX1qGJUWlydcAH_UZ37NWbszN63angJTf_exRU1W6-9GX4Hwq-O7CXSMH6ftY_z51GI87LWeO5cx-6pRb-qcWl-sqzjYMX2X48UPjQM8r90CrO_R8TcHKdwEscXHxPZ4HLEwmtWJ73KCu7iaBgWvBQXhSkOdMljVuI73ZMtesruvQAypmwGjkGDqSlcbVx1IgAkWKQJmNTeBHlTZwIa4My6TRFpXneCOCDI5_TOoKxRADZlTI2qvRmPHRMIP0u9zTGiuk1RSJYKdn3LYG9JcmLGRP0_aIXhH7OuFYoabsJhyORHznNF4Z8rkbpcAMTd0zH2P68nIO-5tsfCKHeo_M5wYal09H2xBpsvqNDLD1GPG_X2xy3CHwZ7juwjPfkc6nYp90DNSSNl1QFUh9Ivd842izs4spR_9UmZstK--J56AiQWUbzzmwPOm9pu5WVTpyV68Sy83dAmS06lXYjUrjfVoFxxQOSDxAu53VY-7ftK1Z8J_LboO25fk-XKjj3ZeZuFZrRXUTQFTvhK6NjKqGV1_-hBwY-fraeYraHeLKdpZKVIx31GcfM-SUzNBu-nE2KOXJ4wtW5pfaclvgvTFk90BcioS05LfypKAWv6oma_flVW1MFU2WQ0j0Vc9e-sO5YBpKMjUknx9Oj9O7zbgQssHpVRVgsoLvLyiYo2CFNw0MC6pqYHXviYXh1de1GwR6zl-oOho1H5t9RymFnz58XCYTteGNwws6bFdxYkw-hE14V4etC-vdOEIQOdjfppNVmRZlupDFjEBH01gQrEK8xmZ0heEuDr36cq0JM16msfFLoyj8GD5GJCSAmZIySKnlb6086k6HYe4mlOLc1MJ6VZhgJSeGVL5lLf6NSxG5gWd77J3bWxWlNWJ8TgQ-7sGVXehS6qdWto94tsCukB2pl2U1NW3V3T37c4fXSA2om8IA8nl397XM7rRH2LD-F5FmlFi80LyS1qJAZvHM8jP9BKRw1rNhrPX21P8hRDBRRV0EQZCVDYwgLw0Dp05GSLDMtDSHyzOX56uuOssuaK0Izfi_XUsxcueF4N0rlSiGUm7ZM1pWPbIECja8nTC4C7SQpZnPWR9PcWR61xREk-futrQOecOsbcgqUTYfIHdmZvPMx1mGUhSEcWIsBPjrW49BCZUhOMsX4feLXZu_YbJRihfDKy5Om42yiVNaTATfvq7FPPps16B3C8pYFjeF0ODFrGP-rAePJMCkh9MMLN2w7YInev1hFS2Dc54Rp1WgVmX-HHqa1EUl7WuH9yNTA59dWvB9QvlFuaAdfX1WgW9QtS4SR6GUcoDKDYyDTXXVxo9QPnmo2q3albI8fVBLTWIz6RITBqEV8FzQcZsBZLygSZkAUv-yHs8ayou9Tdp2eaqfttXwZJJRak5M2w1tNwlV1ETbkt3HQoCDQ4_CZFBGW6PXdJeBQG34dXfgcMrm8qgdz6qPe3hBIDKZaz8-4yEMsS5Wp3sAIk2UremnDrXsim7U68dyAaCyNF2SjwOvhFJrjEeyIqizakBkuMbjONjNEAPpLzpdtxcgdKFrOHkRH0gJyEoJOcL0tKKrRlmu4nmgxwhX_H18tpzfAmifawg7cjbx4N6elcYBsDoFjhc5BIyxYTPdZ9t-MqSkErN2j47yYXZpCxOqrVeANa5TDWh1B8CUUBGS6roALPOdFhXLrh8xEDGDPmCabFy-wtVXpOEaaKZzso2gTrA_ayezLwCYHA4c5ves3P7b5y4HjtlUwL5CjtfLet2ZKBjxiOONcOS70Sfx1XVfMwRrsYMv-MJh2bNKCMb-BEd8r-0nIzzlUDh4gkjqyP7EFweOZm0ijvsAJqVfrkFueq3UjPNc6dxaPS-zRTt0vQQSYHdEnPGgAH00Lx9y3GKabGvGG5zcLsLoCN9YZW2xUrV_tg8nUszWpLUmD0bYZjCuckGiA3DnyUcOARV5BymmhRaAnwr0pfJCGIelnJ4iKDx27m6xrSEPaJeb8kI_3pAX5qSoarVzIXgyWPfZKrdOFc8OysScFh6FKXJAOSgGtCA413z9qDIdhlJTPMUntxe8gav57ZjHnakUMPxnbfcwfS6TDeevtjkPfLxgkVOy7t3MyOlLOqkmNsNThc_ABqC5yOmQk0QQyuYr_0wJE7M8KGq6xGfbXr2JfbgUOdg6y8lVOUqC7eI27R3Wv4PA8N2rPYz6RzKYHsYjfGxuyIWUhJ4-LRt1-0wWDkzW-W6Iw28n2SqAD0YxcN29dvZOwF0wTcYeBqiavgwb1yi2GWdUzSuV1RMP5Qs9mwTmKri2PtVShjX3cThXd5kzvaKx7pBAcV1ws_gxKUkYwV_PIx_n1iwrl4ehrHQAgSa_R_zPLLlmo7uLrxqmmdUBbex4gSWgz9zrP6X8Uw2HVw70JzA2bvIN2RV6sJ9LSXEUH1VXv5jLoBsnokrV9rR4SMHdYEEPL4YWJBAbHsy40YkfXWpu8s0yec5_iAjZ3yC3ogtwpnAzNKZD0Jw-sxpj2RQalUAoFgyJ87elUcJ1JltQPmmHkvMByQfrg3mZwl0nEbiiSo8KvHmfFUOBUoKJzdFY761tcDOWmgZAcdawj1Q6GaAbadceeavQhMYd975YweHaQgjLxeRca-vDXfMkmtDa53L8EBqF-e6CGKHNFR10jxXsgXuaLX2QH2ORHa84ZQd1rMFl4ZAYFIHITXRSjVD4mmcyT_EwXV08sBFDLYBKgOX45iRk4qoOPuotJT0EbQge5IKFa9Ilm9WQKqA_0dTapcP2XFGU-78pDKrOM1EFhguGPkJrCFKE3XaGz0n4QKAPIg7YfpKxSd3srzmEbmRoodlk_G5Z701p0cTmMQzofM377vU9C57hEz5R1v9X0hRPyUPYLFthOrLVVkiyaRaHMrRyDDcHQ6BrQ6PVtK9CuMhD1_bSW6FynGcQ4QDyKIR1CYyGLDd9vuRh4HNy7O6kPJ_w3baiVRoONOO5XDnVHeWUgWirasmvmyfymqeMqs-QsYEOQ_3UPT7ygkxejSSQhMM8SvrJan8aqfsZtB_JUwsEd_C1EtDDXznUoI_im2WnT4vgCd0mGTPGUrtZ4krqHAnR_NyXMYjnvZ8s8-RJE7Xtv-viArJjrZlFmiv-Ov9gLXoRBVDBxRVX7qMljIsUNQC3L2x7FA5uR6EX-TLAcKBzDvdahVqiaP-oBqiWAM8rDbC0zXMLrXtdUDFQocH9dC2nFyD5ojLYKVTg-IU5cJKAjCJS-ITuHxtosqS9PLZ4DhIyQkcM8aD-WCdnj8tG3JIfXQCj2_-xoMOF4uyJM51yL2VE3pc5QKc2uNOkGlTn-fB4bJzGecYi3tFeLJXQSGmEuYfewKOtPHHcggFWicL68IP_6ZFA8Sba4Jr8bVfY8_fRH8R0lzefWO1JqF-Mdk936M8BzaqCd0nVZ1nT7zX0iffVGKBdFZrWu5R45GyXj9I-XdZrB3KrT9bFCyQhi1H3KwV5xBizU02VEnaYUWb8_krTZx0Vi-28Vk8g4EeSz9f1mfkagto9iQ9kXHGW2CgDdlk39G5XPcTk765eJuqHh69ULM8HOu9gJ8WZB16DGcj-CGFW4StDwFoNao7tPkTKbQHgwNTsFzVimV_0Nx9Y39Kt-S5jyMfO0xkDLrZLGGOkNnIZphvjaLcRc9uFQ1qkKUx5P832ChADXMyQ7NPZ4gkDYODWX2V1n84GPjnB3AfPHGgSjITYyHT9GExVRzhfpWQiO5X-LzBPyxOlm3sW3Wg6hlCLl7aQK0VL4-snjSqdPH_tElJ83Zng9f4zrVglqz4oGSYA8fhPS93y9A0Iis45D_Mq7aujzUR59_rBoIsjur_xvehqDBvTAghkC6t6Ok6mbeG1L-Iqiolb1X3pKYvRjiR3USFqAjD-AkR_zwNr4RWZYVSImcqIXEGLs9MdtzZ-Te52rV9ChXpjE0jTqBfqYqWwA2MItMHH_4xRTpKfZ-DWZqm54VUU1wvmPg7ijMtyEWol5NfEPK8ZJ9TmQ4f8M0Hs7wkw9omMtB0X6DdPzfSgLvY0V_fk-NEzLFlusgxgcTJWPsdGswd5Pjf1xhdm9LfJF6i2FpQc0Ge7-oh3mowosF0sCLwcXIS7KyxBsA67O3lezHpcr54JgJu9QAIRPVgAc7nYyCmDfAAyQSCW3-UjbQg8NO2b7C6ymA5WiazLvret2aqWvKDg5OBWC7W2RnRKONEDC1F0AvtAJ-D4znPjh6ApoTT1Yx1y5OsOuMkP_htJNYr0-HqwzsUUGh_8wv3eiurX4tqozpdFK88wDvWhdBeom1uspaLlOQAHCCnSAkT5N9N0QlZxvnSvrahzLs0_ktu7W_Yuqyxeei_R2JMLkXJxeUn7Set08fYC38v8bcn8EIHnNAQDoXAEGd6gkZmfnJSC-cdWRSadwyEXfdN1xR18ysKE-2W5ahov_zD9ijL83Yrg_KkybETPddidiTZGrZRbE-KFzPEcu2rgdY5elSdutbc6ghfNjcUwyfXtky6zMOOJK3Txp4w0EfPfRdL_mCDvNfVtnVJ_xZ4JjaxbkzfKfy-WtLZKOzjA9XI5136BDZZ2xBUyf2bd0JtO7zHJeZ_dZkDwGqvkAtXtFkSCVWjKdBvQWDxQ7SunDy3YdiAtqFE4pOfhoIeMnwNy23k6XblGOGIpLh3bS0JZqBgD2iywJdLMptnR9OWZtQW1LQQppj7BquP9zc_sZG_UnWvbRmNNUuEjsZ6ROAurJMchYTvlfuSaAx9aZ0qbP7WhvxrE3DhiXgrb0CBPt_lwls_4MEzb0wgJLG9Xv_GVRTpJ-RAejoJoOSQeVS0S1aR3oaVfpsL6DARJwgWHCb5Zf0zZm1ILghgcXpgEUP-lyn7vLS7YYjV9m36WpmEOvhkg2bItPgmgZV020g8N39oGtkgBbmUf-hCJA1qcMoh7QjBps9l02A3GxCaltEkd-4rKdmyNr0hIslqAmMf8l6f32YjXlFbdDfv8n9Fe0ghS27pw7rnrIaT8LL0LBZhF2Pxu_P11pbazdhi9VGTrMQY2OGC8_lMRkPxEBuJsMPmUu1_Vp1uzJ_mc8k9L30qoTpTHxO_5FBtpxOrrrwltwZyi2U9pD4kcbwA2S8C99ZJ1ZV7kMFJbJzb8RUN1lYAcx6dbBqLlT5KtxOM2pxzexFizvBwJxKjMUl272jSlCmm7NhKOe1_5D6jc-3KcOcHjFHOPXVSMitI4JJvDB3959jFYpg8PibTsQHf4Z1uMPPDZdXijl3gHKqtS92qJCg8BrD8Bbq3y5RRgAz7t5X-y9uWydFUh6Ki-118UfyJJXaXv7zGqIQcfr9aS_SRIE33ALaeUfQgv4t9wRXbekBDIkTXCj_V5i1EGrdO-af9X4CNEpp8WPEVGBqRlyKxOShEYvLcnmYUN-2FTJSqKnVqs0xiwLy4PDv8PjzqiEf4elGn4VbmdcUhlB3gEffMegZzMfy6W8FJlvONmEPujmpXwpBnTij1jEm2vv2wz2M5GE5s2ORpEdQTl7t1q6FO5ac0-qyahAbNt_TOiXGWfal7eHJxzLRWzeuBWq6MAJciw8N_NHyXFB1ju01Sy73OEJ40Pbiz_X5OVLqYqgZmbB0KH0TCJNsq1Y8jtqXmF4gdCNgiIOWmNadPM6PK6_UDEtnibIYy-hX3zoblZrHgZvBLVPNKXu2RizlAKkKn4B1B7lOZ_EX8tN-0LI7TDxjypXQqfq2Fh_7yXMZlb-n683kkERXLj5w6GITamj-t-fgFKESJQt8vc1L9oezL315SFkJoR5v4c6DCGAtRm7ZcaapXvUn1uRSpJLqDsQIf5khK5XmTDC3N8KztVoMg-ZXFYckKiaQR9jBBqfwxGdSJ7TmdBpinU602CPRbrirt8lKCKSSnI5NqobREM9VhsS5qgLkgBYKHJi8kBRjGWdidG9a_26cqdGN7ejeebZ5_3Fp47fqreRJPWFMsi_LBOYE2BuzGlo-pgX8kh9bIrYmtk_MmMxboX12Iw-UXh5xITZ465LxsN9SKO3l88xPDn5ehJe-DwTiQrOBxfsnVL1GCJwFx6GmaRnSfJdfQrsmTbaNyDAtHlw1lP_aTEqOQHJHp9bWflP52bBWe7gmW2sR1kAOzONtg0UMmuU2qTYjVzG2g7pRzsZWRrooNV3Jlnfw_mQ-Nq3ZFtMhYaWA7V3yvTDYRqVLgfdxuha0K2KV_26Ldhuou4mpA8T7bQpVHgQ1gtE7_7mMlJ8H1qAgLP6HVQF58HZdE9QLNU0f_mUgIFkz5T74olx0cSMfiaUpfaMBguAMoa2k0xWiWEGUlQc6ey3S5uI2wUuzud-Qbfdi5Q2KVa98JRqTFTSs1w545bKgc9GF1BI_NUYXRuyQTnxawB4qz6Rn2yHF8B9I1K37CwRyL45utBwm7hcHeSnRVZEsMobyf9j4jXJQv0duqLQalg4pc_bftfMNTIP5_203VR_Rnxnr6xRuZcgLm5hccOhZg_mAiuPxQmHbBj6TFM66Nu70usJhQVxH0f3GAajMhKm2kr6_dAMfkfHR_YSTxZJ7aHxUgy0P9jLuIvI5OHVn0mWTQ2FLRB1JoXDcowISZjafT59zZTLqSd4NAWW8-wJsiYM-NWSP6Z-16lgPwGw-bA_xHnXAwC52ADuFmcPFfoiwdeLwrL549xbuukUkH0UIM5EswikWsu9GmD82ix6vCj7FcLpQ6dcHVKd2kY228aWGJp6qN_iCKjh0sjSneUnpDoJUbCWaDQEIeDYZMlLQugvyYdHXy0QxComc1JtUK4oV2rdRnxsC4lpWqzrp3sFolz5LKwcuxOWd79quLfels2iRTECKteZKVtiBgSD4hUuDkgypDEwhCj6nPMPkDJCJgnBmAfdbkwGMx_Pl-gYUP5QZFQEnK8HaJysiN03ZNq1F4pfSZDk23XMZFK4PQoLWemS4C2_1a960POCcYBcfF1TagbfNNtXv4JV3xOrkTPXdXc22rtSroOud7TCpIUE5clfzSmVlVDTpYA3VVdkSrpt6qBI38f--HbXLoIApOK0deAoEUcejVOiYLcbbywzm_i7dVClEUZnRkj-0yReMG6c-Ixp7z18gr9TY8dC3f7CCv-AqvSSz4Adn5q4Z0XESMaXckvJeB-66CXCnDbfaeDNdRkG6NhJ9YNKPgRBf4PaZ39am6yOxbXQdZ4pvedKqJGOtmHll-sxNjClzmViynAfYJpMB0-lPVugUnd7LoO16bFKLrqwYbofTElgrQ"
+      }
+     },
+     "id": "prt_0acce7da1001ejOMahUyasEwql",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    },
+    {
+     "type": "tool",
+     "tool": "grep",
+     "callID": "call_01a0acceafac72fbaad110cdbf3c3903",
+     "state": {
+      "status": "completed",
+      "input": {
+       "path": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src",
+       "pattern": "BLOQUEADA"
+      },
+      "output": "[14 caracteres omitidos]",
+      "title": "BLOQUEADA",
+      "time": {
+       "start": 1789605622563,
+       "end": 1789605622595
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acceafac72fbaad110cdbf3c3903"
+      }
+     },
+     "id": "prt_0acceb09e001ybbOQDm5liJFPJ",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    },
+    {
+     "type": "tool",
+     "tool": "grep",
+     "callID": "call_01a0acceb06270078aeabeac82a608d8",
+     "state": {
+      "status": "completed",
+      "input": {
+       "path": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test",
+       "pattern": "SOMENTE_PARTICIPANTE|/inscricoes\\?atividadeId|GET /inscricoes"
+      },
+      "output": "[469 caracteres omitidos]",
+      "title": "SOMENTE_PARTICIPANTE|/inscricoes\\?atividadeId|GET /inscricoes",
+      "time": {
+       "start": 1789605622571,
+       "end": 1789605622605
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acceb06270078aeabeac82a608d8"
+      }
+     },
+     "id": "prt_0acceb14500157l9XPXZsxgBVb",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 71573,
+      "input": 478,
+      "output": 249,
+      "reasoning": 2893,
+      "cache": {
+       "write": 0,
+       "read": 67953
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acceb3c5001JLtYl3qo6VBswN",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acce5c57001ar3C9TifcdILXL"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0accdbdc9001wqVLU3juMB9wJq",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 75179,
+     "input": 3380,
+     "output": 2053,
+     "reasoning": 1409,
+     "cache": {
+      "write": 0,
+      "read": 68337
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605622746,
+     "completed": 1789605644106
+    },
+    "finish": "stop",
+    "id": "msg_0acceb3da001j9g13e5crKid5F",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acceb9ad001enDXIBiAUM0TmM",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acceb3da001j9g13e5crKid5F"
+    },
+    {
+     "type": "reasoning",
+     "text": "Auditing test coverage against requirements, mapping RN codes to interview sources, and assigning pass verdicts while confirming no missing origins.",
+     "time": {
+      "start": 1789605624245,
+      "end": 1789605630465
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36f8bfccd36f981c4213:rs_01a0acceb8ca7121b65136c9099ca2f3"
+      }
+     },
+     "id": "prt_0acceb9b5001pCRPdA7a3oDk8c",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acceb3da001j9g13e5crKid5F"
+    },
+    {
+     "type": "reasoning",
+     "text": "Refining verdicts for partial scenarios and noting a missing GET detail rule.",
+     "time": {
+      "start": 1789605630470,
+      "end": 1789605634870
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab36f8bfccd36f981c4213:rs_01a0acceb8ca7121b65136c9099ca2f3",
+       "reasoningEncryptedContent": "Q-PaDgFy_dTfDsFuZ00aW7848FVcIj3KaFC_l6rBXrLttLHA3WgWCGjJPQDmYgXRjfu3zDnCoQsv0IbiCn9I2rkZa08PIsNhQlGWU-kKKaKwCHMoiLlyEFnju0bMnvKeoKXEtWQacSgIVc2XCuUME5OiTr0WrQY7Iw-k1KKnDE2gnKQ8fKFwOHIpHH_MZIDMkwv-VfOU7HwfsBQKhBc_XNhV_ahyuqQNXsTdw_eGplAkUdoEdWgzyKh8czC6bj5cuNoZd6D_-Yii_9OtzyhtKBxRIYP7Df0ruEgr11RLIuYLxxdSXsDV2M6_IOh5Pk_cBL_1bH_k6kLh3mRf8xnF1z50cdt8KAOO-KIwbfWwu1imNcP6cQg3_Dgt4fKRK9M1APyqJTVNzxg6TkaMPRgq1x79jh7G0MIaeUcouwK9OFHYOKmEsYdh9t2o3m5FZ26kI1EQIRVTSLIS-PTy8qqgVoHpRGh9cVZ0eVr-NBgZCYYxCtNXaoeMau0QRsooSgsRwUqEEIfI9r5LOeeNo1LIPRw3qM3_PZX7_jzYrN-GAEDVI3rsboQTaP2iZj8Rs2pCBxa3YT30j1fOrmx7MOVhsbWFrJJHguy-_SUC7s-qBtRmGyrfxnqcTTpjsbo0O0zo5DO-zkvJjfdFtTAhSnVIXI4rfUVurS90HvKjuumUr1Lr3cs1PNTohsX3lqErpRyOSK_axgzWQzlMcC9kd2u0hZoJwPpxC6ORYsRdW1qgpcaWKqg_n8HMtBz6dAJRS_YvxKzWazY1xDZV0jI0qVCqgDbfqnMjcJoNmygf-08Zh9cPe3ECV0q8pJ0fDMyWh5hYUjvBA0u5oWkQPCrGz10izqPWX2vpDQPs5JJIGN41XoHNLgbdsrTNH-Ey0VxSyVkAnFp9aZ16OzAE1zKW73Nk-OwCJiq9Huy6tREj01HdMvKU_voXT3_dBlUdfv-zsx1XYjDkidzPae85SUzQX-2sKqu4xbg-GphEYlqQjoVa329oNr5DtlqtRHi1mqi1fsZ5D06JOortW_jMn_zdjCMMtrwerTd3NOk4-4mBfEFnWTzvb2KL4z8wzp77Hdr7cWYdjUEVmV6aviJ6gXBmzOmwYpfJujPJUbRfW3wu4Ty9moe8Q3tKAJPE_RWu7g2GD3R6n2yzcbVzv8m1VPxlYbTpT98uwygLTL8y5djlqZ4HFSToUzJSyGDbRTXuqA8G5ahFW6VvkHtyTDtFbU_L2u8DAAamDjgUqWZojDryJOoXxRrUUQPM0WBC92HfkGED34iQXRQE8IGemmJ9xp06tKSA3BZOtMi9jftMgplCKBxb-tBAVn1iW0xJ6XOpWnuGnJMVw0A48RFvO6iutYTqIw422g5Tb9sit7jRR-iotILsAgxzAG1kBnL3B_iif0NIJaonjwdRw257-z4kHoUG190u1URzGuOhuINdN3h02KmT4plniV4HNI1aSK4UfMVI5V9A0OFv8VRcLD9y0U0DalFYsXmuVj4BvtBvFh3HKMpTOx77x95rNmbJt9rXWO52NGJoatjcgbtzjTGJfIS0i4q0u7U3FwSsDd3sVOb2Ctij76xmCsUumdw43d-Cip_banFeoVibzUEcHeBCOk4mQjgpi-sIHIpOiZlIlSRY-H7cPuOW4PqZ9_GsXv1e0osYd-eWeMU6ZdRgUiTfoIIuJcrBXr0Il-kXj28sQU4G3zaLI1P_3Pr_jVpZELHVLklcFUdc7CLUQ78dYeVMpFLzhUR6Nu7XzPxV3kWFcPkAiMkhRxJHxK6Y_kGcIa8QY_EWBWoakG-R_YgGHuvPidfODS1H6DwRGRzN_iP8OH45dyH4YSn6D8hUFTlAAO0aHPczRMQZ_CP8jbPyegdZUgBYWQUUGY4D_OVbArWzHhwEIxjyAicMjEoTgnfFvuO6-khcIC2m_Zo0hZz67agCiM3DnjastqRdlkZ5TzKNRfFeBU_v4BcKgGvJj8fWLPPnK-t03hnB0Oh6xH7m_3h8HAy3jio_MzRZxjiUjugXeH_eVewo2OHw2r7DAOvwEAHiJsTYxY8O10qHPO_2mqVcDJkgpRkmgWIHSmoLCIMcR3ZI8AJQ_ooBURGEgOh2iaiNDprIueNVdYunwpwcaZExSBT8KfIZgMn_kwUzz9CjH524cqdQRms0DMj-42IbHNAYqyVyZtFVCuVYITbw2UYKjGu8nt3pKodb6D2Js3Iau-JKhD-9VGzYXMCqYeGVAq_yfiLbT8rDZ_qr_zf6vFjeN7ttLNEPcLHbQ3rUUi6zhd5sapF3212QkgfQAlS6SJtm08KkVqE0QszZk4G0o546wFPOEOwPWMqvWeJIlIEo92hUKZmPJTGzuVi_8RBU5iaEeN37fgH74xfRGwAFcaM9IKFyO5XzypvBEPr7u5R0dzATy6wxz8yq4IVkj2UMAPSgOsLrzewfNOwzrSOMvH7t2t4ph3ZAkHNz-U8zyByYKfQMiLYVAL7AUiekk895GPqa1KoTYRIXtxkLbJwM-YvGkCDIpYsSztqtrlf5t5V6dSLE3opvy88Hhb4W9SrirybgsAnjajXvgIVvTsSkaG7jqUfGtDnaTIovicu-YZX9dvkHATll4gsPqUihCOwc1T__YRQFB4q-j9weIT47f9JlF2njyVLXjD3Hlta_WM2s5KPve1dQvzwOQjNdrFl5FPOHE6v0ero1q-GZuTf8VHmMMfXfgtd13lMv2BqF7Xf83MEMzj1We1lbiMZtTSqiCPsQHzhZ9UjCiJV5NQ_daKTOyVRiMWIqr5YjaGHC9MUbnbsQmjN4xas-4KA5nELFlrsA7wF6rGRkSWu31MW-jS58kYHg3LB4A9Ig_owsda1O8B_Hxq3kW_MDEAOlraTaE15Em48MOSbBRUAfdV5PWcQMEdUi4d1jO6fKOrs_AO9NouPkUfwDAxUOBVXDfIETAlWfi2flyu2jF4SgPSk3YX17xHHqkurUunxows_j7tJwRDl7L9vmDo9rqVzmAZUc1Pcnwx3N1T7X-i4ItyAklJpNvO2dkrlCh9vJx2bykKZ6CNuRrwS7jpvzh0uPXzD7eF4z3pb9glFns1Xe1cBylS6xcXygLff2w2tSUbI7Z5T0XSL7vZCfNwppTVdK1QSfEzVB_jPnXmk-nSmz6vhQaq8rS2x5fck6iVs-tPZcMSbomqSZ0xKnX-mWZpI2xDAe8CUbMwi0yTQsXjDI46JJeTYpyMoZbXgofvk7vnMWDbOZKiPEm28aZZhqsofC-hxCDbS6zqSZTw968m5IaKi-oYGUcm0_MvCCpBRLeYlt5BFwBBDcNzGrkuogVNdgXBJAhHfyiSGoWXvobTlHhffkvuIYp5-9-7d72iY__WP13htIpy3Q2xa4ZbK8kFsjuIyQ_WSUchI41BNr-QV9RSu9rGHdWUGJbvBy-ZgKzgmjTmQhQWftyIxjA3Ri-jXqQtItA2sUpZM8hrCvYD8YeMcIGzsBp0AeeY2CzFHA5SjePxNTNFKf6F1qD5wtYVEPLXpO4p_739-J1Gho8v7_SP6fYUtIfN_fdTZvl3_1ZpjCae3uW7xG0Ja3f9SNuQVkWeZ_qVQ_M_ln4ejgQz0HLNMib_wcSfFyCbRR-A9Olx-oFXlR9Vkw_AS8RoaPYdf6ML-cMx2Q9Cpf5P30tPwGv9dyKYYuR2O67nLFvlgEvtuTPKYB-pYheYr7yzQaXbLP8V6qK2xffwPIQrqS_X8yTCC7FbNnChhEkP0UZC35Sy2MhJgWZIC7shhA4rsoEksVOWaJC25aGDMOnOqQ-71lMR-RzSRgO64-Uvav6sNzqsAk4HM1gUJovZtoyxoQvz6Ke_4owfqZjLOhjBiBmQRoi2vPHp-VFdpAGTTMPt0SlOEpwHGQvEc1s68LxGnAHTNdDYDuNr1bZFWZkgkepZx8npIwyvy-oeM8FwgGk_BRX7qJ8uLhpyDHZlk-bZLmW4g8ZYBUJCfNFlxsVaMHn9r4-HN2ItDSBr-2J36_k87cmZJmYEq-BbsENlM7sHnMKYhJ4f2idltlQV3qzeuYr1GvC2lnyQEZ45Sh4tvtNX88OVZG_7f6KkjTApFvddRJZNRmJciQcPIfj3xt15LbOHQQw34mLhs334V1lFeAlkUHfzVDyyQFAd8VZyXH6BaDqLYGSwDG2eunoQRRWL83gfbtC9WnlRbhFhzgFIbb8Jqul8FyluY_GTv2Mo6McDcQ-6vD-rvNSsuATd8vDTqPfJ7nqRwIvOIRQWupWy5eejD7XguRIJAWeErIa789j-53eRWZxknlUrwcIF2ZPAp6P0vE1-q-oCxo_ENtc4bCHDBhm8J-JyhwV-4oYdSM2TpxNw2Ch3QnMqve9qdmpsvvO3TFrculBkTMXvcMKAf-vDk4smzQJnxikWrJpeNq6DR9bz3HBlI51PIN32jaWjpuAozfgDKbyQ5UNhShPFDFvopcC_AyGeyixMMwLAW0PqksDWTK8-m4kQxa0hIH1hgEgd27FnTTiaZma4FdzGt86Os6s3zPWfLVGAbGd4AwKtQxRZOADloL_jSJaR33EMF8j6NuesGBXphD6CNyUcM18gkRuKBaAIi1YZVyg3MLg2-BLz9tan9lyHRRExhcAsRM468_C5OmzCro27o7fI2jydXmUPSguLV-xqtLi0Zs9crDRH_fmWcLQzql352xlXoS5iKj5slNrjdY8FLz4Yru0f-WL2d_Ld036w_V4ooCAs9z7tIHsoB16GLF3Wn0gdz_4g-dnSYDtK_Uedm_inDX5heouLsjIIdjUTfrj5MQt9rowDcrIEx7L6DaQdJpIWv9-yYAtKoj-Z0SCB5hhl2J72tctgLMz9bQ75i_Kft1QRVWoxaK7coqfxedPxz-u0dT5DreML2JctrzhKdineT04w7MCJazwAfFE-m1PJgMyQteDSx9WXg-9ir0MHHt8RzXvxm4WulghWp4-VHyZq-X1R2wpZSJbEJLx9SqI1L4ySWWhOXaG7TYoRXcSYS6lv6YbvAqtkAqcym_ZRe153a1fi-mrePckY-NaJEgFL7EZJEMIiTRgVYYb5J43mBf-83TGTgIhIxMQYEtOmFfyM6mnZQjS8mYFLtOo8NLMcMyCRnXFTrIubyg0ca9_qxSeFfBeG3g--C-7QwulKkIqjMFBLmm_zX7FOabM9ftNia_6xIzt0v3bnZvrM3WD_jdAJqkwvaTXJxJmRPe_oXVdRltBjgmbJNNvOkSD_D2xcZUEwbjwbisdKuVBEErwbh0UPjFkB__7_9GVgLCyF2G54ms9H1-7Z8XtMjbT5TnQwOfbn8UzH9wgBz2HrZfBsB4UrulmlVZiko72vpgkP2lx6CNG3lgVxn3ecK4h27F-0FPDhB1uc_jxoKofrXOLbDKxH4_caY3tO0fgYsB8J2BevzFxuiJMadlyR6NYSjCm_3TpIOghUkn8TB8knUU_W94BYth5r43lRAn-z4A0QJatNvQowteGAWrCo2BvVo0AuEUE_Z_-VaPhCtMT25jaJ8wxQ3qHJUtNXzeB7MVu0eZiqs-AcDYSUccqQV8KtqjH44e6R21lQcTZRbFJqe8iDzyE4dOx8crCqU6wxsh2YHlkC8ryU22ajC7Y2mpoFVGCZ0EnVqhW3NU1na15W-A1xGOISnH0uFk7EmMMPq7Sdw-4QgjgTbw1HSrPje3lR7OCFeAf4UZGiw4h9oKSpjSITs2iJScsu0NaaUkvCQa43cPkFWcml5uNp6K1BYQVVU7GrB5s-6fJkuBeMmoDz60HgVzq32HsvxdVKD87ct56NUOyVqwMOQSnmOWpQuM1WK8F8sV55CAH1dfYTs9UY9C3F38LYD0GezJD5xrQqkl9ZaP6BVeM0S8waA39raeCNmaGoDIeqlx4nSi7guXHSShF3P_8ifay0Ujwr8rjlCd8gCRu9GX1EHLINIXZi1sfTxWRJs7pskmAzMJQqVSGNBquhhBC26smwzzv2kcbfCbm_L76wxw-v9WIoCMTpJY7spLRjS3dl5vBuqquX_VOcxY4eN4X11jErtJnqyoPJQEMJJYzZoN_1CfFMNSEPVH8e6VyscYxgL9PFcNnRh63M_rKGh9zjJ_f_y4d-Zk4erkNEAThKCcmd3btkhLfMzlzLCM3_PUae-vPsUDVUhVGLTmDTeGYRI76StKn5n2mJXG416EbjVfZART42q5wjOQOitdfhgi9XaXV2fa7Gu15dDktGeBMgqcMyk_6trgHSUFjfKX3TAUewHoKC-lo8S_Yvu-QNaPHWqywaZ7dFiYRQdwgSW0h9Rp0i5n0y4N_ELy3cxc-PTTUQawktEOaj3q3AhOC4QSQMKjAtl_WryQwZ5cuclTpNyehu9wrDJ0AJGodnMyEYh0DWBWm3QmRzOj7lwnWU4RqQqNIDcL8v3gb1WQrSg03xh4nCF6nXkiJMlfQbeUu0TaxXE7eTEL_iK58gR9NHw9vl2AJSvNS3F2hxwRQx3FDOiaisYuY5SXCgWRIb2jR2YpE8EqHCIn77uugefSuID35CsPhBJQbHWnn7r-hxr8Z2AIC76ZCPr2E8gjFgUPYg1duaONmLEC_uy4heTW2p3jJPIKK35UHShAf9Ic3dE42qwTcF6rrkcmBYNnjvikGFua1AeGKol_fkn5Ig3AtTSINiXPX_ckMhgQtKEKlG-LEo8Z5ZtIJP4IwZccFJwMnGeQY6-I__9WL8vQ4nroWMfDTRyFfNqGgsaMM0PqquA_bFAySj8N0FTuBNs_CF1euX9AuWmu0dq2oFs6heIncotllFkoUVUG4HriwSSi0yWz_LR2zp4FGVJ_mwZWA5XU6qKU4GITqxDj8AvlCoxDeeHejNLSa4WyrboseXlmH_gJjuocYNnjMpcfc0MkKhHd1M1putjRRsusVXLBazWhv3ccuVkWLmYb7y9tHXzugw16d3QqbZT5-80zB86XYJke2jXQMmTuvbp6GkUyzd-qxk5mzdH3CKWBUlS-RTQnc3nocXoJAy75wNVwVCPCLx0aarJvR_eULx7IZ6GLLd8oVB5Faa8XrR2-oSabXc-KAKK0CqXCA46YSwax3r8PLbTldAxKFDKPNC8nm8kA_NcvBLDsPOfFRfPnrCF9L6NfMCoDENvVYdPNxtIyZMq17X2dVjTUf_XGt1V62kLZJAOKefRBPKr_lyo0meZBgreuUvNLybeO1Cbk1Re-NkquwfsKOb615rAHdR0qfxIWRZk12nYYTSC_-C4MZUp_exXkPS4H4Ng9rLBzpU6YZM9Z4IyauW0VR-QU4tzT46utaOKzkapQdpI3wxejQrDurYQvHtB3ZfnIUYilRbEvoT-mMJ6C-VeyZmzWN5ve8aGK8cxB6bHNdmP-BieCKlC5NFHz72CXRg69ObmkXIfDY1Q1ZIBXeQKg5UmsDgHqVeouarCiowcimo8JY4sDkHoNwsznPxlpjOA-U9JpFSaLg_5lv8lBYvuAd-vyDnJLU9RTv7fEm8okWuyIlBWmtgCmbkxGbsf773SH6EXotxFRrFCVcbcJEZ-WW0s-_2p2KJnvIwbkQuCTBYSbcxOsafi0RSkpbst1VIWFlCq9B1uiXJAz3PtPSjuaTW7bcQ7EmRcQ7M32CwRinxzfIgzbG5f1wiJaUl9iig9E7mUcxI3VIl7O-1VUsIF4nZFjrHYE44FLNl8ALB3-bjKKLWW8pZgy6lCE8KVJGIlQ7TtSwtzlIya_lUHxg9tkold832V5mEbwccW-ieKVex6N-oDxGutJDbPHrIrqjcSmN2tTBO_Z3cAeeQK2evEhRpL8VOWyMPk0VKnfivZSx9n0WXJiPgpTFAH0AzDWrxgAx56AttRN8J95i1XkwWPNtXiNGxBQRKIaW6-PhQ5Y4q5yoOaIPATMidOMaduPoMfjS-1lj9JZ7cywXBccBzjorc-Ye2H90JR-KA9hrivEKdrkf3-4lGfcflGIh0WNMK1vY1Q5-Dy7o-OyIQmimxNzWLvhtOcjE2Jo5uaD6GNH8SIM0nuKogjkMMZPAWJ04SyBvXz1DgsSHE0Ri7GQAtiuw_qVMIBVEH_qYFyEBovRr3gagFibsjg1HVUwfNRWu1GG9yy8WoU2UpUSErLfoBqzKDNWfqG-wwmzw1GIOg1p9XcG6q6-Sx20M-yBLZAIi6DCLbKsg8jiNj84oN1sMeLRVJvhnrn9vJKaRZVSnBcmwGwZN_GECHga9cw9mSTRnPKo-b3PEyEfwiNLhvF8F2_o4A5F2r1m2_Y1DP39SfCGkv4YOC6h14kZc55UAdb_sK27SUOwEXpF5SKqOdXkvztnLb5TSBRhun6Ssv6KOawrkPO4awjqlOdjMknTgnSqK8-DWi_J0sdaUuzAOcsTlpd2Q92oucmXLQguaFoDfqtt11pPPQyYcTW0qLUeAopmro49PyNpj56izydzyGz-RDfIWQeMaRhWQyL21xmwpiMoOCfI_PJFlxJApn02IIxBYjYqdjtZSVWzQW3puNmwyqizmH9kHpB5TUgja2eGjC5v4TCoaV1gNulrS3JBoDAgP66-ss84dCCmpUzPgS3B-k8b3xE86WAeBsMUjTE1_0mh7jCvBhBXKS2NgxzMl94oV_x4b_6ovpbAi9aCb0lfN7dGghRzQ8hRSa087Ahfdl1lCu3WnH2N9INmHxKkUFinkKV494NuqxiD_w03a89BOYsVko4iYednae-RjHfcOJAOJ5PJRS3G2sGvzRbgR0IkLT1O8K0iuB95v9VVPQa2jed-TwC4VqCEmgsRfhXyln6ClED13m72Hc3N2B9NvJtEgBgyndE2fqhx-sKzh3Khc_X5MFJBwX5HF-LrT9uTW7IBlPTelM6cdYQ4lEhKx4zJpr-hHowdrEDbxTRNzY9V5-n3hMKyDcsNzRXGg7qQ7SDWnXgwW7mk5gnqrh6aj4HCsidsEWwo52_d03EswMKkONjKk4Bv4cLo2xzf0L4OQy8eSFf2dPGFksCKfjJBPmBkY4sGzB-ERPUqZD7Vi6i6jKWUTq_7jnBrpiNvL_s2VP4t7u9AfOP2OtA69NRoYhk5f0bCfEx8s_hbHj0FQpCNtDKB2WFhzVJSyh0YAzN2P8iJXtoRjsvyzSYPs4D7cL85bY9KzIKi5LiDssKvgO3Fg5Etu8gC_CT0bOG-Z--IPjs1Xqxk7eMX1XOIU7PhbZs9Ho8MhcU1qTKuLtupLPL0mHZk_ZeS3xjtk6hk2iLLJFh0zB6lyL9ngX1BIKnMudE2Qhx8h9IiL9r3Z52jehtTVBjwLMaTTyh3RKJID-qNUmSUUE_uK2AT_363ZPpoDDE613ghBlYspRk2BKVsTyzyFp7R0TR1H_zOhaG9GukyJ6Dd-BP2K-RcXKzKA1o8nIURIblbemmfpM6N9YI8wZJolTIzkV_KJ_USBARJrflXYxIFsv_uNPtU6sENSjVHEllpQETWZRjrTd3UejSZFbc2sqRWQ_haOsnjGjOWbMoQAj25jwH-Sxq9fn6p82-LfFLNzbw-XBY_FQg0PP1sn15OZNWh6AlOpKo9IgZBFxGyYscAFUHKzmgelEX1Jz_QZjdGCCQEZmp3FzuCz2kOdyVxRMiFj3vVtI7npfr4dzxpLt2RVRtK_X42n17akcrTgZAae30nNYPFOa3azCgHUBPJL26p3FUqdhXCkY9NBzPRPdcK6BQ7sO1WyR7VaJTqSWGOsZGLiNvgsfF5K6760m2AsbU3G4vxWpxe-u1MJvcr3XgJzJTzvWne1CNhtqmvl-xuEbAEBMub7LWf_Bg3Zd1hAHNn2lEKdUT_4gCHC4YuuqAxEEiRX4FenNQEjR_mzgrLj0AXlRrr7Zp0EMG-nubPczzErNzk-DYXx15xya7yRMqQSfYKX9U5kLg8Qm1DXiEZEcbNIfTGdheTgkPL-XvsZ7vQwNn7bpBo69l10o8x7onNhNNK1XoMGeI4OgbIv6Kj1oiINubzdFKwu23X7uKe0aGPjxhURbKH4ic4xuwF3B0TSgyyTI9-eFY_fcI-Do5PEtBAeuErK6elKPabmMpVBJmG6Bf4h9RKig1FbaKKtjFmAh6siDnr5d3FRpOgEEnKBdVw-STAH86mMPmuYXe0X1v2Xgcf10AxE3lPuFVCkTHpGirwTm5IXf-3sZhunW3xtPZ_BgCrm0tXRxoJVhxnYjro5_Va1f1-FxF4OUhVAT7nkxRm-Z-iMwwGmzTFaD92XA4drnA5BDdZ1np1Ccw-cCA7orQE2BS1YCbtrRj9tirasGnUZzp2HlybOAEQd_AW2pi5rVWKlIk_ZEO71ZVWwPiHEmzUWP93ZytXoQasMUa_FmhX0PiWG776d0cKaziqFntrApSRkSTPIkXi2UGFazzVyjNqsj-VzS6QiQcWfkzeaP4EgwBhHPAUxMybFaMXBPXdquQsWkezC4Fz2_bVxhI4fPUH6p2-GdC3xyTgKbOVAU1sg8ZHVnWdlkJZa7s-aG9lzKinWyCcjVrteb-_ld6AbVipro8RHFZEaH832gBVbiNE9mISCmhUC7GlB4gn_sVibTIAGbFEzuM9JGp6PP25bnUGw_buFYuNTeZJCbdh4VO28LksiWsiybGjhkfYt9s8Y_6JsWSTodQhOudu0TQVUgqLsedBg5CN5VlAfSWw17iMKDCfSf-DTkWlafV4hrX8bf7Uv0Z1PJAMRN-t6ofgG69fpGvNZqQ99WnvDUe_muLxX8vIktAEj2axeJcY7kVyBs0ya3URKOIxPojF1p6N125zSLJ9kySaJpNOHgeiu2OL0yTgjNrcGXi2UQcj7EhCq--KVWfgDmD2ksS0KUivNd49ur0GDR9SSzRlBrlXqpkHs3Or-XmJ50pVokwbs0DZJ0OC48K9Mb9ZXFqGjxodbbxMHEEZU9ohNWZ3VI5GCfeAiNqrmLuPX_KrmQVhtOqdaIZpNeo_VmOJarXUVICWweR89puMXQWf5j9K27uXlRxgCWVtXq5-z50YNbgrYS3UpRFvFIekvfoaVwvC6MhIu1D15y2Na9m66NFPtkU"
+      }
+     },
+     "id": "prt_0acced206001TRmKoJJgoXOFTV",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acceb3da001j9g13e5crKid5F"
+    },
+    {
+     "type": "text",
+     "text": "## Matriz de rastreabilidade\n\n| Regra | Origem | Teste que comprova | Veredito |\n|---|---|---|---|\n| RN-202 janela 30min (`INSCRICOES_ENCERRADAS`) | P1 (entrevista tem resposta) | `api/test/m2-r202.test.js:13` «recusa 30 minutos antes» | COMPROVADA (ressalva leve: só o lado recusa é direto; o lado permite-antes é incidental via os 201 das demais suítes) |\n| RN-205/216 capacidade (com vaga `confirmada`, lotada `em_espera`) | P2 (+P3,P11,P12) | `api/test/m2-r205.test.js:13,42` status + `posicaoNaEspera:1` | COMPROVADA |\n| RN-204 posição por entrada + recomputo | P3 | `api/test/m2-r204.test.js:13` (recomputo pós-cancel), `api/test/m2-r204-expiracao.test.js:24,38` (valor absoluto 2h + cadeia pós-expiração), `api/test/m2-r211-inativa.test.js:37` (cancel espera não convoca) | COMPROVADA |\n| RN-206 duplicidade só ativas (`JA_INSCRITO`) | P4 | `api/test/m2-r206.test.js:13` (confirmada bloqueia), `api/test/m2-r206-reinscricao.test.js:23,32` (cancelada/expirada permitem) | SEM PROVA (parcial) — ver achado 1 |\n| RN-207 conflito só `confirmada`+`convocada` | P5 | `api/test/m2-r207.test.js:17,33` + `api/test/m2-r207-convocada.test.js:27,43,52` (convocada bloqueia; cancelada/expirada não) | COMPROVADA |\n| RN-208 limite 3 minicursos, contam `confirmada`/`convocada`, palestra fora | P6 | `api/test/m2-r208.test.js:9` + `api/test/m2-r208-contagem.test.js:43,64,85` | COMPROVADA |\n| RN-218/219/210/209 precedência POST | P7 | `api/test/m2-r218.test.js:9,25,42` + `api/test/m2-r218-precedencia.test.js:29,39,59,70,82,94,116` (10/10 pares de 5 níveis; ordem no código `api/src/app.js:568,578,585,592,599`) | COMPROVADA COM RESSALVA — ver achado 2; `INSCRICAO_BLOQUEADA` corretamente ausente (pendente, grep zero em `src/`) |\n| RN-211 cancelamento (dono 404, inativa 422, pós-início 422) | P8/P9 (+P10) | `api/test/m2-r211.test.js:20,29,39` + `api/test/m2-r211-inativa.test.js:23` (expirada→`INSCRICAO_INATIVA`) + cadeia espera/convocada (`:49,:37`) | COMPROVADA |\n| RN-212/213 convocação +2h ao liberar vaga | P11 | `api/test/m2-r204-expiracao.test.js:24,38` (`convocadaAte` hardcoded `2026-10-13T15:00:00.000Z`, cadeia) + `api/test/m2-r211-inativa.test.js:49` (cancel convocada convoca próxima) | COMPROVADA |\n| RN-215 confirmação + precedência `SEM`→`EXPIRADA`→`CONFLITO`→`LIMITE` | P12/P13/P14 | `api/test/m2-r215.test.js:25,38,50` + `api/test/m2-r215-confirmacao.test.js:42,50,77,89,118,134,158,184` (6/6 pares; códigos 409/422 conferem com contrato §6) | COMPROVADA |\n| RN-217 cascata cancela ativas, inativas intactas | P10/P17 | `api/test/m2-r217.test.js:9` + `api/test/m2-r217-cascata.test.js:11` (convocada→cancelada, expirada permanece; código `api/src/app.js:534-540`) | COMPROVADA |\n| P15-detalhe (`GET /inscricoes/:id` alheio 404, org 200) | P15 (resposta cobre detalhe; só ordenação é pendente) | `api/test/m2-p15-perfil.test.js:24` | COMPROVADA |\n| Pendentes P15-ordem / P16-filtro / P18-fuso / `INSCRICAO_BLOQUEADA` | — (spec manda não implementar) | — (corretamente sem teste que trave) | RESPEITADOS — ver achado 4 |\n\nOrigem: todas as RNs citam P-xx existentes na entrevista `entrevistas/M2-inscricoes.mc` com resposta (nenhuma `PENDENTE` entre as usadas). Nenhum caso de SEM ORIGEM.\n\n## Suíte\n\n`npm test` (de `projeto.json`, pasta `api`) → `Test Suites: 44 passed, 44 total / Tests: 145 passed, 145 total`. Recorte M2 (`npx jest test/m2`): `19 passed, 19 total / 52 passed, 52 total`. Nenhum número repetido sem ver na saída. Relógio de teste usado em todos os cenários temporais; valores de `convocadaAte` escritos à mão nos testes (ex. `m2-r204-expiracao.test.js:35`), não lidos do código.\n\n## Achados\n\n1. [SEM PROVA, parcial] RN-206 — nenhum teste executa duplicidade com a primeira inscrição `em_espera` ou `convocada`. Cenário que expõe: atividade 1 vaga, A confirmada, B `em_espera`, B tenta reinscrever na mesma atividade → esperado `409 JA_INSCRITO`; idem após B virar `convocada`. O código cobre (`api/src/banco.js:119` checa os 3 status ativos), mas sem teste a trava não existe. Cobertos hoje: confirmada→`JA` (`m2-r206.test.js:13`) e cancelada/expirada→`201` (`m2-r206-reinscricao.test.js:23,32`).\n2. [PROVA FRACA] Par `ATIVIDADE_CANCELADA` > `JA_INSCRITO` (`api/test/m2-r218-precedencia.test.js:70-80`) — o próprio teste admite (linhas 75-76) que após a cascata a inscrição vira `cancelada`, logo `JA_INSCRITO` já nem seria verdadeiro; não há competição real entre as regras. A ordem está certa no código (`api/src/app.js:568` antes de `585`), mas provada por inspeção, não por execução. Conserto sugerido: montar competição real sem cascata no caminho (ex. duas atividades, alvo cancelado + `JA` ainda verdadeiro por outra via — ou documentar a impossibilidade e aceitar inspeção).\n3. [HIGIENE, não invalida prova] `api/test/m2-r204.test.js:85-86` tem `console.log` que suja a saída da suíte, e comentário stale na linha 79 («Eu ainda não implementei RN-212/213») quando a regra já está implementada (`api/src/app.js:112-136`) e provada em `m2-r204-expiracao.test.js`.\n4. [DE PASSAGEM — contrato, assunto do revisor] Sem teste: `POST /atividades/:id/inscricoes` por organização → `403 SOMENTE_PARTICIPANTE` (`api/src/app.js:553-558`); visibilidade de `GET /inscricoes` (participante só próprias, `api/src/app.js:629-630`) e filtro `?atividadeId=` (`api/src/app.js:635-637`, retorna `[]` por construção — compatível com a sugestão da entrevista P16, mas a spec declara sem origem definitiva, então corretamente sem teste que trave `[]` vs `404`; risco de juiz registrado, não falha). `serializarAtividade` com `ocupadas/vagasRestantes/emEspera` zerados (`api/src/app.js:148-150`) é escopo M1, só citado.\n\n## Veredito\n\nNão pronto para aceite pleno: falta 1 teste travando `JA_INSCRITO` para primeira inscrição `em_espera`/`convocada` (achado 1) e 1 competição real para `ATIVIDADE_CANCELADA` > `JA_INSCRITO` (achado 2); o resto das 11 regras está comprovado uma a uma com origem válida e suíte verde (145/145, 52/52 em M2).\n",
+     "time": {
+      "start": 1789605634881,
+      "end": 1789605643996
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "msg_01a0accee22d701db1a00a9a1656e254"
+      }
+     },
+     "id": "prt_0accee3410018N4J7ZzelGilM5",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acceb3da001j9g13e5crKid5F"
+    },
+    {
+     "reason": "stop",
+     "type": "step-finish",
+     "tokens": {
+      "total": 75179,
+      "input": 3380,
+      "output": 2053,
+      "reasoning": 1409,
+      "cache": {
+       "write": 0,
+       "read": 68337
+      }
+     },
+     "cost": 0,
+     "id": "prt_0accf0732001vCJ4kjiRywshmI",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acceb3da001j9g13e5crKid5F"
+    }
+   ]
+  },
+  {
+   "info": {
+    "role": "user",
+    "time": {
+     "created": 1789605799339
+    },
+    "agent": "build",
+    "model": {
+     "providerID": "opencode",
+     "modelID": "muse-spark-1.3-contributor-free",
+     "variant": "high"
+    },
+    "summary": {
+     "diffs": []
+    },
+    "id": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "faça a auditoria novamente",
+     "id": "prt_0acd165ae001yzgtORTgVXhVqM",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165ab001mysx0ntFc3bHBp"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 75513,
+     "input": 3477,
+     "output": 242,
+     "reasoning": 129,
+     "cache": {
+      "write": 0,
+      "read": 71665
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605799380,
+     "completed": 1789605802106
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd165d4001pdIsraZtKrtAkA",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd16d5d001PoU6I7u38RsIJM",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605801316,
+      "end": 1789605801394
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37a8b330363910cf4b15:rs_01a0acd169c975118c2670e5430dfb8b",
+       "reasoningEncryptedContent": "Q-PaDgHfPOD-0C5Mm_q2b1P_yC6zLTk3FFr3V1hVu22e9josU_tJ7ZZ9slX9h1nPuvnURyHP2i_AZlrZ9xEjHoWEtgJx06Y5MMYUP1rV5o9nXnj2eXqLdq2uJ-iCJD3MmEbpzy5ZV6P8qDVil4BUBJKtCTRmKe8cSNrKKMali_lyBmgbhz1m5rkwr5yiIf0RV8DfoKqKNlWm45y8gJMXv-8EGIRqp9KPKXuW2HemFzB5VWD_cobWFH4aah8UpOVsE5fBNm1rW8eOgX6dwOkT1ze1i6SjwBB8-Boyk0ZY9jkYC_fDe3W9Xktww2aYTVvi7MsUrfxr1L9mKvycTed_n2CujcvebucdljJE5hRTTjNhVdofLnl_iLFgS9M4K-iRLW_dtDTUz660qQkqHlluEz7Kv0p3qy1aAXEZM040OrIsA1OTpFefp4f7ON9hzp9xKG6r4ZwDtN6nh7-rOiHHiSKPQsYNEsHFkpyBWH7_f1xFjANhTGbOn3FGbj42ZuEIIDs4SaeOXJdkLvJy19Jvv0cGIEAMKz9VDJty0CDuUSvqMnid80oDjbf-ys2RyMcQ3Lxg9NX2LbPQopD2oosBdHYrNCZERMhWBqNe73HTOGu8T3UMf1ewj3fnf7LD9iR6wHf5aVilaX6hWO6PulvAkWbEzcWHzS29ZdYe7VdZoUlUONQf9TYsdrxaojGlhebSQ7KFxhWkw9Z_ANVMjsKeNsSDBn6xvVi9A_ERYqPO58Eex2WkxMnWhU1kAs2dCg2XdXHfM0aBmtcToBGtI3LqnLbYR5JwiRMLGTYFp6zbHxWMiiuHUrkQkt00xV6oVVqzChu7r5a4GzrcWLRuppdX9dIuChVOSVdvC4LXeLoodG8UrjocdbY_J39Uy3xVHWpe6GcAyMbKzg9-YfURaXbbX6FL17_b2OiiOpX8ezuBIAe3E1AjyGwSAtQHZlQqYQVAARhqUT2BOYYIWhdsLbp2HFWgWXWweSh_AwPljJujdEs3W7RxTVgI0eNviAPWP2UFVJXtaQPOvRgPPlrWw-SLEClk1VeGCeAQJ1vfiwCQgVYr85X4BB0bwuDoHhx98V_AqJ_xvwGhomxl05mFORVtok-Q8_NbK_1AzCXBETbPCcHeODYlroK89WAd4ijGCYoXXqd03n840w0LKyJX7XU4BFApSE29vI7THvtjcy7JrW0YLitQ1KgJXVZVLQAomYrXBu4-b7O_CbnUepZRaf4_yPPU81WIWOFqFF2QlVf699sYpqpd1TOM4caJ1QJZPUEBcC5OAIB1S4KN8yj4E9hHChPQjpm8m-x8S5l8fH8bSh3VIgPQ1N-HS7m4kiBNsnvXvZ1mUAZ3W7-BCchGs9OsiIjtBV6Zd8lb2kwVrrTbGMzhAX-UcWZL2XxSjpQx_mrSItPZWtCCtXugja6MAQ"
+      }
+     },
+     "id": "prt_0acd16d64001iRG35CiZdMi0Zf",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605801443,
+      "end": 1789605801553
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37a8b330363910cf4b15:rs_01a0acd16d3e7611a1b67d29667521c2",
+       "reasoningEncryptedContent": "Q-PaDgEUwUFBBF2nNl0Aqp2YBQqP_PkY8wpYWkgGk50ovvYf_RQBm3viXmPioYS7_PDJl_CWZx5ECTmksBkMjn3x6mwVU8tSc56Uwg_1acQ-Pukoj2jWwxdjEQOH0BFVr7cZ4f5Gu0DsmnnZNYG011-Lt5yLymA3M49eUrsIW6j_5DKO6PEuEQ3uLsj81hA3FguKq-md1U4EeIZGOe23-QmE95BRq1oreJbA2XnpCTQai-rUhteY_RBbq9LiUaihquWlCrmtXqJQtLHjRuhZ76ywCROHyt2eXupGs6LQXIe_a811vLZDrqIW3jyivJ9Q0-LD8EeHCYJ-D7Vko2wTQwe-suX_UTZvASvA_JF47lsA7d_gG82rFDiNqLZrByREHfDnanjwD6v3_vELz1auicWoINKbgZ3N_i2VjpMuY_xgGuMbOiPMGvnGeXnnfw1XQZTcAp0FMCK5ppNHN7O7AzSO8ayP0Sl0M9QbFEEC5tHDjvKS9OOwKhUyVRmC51Wg3nit_C6gpkzE8tpevv5t5xXd_8qvzWt7H6HCslAD9hzVM5tafln008IUD6o_uQcamf0LjHwEB6gPYovsp1kw6dpyetCto9CbATK_dVQSIA0MBCHz55KZtwFwURtFeqzFu5ILMuLWvmQ-AvgJcdqWEju_M1IywnWPZvC7A24nFUD8eWeLQD0Xjf1DhS9lWA4FDEtEXVadLA2HIijyV8NNjmAbWtKjv3ApIwXc8q6dEyx_8hpygfKIVDhVHhTI1fW_ECYMNWFv0U-iy9_-iqitu0TPNLGiO482KIlrupoMtgeJUDS4GUBwi2Z1eWq_VIcpfL28KOofEWgboG1-v6RY4WDJV-ft4_rgxv14S0y-NuhPtX8uh-J9_1yQmtrQf5CyL_rkSnk0CO9yno7uicvr7bSEiPtPEFwvPQw9L-JY2MPOErayvGsJNIsZ3KcE7pwwTUjMqkhvIKsRPP63z9huMQFzFosAyPDEhqoYsvjrBk3jFswV6qoIqUoHdTjBfJg1JsBKvhkI1nDtcxnYAIxy7nOxCH7bXLYoEbtVigLR5SyjpUAUhD1kSskMMmL85cADlyBhKnBUqBR9cuAobwxwl6bqmERef1fNBXEDCl3C4RfEVqqR91QKowwHkJUMvNwDtUg_DcjNygvqz-oy5vpHnHpzZjHld2bzKs4ho-rLBXwbTjDd7xgyk-bNsrnHW6zebHi955Y6kbB0jgoZkbd1MuHmX4C01QgD90WG1PoH7EbkEmHOjwdbhpo8qG1schNxiEn8lxHltK5VAkv18WCB3N8VyqLl4NB-tK-UKwvWrusZlUoyM6WehTDAbqk4ZJW_i9IWBb64X_mfi5qkNdh_MBYYONzuwAcCNO6eEyw5JGov5cjRSlXF5v5ZtsqGV3ojQAIBTJ7HklTZKfyw8w"
+      }
+     },
+     "id": "prt_0acd16de3001KWWtzT2sD5eFyu",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd16dc7709aa09210c6e2e791f6",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md"
+      },
+      "output": "[4450 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md",
+      "time": {
+       "start": 1789605802002,
+       "end": 1789605802068
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd16dc7709aa09210c6e2e791f6"
+      }
+     },
+     "id": "prt_0acd16e570017n2inq45vP7Tp4",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd16e5970dab8b937b6a685500c",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/projeto.json"
+      },
+      "output": "[477 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/projeto.json",
+      "time": {
+       "start": 1789605802013,
+       "end": 1789605802056
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd16e5970dab8b937b6a685500c"
+      }
+     },
+     "id": "prt_0acd16ee3001u0kTFOwMOMHBUO",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd16ee5717cbd97aa596baca432",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas"
+      },
+      "output": "[185 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas",
+      "time": {
+       "start": 1789605802022,
+       "end": 1789605802037
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd16ee5717cbd97aa596baca432"
+      }
+     },
+     "id": "prt_0acd16f710013I49la34heBdmQ",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 75513,
+      "input": 3477,
+      "output": 242,
+      "reasoning": 129,
+      "cache": {
+       "write": 0,
+       "read": 71665
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1705b001YmzFrdfihKFBAS",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd165d4001pdIsraZtKrtAkA"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 77410,
+     "input": 2145,
+     "output": 144,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 75121
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605802114,
+     "completed": 1789605803673
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd17082001RV40BBU55d6IKD",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1749e001OA6I1XVhxNreNj",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd17082001RV40BBU55d6IKD"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd173d176389566df3bda5642a0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas/M2-inscricoes.mc"
+      },
+      "output": "[9616 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas/M2-inscricoes.mc",
+      "time": {
+       "start": 1789605803531,
+       "end": 1789605803607
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd173d176389566df3bda5642a0"
+      }
+     },
+     "id": "prt_0acd174a5001wg4220kdgCD2kY",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd17082001RV40BBU55d6IKD"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd1747a7307b071522b9705a8e2",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js"
+      },
+      "output": "[29734 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js",
+      "time": {
+       "start": 1789605803540,
+       "end": 1789605803659
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1747a7307b071522b9705a8e2"
+      }
+     },
+     "id": "prt_0acd17532001br3i1n3V2bwXJj",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd17082001RV40BBU55d6IKD"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 77410,
+      "input": 2145,
+      "output": 144,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 75121
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd17692001x2mRfVlGAC81ox",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd17082001RV40BBU55d6IKD"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 89389,
+     "input": 11979,
+     "output": 221,
+     "reasoning": 20,
+     "cache": {
+      "write": 0,
+      "read": 77169
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605803683,
+     "completed": 1789605810782
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd176a2001rLUGRRwXAwIsCk",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd17b62001cGlJHyLzfaoBdv",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd176a2001rLUGRRwXAwIsCk"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605804906,
+      "end": 1789605805236
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37ac60a9cf0264e94057:rs_01a0acd17a6b73098e0a38fcd45fa9f1",
+       "reasoningEncryptedContent": "Q-PaDgEehIHEeVWoPmeC5RfxZ8A1fpwvER2Ea1eJJIuzK6BUOU7CxyvWtTrE_ntwiyZ6QVYM4JNA0wPkPJjnd-cr1d6-ykT0AGd0WxxlyUwIBtwL1YGQGRAaCn2F794Qc2GROIH9sEvowGEsfPhidR03W90VDHCPZ-ORXsm4gmgwxHnPPyCngBwOftg4Z2DDSNGZrwiOho3YrqWUARUN5gUZlAKQfaUz9v4FPzXNvBkBOxVD0-M4I5JAjchhk5GSqLPEbuy2ydvjBkChAUDJTfbAuIFe-ipRIa6qlLXojpHPVjTEtojKaw7RRpIa8mscR8iKq3Pw_shy54lpsfp6EWFSag-ipIPd9Ljm5z61IDN_nXJgYKgm6AW3JHM37oeq7FzjJxpCsiqWQYaJ1IWfM3kAnVrpxWehcj8-p2Ed4HfXCjshIELM9EZ31U1EF9dRhprv_NqLckHXEYqxxFOlGlLFt5-b3prE63u6aOaWfUoG_sDuCwoynwYLYSlPKSmC-wG0LiP0zMQYNdPaMZ198mmQasRXUBAOa6zlszclLadJTBX8trh3dtobM0mxr8D2zMJzL8-PJ08f2a9Y7upzhhYrEg7MmEX28DybsALHVu4cs5BhrNAclxvX0ijCBDtD4e2tU_jFGabjzE_0SNgpAKEGjOgCXUvnDphKGFmxfWcNhx8rmoubADz74cQCe5Four1vX4uY9MGtuUytu6R9sXg9I73wD-ElFk2tbumVrGbs9_KVaAS_wjYanlyDKkYghXe6rwlmnH-FRgerVCuv7PzMPslphjYz8BhpTS5qrEyveE5Ua1Vkp2VaQkgRL7KlVrtULDMkGW5jotHbL9oJR7Bhbnn7wQTOJ0rNB6ulXemnLNdh_Tc6ovlJmpLcLP5k4ZevGRru9jaEcR3MGs5Lxilu2cuzGhIKNbFIaijAmqs0IaRUmnNW-4ZaNyDosDGw7JT2KQB3IBrMLcfIfhIWFzb_dOe8CM5_bqtL0swpVD_E-26LbEWAAQ5ZxhNbZDh9O2lztII_1A9-9P2YE9gwJ2jVf9mgDgpHkgpCCjp_g6xOUmYGlSpatCaIfIN3NTKSRgyKRJL6y1wXowGSkeCoVWASYn9KfjYUukvNDR0SXz5Rr_rbJLzm-XYRtQSb30xSEUR_S9IXs-vmrWotiyvzhC4TckM5Seqb7_UtSH-nfJfJ0ewQ2niccjDArqMB3HFLM5zRi18Q7TyS2EqOiGG4ALZbOCSVoMKLnzH6ohVJZURD4T_OwMAFwEpwwO6GNQxHYin09sxNFvNwim53X5AyRvM5iPr6L3dRQqy_eWZbWzpEo261lS4zbZFCWpuJGS3zc8rtioLyM6_nKwuz5hfUcM4Rs2dvRTgxBrbKzwv2LdlK2pLuvXzgACoOYZcnHB0FzMPQ1XOzzkoviS-bPw"
+      }
+     },
+     "id": "prt_0acd17b6a001f1VbiXj2NfQKYz",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd176a2001rLUGRRwXAwIsCk"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acd17bf7734494f76b2f5f7130c4",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "ls test/ | sort && echo '---' && npm test 2>&1 | tail -n 8",
+       "timeout": 180000,
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "m1-cobertura.test.js\nm1-corpo-post.test.js\nm1-cors.test.js\nm1-json-malformado.test.js\nm1-leituras-identificacao.test.js\nm1-menores.test.js\nm1-patch-tipos.test.js\nm1-persistencia.test.js\nm1-r10-r11.test.js\nm1-r12.test.js\nm1-r13.test.js\nm1-r15-r8-r10.test.js\nm1-r16-r17.test.js\nm1-r19.test.js\nm1-r1.test.js\nm1-r2.test.js\nm1-r3-r4-patch.test.js\nm1-r3-r4.test.js\nm1-r5.test.js\nm1-r6.test.js\nm1-r7.test.js\nm1-r8.test.js\nm1-r9.test.js\nm1-salas.test.js\nm1-server.test.js\nm2-p15-perfil.test.js\nm2-r202.test.js\nm2-r204-expiracao.test.js\nm2-r204.test.js\nm2-r205.test.js\nm2-r206-reinscricao.test.js\nm2-r206.test.js\nm2-r207-convocada.test.js\nm2-r207.test.js\nm2-r208-contagem.test.js\nm2-r208.test.js\nm2-r211-inativa.test.js\nm2-r211.test.js\nm2-r215-confirmacao.test.js\nm2-r215.test.js\nm2-r217-cascata.test.js\nm2-r217.test.js\nm2-r218-precedencia.test.js\nm2-r218.test.js\n---\n> jest\n\n\nTest Suites: 44 passed, 44 total\nTests:       147 passed, 147 total\nSnapshots:   0 total\nTime:        3.591 s\nRan all test suites.\n",
+      "metadata": {
+       "output": "m1-cobertura.test.js\nm1-corpo-post.test.js\nm1-cors.test.js\nm1-json-malformado.test.js\nm1-leituras-identificacao.test.js\nm1-menores.test.js\nm1-patch-tipos.test.js\nm1-persistencia.test.js\nm1-r10-r11.test.js\nm1-r12.test.js\nm1-r13.test.js\nm1-r15-r8-r10.test.js\nm1-r16-r17.test.js\nm1-r19.test.js\nm1-r1.test.js\nm1-r2.test.js\nm1-r3-r4-patch.test.js\nm1-r3-r4.test.js\nm1-r5.test.js\nm1-r6.test.js\nm1-r7.test.js\nm1-r8.test.js\nm1-r9.test.js\nm1-salas.test.js\nm1-server.test.js\nm2-p15-perfil.test.js\nm2-r202.test.js\nm2-r204-expiracao.test.js\nm2-r204.test.js\nm2-r205.test.js\nm2-r206-reinscricao.test.js\nm2-r206.test.js\nm2-r207-convocada.test.js\nm2-r207.test.js\nm2-r208-contagem.test.js\nm2-r208.test.js\nm2-r211-inativa.test.js\nm2-r211.test.js\nm2-r215-confirmacao.test.js\nm2-r215.test.js\nm2-r217-cascata.test.js\nm2-r217.test.js\nm2-r218-precedencia.test.js\nm2-r218.test.js\n---\n> jest\n\n\nTest Suites: 44 passed, 44 total\nTests:       147 passed, 147 total\nSnapshots:   0 total\nTime:        3.591 s\nRan all test suites.\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "ls test/ | sort && echo '---' && npm test 2>&1 | tail -n 8",
+      "time": {
+       "start": 1789605806400,
+       "end": 1789605810770
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd17bf7734494f76b2f5f7130c4"
+      }
+     },
+     "id": "prt_0acd17cbc0013FjRw6E8NUqtl2",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd176a2001rLUGRRwXAwIsCk"
+    },
+    {
+     "type": "tool",
+     "tool": "grep",
+     "callID": "call_01a0acd17e4172f99043abec7410832a",
+     "state": {
+      "status": "completed",
+      "input": {
+       "path": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src",
+       "pattern": "jaInscrito|JaInscrito|IN \\('confirmada'"
+      },
+      "output": "[782 caracteres omitidos]",
+      "title": "jaInscrito|JaInscrito|IN \\('confirmada'",
+      "time": {
+       "start": 1789605806417,
+       "end": 1789605806534
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd17e4172f99043abec7410832a"
+      }
+     },
+     "id": "prt_0acd17ef6001M0fGOMf2LgUG0R",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd176a2001rLUGRRwXAwIsCk"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 89389,
+      "input": 11979,
+      "output": 221,
+      "reasoning": 20,
+      "cache": {
+       "write": 0,
+       "read": 77169
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd19256001F83Zf4zdtTVzFe",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd176a2001rLUGRRwXAwIsCk"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 90272,
+     "input": 993,
+     "output": 162,
+     "reasoning": 44,
+     "cache": {
+      "write": 0,
+      "read": 89073
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605810796,
+     "completed": 1789605817907
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1926c0014flenaXiUbJzVE",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd198ad0016ApzYpI1Dc3I0Q",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1926c0014flenaXiUbJzVE"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605812404,
+      "end": 1789605812617
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37b3749dcb119b46488f:rs_01a0acd1970c728c9fb48fdd319248ae",
+       "reasoningEncryptedContent": "Q-PaDgE57er8XR76vp0djxfbsXOFG38QsF8r2VFQYIZIlS77EXwY3tLJI9PT3sVb_Ds_fadePQrUf8aD5TGOpUCBMzU3k0ClMN0lqVhcniYs-LnUjj7d8kdeqK8tiTXPwCuApRljmvKz-wmMHy1Aqdy9iw8fvQw3z2BcHXeM-8zJZPxga2Bgfu0mhH_5_WHT_c3FbSY31OAbHjBDr_t3s1LpJbThHZQ2xEKvAhj6mGH6xCXr94MwmxIfzAkJjdc_Xbp0ePXSPXytwecynqrUl9K-Q8zUhuSQRpPllhzoz2kGVRCf2XIsOkxAKbiqFyM0oGUT8zgZp-CmdswmmnOTzaRGoqT_RfawLDFpoFDw4vc3j0YJhMSF1LyDK4XXmNENmQcIQG7vAITxReiuxrDrka875o2K0TvReUHYPIXGFX6COgd91d8LjKswQiHbR4VfLk_inPifcNNFX1MeMr439wd1wSX_p5Bm06OAc1z1K108Jqu_CH-GZbcMGW8G5f_Zi5y672g-eVV6_4rFGSE7OH_kIcDvS719GxXwxPeofQ983QjpHc_M-5R-3zbzU53zGcStq-Ghxq4ibxMroh4pJcH2dsRLDMOrqbV3nrYtZwirgpt1l8L8AFAdLfdVpB0x409wkxgeaVs3Qnoqp9nuHuVnW25FKedeWLdEaTbFKExIQgbjDk4v5RpaiF781fZSJ9pnkJVKBb0898WGEhczdXVX14pVT9S-CtC3oJHzUaRK-N02fnH8B0bVr0LCrOJtXrO94V1Hey95Xh6pv4qEz2UwNhExaDBzAmvp-RdFQyEbIpCaet839YNCFPUj8T7hGUYPj_aqHVGt626_Tfl25YuKOk6APacWhuO7sPf3YpRiIV90PggSEC4yv9NlQzCPj23mKz_ZDXaQo-rgX9akqAZUIcceckABoieWyefqWFDC8osvQ0mQyk8DtqjinKD0YfsT-PDThC7x434Vm-zKhZ6yRMpASdT6iVDQ68N9QLrVIImXidoNYRXS5mRgTW8Gr-1uGZizwRuTR0x0363GfN4F-DPK6yWlAWT5DmOrEC74t5_6GQJz4zvuP-D3XqnSeHu7QteRY8nJpLkMMjsoESf8et9K2esrNG317YHyiuT-kHVF2wpliQ9keyrqTJu-BJ9r4VdhJXjsP-f-hicOlS6fLayCxtzPNHIxX_esIN-H64RursS-1e_3bxz_USaqVX-IY4SiHzwcogPl_unAotu981M-D_SBVK-ulf6D4o956SjFxhIPuO85CsxWRYUqiEsnV2Yc0nvaKgPasRrakvJrnUBaY94K1UkQ-GcXzkIZsvox3lSBSCzPJPMyooga2DYMebtFO9D0p2CT4gvg9z14l0c1tgNGqMEEE83kdLb_ot7jyCjYXlkrijvemPQCZYNEsF3lYvKXk7Jwew"
+      }
+     },
+     "id": "prt_0acd198b40011SDK6IVA0stzU0",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1926c0014flenaXiUbJzVE"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605812628,
+      "end": 1789605812958
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37b3749dcb119b46488f:rs_01a0acd1990075d2b551076515f65420",
+       "reasoningEncryptedContent": "Q-PaDgG81WA9yHkOG0NKa3cdvLKCOWPaTLk7TV2kcNR7AmPnJoJ3VIxJwvKe8QWyB_wB1Vsj6FuDWMPGCYk2fhp9hItEBpDZ2qqnINvJhhGJQ-JSSCRDyshdrRMue4roRCV9KKvkXuS0SfNRB_iRKl7JhPFaI0d2gooptMF5zkRoF4VVaFUYftSZGCiuaE8gtj2LUQFNOqBDtQge0NvxRzrCzTiIeY-BLYOAZsketVJMhlA8adbv-t8Ls6JrZEyaiscoQiMXSkfiDwcuxuO4V0K86AXbgoUe5DgNL91aSlRt_o7ac27DxNPnI4Gs8tgSEG4g6GsOHSDpfxGVfiFtCQsxarw-27lu8oHrq7UPn70EwN7fFBh6WtT4zH0_d4-9Yjpfft2Ob2-OFzMUObvNADFV4dFpbSXYG5jnIFJhxP-k09B_hWawD8QsM7S-FbmBKT5j3rlqHylHh3hSH1cXSCIv4ZoMQGY_hokHYL3W4YJwUEO1NyZ_kZd-6Se2BBN9X7Ovjfb-37UjK6ggT4way7oX0TVIhzyw9xJyevURDXQ7nCcvD8o9FoYqrgQqniwus8M2rGoy4tJapS1TtSMdSQnRqq-bBSpqXFQAYf978CGj0Mvk48lxEFidSTbE7mW90GjjT67xerPIZhaICCOZy2GwXY2I6UiehFX42LwSFUmaP-DMNbzH5fKJgdPL2t8sHa6wQpqFTnWzF-Yn5gHGFuhtrwL_thyZJ8uq68SFD3eqFQGEkjVYaG3QBgDkZtWQQTxtP3Zre2AIh4B1UDYwdxQAFEJZN_T4XyICmkfieZNNUk7UlUDU-k8xYpp6NuJe5AJuNRGlZ3yDPxJVV4j98HXCVGs2JvTLmLZpAq2n3SdAQBwbTZ4SaLonZL0DEvilXuSA1JswwJfbbFDpjbfSyCdxZ5JOGohtULJJbXjZkuTxc-WdhNpjE4BYVWUkKWY17GxS6F55TpeGL2m0N3hTOCIwVLuhJWvD_2DISxz2mDfVU4r16qTefNQscaaFyrZ0y_ANHRe9xrncezwg0Db1vt-9yvJ_jxZcKEuUwlMQyjwhwVksd28HD2wFnyp_VXUZv1SKBoFYdIbqPHh_6xXisDlSfIluh2Uu_d9KUEjFzfFG657RsKrbskgdVCNX6JMjyjqOKRdn3Jxbk5DNpGQ9SyruTl1cLeeh7h7FwoFSaJNqkMyi3unrdPS51CyMtRls0gme0B2z03kSMRTrNEVnjp1al1Qk1PjfwcWNfe1YcjPLFr7EcG1znuqK2ozakh7pHxon-gDOd4eBPpOsPzhT27JbBCbdYLARo_ape1s5un0DOFoQGG8SLY9iEOV1nUKu8IC0iOE2j3X7WPTCF4BeToBwfEvBUcpxRHbAHeinzcXjhW2pXZjiIBSy7abDHn1QMAOiCnxTshYlSBORCA"
+      }
+     },
+     "id": "prt_0acd199940011MEQLAcCRbpCvx",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1926c0014flenaXiUbJzVE"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acd19a52722f93ff1011465b9fa6",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "npx jest test/m2 --verbose 2>&1 | grep -E \"✓|✕|Tests:|Suites:|PASS|FAIL\" | head -n 80",
+       "timeout": 120000,
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "Test Suites: 19 passed, 19 total\nTests:       54 passed, 54 total\n",
+      "metadata": {
+       "output": "Test Suites: 19 passed, 19 total\nTests:       54 passed, 54 total\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "npx jest test/m2 --verbose 2>&1 | grep -E \"✓|✕|Tests:|Suites:|PASS|FAIL\" | head -n 80",
+      "time": {
+       "start": 1789605813692,
+       "end": 1789605817896
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd19a52722f93ff1011465b9fa6"
+      }
+     },
+     "id": "prt_0acd19ae8001mU2bWLkoM71Br1",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1926c0014flenaXiUbJzVE"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 90272,
+      "input": 993,
+      "output": 162,
+      "reasoning": 44,
+      "cache": {
+       "write": 0,
+       "read": 89073
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1ae2d001MyOUGJQnWyWYUo",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1926c0014flenaXiUbJzVE"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 90440,
+     "input": 347,
+     "output": 124,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 89969
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605817915,
+     "completed": 1789605824029
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1ae3b001BnfUhAjGgTLiGh",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1b73b0014qNH3JLaqAeIm8",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1ae3b001BnfUhAjGgTLiGh"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acd1b5967188b6ba2e45bedf48f2",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "npx jest test/m2 --verbose 2>&1 | grep -E \"PASS|FAIL|●\" | head -n 40",
+       "timeout": 120000,
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api"
+      },
+      "output": "(no output)",
+      "metadata": {
+       "output": "(no output)",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "npx jest test/m2 --verbose 2>&1 | grep -E \"PASS|FAIL|●\" | head -n 40",
+      "time": {
+       "start": 1789605820314,
+       "end": 1789605823999
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1b5967188b6ba2e45bedf48f2"
+      }
+     },
+     "id": "prt_0acd1b73e001YQVhCGp7F99J8V",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1ae3b001BnfUhAjGgTLiGh"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 90440,
+      "input": 347,
+      "output": 124,
+      "reasoning": 0,
+      "cache": {
+       "write": 0,
+       "read": 89969
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1c60b001UqxCL6Qq7yFVEp",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1ae3b001BnfUhAjGgTLiGh"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 90638,
+     "input": 240,
+     "output": 114,
+     "reasoning": 59,
+     "cache": {
+      "write": 0,
+      "read": 90225
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605824050,
+     "completed": 1789605826587
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1c632001afSVEUM0LDacsN",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1ce470012BUWrZx3ake05y",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1c632001afSVEUM0LDacsN"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605826127,
+      "end": 1789605826136
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37c1a590b57945734ada:rs_01a0acd1caf671dca0c6ff3aa2206f35",
+       "reasoningEncryptedContent": "Q-PaDgEA2TLs0nhLEOVU5m19Sbtuv-YhRJeznOFB0KeR9S5iI6cMqDWDwCTrFeoJTrHL1OC0RZG_dHMPXpRSmBk0IyVmZYOlJWHX6L834fGskhmpugUqDiZsHiqrDzujlmhf-5NNzqduzVwlWxS39k7QtxLzBDvZkJuLJStcRr2Og0yYBgiAFQOjPeHtliI86Zabso-yAVGbgruGkaGZ7SR8l4V23Oo57G8BTEcg6SIgA8iRjVLIg2EAk83XEtFGUMWB82GE4wK7MtjvSk-YybxS_0XK9wHZS4qPuI3kys8_b8TAIUFJnMdRUSD-tdxRHhLI4BxLo_Kl1Dr8HOUQYD5JrNietyIs_vuUQiPYefyjswVFr20brfKnHm2_Ob6oSg4hMXNXC6Cq9Ko06i2DhLO4g11MKv8cr8VmjwnAVXFpH1NMN7tHIvhUUpcRuL6qrjCoSpiWOTyAGOJrc370cU2ejjLNaVm1Q5j4RXKhFxyf1d7LM9h2o3CdOyVNeOzgFIucpYxeK4OxFruL1PAEtLT4yGFC0rFOf_amxwDR-yd8fNF3mGqbb4qJBdMc7l54zwipFz6YjK_XTdNl_RIgA42X0iCOrpRwlmisQ-BoHypScRByLnALkpg419w81ClKFvbOQK9dcTfQuYd2WXKdxbP1pTVIlh1NDrlEZJ387_2Db-O4uFrra3njoXAofNye1ZVLUiVN6W_CmiOrviboPcNeIjaCidXwamma6q_fRSCmCj48EVjuUSPuu9Hpc2rtjU1DIguC2xEzwZZYMexRE-9vu8bG_kZf9Xh24kjdc38CkPT-ogc2Vi01-zEs2slMKrbPL4Gx-Z2pZix1E5edWI-gAywmXpWCOJOdnA9nmIsLlUep5W4VcK1y-YDEoujlpf2JW-gP0gpsR6rjgEcNqFQfDJa-wT4NxR57A0dhd9SY5kNov6MKQdqLm7_YHaZ4UvVN53UsoPwkTTh-q1koKqyxbdDLIfkYIsYXUrJS4Vyiy_r7IzHPzzbknYSHgBQYnkNcyCQ2syskpSKkODpCAXId11iOzLPo71VzOO2ZjyhKxVIcEZT1Xetg6Nz1oDT7GhoCMnlaxFKqPepqKr8Y0PkY4kDBj70b2wlsBYeD2EPWBatfqLkjKLfgFFrr4lDj8e08jF3kKKcT3ZSzOL86n4ilR7_ln-nA6cj_EOYX2jtScDE9aNoaeri5cHK7-Z00Erg9fDS2LsOnpc5LZS9AtqLAJBX6DEiihkvKC1scyEISiIL-dmFnt-6ElVNIm0DLZYRQWJqJNJZ5BFtPhxJbuSNOVYmJLkyQE27xei7Mf_N0oHC49T3hApo-Yyz7ahbNh4F2mfQfjBTqZPXINZ56UBMpJPHbNAFlvBMl7CXWee5Pqzn4y66mkgUJE7faCSyVK3ujlaB3yI95zBHe_A"
+      }
+     },
+     "id": "prt_0acd1ce4f0017uWzwdDUeW5aHy",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1c632001afSVEUM0LDacsN"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "call_01a0acd1cd02736897b5c8eb9df53c0c",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "git status --short | head -n 30; echo '---'; git log --oneline -5 2>/dev/null | head",
+       "workdir": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS"
+      },
+      "output": " M api/src/app.js\n M api/src/banco.js\n M specs/M2-inscricoes.md\n?? api/test/m2-p15-perfil.test.js\n?? api/test/m2-r204-expiracao.test.js\n?? api/test/m2-r204.test.js\n?? api/test/m2-r205.test.js\n?? api/test/m2-r206-reinscricao.test.js\n?? api/test/m2-r206.test.js\n?? api/test/m2-r207-convocada.test.js\n?? api/test/m2-r207.test.js\n?? api/test/m2-r208-contagem.test.js\n?? api/test/m2-r208.test.js\n?? api/test/m2-r211-inativa.test.js\n?? api/test/m2-r211.test.js\n?? api/test/m2-r215-confirmacao.test.js\n?? api/test/m2-r215.test.js\n?? api/test/m2-r217-cascata.test.js\n?? api/test/m2-r217.test.js\n?? api/test/m2-r218-precedencia.test.js\n?? api/test/m2-r218.test.js\n---\n7d7e9cf M2 implementação\nc7091be M2 Specs\n9e8e7be M2 rodada2\na7fe0f8 respostas iniciais\n2a1fd23 Update owner name in M1-grade.md\n",
+      "metadata": {
+       "output": " M api/src/app.js\n M api/src/banco.js\n M specs/M2-inscricoes.md\n?? api/test/m2-p15-perfil.test.js\n?? api/test/m2-r204-expiracao.test.js\n?? api/test/m2-r204.test.js\n?? api/test/m2-r205.test.js\n?? api/test/m2-r206-reinscricao.test.js\n?? api/test/m2-r206.test.js\n?? api/test/m2-r207-convocada.test.js\n?? api/test/m2-r207.test.js\n?? api/test/m2-r208-contagem.test.js\n?? api/test/m2-r208.test.js\n?? api/test/m2-r211-inativa.test.js\n?? api/test/m2-r211.test.js\n?? api/test/m2-r215-confirmacao.test.js\n?? api/test/m2-r215.test.js\n?? api/test/m2-r217-cascata.test.js\n?? api/test/m2-r217.test.js\n?? api/test/m2-r218-precedencia.test.js\n?? api/test/m2-r218.test.js\n---\n7d7e9cf M2 implementação\nc7091be M2 Specs\n9e8e7be M2 rodada2\na7fe0f8 respostas iniciais\n2a1fd23 Update owner name in M1-grade.md\n",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "git status --short | head -n 30; echo '---'; git log --oneline -5 2>/dev/null | head",
+      "time": {
+       "start": 1789605826467,
+       "end": 1789605826568
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1cd02736897b5c8eb9df53c0c"
+      }
+     },
+     "id": "prt_0acd1ce600019qI87MPCFf91qr",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1c632001afSVEUM0LDacsN"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 90638,
+      "input": 240,
+      "output": 114,
+      "reasoning": 59,
+      "cache": {
+       "write": 0,
+       "read": 90225
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1d00f001IhsVhpBFVC2z79",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1c632001afSVEUM0LDacsN"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 91246,
+     "input": 588,
+     "output": 94,
+     "reasoning": 211,
+     "cache": {
+      "write": 0,
+      "read": 90353
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605826614,
+     "completed": 1789605830808
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1d035001iqURDOV5opO1GE",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1d74e0019h88J6Mgs1lmQa",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1d035001iqURDOV5opO1GE"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605828435,
+      "end": 1789605830365
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37c3f11290a056a04125:rs_01a0acd1d552778b826d4b738e36debb",
+       "reasoningEncryptedContent": "Q-PaDgG2XpezyboDb44XeM-y7bz9K7ePGku4jIq3fS6B0NTLbS_XfiPFZ49zMj1YwjFBg6URgoI5LMLKpNUDw_yPGR6sGteZ-tYdrMYsAJS_pQerqt7mV9MK-V-jm-vLnWU6rUPrhQBhL-v6f1P4XtV58daRCScj6QV7MmwaeEA5hh4wgt1T3mX-eRaXRSGWpCPrKBtxJE5azT1-avo4Dfzmt6ud4d1HmarYbxtsGAJLB1xug1AGWSC9pWsaDrb2BlT8Hg8HHzE1-JbbindN9b1D3OIFkdsJx1uE_E1_mNpbqfjOHMuNnlGuCi35dn0ji0InDGdFLG4JWaU2RYPmWknSAk2x4gid0JjwxmbRA5gros6WJmq6WyzAgUjB4Prwt38aGV4XdycMKP_mtwqkACC2tAJPsGzQvjg8FO3tvMa00LgHGUBs1PWnXBsQ1zAgKeTcf9bzobV_IvhWYjh1GINtx35VGCzr_BWSNZyzuazRRnElUa-KCspwD5HeHSqhkss82yQbTZHE3F7MlIvC-brWiksQL9EGzHthhc_7bropFDr8k6bip3bQ5nk3ToxEmyx_cpCUf4-IxnfDYyBjD-hq7eyqNkqSqbsCUg0oOrb2mn1C1NOA3Qu7p2ygsU18MfHoNJf-6xaKiv-dqZz4I12fUPF0XkSpD215Otg8KyJPqx_91CLMqgCYDCDQvHQFDgpt8p-vG1wZsetkp9ViqbSZ7VL-zpECAr4psK6advGG0jUcyxCelVL7XfsUC3dAMIFi_omO8TMbcs7wxhhDye4DBkFpj7alm2Lu90v9hkNhh2fka58XvzZSGRDNtprDK5uvNilhCQ5-YuXZhQiP8WRU531dpVCRZvJYXbWZhcpj7BTcX1oJf9ivXqEpiBr8dUr6cdU3LoJ8gzJNgQQjMDf9QomflrZtmYMK4GOyaqi7aAqfUmKcG7PGpFu_tlTJg7J_ZLdFWFP-t3RYW7T9zPXH5ohzPO2J2XPvLkq8DDEYHRBZUERqi432WUmWs38uEQK98epB4QlXUMzi1xi8ETopF3D2WGv6LR4Xr2HjfUPOcyttJZnvRRB-FrbYzcK6jYj0QsdjPIRBrOOoJ9C-6S2zEsaj31EbL1021mmn6SjLRQifMqryp3Jh_mZj6nIDeBf2MuRfgNkIgLJAm0xpBGj8aPjgu-mQblbUi7klOLkzWgccUjV5RfgD9pa7VdhTfaFr-dHYeGBFou3fdZKNzzs33fyJwgKvKO4XLbV1DjaQ1KObGQGkxQz4Jg8AeDSLoQBMnra1L98WGrVPevWL7ojEHFfyyFSTCq0evKPzHeJhxoBCEd_nmWIhwMNvBG6ngCy6E74VgsgATt1tjrxwRfsjm95bbLz8eAc08q53q97oSN_xAi_inbzWolbs7uQAkX-uo6vHGqQ3pXQMoNfwH3Szar5RNiqazwtN7MmEHXQpwL1bUIp_LOu0EGOx6zq2o3XwJ0fDgA-nRPkQkMaRj6x9WTUD21krBf-xfDerwEWbvvaJA9MNsXJv1VipXiQR2w6V84UGD0CW166NPVRH3oEtTRbm7IWcxPUHx0_w6_ATLM7xab0qgaO_z74EwJMuOj54ntt-Oq7CMPaWIFIq5mCOWy32UWwdAgT1Acpt81PzLAmetFnp9zYaisfC5QR23QpjEPMzXWI2e0WbtW6rWBwcYSkQq5TdVR4djlQf03QiFba9EaR1i7fAw_HgFVg_Jm9k1Hit2JOokSWHvXsnwsbj61H7sWlYXVfLM_9NAvrYEPDc84c4NdF1NTgmvvi_d5CgwtAvFSj-Qi_KPH0vtV0Mxld4uQa0-nanYXTnFGY10u0kw-VCibDt-SsO-D8qtI_OUFvlqENhqSzjNbmJ2n-2xD2K2tc0lj8Gn06r8jQ_YIxntNjO33RYcTqdPHOtZn00VwYi6hjT1at-gbCTZnk29ym4bjzVTt8kPoFRd70tr-V8OZx11hp7Z4oE4vi4IXuToo09jLz-S5hx-oOIt17yzhUAZIQ5IRbbtQhIkOIo-4aNa8NK1b0WefEY8pBUbErLsHvIJiajiQEJYJHGufknxuqrtLwzFY4-t_cVhQIUjEhwtGdd74qsGsvJyHWk_t32zj-pk91Cdsiwu5hi0-B6-8vGKJ9dn62McGDs8GALGvRU44cmcOga50lLNpZOcKiT-nCpgRSMxgINMgnjk0mfnNEKnRD_skf6nD-4XWkY5P_A-V_Z2evf8jLCH51PvOxT8h13Ub1rVdi7xiK06DmKan6cGbqRv8LSziEIu5bk8lrGslM8p6eNlA9GmKd9OXl3kk4jZRLgIjiUFZRbjCUAmOpT5Xi4HTPLjiuzpskzBMyxzSyHo0w6MIbCKcrZy-gDwujeIL9rQNUNjTyw3NwTMrcHuxTYeTg7vWTBJxwo9F79c1B2ydBkUMdSfPSDWt1ahhN6BP-vJcF6JTM4xXBoPLWMu7Q-uZSxeKumwPvLeTF5EssIB_mzYQyuf3JSyu5MrT80b1kOn2Du6DUi-YIzjnVNBpeeTxxvgzhEfHK7vzK0L_VjA1xkZlRLvk3GFFLXjiHNLnIrP7Nw2tKsBApZw3hrANynGJjocNYPNp6rEhsIeIQZ-cIT__DWDlCBUgk4ERY5MRNlqXtqN5TJjNngnpatMBJUJjergleMbtoVUJmuOKuV3jiZh4AqGYV1tTBtrydRhx6HhnTK6fKJyswH5--ewVu1WuL5BnZ0XgqNkH5sl5eMeLvZm-Fq_lgpTffZYq_2CuqZJbh4yLysO42n4hJSjwjqxKidYBc"
+      }
+     },
+     "id": "prt_0acd1d753001I1SQKxnzxKQfgo",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1d035001iqURDOV5opO1GE"
+    },
+    {
+     "type": "tool",
+     "tool": "grep",
+     "callID": "call_01a0acd1de2471308c9da749d415df7f",
+     "state": {
+      "status": "completed",
+      "input": {
+       "path": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test",
+       "pattern": "^\\s*(it|test)\\("
+      },
+      "output": "[13164 caracteres omitidos]",
+      "title": "^\\s*(it|test)\\(",
+      "time": {
+       "start": 1789605830736,
+       "end": 1789605830780
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1de2471308c9da749d415df7f"
+      }
+     },
+     "id": "prt_0acd1dee40012G1mWVqaIhpARR",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1d035001iqURDOV5opO1GE"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 91246,
+      "input": 588,
+      "output": 94,
+      "reasoning": 211,
+      "cache": {
+       "write": 0,
+       "read": 90353
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1e088001mr4cZLKVSHF5F2",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1d035001iqURDOV5opO1GE"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 95624,
+     "input": 4436,
+     "output": 111,
+     "reasoning": 212,
+     "cache": {
+      "write": 0,
+      "read": 90865
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605830826,
+     "completed": 1789605834192
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1e0aa001aFN98SG2EQBJ2J",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1e55a001z8o2qh9d40BoCE",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1e0aa001aFN98SG2EQBJ2J"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605832036,
+      "end": 1789605833537
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37c7a82c546ea41e4714:rs_01a0acd1e48b77a29ed6535584d8914b",
+       "reasoningEncryptedContent": "Q-PaDgHuup6iIHMcs4TT1frmq9sszTbWd-apq8nPjHXQRqSs6VaxRpBLSbl4phpG6kykwFlKqIZhpbRVOM95qa8J1cAVIcCFdbRVotxZdtbuQMWwrzd61N9fTsLEq4BcGUrfPTlq5oqivCdNGVHP_7-UtvfAhavTC20jQzm8dgVwy4sKplkNe81oG618BpulyoUk2tfWBxMxYvWyFgF5YwSy6N0gTGkYY1F_D_0YV71MR30zN9-isX3f5_jP1LmOnEc-rLPv55dD-lGCLjW8g5JYjJhGgchID8YmYJ5Nyexin1X4m9JADjWWVpyRvAyS988SvKPu2RmEEVm_8oYY4wNMg1ABhx5DoLUcfBzu9yD4vYUouhiY08aRap4R5h10CJsfxYvwdG_sP4FkgXZvuSSDBQXmoSEf6WX8WuuK-fn8CLaygAgiBky6HrtH7Z18GngQY4rmdqwmSW9kWYVaBWFT-AR8JVTz5Z4xZoF9smsvcOa57XnCu-ehhfh8H-dfBXQsjhk77YNykh_KQczszQxEUkVCIfoStq6g4n_Y-SOxsbEow8fTPSUCDPPkAM9iyxms-Ozp5tC0bS_gOyGDZhYE64sbK0ZYDXkSX0eYQxlZw5NoG53SLrDnwMbsoq58FKWr2C-OOwdOcmUOGjDg3tNtbWQMWej7fjB9jY26OkVk3WWEFC1MbQ78MDG48bZTRS6H_4Arbsh3ii-Qb95L2D1JQrR0ZfbEH6DI9AyOc7Ur6i2FAJlUir76H5y0IPbBLbfCru8mJH_sM-CWeP0OOE3334f8oqwGja8mp_xbVFBWfnOI4RO_0WdXQHIs0r2B96Pp3lZ6h7zLqoMVwuQDMqmC9VhWSxsC4QCL__Ns1cRglem9QFiCyBl6XPJ-VfwkSm5BEq-oU8FskrhZOXODikb7avju596OKXYr7f7Wnhp_dSMM5A7arPrOIYEJh_IBjplKeKlVS3qhiXCrBFGjr1oI_rDrLQUeH3LHonLUhjugcF5o91uywcX-pGMRA9S2M4fK6kXuoEv7prdZxXJJ23va6nExotIqCuMaKYYIPMOSklJ7fWaKAAhvwjKF5xr3x27yVDW6ly7qIcJysSt3GJUwpBIAaP6G736ARyAo63ANo0Dxv6kGzwHTXAt7G3cY1icXwUwgzs3w6mbQPIf81LYYcBAeHVRcH39oqeLbAFV_EHIiaXqvwi7fAfdhrTsqWsi-DZN9EJtRD3Fcy-CV44nGNvo8zGU7EabHLzMs6ZTXuuR5mcDg_EfFxZsfPa18E45f9h7R_DSbmPaISI6o58xq4psfQ1sWZmsrbPlXJHakLTttSrqoG7H1o6peoeYdJhjxPX4XfJ0N5RWDyMsFgydS--_pholEZ2Y5dLt8u8ezgosJXUROjmdMbsYG8styNGxNAlsI3k7WFpUzmI0ZGn67sorxYNMHtX213o08Vupao0DOS85LihFxEXqYZknXnMZfIZZCVa7g6EZC5EjIYgBCqQw2W3qJaddsERiGhJQ8j8mbARbZrt4gYyDY8u4GxD8Hb1wuEOLEPtH_zF2Iqd4QkcHJl-kVL5kJjdhMNdtK0z2OhKPXxkYk7rIV_juewdusL6al4IlwUrfWTz54o_gYAxgfA2NBPAQ5MKyv3kXhiRaz3I-dlsaSCLCVYplCxRe4BT6f1e4_g281cYyfQOvANL_8XPjqXpT2tQfEnVEFeGDhx1fhFgc4mp_h97JcCzGW8elDgjnZjrntYpRA-yI2Af74KgoZiO0AsX92OA5jW3LYmjVPTMIW8Hc_89p2b6jgzUePgEh2wU9Zof0BP6vlStTfIHuwtr60svqjHoiHh3RVk8CDMYcHV2TB7h-aK8VF6QDrRIRKoAbbB71KX5aisozPJ27S5V1t4gS6WdEEytyuBarbCcB5Kixu3v2-SNvEQvo0EMc_Hh-hLy04wrwcbizVhmLJ-wENkk_qWJaLjvT1SPKOG3HcUKA3Y1gKiNEgk4wzDHHaAt-QYS3z_lRiygZnLQ6W7Nm1AVRBaKkaINc_oJCjqFE6ytRHklUh2wd3AVlAhkQms6N8xyZNzevTjRmhW-H09SIimdpUltrRIX021PRLjSSO6fWZI1VHqHhaD2uorLPmqGMd9HhHwwruzcu-EXiuLzFdY0guwR4z5ITOcJ1H7lJKv0fvEZ_wW2WPR2YG3euz4AOBgC8MjBhrdWunh_MPFaboPodp7tfncOgYZIty0vXnLn7_r-O_K43d98svG5A9QrzFsyh032taegQ4C7Hie_6jpl-QnnC-_7PQOb1yILpu7WaaTWCfrZD2Vp22GLRi46fsZwdXtEnaFbjX93pwMeEcK8q36rqk6FtpVqHxuggAII1SWuaMhluvRZslvYPoIHAr1xFPUmECXJVnke2a8YSAJszJ_PubPrPiT894zeL9CHylJw8Jk9NlUwlueAF_e7sg9fP6Q5O9g3PIbF8KzmLNGhom8U_AFUcKEc58ZcDemMeKQ-MGobMfrfQuJwaHvIsoht3LTYK_kXP2EUjCZ-kM6BdHL3tiqF-AEKJrFajLIjcKvM2-CcOFdwNeGo6ZbvfLouegZh8pzJpJPyMhr-aLnm2VxfZyUJJyi7rSC5YSL0c1iEYOE43b9ahw8SS3--uQdBpjdaUFvzcZ6XfEojq6ugwAucGzoTsuCUDpO6GU-hXjEQcK8o5AlsHt-Uu1Q16153RAfKrS7yB9cwImIQoDP4LAafQoPwZPGAmJb4MVXUUdfclf7Q8pJVy0hfRzuv8ynn82VhouUWMd5rFMOixkCe8"
+      }
+     },
+     "id": "prt_0acd1e564001j22seHrj5v7gvj",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1e0aa001aFN98SG2EQBJ2J"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605833578,
+      "end": 1789605833764
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37c7a82c546ea41e4714:rs_01a0acd1eabd72d1a1e4c76d2e41e10e",
+       "reasoningEncryptedContent": "Q-PaDgHiT3Miv9VvngK1iHcmEV3Xw0I6HTz4BK7330JdbN5HRUCoAWJihKL0n8pavQmWaji7VCWxk2KB7pc9i442w7AUros_r4TsrHxtK_3unBWIBolyIXMLXsSzgJm4FoCV3Meoy4rzAXcx-NbG2UNkcYJmpErm09-VUdhCgtkeHdRmt3AGoJAIM9Ej6Xh43BVHBThikkktRnS3MDMBvnmcRCwAOrrUFBnj0rV5XBtPonNiE6_YxDU_MJIBlimQNfZTVnj0CSrIwbTvtEu7kHh9sBfvrJJQYA1ND1jX9lix29g5TKo247EkUl4Hfe_Dk2BEK7oqgzIR2EBEUaW8epNXHY7nNTGvvM337VPpQW5HPLQFtr2zi1b-cMaZw6tqS0HwSsGZMLeRVuZASRAqxxGHkMP_i6ajqhFuYXSHXRyNUmAb_Gvn0-K_Hagg0YfwK9u_htqo7TXCFOtGPU_CjThYb_j1V3pfbi8Qn8n7OTsI1ThaLpLjGRlgwQzTtERmrFLJddeOcRHJxkbGY54aqbrgoKU8UDTIjvsTneFmaCMWYX3K5xsgIUcpBQ2OJNdzfnyN56pFoNOol1Z7QuXRHEkZRZRvDedTlpDNCLzbfVm-bNoEFPgWd2uFoxTpr1N5P0c2d_ljMIUaqiq5wFSkMZRMTowxiUuISSq_pf_c_sDqcBM1J6XLr-lW0X5GZY60w0Tn-BGBa_mq4ZaFL5UTssZI5HFVdOT1wqNAsjdXXEHFFhJN83x-4iXVHDP9fFtM5XKUQzfUy8uV3syNHXY40WYbCsr0sHDfHXwTQODRH81_-cnAp78Hwdy87FcqYsNhSWWq9Kv6Dqv4KBZ3mU3uGhtgKE12ENljekD__T9XtNGrsMzZPfYjcIKONtessbjg3xfCY-2iOCpB-hqKMFSDqdsH97Dncp0OTBKkAxNw7du4yTQDMAhxcb5QcpYytV4Urh8HCYapYSEWoACXuCiSbponvduvjEbuorjhjJwCBkpfVzsD4YqZ1t2OEw_puETRFcxro8FxHOK8QyWGJRMQTg3XtBUEW2Hn5LoEv7azPTOnvbOnhLCFUOB1xR3ZPxn33d8hggvAqkudgDjhzxDMlXTkKpaDMEgnZ1d66nrfWYpplCvURzuibjkRg1ckz6b6yjjNWEmXuw-fjrTMVHTeE8-AiExQLpXZogXeWYRA4czVDJibX_qABYtBSlje2EyR_xnhIGnp-sBYREyjnVrbf7LNMmOdlQwyJVAOISypoMYhxr6Y8XE6HI9bn8cdh0Zb3gZtYCb9wEzsRzsDhEojOngyotGOk-qfPKVefdAMyabzBXIKpLEJxrqwh6tvPkZVY-fEQrLg-bFXmwfc3S4hjKezQVZezUj9FZiuXOTPsmOUCgNVHBaoMa6ad9o6ziv3h_k2GmX9tZtUPrsVTw"
+      }
+     },
+     "id": "prt_0acd1eb6a001XTZHkp0lRuo2i2",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1e0aa001aFN98SG2EQBJ2J"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd1eb8d747ea190d146dc65c2fc",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206.test.js"
+      },
+      "output": "[4847 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r206.test.js",
+      "time": {
+       "start": 1789605834075,
+       "end": 1789605834158
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1eb8d747ea190d146dc65c2fc"
+      }
+     },
+     "id": "prt_0acd1ec2b001tRTPXZqSjiyBa8",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1e0aa001aFN98SG2EQBJ2J"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 95624,
+      "input": 4436,
+      "output": 111,
+      "reasoning": 212,
+      "cache": {
+       "write": 0,
+       "read": 90865
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1edc9001XdLq4mkxPmSMjL",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1e0aa001aFN98SG2EQBJ2J"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 97430,
+     "input": 2037,
+     "output": 109,
+     "reasoning": 67,
+     "cache": {
+      "write": 0,
+      "read": 95217
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605834204,
+     "completed": 1789605836397
+    },
+    "finish": "tool-calls",
+    "id": "msg_0acd1eddc001lz02ARUxv1wmi2",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1f4e6001WTKFXPylN84CQ4",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1eddc001lz02ARUxv1wmi2"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605836012,
+      "end": 1789605836019
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37cb82b2460b7769410c:rs_01a0acd1f19d77df832891c48c1345b9",
+       "reasoningEncryptedContent": "Q-PaDgFmDdSK5N2nb99DNrbJv8JFvDEeN2zOJq61QD0o0zgqU-zaTz7Yk1ENQ9twyy6-ceLpaYWbheujFZV4e3LNF5LEsNE50_TbYE6KxNJzp4GHQ68dyrs7Prf6lXth_ey1EouJaD5bHxLuZ7Gu868GVug6uFB-U68y4dSO1l5RgchURj56NlVLNDMLHq7a2ntWTGNYf2K08XsuuDhbrW3IcCLGKkhIm2-W78Y8olvJNaXcFL5w8sbu-IRYmNOoz67wAf8peJW8-FJebH-G3T_hOz7p7qfAxIIsqiT7uZvgy73XQs7nRxzKe-q5siLHhfR5Ow0_wF29Tm9PgJfJ7Q7vRAA0qL20dySYN3po4rsqlhEyI629SoRv0MsEFymabcf5tBZd06tiAzvk_p8TFYAdUJw5eSJCGColETAOe_b_IrpfgrYMqZ_DxaI7xmZRWcltfCMiixvAE_sAEfAiPm9_r86bueOiPk5LZLDaIxgxkud1gIRN9rD70ailLR3T6ukIWV3QtX5e4KxTRa5NOX1r_rshkQSnuK5NVNWNTZrV81QUqSjrOvwS3TjmMHdoOxqaYGpVeLTx9ZpGg4ZyaJ1knAeN_JKk98Fv4woR1fVpe-TJFH76lfoxP6o__sjlf22eUzYZiZgqh6TRzwOkbJFrhyy3QT-NaJ9BlAcWD4S7g83fQiY_xX-VPRJpdnXIcNMUUxTvi75_6GESv1GMNNK9hTPv9th2yoPIXrumyN7gzl_jCJvJMoS927ntEI7GQSoLITX2wBPf9tUUCZrp8O3nhMG1efARSjD4S3lsd2ghbhOvNzt-olxv9hoi_XJ2Oage1NRVoNRm8yTVbsvgLqF20nsRuSiOj6VdVSBbroUMW3h3s6xpQgWT4O010pWSV6TUlXRo8icTBU9u9sxsyQa4tPWBd7oFn42kYs93agIYkpY1ftD7n30PFrK3cVx0W_eHwd_dVkQb8YCDLn-dB_Anf9lBesl6ydJWMcrSfJyg_Gk-8MjtOpQztgoMRDC99rPWUsShmyHyleYRc33et2GOv0eO-SJ0xKWJrT-RugeclC5tlQgOhTJsA03_chH9iZSsjw7tHJmtxbOLMDk2hX3UJY0rxyGBHtjiaOmClBZv0pFLKMsvs9twHLS_mk_msLjnnOvMidXMAe3P9CDwHSeTxcVfH_L5IgPMX3ry_c3hL8UO4NVKohOhgeJbKUtOnGy6UH0UVs2g0qDjRFcYwJNQiYL4UcDM4yxtpeH9Zf-TygvLg_2ZMKJqpHxL_ptT1S5r0mEFl4v5mCH7uF1XG1Tea4hAG-_uvgncJFNublRkwHo2sMaIBfybV46q6kcKCR9Qbnsl9MhvJIm9zNVlWUgmsxQXEFboTekLup_TV2kmorxUD2pbuwF4mt18n9A61LhdQcL7fKX16v3uFA"
+      }
+     },
+     "id": "prt_0acd1f4ec001vPOcEyuvfy3LEq",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1eddc001lz02ARUxv1wmi2"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "call_01a0acd1f3f3710ca93adcd773269cb8",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218-precedencia.test.js",
+       "limit": 50,
+       "offset": 59
+      },
+      "output": "[3715 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test/m2-r218-precedencia.test.js",
+      "time": {
+       "start": 1789605836270,
+       "end": 1789605836384
+      }
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "fc_01a0acd1f3f3710ca93adcd773269cb8"
+      }
+     },
+     "id": "prt_0acd1f4fb001CsyLHAB6DcEwNA",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1eddc001lz02ARUxv1wmi2"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 97430,
+      "input": 2037,
+      "output": 109,
+      "reasoning": 67,
+      "cache": {
+       "write": 0,
+       "read": 95217
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd1f666001LbQKqY6lnCHyGw",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1eddc001lz02ARUxv1wmi2"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0acd165ab001mysx0ntFc3bHBp",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "high",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 100640,
+     "input": 1511,
+     "output": 1679,
+     "reasoning": 313,
+     "cache": {
+      "write": 0,
+      "read": 97137
+     }
+    },
+    "modelID": "muse-spark-1.3-contributor-free",
+    "providerID": "opencode",
+    "time": {
+     "created": 1789605836405,
+     "completed": 1789605846470
+    },
+    "finish": "stop",
+    "id": "msg_0acd1f675001Mv4Ce0843MvSh9",
+    "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0acd1fc28001TDJs1eX24fCMo6",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1f675001Mv4Ce0843MvSh9"
+    },
+    {
+     "type": "reasoning",
+     "text": "",
+     "time": {
+      "start": 1789605837870,
+      "end": 1789605840797
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "rs_6aab37cd794eca37446b4135:rs_01a0acd1fb4b701f939842ecc1f87596",
+       "reasoningEncryptedContent": "Q-PaDgGcaCpwxjBFiwxbAg73TzMr_i8wc-AOKgfMQ8bu-2nFee9hAkugEQKmRNQC-7jqreN3N-mrQuhkPkg-bwLptPiSJEy57wLOTBADPK-U0jSw8PLzi7Shmv8eN9pV_MIr-CtVuIyupHZS69lM_iOZmiVv2XGsmfjCChCf--zTmMVaYDxLdvN7YQgIoRrwDyOlkow66QwuLiO_7QdaVOB9uP4EzWMyHI98ehyeLaxbH6t2dwOuubqQvf4Gm4CFMicMASSavksNEK9hj1itWUootAsAP_TTrlaILnR94t4q29R7KO-jJbaCBTM1P0zRCZ-rzU-gPWkATwTLV8XrliOanE8hbkBfiamS3DdGbeOacagIS82o62zpG-TPu2bWV8jWvA_rgO0qP4aPXHO5Wpv2MJSrpLBkWfhxyGatGMR4XjPUukh0tGyw7Lwq2_MTW5JDJZjNlRF08wnTE97i9ZakMCvMptVa_GjKU6pTt84uvnMj9GxjFiBf3ZBR4TS2_40vTf_4pvhak-aaeKd_PYwVDd2uNftnkNihV5cTyshF1ezQsn_vyZ7cJQu9I1kJnEwlbo4qndGYqYXhNOjXczE8YUcbd-cmUK8SHvECddPK067Q0QFG-o33pgBg_pV9VJF8k8dyztf3L3C9S1Li0mWWzFQoxdv5i7vYrnnuLjXooTsQiUv0xPIGepjQdFDqpUTAUgtW-m2KOTiWiSMIA-yY4TfafYo3LsgXp7sT9NR2PrA00b0gJvWIrNatHkAOBh5flsFw3H11O-js2cyLewDH66cTOiZqEt00Bc5n9UOta9jjvrTG50mwFagRsucKsHVdehwFi5kCbIWmooNWUOxqbtHhhcVuPtDl7B3SI90dZmv-oRfdN6CA_y23noGn6r8dewgT5i8mxuUhTp5tG1fHm8VpsCP4_UNoE6nUlsCRDhF7hPWX4voie4LVLOmTR-PC4qWCL6OMvTIYlEVxLzdpovuGzh4EE8BrY_ICS4YNmmBuEbFy1kKT7Eu9wUvmLJ4Sd2eeGWbNedeyoBbAEJWS-t0KYe1rRv2nV6Gc6aAQWaS-eg2pZ5D2dyCkFEmZ4Pco9QOclGsFy42Zb3mwK_iXVuYucfAnbZC076dzHLYftrzqCXhZOQgCuw90tttLpfcQe8vhpPKOjl6HSxLAUA_JyvFnW9rb5dySBkTPIImEPHky8JZTC3umwkQVVU0WPMF0e8FBdrNTYXgRVvOqYZebgM_QQtVvjC6KLZdaRchr1iMw-DwNQVrUEZESRVxXyWR57ZRwqhRIr6_QUltKaUzQfGo7NaqdcXznt_PrGT01zU7eUm_n8IvN41BOWBzY3EIp4Bgg2NXT4beoaT8Vjj4syDxHxnINdM6vYH1-hr95klwpWB6ZEM9eUlTgCEzz8QHufjQ52XDhqjNDv-5WPBSrDYeNXZr2XPGMgyZk5x5tAI-0MmqYqrOEyYQugIAfLEWcDTBpDRwC_h6Uaukuad7SQple9Om8c0gsvfnechJfYZV-JqxVxLZd7sm8QLKNlWGCU3bQwsFgTzC_7qmaAM2-P0xF6XtFDU-dCisaQ6QTOyax9tNgQJk_z3oIRFilAyGF2sZctUCnMdanW_UfFO4WgAECgBHkFKRLCRYDaD0MafiT4ePa-L_WZJnbgyZRkvnFFaXN_EC8NgTtNaF5HOvikVnp5qe-zhNS1RAN90uNCYdS9lIek5etUsm75DwSF6Oyx9Xykwu2a_H4-SBp0lsa9JEKknlrcvmj59jV6PaE4smIsPJ6-PfLsrwsEdHlTNg5p3Id8da9K_tpMWehVhaKl3JTNqBjZiqwExeQNetVYloSGIzdE_LCDoO3mA8XO5X0dtnm4yGVLvCF2p9G2zvECghILCYvXqoFUSI6Oa-L3unGFusnY2-Z9Z0H8MIlWGhLFGlL_RrZDfK66qIMRsE578kvq7Oq3OeAXuJ5RAHTQ-0YwEiMKzxJyoo9LhpjnlAX0KZEMRKte3-zjFpgRMdo1C18-X3RF1ePH1rU2rWTeZ8NJg8uV1-FnCl6e1om79yHfBreNZiu_8BWF7icwhK-lZq-0-xWKfD9pDxarnJ6kWBIYQPxVqWeaQHe5kTJ-M7prfsLtDFCpm5ZNtR1C5l4AQHhx2N2gmIHJnJnCYp4bzXnAGNgkPCaKKdKw_YwpI_SgPFeRtrwL8_1TW4ctJbwVVyMZuQbHlBbkwBxWPURJXtRVi989l6IQamKYsetANNzElymML606ahampqXbvEvwn8d2USvNsoOJCn32608mQ8Krxpzg_GlW8undx2YrvYBwMFN_NhSQPsCjIQPrIRxYYAOz5clzOtL6aGdtreW3FtYUYmBsB2vdssqoQw1D1BC3OXLQZDVgucDNgHFVBbU8t4KO9C0X-BXWUjDgdV32PyGrsv_S5pC9jSztPbwoZiAI6poOq2rsPZppik5ruIqAw_b103fKxPbb10cUvqorRx8HjTZRGcayR-vKe8UTvOdFAjXbTm7s8Lv3GvjgwXjYEy9ZO6KZ68qXXU1Sm01syf5jZHuSompEP2zChUt59K1faInXdQbggH0yzHj_atAYhBj_4GnkiIniEeCdcaRi8moA3d3lmI0uVpjJcQZ6oKnPSqVS8K-okn6CUwkvt94sQrF8qU5rwYEn5CuChva7TMuEGpHNqsy35bx49du3aajU9I_WEl1ZLaSXT4RcyhYiZzPcBR_D7BO1-kON0tkddOyvIaqsbB_hZVlXcFOAqP92y3b1CbhHNBYNMq9UFd84v9IAHZcDPyQECI"
+      }
+     },
+     "id": "prt_0acd1fc2e001fYgc2unB3f5gVG",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1f675001Mv4Ce0843MvSh9"
+    },
+    {
+     "type": "text",
+     "text": "## Matriz de rastreabilidade\n\n| Regra | Origem | Teste que comprova | Veredito |\n|---|---|---|---|\n| RN-202 janela 30min (`INSCRICOES_ENCERRADAS`) | P1 | `api/test/m2-r202.test.js:13` recusa no instante exato (fronteira inclusiva); código `api/src/app.js:578` (`>= início − 30min`) | COMPROVADA |\n| RN-205/216 capacidade (`confirmada`/`em_espera`) | P2 (+P3,P11,P12) | `api/test/m2-r205.test.js:13,42` status + `posicaoNaEspera:1` | COMPROVADA |\n| RN-204 posição por entrada + recomputo | P3 | `api/test/m2-r204.test.js:13`, `api/test/m2-r204-expiracao.test.js:24,38` (valor absoluto `convocadaAte` escrito à mão + cadeia pós-expiração), `api/test/m2-r211-inativa.test.js:37` | COMPROVADA |\n| RN-206 duplicidade só ativas | P4 | `api/test/m2-r206.test.js:13` (confirmada), `:47` (em_espera→409), `:86` (convocada→409, com `expect(status).toBe('convocada')` antes) + `api/test/m2-r206-reinscricao.test.js:23,32` (cancelada/expirada→201); código `api/src/banco.js:119` | COMPROVADA |\n| RN-207 conflito só `confirmada`+`convocada` | P5 | `api/test/m2-r207.test.js:17,33` + `api/test/m2-r207-convocada.test.js:27,43,52`; código `api/src/app.js:72-73` | COMPROVADA |\n| RN-208 limite 3, contam `confirmada`/`convocada`, palestra fora | P6 | `api/test/m2-r208.test.js:9` + `api/test/m2-r208-contagem.test.js:43,64,85`; código `api/src/app.js:86-95` | COMPROVADA |\n| RN-218/219/210/209 precedência POST | P7 | `api/test/m2-r218.test.js:9,25,42` + `api/test/m2-r218-precedencia.test.js:29,39,59,70,89,101,123` (todos os 10 pares dos 5 níveis testáveis; ordem no código `api/src/app.js:568,578,585,592,599`); `INSCRICAO_BLOQUEADA` corretamente ausente (pendente, sem M5) | COMPROVADA (com nota no achado 1) |\n| RN-211 cancelamento (dono 404, inativa 422, pós-início 422) | P8/P9 (+P10) | `api/test/m2-r211.test.js:20,29,39` + `api/test/m2-r211-inativa.test.js:23,37,49`; código `api/src/app.js:685,692,701,708-714` | COMPROVADA |\n| RN-212/213 convocação +2h ao liberar vaga | P11 | `api/test/m2-r204-expiracao.test.js:24,38` + `api/test/m2-r211-inativa.test.js:49`; código `api/src/app.js:112-136` (só convoca se liberou vaga) | COMPROVADA |\n| RN-215 confirmação + precedência `SEM`→`EXPIRADA`→`CONFLITO`→`LIMITE` | P12/P13/P14 | `api/test/m2-r215.test.js:25,38,50` + `api/test/m2-r215-confirmacao.test.js:42,50,77,89,118,134,158,184` (6/6 pares; 409/422 conforme contrato §6); código `api/src/app.js:731-747` | COMPROVADA |\n| RN-217 cascata (ativas→`cancelada`, inativas intactas) | P10/P17 | `api/test/m2-r217.test.js:9` + `api/test/m2-r217-cascata.test.js:11` (convocada→cancelada, expirada permanece); código `api/src/app.js:534-540` | COMPROVADA |\n| P15-detalhe (`GET /inscricoes/:id` alheio 404, org 200) | P15 (resposta cobre detalhe; só ordenação é pendente) | `api/test/m2-p15-perfil.test.js:24,34,46` | COMPROVADA |\n| Pendentes P15-ordem / P16-filtro / P18-fuso / `INSCRICAO_BLOQUEADA` | — (spec manda não implementar) | — (corretamente sem teste que trave) | RESPEITADOS |\n\nOrigem: todas as RNs citam P-xx existentes em `entrevistas/M2-inscricoes.mc` com resposta (nenhuma `PENDENTE` entre as usadas). Nenhum caso de SEM ORIGEM.\n\n## Suíte\n\n`npm test` (comando de `projeto.json`, pasta `api`) → `Test Suites: 44 passed, 44 total / Tests: 147 passed, 147 total`. Recorte M2: `19 passed / 54 passed`. Delta desde a auditoria anterior (+2 testes) corresponde exatamente aos 2 novos testes de RN-206 (`m2-r206.test.js:47,86`). Relógio de teste usado em todos os cenários temporais; valores de `convocadaAte` escritos à mão nos testes, não lidos do código.\n\n## Achados\n\n1. [NOTA, sem falha] Par `ATIVIDADE_CANCELADA` > `JA_INSCRITO` (`api/test/m2-r218-precedencia.test.js:70-87`) — o teste agora documenta honestamente (linhas 75-83) que a competição real é inalcançável via API pública por invariante do código (cascata em `api/src/app.js:534-540` inativa tudo que tornaria `JA_INSCRITO` verdadeiro per `api/src/banco.js:119`), de modo que a ordem é vacuamente satisfeita e vale por inspeção (`api/src/app.js:568` antes de `585`), travando o comportamento observável. Aceito como prova por vacuidade documentada, não como prova fraca.\n2. [HIGIENE, não invalida prova] `api/test/m2-r204.test.js:85-86` mantém `console.log` que suja a saída da suíte.\n3. [DE PASSAGEM — contrato, assunto do revisor] Sem teste dedicado: `POST /atividades/:id/inscricoes` por organização → `403 SOMENTE_PARTICIPANTE` (`api/src/app.js:553-558`); visibilidade de `GET /inscricoes` (`api/src/app.js:629-630`) e filtro `?atividadeId=` (`api/src/app.js:635-637`). `serializarAtividade` com `ocupadas/vagasRestantes/emEspera` zerados (`api/src/app.js:148-150`) é escopo M1, só citado.\n\n## Veredito\n\nPode ser aceito: as 11 regras da spec têm origem válida e prova honesta uma a uma, pendentes respeitados, suíte verde (147/147, 54/54 em M2).\n",
+     "time": {
+      "start": 1789605840804,
+      "end": 1789605846369
+     },
+     "metadata": {
+      "openai": {
+       "itemId": "msg_01a0acd206d47764aaab4e3670ad8d27"
+      }
+     },
+     "id": "prt_0acd207a4001BaU7nleOkbF3AJ",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1f675001Mv4Ce0843MvSh9"
+    },
+    {
+     "reason": "stop",
+     "type": "step-finish",
+     "tokens": {
+      "total": 100640,
+      "input": 1511,
+      "output": 1679,
+      "reasoning": 313,
+      "cache": {
+       "write": 0,
+       "read": 97137
+      }
+     },
+     "cost": 0,
+     "id": "prt_0acd21db8001xhrrgT41n68ZXe",
+     "sessionID": "ses_f53324241ffeuPtDmTj6FSOtKE",
+     "messageID": "msg_0acd1f675001Mv4Ce0843MvSh9"
+    }
+   ]
+  }
+ ]
+}

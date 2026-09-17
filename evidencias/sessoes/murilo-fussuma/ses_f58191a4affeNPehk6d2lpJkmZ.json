@@ -1,0 +1,662 @@
+{
+ "info": {
+  "id": "ses_f58191a4affeNPehk6d2lpJkmZ",
+  "slug": "happy-forest",
+  "projectID": "a9e58c9c67713e9ce98e1906487f3965ac99bcf8",
+  "directory": "/home/fussumam/Documents/SDD",
+  "path": "home/fussumam/Documents/SDD",
+  "title": "Auditoria do módulo M2 contra specs",
+  "agent": "build",
+  "model": {
+   "id": "gemini-3.1-flash-lite",
+   "providerID": "google",
+   "variant": "medium"
+  },
+  "version": "1.18.31",
+  "summary": {
+   "additions": 0,
+   "deletions": 0,
+   "files": 0
+  },
+  "cost": 0.01856625,
+  "tokens": {
+   "input": 57487,
+   "output": 702,
+   "reasoning": 872,
+   "cache": {
+    "read": 73340,
+    "write": 0
+   }
+  },
+  "time": {
+   "created": 1789523322293,
+   "updated": 1789607540359
+  }
+ },
+ "messages": [
+  {
+   "info": {
+    "role": "user",
+    "time": {
+     "created": 1789523322320
+    },
+    "agent": "build",
+    "model": {
+     "providerID": "google",
+     "modelID": "gemini-3.1-flash-lite",
+     "variant": "medium"
+    },
+    "summary": {
+     "diffs": []
+    },
+    "id": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "@auditor audite o módulo M2 contra specs/M2-inscricoes.md",
+     "id": "prt_0a7e6e5d2001T4oVZfFJhhqx5V",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6e5d0001J7yAar6p1qd0YA"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.00239125,
+    "tokens": {
+     "total": 8880,
+     "input": 8743,
+     "output": 17,
+     "reasoning": 120,
+     "cache": {
+      "write": 0,
+      "read": 0
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523322357,
+     "completed": 1789523324330
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e6e5f5001cNBx46vu3hFJ90",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e6ed4b001Zp3QWnTzUIe7Dq",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6e5f5001cNBx46vu3hFJ90"
+    },
+    {
+     "type": "tool",
+     "tool": "glob",
+     "callID": "C0IhjLAPxeN7Wb9R",
+     "state": {
+      "status": "completed",
+      "input": {
+       "pattern": "**/M2*"
+      },
+      "output": "[183 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD",
+      "time": {
+       "start": 1789523324265,
+       "end": 1789523324301
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "ErMECrAEARFNMg9Nn8XsjtRlSt1Tc7TwWt3+1mL25k6jkQAfwnf0fsZRfjpRtJrzaLLkxGbu2MAwJxo76LyTPm9UQ6Bq5G351cPYdSpil4z79r18XEcD9b/r2QQrh/lJfXIYETpfNLoSehE18If7vPTmnxo6dgUTN+fCGd2IYEFkqLi2KbPb/9BtuIwf5p9WOdSp/3BAvaKPrUy1ui1CYEpMs14o+buEdyhr6TpBelE9zYbhDIwz9mI83TWVik4xCmZA3d0GbV0eSnA7lg4OI3oE39HeruKCv5QA4v9fkyJZFXiqscay0lXi8ztH0HNLdalGROT8C9JQLgeEgKSK+motp5fzdkJpW/aCOzFrQZPaAoiKsSIVkoQRerrPG0i2WnSp/QbOawCsF4fVHpHIy8tiV8NUcjZT/yNQ9Oejxy3VPvH8qly0mU3z5M8rZRbrnpIKU9gbmkT6DHkGmq343EDOTXY2Ybrg0sW586IpIU5ZMcBXVEGdxIHwXlDu+wwco48zFch8ws6EmmdyaeScYdXvPVc3rk79jolmJqU5qewJ00flDZZ6PXaxfxtMaBX9UA8YXCCRaal2YW8pZiEmKSySL2EGQc3u4f8qoQ60pt73kp+pOA9hBFYE2yie+dx193gwTBDvYwSDw+HGsSQg4/fJnX3egahlCnk4DUfcY0X6ummSVSHYNICCC4J+DEP2XU7LTzi0rCUsdBWLVMjI0tAm7aPxVxkUni4QSpvQTmYxYaRrra4="
+      }
+     },
+     "id": "prt_0a7e6ed55001LWgoCFg5lbTQsa",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6e5f5001cNBx46vu3hFJ90"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 8880,
+      "input": 8743,
+      "output": 17,
+      "reasoning": 120,
+      "cache": {
+       "write": 0,
+       "read": 0
+      }
+     },
+     "cost": 0.00239125,
+     "id": "prt_0a7e6ed99001Ak5UbwRQV2CedE",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6e5f5001cNBx46vu3hFJ90"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.00146435,
+    "tokens": {
+     "total": 9056,
+     "input": 4912,
+     "output": 24,
+     "reasoning": 66,
+     "cache": {
+      "write": 0,
+      "read": 4054
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523324341,
+     "completed": 1789523326407
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e6edb5001E43Sw6vUirl3JE",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e6f539001i3uUzQhN1NObqg",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6edb5001E43Sw6vUirl3JE"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "k4UpiOLXtSerPNY0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "find . -type d -name \"M2\""
+      },
+      "output": "(no output)",
+      "metadata": {
+       "output": "(no output)",
+       "exit": 0,
+       "truncated": false
+      },
+      "title": "find . -type d -name \"M2\"",
+      "time": {
+       "start": 1789523326294,
+       "end": 1789523326391
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "EuoCCucCARFNMg9/w6uBfnPUeS++oY/5a+xS5u6etWiG7nPzLua7j/8lTgTnTlmt9PBs0jOZzbSw/GTjel495pwE0eVODi3ptDf5Wdqi4pe88YlWX5oV+mSp2A6ub0Sk/9olxkfl/XXPJf/fvhxKPHGqarwNLJqog+x1of3o/zCFtLyc19+/bHL6AcdkvYAkS2KggUXr4YTMO52XvPN9SCllYYI7wXq9kOSCa+cWz0iUADBPG8tYZw2VgzQiYwlC1dtdFkAaWMOIdjxN/4/DJq/YX5iO+4gWeHdyfTHlgICRiTCKXq/5gfalQLISDSDTX7m+kDkz9YgP6TV4zLvILNQ1lpkMbN+5TurLoSqBKe+MTiqnXo/kBGZRnLKcpHKbw3dNRV9gQ2l+5VpIQWAOaKqymg2XTnitiL5WbKFClhSnJhqanUc5MS6Co7SmLVOUnnKG/q31POWuYnbexfvp22D6U8Lca9S8i5psi1g="
+      }
+     },
+     "id": "prt_0a7e6f5440019TK4l7qg8Lx1bT",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6edb5001E43Sw6vUirl3JE"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 9056,
+      "input": 4912,
+      "output": 24,
+      "reasoning": 66,
+      "cache": {
+       "write": 0,
+       "read": 4054
+      }
+     },
+     "cost": 0.00146435,
+     "id": "prt_0a7e6f5be0013LsyKVuoxdca47",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6edb5001E43Sw6vUirl3JE"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.0014495,
+    "tokens": {
+     "total": 9138,
+     "input": 5027,
+     "output": 18,
+     "reasoning": 43,
+     "cache": {
+      "write": 0,
+      "read": 4050
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523326413,
+     "completed": 1789523328489
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e6f5cd0019Rj1x06yFuQf3o",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e6fd9f0012VQFCEoFFrOP0p",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6f5cd0019Rj1x06yFuQf3o"
+    },
+    {
+     "type": "tool",
+     "tool": "glob",
+     "callID": "WAkWY1AwrKMYkUlD",
+     "state": {
+      "status": "completed",
+      "input": {
+       "pattern": "**/*M2*"
+      },
+      "output": "[183 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD",
+      "time": {
+       "start": 1789523328438,
+       "end": 1789523328467
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "EsACCr0CARFNMg/zhZalmBVcSl/fHYSnxD/09YbcJbf+++a/SiHQy9B15wb4YiTbMKgAWT+tcCRzmVIf3rYyhW0cVkpjahqUUuHwtPVWscUZkcrs5s0oBjn4UynzYruKJM2SPbjNr4OQbr3HWmd4PZlG2NFU0ixEq+nWrbOwOD5SmeKQyuA73oGAvCmmccTI2zhf2RBwZhimw4OGcPI3p9H/hTPMJ7BOe9LhutGS3DWDLIbHXyPbgGq7xgVjYVH9FFz6rVNDPSrO5UpNAvPHObBvZUKJaRPVDm7z3i4yXUaZYMf3LLgKL0Mh0X0Y8sO6P2o+Pip0rAdP+0n0Em2OhNx9NpKH97UmCpHVsqiExz6Dmn0NW/uxhyRbApoB8LVnhfl05tvMmkJI9u6+ObAYFoaIGPTSLlrDYdIFC85e7Jaw4c0="
+      }
+     },
+     "id": "prt_0a7e6fda7001dmb6gankEzaiYG",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6f5cd0019Rj1x06yFuQf3o"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 9138,
+      "input": 5027,
+      "output": 18,
+      "reasoning": 43,
+      "cache": {
+       "write": 0,
+       "read": 4050
+      }
+     },
+     "cost": 0.0014495,
+     "id": "prt_0a7e6fdda0015CbgcpuS4p0QeZ",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6f5cd0019Rj1x06yFuQf3o"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.001491425,
+    "tokens": {
+     "total": 9288,
+     "input": 5177,
+     "output": 39,
+     "reasoning": 25,
+     "cache": {
+      "write": 0,
+      "read": 4047
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523328500,
+     "completed": 1789523329955
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e6fdf40011qsQ7KvQvCfz3W",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e702aa001jPvBsetBbfNrk3",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6fdf40011qsQ7KvQvCfz3W"
+    },
+    {
+     "type": "tool",
+     "tool": "bash",
+     "callID": "bzISaG7XRITIZyy2",
+     "state": {
+      "status": "completed",
+      "input": {
+       "command": "ls -R /home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/"
+      },
+      "output": "...output truncated...\n\nFull output saved to: /home/fussumam/.local/share/opencode/tool-output/tool_0a7e7033f001hekcJPeDbdEGIW\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/make-dir/node_modules/semver/bin:\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/make-dir/node_modules/semver/classes:\ncomparator.js\nindex.js\nrange.js\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/make-dir/node_modules/semver/functions:\nclean.js\ncmp.js\ncoerce.js\ncompare-build.js\ncompare-loose.js\ncompare.js\ndiff.js\neq.js\ngt.js\ngte.js\ninc.js\nlt.js\nlte.js\nmajor.js\nminor.js\nneq.js\nparse.js\npatch.js\nprerelease.js\nrcompare.js\nrsort.js\nsatisfies.js\nsort.js\ntruncate.js\nvalid.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/make-dir/node_modules/semver/internal:\nconstants.js\ndebug.js\nidentifiers.js\nlrucache.js\nparse-options.js\nre.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/make-dir/node_modules/semver/ranges:\ngtr.js\nintersects.js\nltr.js\nmax-satisfying.js\nmin-satisfying.js\nmin-version.js\noutside.js\nsimplify.js\nsubset.js\nto-comparators.js\nvalid.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/math-intrinsics:\nCHANGELOG.md\nLICENSE\nREADME.md\nabs.d.ts\nabs.js\nconstants\nfloor.d.ts\nfloor.js\nisFinite.d.ts\nisFinite.js\nisInteger.d.ts\nisInteger.js\nisNaN.d.ts\nisNaN.js\nisNegativeZero.d.ts\nisNegativeZero.js\nmax.d.ts\nmax.js\nmin.d.ts\nmin.js\nmod.d.ts\nmod.js\npackage.json\npow.d.ts\npow.js\nround.d.ts\nround.js\nsign.d.ts\nsign.js\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/math-intrinsics/constants:\nmaxArrayLength.d.ts\nmaxArrayLength.js\nmaxSafeInteger.d.ts\nmaxSafeInteger.js\nmaxValue.d.ts\nmaxValue.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/math-intrinsics/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/media-typer:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/merge-descriptors:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/merge-stream:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/methods:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/mime:\nCHANGELOG.md\nLICENSE\nMime.js\nREADME.md\ncli.js\nindex.js\nlite.js\npackage.json\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/mime/types:\nother.js\nstandard.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/mime-db:\nHISTORY.md\nLICENSE\nREADME.md\ndb.json\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/mime-types:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\nmimeScore.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/mimic-fn:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minimatch:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minimatch/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minimatch/dist/commonjs:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minimatch/dist/esm:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minipass:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minipass/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minipass/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/minipass/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/ms:\nindex.js\nlicense.md\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/napi-postinstall:\nLICENSE\nREADME.md\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/napi-postinstall/lib:\ncli.d.ts\ncli.js\ncli.js.map\nconstants.d.ts\nconstants.js\nconstants.js.map\nfallback.d.ts\nfallback.js\nfallback.js.map\nhelpers.d.ts\nhelpers.js\nhelpers.js.map\nindex.d.ts\nindex.js\nindex.js.map\ntarget.d.ts\ntarget.js\ntarget.js.map\ntypes.d.ts\ntypes.js\ntypes.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/natural-compare:\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/negotiator:\nLICENSE\nREADME.md\nindex.js\nlib\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/negotiator/lib:\naccept.js\ncharset.js\nencoding.js\nlanguage.js\nmediaType.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/negotiator/node_modules:\ncontent-type\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/negotiator/node_modules/content-type:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/negotiator/node_modules/content-type/dist:\nindex.d.ts\nindex.js\nindex.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-addon-api:\nLICENSE.md\nREADME.md\ncommon.gypi\nexcept.gypi\nindex.js\nnapi-inl.deprecated.h\nnapi-inl.h\nnapi.h\nnode_addon_api.gyp\nnode_api.gyp\nnoexcept.gypi\nnothing.c\npackage-support.json\npackage.json\ntools\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-addon-api/tools:\nREADME.md\ncheck-napi.js\nclang-format.js\nconversion.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-int64:\nInt64.js\nLICENSE\nREADME.md\npackage.json\ntest.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-releases:\nLICENSE\nREADME.md\ndata\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-releases/data:\nprocessed\nrelease-schedule\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-releases/data/processed:\nenvs.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/node-releases/data/release-schedule:\nrelease-schedule.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/normalize-path:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/npm-run-path:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/object-inspect:\nCHANGELOG.md\nLICENSE\nexample\nindex.js\npackage-support.json\npackage.json\nreadme.markdown\ntest\ntest-core-js.js\nutil.inspect.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/object-inspect/example:\nall.js\ncircular.js\nfn.js\ninspect.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/object-inspect/test:\nbigint.js\nbrowser\ncircular.js\ndeep.js\nelement.js\nerr.js\nfakes.js\nfn.js\nglobal.js\nhas.js\nholes.js\nindent-option.js\ninspect.js\nlowbyte.js\nnumber.js\nquoteStyle.js\ntoStringTag.js\nundef.js\nvalues.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/object-inspect/test/browser:\ndom.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/on-finished:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/once:\nLICENSE\nREADME.md\nonce.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/onetime:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/p-limit:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/p-locate:\nindex.d.ts\nindex.js\nlicense\nnode_modules\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/p-locate/node_modules:\np-limit\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/p-locate/node_modules/p-limit:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/p-try:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/package-json-from-dist:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/package-json-from-dist/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/package-json-from-dist/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/package-json-from-dist/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/parse-json:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/parseurl:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-exists:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-key:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry:\nLICENSE.md\nREADME.md\ndist\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules:\nlru-cache\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/commonjs:\nbrowser\ndiagnostics-channel-cjs.cjs.map\ndiagnostics-channel-cjs.d.cts.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nnode\npackage.json\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/commonjs/browser:\ndiagnostics-channel-browser.d.ts.map\ndiagnostics-channel-browser.js.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/commonjs/node:\ndiagnostics-channel-node.d.ts.map\ndiagnostics-channel-node.js.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/esm:\nbrowser\ndiagnostics-channel-esm.d.mts.map\ndiagnostics-channel-esm.mjs.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nnode\npackage.json\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/esm/browser:\ndiagnostics-channel-browser.d.ts.map\ndiagnostics-channel-browser.js.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-scurry/node_modules/lru-cache/dist/esm/node:\ndiagnostics-channel-node.d.ts.map\ndiagnostics-channel-node.js.map\ndiagnostics-channel.d.ts\ndiagnostics-channel.js\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\nperf.d.ts\nperf.d.ts.map\nperf.js\nperf.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-to-regexp:\nLICENSE\nReadme.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/path-to-regexp/dist:\nindex.d.ts\nindex.js\nindex.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/picocolors:\nLICENSE\nREADME.md\npackage.json\npicocolors.browser.js\npicocolors.d.ts\npicocolors.js\ntypes.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/picomatch:\nLICENSE\nREADME.md\nindex.js\nlib\npackage.json\nposix.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/picomatch/lib:\nconstants.js\nparse.js\npicomatch.js\nscan.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pirates:\nLICENSE\nREADME.md\nindex.d.ts\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pirates/lib:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pkg-dir:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format:\nLICENSE\nREADME.md\nbuild\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/build:\nindex.d.ts\nindex.js\nindex.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/node_modules:\nansi-styles\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/node_modules/ansi-styles:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/proxy-addr:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand:\nCHANGELOG.md\nLICENSE\nREADME.md\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib:\ndistribution\nesm\ngenerator\npure-rand-default.js\npure-rand.js\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/distribution:\nGenerateN.js\nSkipN.js\nUniformArrayIntDistribution.js\nUniformBigIntDistribution.js\nUniformIntDistribution.js\nUnsafeGenerateN.js\nUnsafeSkipN.js\nUnsafeUniformArrayIntDistribution.js\nUnsafeUniformBigIntDistribution.js\nUnsafeUniformIntDistribution.js\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/distribution/internals:\nArrayInt.js\nArrayInt64.js\nUnsafeUniformArrayIntDistributionInternal.js\nUnsafeUniformIntDistributionInternal.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm:\ndistribution\ngenerator\npackage.json\npure-rand-default.js\npure-rand.js\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/distribution:\nGenerateN.js\nSkipN.js\nUniformArrayIntDistribution.js\nUniformBigIntDistribution.js\nUniformIntDistribution.js\nUnsafeGenerateN.js\nUnsafeSkipN.js\nUnsafeUniformArrayIntDistribution.js\nUnsafeUniformBigIntDistribution.js\nUnsafeUniformIntDistribution.js\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/distribution/internals:\nArrayInt.js\nArrayInt64.js\nUnsafeUniformArrayIntDistributionInternal.js\nUnsafeUniformIntDistributionInternal.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/generator:\nLinearCongruential.js\nMersenneTwister.js\nXorShift.js\nXoroShiro.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types:\nDistribution.js\nRandomGenerator.js\ndistribution\ngenerator\npure-rand-default.d.ts\npure-rand.d.ts\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/distribution:\nGenerateN.d.ts\nSkipN.d.ts\nUniformArrayIntDistribution.d.ts\nUniformBigIntDistribution.d.ts\nUniformIntDistribution.d.ts\nUnsafeGenerateN.d.ts\nUnsafeSkipN.d.ts\nUnsafeUniformArrayIntDistribution.d.ts\nUnsafeUniformBigIntDistribution.d.ts\nUnsafeUniformIntDistribution.d.ts\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/distribution/internals:\nArrayInt.d.ts\nArrayInt64.d.ts\nUnsafeUniformArrayIntDistributionInternal.d.ts\nUnsafeUniformIntDistributionInternal.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/generator:\nLinearCongruential.d.ts\nMersenneTwister.d.ts\nXorShift.d.ts\nXoroShiro.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/types:\nDistribution.d.ts\nRandomGenerator.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/generator:\nLinearCongruential.js\nMersenneTwister.js\nXorShift.js\nXoroShiro.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types:\nDistribution.js\nRandomGenerator.js\ndistribution\ngenerator\npure-rand-default.d.ts\npure-rand.d.ts\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/distribution:\nGenerateN.d.ts\nSkipN.d.ts\nUniformArrayIntDistribution.d.ts\nUniformBigIntDistribution.d.ts\nUniformIntDistribution.d.ts\nUnsafeGenerateN.d.ts\nUnsafeSkipN.d.ts\nUnsafeUniformArrayIntDistribution.d.ts\nUnsafeUniformBigIntDistribution.d.ts\nUnsafeUniformIntDistribution.d.ts\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/distribution/internals:\nArrayInt.d.ts\nArrayInt64.d.ts\nUnsafeUniformArrayIntDistributionInternal.d.ts\nUnsafeUniformIntDistributionInternal.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/generator:\nLinearCongruential.d.ts\nMersenneTwister.d.ts\nXorShift.d.ts\nXoroShiro.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/types:\nDistribution.d.ts\nRandomGenerator.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs:\nCHANGELOG.md\nLICENSE.md\nREADME.md\ndist\neslint.config.mjs\nlib\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/dist:\nqs.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/lib:\nformats.js\nindex.js\nparse.js\nstringify.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/test:\nempty-keys-cases.js\nparse.js\nstringify.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/range-parser:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/raw-body:\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/require-directory:\nLICENSE\nREADME.markdown\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/resolve-cwd:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/resolve-from:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/router:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/router/lib:\nlayer.js\nroute.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/safer-buffer:\nLICENSE\nPorting-Buffer.md\nReadme.md\ndangerous.js\npackage.json\nsafer.js\ntests.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/semver:\nLICENSE\nREADME.md\nbin\npackage.json\nrange.bnf\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/semver/bin:\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/send:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/serve-static:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/setprototypeof:\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/setprototypeof/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/shebang-command:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/shebang-regex:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-list:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\nlist.d.ts\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-list/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-map:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-map/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-weakmap:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-weakmap/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/signal-exit:\nLICENSE.txt\nREADME.md\nindex.js\npackage.json\nsignals.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/slash:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js:\nLICENSE\nREADME.md\nbower.json\ndemo\ndist\ngruntfile.js\npackage.json\nsrc\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/demo:\nangular.html\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/dist:\nangular-sprintf.min.js\nangular-sprintf.min.js.map\nangular-sprintf.min.map\nsprintf.min.js\nsprintf.min.js.map\nsprintf.min.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/src:\nangular-sprintf.js\nsprintf.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/test:\ntest.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/stack-utils:\nLICENSE.md\nindex.js\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/statuses:\nHISTORY.md\nLICENSE\nREADME.md\ncodes.json\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-length:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-width:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-width-cjs:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-ansi:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-ansi-cjs:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-bom:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-final-newline:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-json-comments:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent:\nLICENSE\nREADME.md\ndist\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/dist:\nsuperagent.js\nsuperagent.min.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib:\nagent-base.js\nclient.js\nnode\nrequest-base.js\nresponse-base.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib/node:\nagent.js\ndecompress.js\nhttp2wrapper.js\nindex.js\nparsers\nresponse.js\nunzip.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib/node/parsers:\nimage.js\nindex.js\njson.js\ntext.js\nurlencoded.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest:\nLICENSE\nREADME.md\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest/lib:\nagent.js\ncookies\ntest.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest/lib/cookies:\nassertion.js\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supports-color:\nbrowser.js\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/synckit:\nLICENSE\nREADME.md\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/synckit/lib:\ncommon.d.ts\ncommon.js\ncommon.js.map\nconstants.d.ts\nconstants.js\nconstants.js.map\nhelpers.d.ts\nhelpers.js\nhelpers.js.map\nindex.cjs\nindex.d.cts\nindex.d.ts\nindex.js\nindex.js.map\ntypes.d.ts\ntypes.js\ntypes.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude:\nLICENSE.txt\nREADME.md\nindex.js\nis-outside-dir-posix.js\nis-outside-dir-win32.js\nis-outside-dir.js\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules:\nbalanced-match\nbrace-expansion\nglob\nlru-cache\npath-scurry\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/balanced-match:\nLICENSE.md\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/brace-expansion:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob:\nLICENSE\nREADME.md\ndist\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist/commonjs:\nglob.d.ts\nglob.d.ts.map\nglob.js\nglob.js.map\nhas-magic.d.ts\nhas-magic.d.ts.map\nhas-magic.js\nhas-magic.js.map\nignore.d.ts\nignore.d.ts.map\nignore.js\nignore.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\npattern.d.ts\npattern.d.ts.map\npattern.js\npattern.js.map\nprocessor.d.ts\nprocessor.d.ts.map\nprocessor.js\nprocessor.js.map\nwalker.d.ts\nwalker.d.ts.map\nwalker.js\nwalker.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist/esm:\nbin.d.mts\nbin.d.mts.map\nbin.mjs\nbin.mjs.map\nglob.d.ts\nglob.d.ts.map\nglob.js\nglob.js.map\nhas-magic.d.ts\nhas-magic.d.ts.map\nhas-magic.js\nhas-magic.js.map\nignore.d.ts\nignore.d.ts.map\nignore.js\nignore.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\npattern.d.ts\npattern.d.ts.map\npattern.js\npattern.js.map\nprocessor.d.ts\nprocessor.d.ts.map\nprocessor.js\nprocessor.js.map\nwalker.d.ts\nwalker.d.ts.map\nwalker.js\nwalker.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules:\nminimatch\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist/commonjs:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist/esm:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/toidentifier:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-detect:\nLICENSE\nREADME.md\nindex.js\npackage.json\ntype-detect.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest:\nbase.d.ts\nindex.d.ts\nlicense\npackage.json\nreadme.md\nsource\nts41\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest/source:\nasync-return-type.d.ts\nasyncify.d.ts\nbasic.d.ts\nconditional-except.d.ts\nconditional-keys.d.ts\nconditional-pick.d.ts\nentries.d.ts\nentry.d.ts\nexcept.d.ts\nfixed-length-array.d.ts\niterable-element.d.ts\nliteral-union.d.ts\nmerge-exclusive.d.ts\nmerge.d.ts\nmutable.d.ts\nopaque.d.ts\npackage-json.d.ts\npartial-deep.d.ts\npromisable.d.ts\npromise-value.d.ts\nreadonly-deep.d.ts\nrequire-at-least-one.d.ts\nrequire-exactly-one.d.ts\nset-optional.d.ts\nset-required.d.ts\nset-return-type.d.ts\nsimplify.d.ts\nstringified.d.ts\ntsconfig-json.d.ts\ntyped-array.d.ts\nunion-to-intersection.d.ts\nutilities.d.ts\nvalue-of.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest/ts41:\ncamel-case.d.ts\ndelimiter-case.d.ts\nget.d.ts\nindex.d.ts\nkebab-case.d.ts\npascal-case.d.ts\nsnake-case.d.ts\nutilities.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules:\ncontent-type\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules/content-type:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules/content-type/dist:\nindex.d.ts\nindex.js\nindex.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/undici-types:\nLICENSE\nREADME.md\nagent.d.ts\napi.d.ts\nbalanced-pool.d.ts\ncache.d.ts\nclient.d.ts\nconnector.d.ts\ncontent-type.d.ts\ncookies.d.ts\ndiagnostics-channel.d.ts\ndispatcher.d.ts\nenv-http-proxy-agent.d.ts\nerrors.d.ts\neventsource.d.ts\nfetch.d.ts\nfile.d.ts\nfilereader.d.ts\nformdata.d.ts\nglobal-dispatcher.d.ts\nglobal-origin.d.ts\nhandlers.d.ts\nheader.d.ts\nindex.d.ts\ninterceptors.d.ts\nmock-agent.d.ts\nmock-client.d.ts\nmock-errors.d.ts\nmock-interceptor.d.ts\nmock-pool.d.ts\npackage.json\npatch.d.ts\npool-stats.d.ts\npool.d.ts\nproxy-agent.d.ts\nreadable.d.ts\nretry-agent.d.ts\nretry-handler.d.ts\nutil.d.ts\nwebidl.d.ts\nwebsocket.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/unpipe:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/unrs-resolver:\nREADME.md\nbrowser.js\nindex.d.ts\nindex.js\npackage.json\npostinstall.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/update-browserslist-db:\nLICENSE\nREADME.md\ncheck-npm-version.js\ncli.js\nindex.d.ts\nindex.js\npackage.json\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/v8-to-istanbul:\nCHANGELOG.md\nLICENSE.txt\nREADME.md\nindex.d.ts\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/v8-to-istanbul/lib:\nbranch.js\nfunction.js\nline.js\nrange.js\nsource.js\nv8-to-istanbul.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/vary:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/which:\nCHANGELOG.md\nLICENSE\nREADME.md\nbin\npackage.json\nwhich.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/which/bin:\nnode-which\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrap-ansi:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrap-ansi-cjs:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrappy:\nLICENSE\nREADME.md\npackage.json\nwrappy.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic:\nLICENSE.md\nREADME.md\nlib\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/lib:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules:\nsignal-exit\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit:\nLICENSE.txt\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist:\ncjs\nmjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist/cjs:\nbrowser.d.ts\nbrowser.d.ts.map\nbrowser.js\nbrowser.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nsignals.d.ts\nsignals.d.ts.map\nsignals.js\nsignals.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist/mjs:\nbrowser.d.ts\nbrowser.d.ts.map\nbrowser.js\nbrowser.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nsignals.d.ts\nsignals.d.ts.map\nsignals.js\nsignals.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n:\nCHANGELOG.md\nLICENSE\nREADME.md\nbuild\nindex.mjs\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build/lib:\ncjs.js\nindex.js\nplatform-shims\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build/lib/platform-shims:\nnode.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yallist:\nLICENSE\nREADME.md\niterator.js\npackage.json\nyallist.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs:\nCHANGELOG.md\nLICENSE\nREADME.md\nbrowser.mjs\nbuild\nhelpers\nindex.cjs\nindex.mjs\nlib\nlocales\npackage.json\nyargs\nyargs.cjs\nyargs.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib:\nargsert.js\ncommand.js\ncompletion-templates.js\ncompletion.js\nmiddleware.js\nparse-command.js\ntypings\nusage.js\nutils\nvalidation.js\nyargs-factory.js\nyerror.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib/typings:\ncommon-types.js\nyargs-parser-types.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib/utils:\napply-extends.js\nis-promise.js\nlevenshtein.js\nmaybe-async-result.js\nobj-filter.js\nprocess-argv.js\nset-blocking.js\nwhich-module.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/helpers:\nhelpers.mjs\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/lib:\nplatform-shims\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/lib/platform-shims:\nbrowser.mjs\nesm.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/locales:\nbe.json\ncs.json\nde.json\nen.json\nes.json\nfi.json\nfr.json\nhi.json\nhu.json\nid.json\nit.json\nja.json\nko.json\nnb.json\nnl.json\nnn.json\npirate.json\npl.json\npt.json\npt_BR.json\nru.json\nth.json\ntr.json\nuk_UA.json\nuz.json\nzh_CN.json\nzh_TW.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser:\nCHANGELOG.md\nLICENSE.txt\nREADME.md\nbrowser.js\nbuild\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser/build/lib:\nindex.js\nstring-utils.js\ntokenize-arg-string.js\nyargs-parser-types.js\nyargs-parser.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yocto-queue:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src:\napp.js\nbanco.js\nserver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test:\nm1-cobertura.test.js\nm1-corpo-post.test.js\nm1-cors.test.js\nm1-json-malformado.test.js\nm1-leituras-identificacao.test.js\nm1-menores.test.js\nm1-patch-tipos.test.js\nm1-persistencia.test.js\nm1-r1.test.js\nm1-r10-r11.test.js\nm1-r12.test.js\nm1-r13.test.js\nm1-r15-r8-r10.test.js\nm1-r16-r17.test.js\nm1-r19.test.js\nm1-r2.test.js\nm1-r3-r4-patch.test.js\nm1-r3-r4.test.js\nm1-r5.test.js\nm1-r6.test.js\nm1-r7.test.js\nm1-r8.test.js\nm1-r9.test.js\nm1-salas.test.js\nm1-server.test.js\nm2-r202.test.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/auditorias:\nM1-grade-auditoria-2.md\nM1-grade-auditoria.md\nM1-grade-revisor-contrato.md\nM1-grade-revisor-respostas.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas:\nM1-grade.md\nM2-inscricoes.mc\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias:\nagentes.txt\nexportar-evidencias.js\nsessoes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias/sessoes:\nalexksandro\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias/sessoes/alexksandro:\nINDICE.md\nses_f6630ec0affelusLhQLxmMkA9z.json\nses_f6630ec0affelusLhQLxmMkA9z.md\nses_f66880b7affeCjeayYxA4DVPLy.json\nses_f66880b7affeCjeayYxA4DVPLy.md\nses_f668a8d2affeVdOdV28sh43H2g.json\nses_f668a8d2affeVdOdV28sh43H2g.md\nses_f66e7a518ffe15YjSpsTo8Rsb2.json\nses_f66e7a518ffe15YjSpsTo8Rsb2.md\nses_f6765210fffe88DpE1kQWd8U5J.json\nses_f6765210fffe88DpE1kQWd8U5J.md\nses_f6780c645ffeQjjs8Xju6jNMk5.json\nses_f6780c645ffeQjjs8Xju6jNMk5.md\nses_f67923f13ffep1pGdLmb6pQgDo.json\nses_f67923f13ffep1pGdLmb6pQgDo.md\nses_f6798f7c5ffeYbAz5oQ0dfN016.json\nses_f6798f7c5ffeYbAz5oQ0dfN016.md\nses_f67b12947ffe6d1GoiD28NoHjW.json\nses_f67b12947ffe6d1GoiD28NoHjW.md\nses_f67c189b6ffeGPzTBmq8K3ITQV.json\nses_f67c189b6ffeGPzTBmq8K3ITQV.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface:\nAGENTS.md\ncss\nindex.html\njs\npackage-lock.json\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/css:\nstyle.css\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/js:\napp.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/test:\ninterface.test.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs:\nM1-grade.md\nM2-inscricoes.md\n",
+      "metadata": {
+       "output": "...\n\nnts/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pirates/lib:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pkg-dir:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format:\nLICENSE\nREADME.md\nbuild\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/build:\nindex.d.ts\nindex.js\nindex.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/node_modules:\nansi-styles\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pretty-format/node_modules/ansi-styles:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/proxy-addr:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand:\nCHANGELOG.md\nLICENSE\nREADME.md\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib:\ndistribution\nesm\ngenerator\npure-rand-default.js\npure-rand.js\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/distribution:\nGenerateN.js\nSkipN.js\nUniformArrayIntDistribution.js\nUniformBigIntDistribution.js\nUniformIntDistribution.js\nUnsafeGenerateN.js\nUnsafeSkipN.js\nUnsafeUniformArrayIntDistribution.js\nUnsafeUniformBigIntDistribution.js\nUnsafeUniformIntDistribution.js\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/distribution/internals:\nArrayInt.js\nArrayInt64.js\nUnsafeUniformArrayIntDistributionInternal.js\nUnsafeUniformIntDistributionInternal.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm:\ndistribution\ngenerator\npackage.json\npure-rand-default.js\npure-rand.js\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/distribution:\nGenerateN.js\nSkipN.js\nUniformArrayIntDistribution.js\nUniformBigIntDistribution.js\nUniformIntDistribution.js\nUnsafeGenerateN.js\nUnsafeSkipN.js\nUnsafeUniformArrayIntDistribution.js\nUnsafeUniformBigIntDistribution.js\nUnsafeUniformIntDistribution.js\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/distribution/internals:\nArrayInt.js\nArrayInt64.js\nUnsafeUniformArrayIntDistributionInternal.js\nUnsafeUniformIntDistributionInternal.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/generator:\nLinearCongruential.js\nMersenneTwister.js\nXorShift.js\nXoroShiro.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types:\nDistribution.js\nRandomGenerator.js\ndistribution\ngenerator\npure-rand-default.d.ts\npure-rand.d.ts\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/distribution:\nGenerateN.d.ts\nSkipN.d.ts\nUniformArrayIntDistribution.d.ts\nUniformBigIntDistribution.d.ts\nUniformIntDistribution.d.ts\nUnsafeGenerateN.d.ts\nUnsafeSkipN.d.ts\nUnsafeUniformArrayIntDistribution.d.ts\nUnsafeUniformBigIntDistribution.d.ts\nUnsafeUniformIntDistribution.d.ts\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/distribution/internals:\nArrayInt.d.ts\nArrayInt64.d.ts\nUnsafeUniformArrayIntDistributionInternal.d.ts\nUnsafeUniformIntDistributionInternal.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/generator:\nLinearCongruential.d.ts\nMersenneTwister.d.ts\nXorShift.d.ts\nXoroShiro.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/esm/types/types:\nDistribution.d.ts\nRandomGenerator.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/generator:\nLinearCongruential.js\nMersenneTwister.js\nXorShift.js\nXoroShiro.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types:\nDistribution.js\nRandomGenerator.js\ndistribution\ngenerator\npure-rand-default.d.ts\npure-rand.d.ts\ntypes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/distribution:\nGenerateN.d.ts\nSkipN.d.ts\nUniformArrayIntDistribution.d.ts\nUniformBigIntDistribution.d.ts\nUniformIntDistribution.d.ts\nUnsafeGenerateN.d.ts\nUnsafeSkipN.d.ts\nUnsafeUniformArrayIntDistribution.d.ts\nUnsafeUniformBigIntDistribution.d.ts\nUnsafeUniformIntDistribution.d.ts\ninternals\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/distribution/internals:\nArrayInt.d.ts\nArrayInt64.d.ts\nUnsafeUniformArrayIntDistributionInternal.d.ts\nUnsafeUniformIntDistributionInternal.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/generator:\nLinearCongruential.d.ts\nMersenneTwister.d.ts\nXorShift.d.ts\nXoroShiro.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/pure-rand/lib/types/types:\nDistribution.d.ts\nRandomGenerator.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs:\nCHANGELOG.md\nLICENSE.md\nREADME.md\ndist\neslint.config.mjs\nlib\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/dist:\nqs.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/lib:\nformats.js\nindex.js\nparse.js\nstringify.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/qs/test:\nempty-keys-cases.js\nparse.js\nstringify.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/range-parser:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/raw-body:\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/require-directory:\nLICENSE\nREADME.markdown\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/resolve-cwd:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/resolve-from:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/router:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/router/lib:\nlayer.js\nroute.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/safer-buffer:\nLICENSE\nPorting-Buffer.md\nReadme.md\ndangerous.js\npackage.json\nsafer.js\ntests.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/semver:\nLICENSE\nREADME.md\nbin\npackage.json\nrange.bnf\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/semver/bin:\nsemver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/send:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/serve-static:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/setprototypeof:\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/setprototypeof/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/shebang-command:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/shebang-regex:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-list:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\nlist.d.ts\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-list/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-map:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-map/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-weakmap:\nCHANGELOG.md\nLICENSE\nREADME.md\nindex.d.ts\nindex.js\npackage.json\ntest\ntsconfig.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/side-channel-weakmap/test:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/signal-exit:\nLICENSE.txt\nREADME.md\nindex.js\npackage.json\nsignals.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/slash:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js:\nLICENSE\nREADME.md\nbower.json\ndemo\ndist\ngruntfile.js\npackage.json\nsrc\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/demo:\nangular.html\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/dist:\nangular-sprintf.min.js\nangular-sprintf.min.js.map\nangular-sprintf.min.map\nsprintf.min.js\nsprintf.min.js.map\nsprintf.min.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/src:\nangular-sprintf.js\nsprintf.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/sprintf-js/test:\ntest.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/stack-utils:\nLICENSE.md\nindex.js\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/statuses:\nHISTORY.md\nLICENSE\nREADME.md\ncodes.json\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-length:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-width:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/string-width-cjs:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-ansi:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-ansi-cjs:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-bom:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-final-newline:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/strip-json-comments:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent:\nLICENSE\nREADME.md\ndist\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/dist:\nsuperagent.js\nsuperagent.min.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib:\nagent-base.js\nclient.js\nnode\nrequest-base.js\nresponse-base.js\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib/node:\nagent.js\ndecompress.js\nhttp2wrapper.js\nindex.js\nparsers\nresponse.js\nunzip.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/superagent/lib/node/parsers:\nimage.js\nindex.js\njson.js\ntext.js\nurlencoded.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest:\nLICENSE\nREADME.md\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest/lib:\nagent.js\ncookies\ntest.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supertest/lib/cookies:\nassertion.js\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/supports-color:\nbrowser.js\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/synckit:\nLICENSE\nREADME.md\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/synckit/lib:\ncommon.d.ts\ncommon.js\ncommon.js.map\nconstants.d.ts\nconstants.js\nconstants.js.map\nhelpers.d.ts\nhelpers.js\nhelpers.js.map\nindex.cjs\nindex.d.cts\nindex.d.ts\nindex.js\nindex.js.map\ntypes.d.ts\ntypes.js\ntypes.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude:\nLICENSE.txt\nREADME.md\nindex.js\nis-outside-dir-posix.js\nis-outside-dir-win32.js\nis-outside-dir.js\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules:\nbalanced-match\nbrace-expansion\nglob\nlru-cache\npath-scurry\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/balanced-match:\nLICENSE.md\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/brace-expansion:\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob:\nLICENSE\nREADME.md\ndist\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist/commonjs:\nglob.d.ts\nglob.d.ts.map\nglob.js\nglob.js.map\nhas-magic.d.ts\nhas-magic.d.ts.map\nhas-magic.js\nhas-magic.js.map\nignore.d.ts\nignore.d.ts.map\nignore.js\nignore.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\npattern.d.ts\npattern.d.ts.map\npattern.js\npattern.js.map\nprocessor.d.ts\nprocessor.d.ts.map\nprocessor.js\nprocessor.js.map\nwalker.d.ts\nwalker.d.ts.map\nwalker.js\nwalker.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/dist/esm:\nbin.d.mts\nbin.d.mts.map\nbin.mjs\nbin.mjs.map\nglob.d.ts\nglob.d.ts.map\nglob.js\nglob.js.map\nhas-magic.d.ts\nhas-magic.d.ts.map\nhas-magic.js\nhas-magic.js.map\nignore.d.ts\nignore.d.ts.map\nignore.js\nignore.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\npattern.d.ts\npattern.d.ts.map\npattern.js\npattern.js.map\nprocessor.d.ts\nprocessor.d.ts.map\nprocessor.js\nprocessor.js.map\nwalker.d.ts\nwalker.d.ts.map\nwalker.js\nwalker.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules:\nminimatch\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist/commonjs:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/glob/node_modules/minimatch/dist/esm:\nassert-valid-pattern.d.ts\nassert-valid-pattern.d.ts.map\nassert-valid-pattern.js\nassert-valid-pattern.js.map\nast.d.ts\nast.d.ts.map\nast.js\nast.js.map\nbrace-expressions.d.ts\nbrace-expressions.d.ts.map\nbrace-expressions.js\nbrace-expressions.js.map\nescape.d.ts\nescape.d.ts.map\nescape.js\nescape.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nunescape.d.ts\nunescape.d.ts.map\nunescape.js\nunescape.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/lru-cache/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\nindex.min.js\nindex.min.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry:\nLICENSE.md\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist:\ncommonjs\nesm\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist/commonjs:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/test-exclude/node_modules/path-scurry/dist/esm:\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/toidentifier:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-detect:\nLICENSE\nREADME.md\nindex.js\npackage.json\ntype-detect.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest:\nbase.d.ts\nindex.d.ts\nlicense\npackage.json\nreadme.md\nsource\nts41\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest/source:\nasync-return-type.d.ts\nasyncify.d.ts\nbasic.d.ts\nconditional-except.d.ts\nconditional-keys.d.ts\nconditional-pick.d.ts\nentries.d.ts\nentry.d.ts\nexcept.d.ts\nfixed-length-array.d.ts\niterable-element.d.ts\nliteral-union.d.ts\nmerge-exclusive.d.ts\nmerge.d.ts\nmutable.d.ts\nopaque.d.ts\npackage-json.d.ts\npartial-deep.d.ts\npromisable.d.ts\npromise-value.d.ts\nreadonly-deep.d.ts\nrequire-at-least-one.d.ts\nrequire-exactly-one.d.ts\nset-optional.d.ts\nset-required.d.ts\nset-return-type.d.ts\nsimplify.d.ts\nstringified.d.ts\ntsconfig-json.d.ts\ntyped-array.d.ts\nunion-to-intersection.d.ts\nutilities.d.ts\nvalue-of.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-fest/ts41:\ncamel-case.d.ts\ndelimiter-case.d.ts\nget.d.ts\nindex.d.ts\nkebab-case.d.ts\npascal-case.d.ts\nsnake-case.d.ts\nutilities.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules:\ncontent-type\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules/content-type:\nLICENSE\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/type-is/node_modules/content-type/dist:\nindex.d.ts\nindex.js\nindex.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/undici-types:\nLICENSE\nREADME.md\nagent.d.ts\napi.d.ts\nbalanced-pool.d.ts\ncache.d.ts\nclient.d.ts\nconnector.d.ts\ncontent-type.d.ts\ncookies.d.ts\ndiagnostics-channel.d.ts\ndispatcher.d.ts\nenv-http-proxy-agent.d.ts\nerrors.d.ts\neventsource.d.ts\nfetch.d.ts\nfile.d.ts\nfilereader.d.ts\nformdata.d.ts\nglobal-dispatcher.d.ts\nglobal-origin.d.ts\nhandlers.d.ts\nheader.d.ts\nindex.d.ts\ninterceptors.d.ts\nmock-agent.d.ts\nmock-client.d.ts\nmock-errors.d.ts\nmock-interceptor.d.ts\nmock-pool.d.ts\npackage.json\npatch.d.ts\npool-stats.d.ts\npool.d.ts\nproxy-agent.d.ts\nreadable.d.ts\nretry-agent.d.ts\nretry-handler.d.ts\nutil.d.ts\nwebidl.d.ts\nwebsocket.d.ts\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/unpipe:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/unrs-resolver:\nREADME.md\nbrowser.js\nindex.d.ts\nindex.js\npackage.json\npostinstall.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/update-browserslist-db:\nLICENSE\nREADME.md\ncheck-npm-version.js\ncli.js\nindex.d.ts\nindex.js\npackage.json\nutils.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/v8-to-istanbul:\nCHANGELOG.md\nLICENSE.txt\nREADME.md\nindex.d.ts\nindex.js\nlib\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/v8-to-istanbul/lib:\nbranch.js\nfunction.js\nline.js\nrange.js\nsource.js\nv8-to-istanbul.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/vary:\nHISTORY.md\nLICENSE\nREADME.md\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/which:\nCHANGELOG.md\nLICENSE\nREADME.md\nbin\npackage.json\nwhich.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/which/bin:\nnode-which\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrap-ansi:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrap-ansi-cjs:\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/wrappy:\nLICENSE\nREADME.md\npackage.json\nwrappy.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic:\nLICENSE.md\nREADME.md\nlib\nnode_modules\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/lib:\nindex.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules:\nsignal-exit\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit:\nLICENSE.txt\nREADME.md\ndist\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist:\ncjs\nmjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist/cjs:\nbrowser.d.ts\nbrowser.d.ts.map\nbrowser.js\nbrowser.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nsignals.d.ts\nsignals.d.ts.map\nsignals.js\nsignals.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/write-file-atomic/node_modules/signal-exit/dist/mjs:\nbrowser.d.ts\nbrowser.d.ts.map\nbrowser.js\nbrowser.js.map\nindex.d.ts\nindex.d.ts.map\nindex.js\nindex.js.map\npackage.json\nsignals.d.ts\nsignals.d.ts.map\nsignals.js\nsignals.js.map\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n:\nCHANGELOG.md\nLICENSE\nREADME.md\nbuild\nindex.mjs\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build/lib:\ncjs.js\nindex.js\nplatform-shims\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/y18n/build/lib/platform-shims:\nnode.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yallist:\nLICENSE\nREADME.md\niterator.js\npackage.json\nyallist.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs:\nCHANGELOG.md\nLICENSE\nREADME.md\nbrowser.mjs\nbuild\nhelpers\nindex.cjs\nindex.mjs\nlib\nlocales\npackage.json\nyargs\nyargs.cjs\nyargs.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib:\nargsert.js\ncommand.js\ncompletion-templates.js\ncompletion.js\nmiddleware.js\nparse-command.js\ntypings\nusage.js\nutils\nvalidation.js\nyargs-factory.js\nyerror.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib/typings:\ncommon-types.js\nyargs-parser-types.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/build/lib/utils:\napply-extends.js\nis-promise.js\nlevenshtein.js\nmaybe-async-result.js\nobj-filter.js\nprocess-argv.js\nset-blocking.js\nwhich-module.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/helpers:\nhelpers.mjs\nindex.js\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/lib:\nplatform-shims\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/lib/platform-shims:\nbrowser.mjs\nesm.mjs\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs/locales:\nbe.json\ncs.json\nde.json\nen.json\nes.json\nfi.json\nfr.json\nhi.json\nhu.json\nid.json\nit.json\nja.json\nko.json\nnb.json\nnl.json\nnn.json\npirate.json\npl.json\npt.json\npt_BR.json\nru.json\nth.json\ntr.json\nuk_UA.json\nuz.json\nzh_CN.json\nzh_TW.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser:\nCHANGELOG.md\nLICENSE.txt\nREADME.md\nbrowser.js\nbuild\npackage.json\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser/build:\nindex.cjs\nlib\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yargs-parser/build/lib:\nindex.js\nstring-utils.js\ntokenize-arg-string.js\nyargs-parser-types.js\nyargs-parser.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/node_modules/yocto-queue:\nindex.d.ts\nindex.js\nlicense\npackage.json\nreadme.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src:\napp.js\nbanco.js\nserver.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/test:\nm1-cobertura.test.js\nm1-corpo-post.test.js\nm1-cors.test.js\nm1-json-malformado.test.js\nm1-leituras-identificacao.test.js\nm1-menores.test.js\nm1-patch-tipos.test.js\nm1-persistencia.test.js\nm1-r1.test.js\nm1-r10-r11.test.js\nm1-r12.test.js\nm1-r13.test.js\nm1-r15-r8-r10.test.js\nm1-r16-r17.test.js\nm1-r19.test.js\nm1-r2.test.js\nm1-r3-r4-patch.test.js\nm1-r3-r4.test.js\nm1-r5.test.js\nm1-r6.test.js\nm1-r7.test.js\nm1-r8.test.js\nm1-r9.test.js\nm1-salas.test.js\nm1-server.test.js\nm2-r202.test.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/auditorias:\nM1-grade-auditoria-2.md\nM1-grade-auditoria.md\nM1-grade-revisor-contrato.md\nM1-grade-revisor-respostas.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/entrevistas:\nM1-grade.md\nM2-inscricoes.mc\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias:\nagentes.txt\nexportar-evidencias.js\nsessoes\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias/sessoes:\nalexksandro\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/evidencias/sessoes/alexksandro:\nINDICE.md\nses_f6630ec0affelusLhQLxmMkA9z.json\nses_f6630ec0affelusLhQLxmMkA9z.md\nses_f66880b7affeCjeayYxA4DVPLy.json\nses_f66880b7affeCjeayYxA4DVPLy.md\nses_f668a8d2affeVdOdV28sh43H2g.json\nses_f668a8d2affeVdOdV28sh43H2g.md\nses_f66e7a518ffe15YjSpsTo8Rsb2.json\nses_f66e7a518ffe15YjSpsTo8Rsb2.md\nses_f6765210fffe88DpE1kQWd8U5J.json\nses_f6765210fffe88DpE1kQWd8U5J.md\nses_f6780c645ffeQjjs8Xju6jNMk5.json\nses_f6780c645ffeQjjs8Xju6jNMk5.md\nses_f67923f13ffep1pGdLmb6pQgDo.json\nses_f67923f13ffep1pGdLmb6pQgDo.md\nses_f6798f7c5ffeYbAz5oQ0dfN016.json\nses_f6798f7c5ffeYbAz5oQ0dfN016.md\nses_f67b12947ffe6d1GoiD28NoHjW.json\nses_f67b12947ffe6d1GoiD28NoHjW.md\nses_f67c189b6ffeGPzTBmq8K3ITQV.json\nses_f67c189b6ffeGPzTBmq8K3ITQV.md\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface:\nAGENTS.md\ncss\nindex.html\njs\npackage-lock.json\npackage.json\ntest\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/css:\nstyle.css\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/js:\napp.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/interface/test:\ninterface.test.js\n\n/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs:\nM1-grade.md\nM2-inscricoes.md\n",
+       "exit": 0,
+       "truncated": true,
+       "outputPath": "/home/fussumam/.local/share/opencode/tool-output/tool_0a7e7033f001hekcJPeDbdEGIW"
+      },
+      "title": "ls -R /home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/",
+      "time": {
+       "start": 1789523329733,
+       "end": 1789523329939
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "EoUCCoICARFNMg/eV3px4QqP0ift/NEhdexzcKOL8VSSSiFzWQKEspVzg24QzE/NpqrFLgXtEWv1B82SQsjENWjPZLuCFezZeN4l8gweE9fdzrRfscRF257hLYdU1zCDDV7CLm7Zq7mG87aICYyeiOvMic4iIkFT439cvSMMJst/6gIC9ebpYUBWBH5L1OW+P3FjlnRLcC0GYCx2qZ89YHHOEVNEHIh3RM3iK5z9IAe9W6LXE6R68otUR4AXMWn1Ik38zjAUog0WxpZfGYZCA6XsQgxZpG1jitW9KbPXQyYNuww501Zg0i5SMjk0DyekG1xLKZyKJuDg03B4zA7XSDQCPY632mPc"
+      }
+     },
+     "id": "prt_0a7e702b3001ON1It7TPCWJC5v",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6fdf40011qsQ7KvQvCfz3W"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 9288,
+      "input": 5177,
+      "output": 39,
+      "reasoning": 25,
+      "cache": {
+       "write": 0,
+       "read": 4047
+      }
+     },
+     "cost": 0.001491425,
+     "id": "prt_0a7e7039b001E0YlzopCyiHaJp",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e6fdf40011qsQ7KvQvCfz3W"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.005035125,
+    "tokens": {
+     "total": 26825,
+     "input": 18539,
+     "output": 46,
+     "reasoning": 85,
+     "cache": {
+      "write": 0,
+      "read": 8155
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523329965,
+     "completed": 1789523331845
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e703ad001CRpuI70uJYT0MU",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e70a94001odC7pXzvTlpqNs",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e703ad001CRpuI70uJYT0MU"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "V7VI45OwdfHeohfn",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md"
+      },
+      "output": "[8700 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/specs/M2-inscricoes.md",
+      "time": {
+       "start": 1789523331751,
+       "end": 1789523331825
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "Er4DCrsDARFNMg+Z+hw7vsxkjuGkOGvE5u8YPTtcJ6zeZuP0XJGr9nLWBPf18I97nYrLujbLzvdkv6y3RydiM5sYLW9n5+qNHnC2PW6F5abPEH4npDhF/G/apnxmVMa27z6a1kFSvoss6707ZIAtarar0wkjeJkKD8u9R/QDmkTjs6blSR7wXccMxr8X71L/qVw/T99ycCSTjFFdhmw+kxB6RgbsIat6BvzHoToy80KfldlFZp5qeYpfnj9JHPWlGv5MNg+XKPRrK8Yk+g8QMa0aFVgLyS3QWvoZSpCeYkUmWJZ6xSKjlAgpOTX0gSS9bBz6MztEDtbp/RKV/1rn9JKIyRKii1jg0wWP+9JUlihXuAdR4wiM5IAoy/nL7EC45P9+fb3PIWcl06h9YmyfY2b6M2t2X73FySAK/2OQVLBZ36wt7s6CnazCoC9K1KiBYCxrJxP67MSB8/uZABQL4YcRqEG8IbI2c+Nu6zNzEaU+0RyNsPdmvjFTljMkNiO86aOLe6MXMROG4GIgfZdLc20qkN0kMGgBB7Gq00NtiriYXCRCTFyucVi6AYnH7nF82jP154BgZ+fg6kQ1hwlLfgM="
+      }
+     },
+     "id": "prt_0a7e70a9a001eUZzCkAaRWVWn6",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e703ad001CRpuI70uJYT0MU"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 26825,
+      "input": 18539,
+      "output": 46,
+      "reasoning": 85,
+      "cache": {
+       "write": 0,
+       "read": 8155
+      }
+     },
+     "cost": 0.005035125,
+     "id": "prt_0a7e70afb001VOeHM6ogXOyUMA",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e703ad001CRpuI70uJYT0MU"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.00210195,
+    "tokens": {
+     "total": 29899,
+     "input": 5325,
+     "output": 43,
+     "reasoning": 63,
+     "cache": {
+      "write": 0,
+      "read": 24468
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523331853,
+     "completed": 1789523333705
+    },
+    "finish": "tool-calls",
+    "id": "msg_0a7e70b0d001RDnFxRz6YnXNg1",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e71203001hMoB7uR6JI3Dgw",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e70b0d001RDnFxRz6YnXNg1"
+    },
+    {
+     "type": "tool",
+     "tool": "read",
+     "callID": "pCCAZ48tlVesGqC0",
+     "state": {
+      "status": "completed",
+      "input": {
+       "filePath": "/home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js"
+      },
+      "output": "[22079 caracteres omitidos]",
+      "title": "home/fussumam/Documents/SDD/Projeto-Final-Semana-Academica---MAS/api/src/app.js",
+      "time": {
+       "start": 1789523333655,
+       "end": 1789523333685
+      }
+     },
+     "metadata": {
+      "google": {
+       "thoughtSignature": "EuECCt4CARFNMg+4n8VPyXwyjgsOnpt4ez9gIEVhnNmoGsrqEpagN23spv98St1U48g//hlWklwhyVkFOsDpa4lpat4cyVD62lig5Vc1isuT33BYYi8XCDM4EzJCyzu80BD/wOglr3S/tBQkz9YdK7rqf+JG91rR2pJ6cPqtKuo0v/b0PvSX1AMbFZhEKKKr7IDV2TVgcrgeLztcQ9JUrgBMHBUzL2noCWh7OmVVtL0sIJKN7H/ToNA0e1CPL3sojnt6yE5+maepnQmDOJvo5DX681nXY6jy4m5/iUgB4plaqQBYQ6Vf8Z5ZVB+37tQgaxBrqP12gtywyOiHPaOhTyUxzF4Wfd5bmwrdUfN+1qvNFkiJ0QnO78mQg7Hkdun9jttj4/P/3S0v+pOEUkrMxym3ULeI8181vyoNGFTaDrFBSR+avv9g8ECYTqQUeKHN26GC+IMbnTuPo0c6SIZevjtIr18="
+      }
+     },
+     "id": "prt_0a7e7120a001hbXRhBJVhfOGW2",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e70b0d001RDnFxRz6YnXNg1"
+    },
+    {
+     "reason": "tool-calls",
+     "type": "step-finish",
+     "tokens": {
+      "total": 29899,
+      "input": 5325,
+      "output": 43,
+      "reasoning": 63,
+      "cache": {
+       "write": 0,
+       "read": 24468
+      }
+     },
+     "cost": 0.00210195,
+     "id": "prt_0a7e7123f0014JhBcI7tYJfgAi",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e70b0d001RDnFxRz6YnXNg1"
+    }
+   ]
+  },
+  {
+   "info": {
+    "parentID": "msg_0a7e6e5d0001J7yAar6p1qd0YA",
+    "role": "assistant",
+    "mode": "build",
+    "agent": "build",
+    "variant": "medium",
+    "path": {
+     "cwd": "/home/fussumam/Documents/SDD",
+     "root": "/"
+    },
+    "cost": 0.00463265,
+    "tokens": {
+     "total": 39315,
+     "input": 9764,
+     "output": 515,
+     "reasoning": 470,
+     "cache": {
+      "write": 0,
+      "read": 28566
+     }
+    },
+    "modelID": "gemini-3.1-flash-lite",
+    "providerID": "google",
+    "time": {
+     "created": 1789523333719,
+     "completed": 1789523338670
+    },
+    "finish": "stop",
+    "id": "msg_0a7e71257001oKAtpZTobj3fiP",
+    "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ"
+   },
+   "parts": [
+    {
+     "type": "step-start",
+     "id": "prt_0a7e71fca00157MNpXANlVSAeL",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e71257001oKAtpZTobj3fiP"
+    },
+    {
+     "type": "reasoning",
+     "text": "**Analyzing Endpoint Functionality**\n\nI've taken a look at `/atividades/:id/inscricoes` in `api/src/app.js` and, as suspected, the implementation is not complete. Currently, it's just returning a 501 status code, so I'll be focused on fleshing it out. I'll need to verify that the rules are being applied.\n\n\n",
+     "time": {
+      "start": 1789523337165,
+      "end": 1789523337242
+     },
+     "id": "prt_0a7e71fcd001KL5t6noWPONSPz",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e71257001oKAtpZTobj3fiP"
+    },
+    {
+     "type": "text",
+     "text": "O módulo M2 (Inscrições) está incompleto. A rota `POST /atividades/:id/inscricoes` retorna `501 Not Implemented`, indicando que a funcionalidade principal ainda não foi desenvolvida.\n\n### Auditoria das Regras (Spec M2-inscricoes.md)\n\n| Regra | Status | Observação |\n| :--- | :--- | :--- |\n| **RN-202 (Janela)** | Parcial | Implementada verificação de tempo no POST, mas a lógica de inscrição em si não existe. |\n| **RN-205, 216** | Não implementado | Sem lógica de confirmação ou lista de espera. |\n| **RN-204 (Posição)** | Não implementado | Sem fila de espera. |\n| **RN-206 (Duplicidade)** | Não implementado | Sem verificação de inscrições ativas. |\n| **RN-207 (Conflito)** | Não implementado | Sem verificação de conflitos de horário. |\n| **RN-208 (Limite)** | Não implementado | Sem limite de 3 minicursos. |\n| **RN-218/219/210/209** | Não implementado | Sem precedência de erros. |\n| **RN-211 (Cancelamento)** | Não implementado | Nenhuma rota de cancelamento disponível. |\n| **RN-212/213 (Efeito)** | Não implementado | Sem mecanismo de convocação automática. |\n| **RN-215 (Confirmação)** | Não implementado | Sem mecanismo de confirmação de convocação. |\n| **RN-217 (Cancelamento Ativ)** | Não implementado | Sem cascata de cancelamento. |\n| **RN-221 (Listagem)** | Não implementado | Nenhuma listagem de inscrições implementada. |\n| **RN-222 (Filtro)** | Não implementado | Sem filtro de atividade em listagens. |\n\n**Recomendação:** A implementação deve seguir o TDD em fatias, começando pelo básico (inscrição confirmada/lista de espera) e avançando para validações (duplicidade, conflito, limites) conforme a precedência de erros definida na spec.",
+     "time": {
+      "start": 1789523337247,
+      "end": 1789523338653
+     },
+     "id": "prt_0a7e7201f001RpFKCNPforVMBd",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e71257001oKAtpZTobj3fiP"
+    },
+    {
+     "reason": "stop",
+     "type": "step-finish",
+     "tokens": {
+      "total": 39315,
+      "input": 9764,
+      "output": 515,
+      "reasoning": 470,
+      "cache": {
+       "write": 0,
+       "read": 28566
+      }
+     },
+     "cost": 0.00463265,
+     "id": "prt_0a7e725a4001aOFqyb6SOn1FsT",
+     "sessionID": "ses_f58191a4affeNPehk6d2lpJkmZ",
+     "messageID": "msg_0a7e71257001oKAtpZTobj3fiP"
+    }
+   ]
+  }
+ ]
+}
