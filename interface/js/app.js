@@ -336,8 +336,45 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
     for (const encontro of atividade.encontros) {
       const item = document.createElement('li');
       item.className = 'encontro';
-      item.textContent =
-        `${formatarDataEHora(encontro.inicio)} – ${formatarDataEHora(encontro.fim)}`;
+
+      const textoHorario = document.createElement('p');
+      textoHorario.textContent = `${formatarDataEHora(encontro.inicio)} – ${formatarDataEHora(encontro.fim)} (ID: ${encontro.id})`;
+      item.appendChild(textoHorario);
+
+      const painelPresenca = document.createElement('div');
+      painelPresenca.className = 'painel-presenca';
+      painelPresenca.innerHTML = `
+        <div style="margin-top: 0.5rem; padding: 0.5rem; background: #fafbfc; border: 1px solid #e1e4e8; border-radius: 6px;">
+          <h4>Controle de Presença (Encontro)</h4>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <input type="text" id="codigo-presenca-${encontro.id}" placeholder="Código (6 chars)" style="padding: 0.3rem; border: 1px solid #b9c2cc; border-radius: 4px;">
+            <input type="text" id="lido-em-${encontro.id}" placeholder="lidoEm opcional" style="padding: 0.3rem; border: 1px solid #b9c2cc; border-radius: 4px;">
+            <button type="button" class="botao" id="botao-registrar-presenca-${encontro.id}" data-encontro-id="${encontro.id}">Registrar presença</button>
+          </div>
+          <p id="status-presenca-${encontro.id}" class="status" role="status" aria-live="polite"></p>
+
+          <div style="margin-top: 0.75rem; border-top: 1px solid #e1e4e8; padding-top: 0.5rem;">
+            <button type="button" class="botao" id="botao-obter-codigo-${encontro.id}" data-encontro-id="${encontro.id}">Obter código QR</button>
+            <p id="info-codigo-${encontro.id}" class="status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div style="margin-top: 0.75rem; border-top: 1px solid #e1e4e8; padding-top: 0.5rem;">
+            <button type="button" class="botao" id="botao-listar-presencas-${encontro.id}" data-encontro-id="${encontro.id}">Listar presenças</button>
+            <div id="lista-presencas-${encontro.id}"></div>
+          </div>
+
+          <div style="margin-top: 0.75rem; border-top: 1px solid #e1e4e8; padding-top: 0.5rem;">
+            <h5>Presença manual (Organização)</h5>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              <input type="text" id="manual-participante-${encontro.id}" placeholder="ID participante (ex: p-carla)" style="padding: 0.3rem; border: 1px solid #b9c2cc; border-radius: 4px;">
+              <input type="text" id="manual-justificativa-${encontro.id}" placeholder="Justificativa (mín. 10 chars)" style="padding: 0.3rem; border: 1px solid #b9c2cc; border-radius: 4px; flex: 1; min-width: 200px;">
+              <button type="button" class="botao" id="botao-manual-${encontro.id}" data-encontro-id="${encontro.id}">Lançar manual</button>
+            </div>
+            <p id="status-manual-${encontro.id}" class="status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      `;
+      item.appendChild(painelPresenca);
       encontros.appendChild(item);
     }
     conteudoDetalhes.appendChild(encontros);
@@ -1154,6 +1191,166 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
     }
   }
 
+  async function obterCodigoEncontro(encontroId) {
+    const infoEl = document.getElementById(`info-codigo-${encontroId}`);
+    if (infoEl) {
+      infoEl.textContent = 'Carregando código…';
+      infoEl.className = 'status carregando';
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/encontros/${encontroId}/codigo`, {
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      const corpo = await lerCorpoErro(resposta);
+      if (!resposta.ok) {
+        if (infoEl) {
+          infoEl.textContent = mensagemDeErro(corpo, resposta.status);
+          infoEl.className = 'status erro';
+          if (corpo && corpo.erro) infoEl.dataset.erro = corpo.erro;
+        }
+        return { erro: corpo, status: resposta.status };
+      }
+      if (infoEl) {
+        infoEl.textContent = `Código: ${corpo.codigo} (Troca em: ${formatarDataEHora(corpo.trocaEm)}, Válido até: ${formatarDataEHora(corpo.validoAte)})`;
+        infoEl.className = 'status';
+        delete infoEl.dataset.erro;
+        infoEl.dataset.codigo = corpo.codigo;
+      }
+      return { codigoDoEncontro: corpo, status: resposta.status };
+    } catch (e) {
+      if (infoEl) {
+        infoEl.textContent = 'Não foi possível acessar a API.';
+        infoEl.className = 'status erro';
+      }
+      return { erro: null };
+    }
+  }
+
+  async function registrarPresenca(encontroId, codigo, lidoEm) {
+    const statusEl = document.getElementById(`status-presenca-${encontroId}`);
+    if (statusEl) {
+      statusEl.textContent = 'Registrando presença…';
+      statusEl.className = 'status carregando';
+    }
+    const payload = { codigo };
+    if (lidoEm) {
+      payload.lidoEm = lidoEm.includes('T') && !lidoEm.endsWith('Z') && !lidoEm.includes('-') && !lidoEm.includes('+')
+        ? horarioLocalParaBrasilia(lidoEm)
+        : lidoEm;
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/encontros/${encontroId}/presencas`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Usuario': seletorUsuario.value
+        },
+        body: JSON.stringify(payload)
+      });
+      const corpo = await lerCorpoErro(resposta);
+      if (!resposta.ok) {
+        if (statusEl) {
+          statusEl.textContent = mensagemDeErro(corpo, resposta.status);
+          statusEl.className = 'status erro';
+          if (corpo && corpo.erro) statusEl.dataset.erro = corpo.erro;
+        }
+        return { erro: corpo, status: resposta.status };
+      }
+      if (statusEl) {
+        statusEl.textContent = `Presença registrada com sucesso! (ID: ${corpo.id}, origem: ${corpo.origem})`;
+        statusEl.className = 'status confirmacao';
+        delete statusEl.dataset.erro;
+      }
+      return { presenca: corpo, status: resposta.status };
+    } catch (e) {
+      if (statusEl) {
+        statusEl.textContent = 'Não foi possível acessar a API.';
+        statusEl.className = 'status erro';
+      }
+      return { erro: null };
+    }
+  }
+
+  async function registrarPresencaManual(encontroId, participanteId, justificativa) {
+    const statusEl = document.getElementById(`status-manual-${encontroId}`);
+    if (statusEl) {
+      statusEl.textContent = 'Lançando presença manual…';
+      statusEl.className = 'status carregando';
+    }
+    const payload = { participanteId, justificativa };
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/encontros/${encontroId}/presencas/manual`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Usuario': seletorUsuario.value
+        },
+        body: JSON.stringify(payload)
+      });
+      const corpo = await lerCorpoErro(resposta);
+      if (!resposta.ok) {
+        if (statusEl) {
+          statusEl.textContent = mensagemDeErro(corpo, resposta.status);
+          statusEl.className = 'status erro';
+          if (corpo && corpo.erro) statusEl.dataset.erro = corpo.erro;
+        }
+        return { erro: corpo, status: resposta.status };
+      }
+      if (statusEl) {
+        statusEl.textContent = `Presença manual lançada! (ID: ${corpo.id}, participante: ${corpo.participanteId})`;
+        statusEl.className = 'status confirmacao';
+        delete statusEl.dataset.erro;
+      }
+      return { presenca: corpo, status: resposta.status };
+    } catch (e) {
+      if (statusEl) {
+        statusEl.textContent = 'Não foi possível acessar a API.';
+        statusEl.className = 'status erro';
+      }
+      return { erro: null };
+    }
+  }
+
+  async function listarPresencas(encontroId) {
+    const listaEl = document.getElementById(`lista-presencas-${encontroId}`);
+    if (listaEl) {
+      listaEl.innerHTML = '<p class="status carregando">Carregando presenças…</p>';
+    }
+    try {
+      const resposta = await fetch(`${ENDERECO_API}/encontros/${encontroId}/presencas`, {
+        headers: { 'X-Usuario': seletorUsuario.value }
+      });
+      const corpo = await lerCorpoErro(resposta);
+      if (!resposta.ok) {
+        if (listaEl) {
+          listaEl.innerHTML = `<p class="status erro" data-erro="${corpo && corpo.erro ? corpo.erro : ''}">${mensagemDeErro(corpo, resposta.status)}</p>`;
+        }
+        return { erro: corpo, status: resposta.status };
+      }
+      if (listaEl) {
+        listaEl.innerHTML = '';
+        if (!Array.isArray(corpo) || corpo.length === 0) {
+          listaEl.innerHTML = '<p class="status">Nenhuma presença registrada neste encontro.</p>';
+          return { presencas: [] };
+        }
+        const ul = document.createElement('ul');
+        for (const p of corpo) {
+          const li = document.createElement('li');
+          li.className = 'encontro';
+          li.textContent = `Participante: ${p.participanteId} · Origem: ${p.origem} · Registrada em: ${formatarDataEHora(p.registradaEm)}${p.justificativa ? ` · Justificativa: ${p.justificativa}` : ''}`;
+          ul.appendChild(li);
+        }
+        listaEl.appendChild(ul);
+      }
+      return { presencas: corpo };
+    } catch (e) {
+      if (listaEl) {
+        listaEl.innerHTML = '<p class="status erro">Não foi possível acessar a API.</p>';
+      }
+      return { erro: null };
+    }
+  }
+
   preencherUsuarios();
   seletorUsuario.value = 'p-carla';
 
@@ -1221,6 +1418,41 @@ function criarPainel({ document: doc, fetch: buscar, enderecoApi } = {}) {
         atividadeId
       });
       void area;
+      return;
+    }
+    const botaoObterCodigo = evento.target.closest('[id^="botao-obter-codigo-"]');
+    if (botaoObterCodigo) {
+      await obterCodigoEncontro(botaoObterCodigo.dataset.encontroId);
+      return;
+    }
+    const botaoListarPresencas = evento.target.closest('[id^="botao-listar-presencas-"]');
+    if (botaoListarPresencas) {
+      await listarPresencas(botaoListarPresencas.dataset.encontroId);
+      return;
+    }
+    const botaoRegistrarPresenca = evento.target.closest('[id^="botao-registrar-presenca-"]');
+    if (botaoRegistrarPresenca) {
+      const encontroId = botaoRegistrarPresenca.dataset.encontroId;
+      const codigoInput = document.getElementById(`codigo-presenca-${encontroId}`);
+      const lidoEmInput = document.getElementById(`lido-em-${encontroId}`);
+      await registrarPresenca(
+        encontroId,
+        codigoInput ? codigoInput.value.trim() : '',
+        lidoEmInput ? lidoEmInput.value.trim() : ''
+      );
+      return;
+    }
+    const botaoManual = evento.target.closest('[id^="botao-manual-"]');
+    if (botaoManual) {
+      const encontroId = botaoManual.dataset.encontroId;
+      const partInput = document.getElementById(`manual-participante-${encontroId}`);
+      const justInput = document.getElementById(`manual-justificativa-${encontroId}`);
+      await registrarPresencaManual(
+        encontroId,
+        partInput ? partInput.value.trim() : '',
+        justInput ? justInput.value.trim() : ''
+      );
+      return;
     }
   });
 

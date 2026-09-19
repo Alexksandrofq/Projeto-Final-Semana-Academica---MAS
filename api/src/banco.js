@@ -72,6 +72,15 @@ function criarBanco(opcoes = {}) {
       cancelada INTEGER NOT NULL DEFAULT 0,
       encontros TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS presencas (
+      id TEXT PRIMARY KEY,
+      encontroId TEXT NOT NULL,
+      participanteId TEXT NOT NULL,
+      origem TEXT NOT NULL,
+      lidoEm TEXT NOT NULL,
+      registradaEm TEXT NOT NULL,
+      justificativa TEXT
+    );
     CREATE TABLE IF NOT EXISTS inscricoes (
       id TEXT PRIMARY KEY,
       atividadeId TEXT NOT NULL,
@@ -83,6 +92,8 @@ function criarBanco(opcoes = {}) {
       FOREIGN KEY (atividadeId) REFERENCES atividades(id)
     );
   `);
+
+  const stmtApagarPresencas = db.prepare('DELETE FROM presencas');
 
   const inserirSala = db.prepare('INSERT OR IGNORE INTO salas (id, nome, capacidade) VALUES (?, ?, ?)');
   const inserirUsuario = db.prepare('INSERT OR IGNORE INTO usuarios (id, papel) VALUES (?, ?)');
@@ -121,7 +132,12 @@ function criarBanco(opcoes = {}) {
   const stmtListarTodasInscricoes = db.prepare('SELECT * FROM inscricoes');
   const stmtObterInscricao = db.prepare('SELECT * FROM inscricoes WHERE id = ?');
   const stmtAtualizarInscricao = db.prepare('UPDATE inscricoes SET status = @status, posicaoNaEspera = @posicaoNaEspera, convocadaAte = @convocadaAte WHERE id = @id');
-  const stmtApagarInscricoes = db.prepare('DELETE FROM inscricoes');
+  const stmtInserirPresenca = db.prepare(`
+    INSERT INTO presencas (id, encontroId, participanteId, origem, lidoEm, registradaEm, justificativa)
+    VALUES (@id, @encontroId, @participanteId, @origem, @lidoEm, @registradaEm, @justificativa)
+  `);
+  const stmtObterPresencaPorParticipanteEncontro = db.prepare('SELECT * FROM presencas WHERE encontroId = ? AND participanteId = ?');
+  const stmtListarPresencasPorEncontro = db.prepare('SELECT * FROM presencas WHERE encontroId = ?');
 
   return {
     obterSala(id) {
@@ -191,10 +207,20 @@ function criarBanco(opcoes = {}) {
     listarTodasInscricoes() {
       return stmtListarTodasInscricoes.all();
     },
+    inserirPresenca(p) {
+      stmtInserirPresenca.run(p);
+    },
+    obterPresencaPorParticipanteEncontro(encontroId, participanteId) {
+      return stmtObterPresencaPorParticipanteEncontro.get(encontroId, participanteId) || null;
+    },
+    listarPresencasPorEncontro(encontroId) {
+      return stmtListarPresencasPorEncontro.all(encontroId);
+    },
     recarregarDadosIniciais() {
       const resetar = db.transaction(() => {
-        stmtApagarInscricoes.run();
-        stmtApagarAtividades.run();
+        db.exec('DELETE FROM presencas');
+        db.exec('DELETE FROM inscricoes');
+        db.exec('DELETE FROM atividades');
         plantarDadosIniciais();
       });
       resetar();

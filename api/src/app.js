@@ -157,11 +157,11 @@ function criarServidor(opcoes = {}) {
   const app = express();
 
   app.use((req, res, next) => {
-    if (req.headers.origin === ORIGEM_INTERFACE) {
-      res.setHeader('Access-Control-Allow-Origin', ORIGEM_INTERFACE);
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Usuario');
-    }
+
+    res.setHeader('Access-Control-Allow-Origin', "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Usuario');
+
     if (req.method === 'OPTIONS') {
       return res.status(204).end();
     }
@@ -542,7 +542,7 @@ function criarServidor(opcoes = {}) {
     res.status(200).json(serializarAtividade(atividade, agora()));
   });
 
-    app.post('/atividades/:id/inscricoes', (req, res) => {
+  app.post('/atividades/:id/inscricoes', (req, res) => {
     const usuario = banco.obterUsuario(req.get('X-Usuario'));
     if (!usuario) {
       return res.status(401).json({
@@ -655,7 +655,7 @@ function criarServidor(opcoes = {}) {
         mensagem: 'Inscrição não encontrada.'
       });
     }
-    
+
     if (usuario.papel === 'participante' && inscricao.participanteId !== usuario.id) {
       return res.status(404).json({
         erro: 'NAO_ENCONTRADO',
@@ -750,6 +750,294 @@ function criarServidor(opcoes = {}) {
     inscricao.posicaoNaEspera = null;
     banco.atualizarInscricao(inscricao);
     res.status(200).json(inscricao);
+  });
+
+  function gerarCodigoQR(encontroId, instante) {
+    const minMs = Math.floor(instante.getTime() / 60000) * 60000;
+    const hash = crypto.createHash('sha256').update(`${encontroId}-${minMs}`).digest('hex');
+    const alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let codigo = '';
+    for (let i = 0; i < 6; i++) {
+      const idx = parseInt(hash.substring(i * 2, i * 2 + 2), 16) % alfabeto.length;
+      codigo += alfabeto[idx];
+    }
+    const trocaEm = new Date(minMs + 60000).toISOString();
+    const validoAte = new Date(minMs + 60000).toISOString();
+    return { codigo, trocaEm, validoAte };
+  }
+
+  app.get('/encontros/:id/codigo', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    if (usuario.papel !== 'organizacao') {
+      return res.status(403).json({ erro: 'SOMENTE_ORGANIZACAO', mensagem: 'Apenas organização pode obter código.' });
+    }
+
+    let encontroEncontrado = null;
+    let atividadeEncontrada = null;
+    for (const atv of banco.listarAtividades()) {
+      for (const enc of atv.encontros) {
+        if (enc.id === req.params.id) {
+          encontroEncontrado = enc;
+          atividadeEncontrada = atv;
+          break;
+        }
+      }
+      if (encontroEncontrado) break;
+    }
+
+    if (!encontroEncontrado) {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Encontro não encontrado.' });
+    }
+
+    if (atividadeEncontrada.cancelada) {
+      return res.status(422).json({ erro: 'ATIVIDADE_CANCELADA', mensagem: 'Atividade cancelada.' });
+    }
+
+    const inicioEnc = new Date(encontroEncontrado.inicio).getTime();
+    const fimEnc = new Date(encontroEncontrado.fim).getTime();
+    const agoraMs = agora().getTime();
+
+    const janelaInicio = inicioEnc - 15 * 60000;
+    const janelaFim = fimEnc + 30 * 60000;
+
+    if (agoraMs < janelaInicio || agoraMs > janelaFim) {
+      return res.status(422).json({ erro: 'FORA_DA_JANELA', mensagem: 'Fora da janela de presença.' });
+    }
+
+    const { codigo, trocaEm, validoAte } = gerarCodigoQR(encontroEncontrado.id, agora());
+
+    res.status(200).json({
+      encontroId: encontroEncontrado.id,
+      codigo,
+      trocaEm,
+      validoAte
+    });
+  });
+
+  app.post('/encontros/:id/presencas', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    if (usuario.papel !== 'participante') {
+      return res.status(403).json({ erro: 'SOMENTE_PARTICIPANTE', mensagem: 'Apenas participante pode registrar presença.' });
+    }
+
+    let encontroEncontrado = null;
+    let atividadeEncontrada = null;
+    for (const atv of banco.listarAtividades()) {
+      for (const enc of atv.encontros) {
+        if (enc.id === req.params.id) {
+          encontroEncontrado = enc;
+          atividadeEncontrada = atv;
+          break;
+        }
+      }
+      if (encontroEncontrado) break;
+    }
+
+    if (!encontroEncontrado) {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Encontro não encontrado.' });
+    }
+
+    if (atividadeEncontrada.cancelada) {
+      return res.status(422).json({ erro: 'ATIVIDADE_CANCELADA', mensagem: 'Atividade cancelada.' });
+    }
+
+    const inicioEnc = new Date(encontroEncontrado.inicio).getTime();
+    const fimEnc = new Date(encontroEncontrado.fim).getTime();
+    const agoraMs = agora().getTime();
+
+    const corpo = req.body || {};
+    let lidoEmInstante = agora();
+    let origem = 'qr';
+
+    if (corpo.lidoEm) {
+      const parsedLidoEm = new Date(corpo.lidoEm);
+      if (!Number.isNaN(parsedLidoEm.getTime())) {
+        lidoEmInstante = parsedLidoEm > agora() ? agora() : parsedLidoEm;
+        origem = 'qr_offline';
+      }
+    }
+
+    const lidoEmMs = lidoEmInstante.getTime();
+    const janelaInicio = inicioEnc - 15 * 60000;
+    const janelaFim = fimEnc + 30 * 60000;
+
+    if (lidoEmMs < janelaInicio || lidoEmMs > janelaFim) {
+      return res.status(422).json({ erro: 'FORA_DA_JANELA', mensagem: 'Fora da janela de presença.' });
+    }
+
+    if (origem === 'qr_offline') {
+      const limiteSincronizacao = fimEnc + 2 * 3600000;
+      if (agoraMs > limiteSincronizacao) {
+        return res.status(422).json({ erro: 'SINCRONIZACAO_TARDIA', mensagem: 'Sincronização tardia.' });
+      }
+    } else {
+      if (agoraMs < janelaInicio || agoraMs > janelaFim) {
+        return res.status(422).json({ erro: 'FORA_DA_JANELA', mensagem: 'Fora da janela de presença.' });
+      }
+    }
+
+    // Verifica inscrição confirmada
+    const inscricoes = banco.listarInscricoesPorAtividade(atividadeEncontrada.id);
+    const inscricao = inscricoes.find(i => i.participanteId === usuario.id && i.status === 'confirmada');
+    if (!inscricao) {
+      return res.status(403).json({ erro: 'NAO_INSCRITO', mensagem: 'Participante não inscrito com confirmação.' });
+    }
+
+    // Valida código
+    const codigoEnviado = (corpo.codigo || '').toString().trim().toUpperCase();
+    const { codigo: codigoValido } = gerarCodigoQR(encontroEncontrado.id, lidoEmInstante);
+
+    if (codigoEnviado !== codigoValido) {
+      return res.status(422).json({ erro: 'CODIGO_INVALIDO', mensagem: 'Código QR inválido.' });
+    }
+
+    // Idempotência
+    const existente = banco.obterPresencaPorParticipanteEncontro(encontroEncontrado.id, usuario.id);
+    if (existente) {
+      return res.status(200).json({
+        id: existente.id,
+        encontroId: existente.encontroId,
+        participanteId: existente.participanteId,
+        origem: existente.origem,
+        lidoEm: existente.lidoEm,
+        registradaEm: existente.registradaEm,
+        justificativa: existente.justificativa
+      });
+    }
+
+    const novaPresenca = {
+      id: gerarId('pre_'),
+      encontroId: encontroEncontrado.id,
+      participanteId: usuario.id,
+      origem,
+      lidoEm: lidoEmInstante.toISOString(),
+      registradaEm: agora().toISOString(),
+      justificativa: null
+    };
+
+    banco.inserirPresenca(novaPresenca);
+    res.status(201).json(novaPresenca);
+  });
+
+  app.post('/encontros/:id/presencas/manual', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    if (usuario.papel !== 'organizacao') {
+      return res.status(403).json({ erro: 'SOMENTE_ORGANIZACAO', mensagem: 'Apenas organização pode registrar presença manual.' });
+    }
+
+    let encontroEncontrado = null;
+    let atividadeEncontrada = null;
+    for (const atv of banco.listarAtividades()) {
+      for (const enc of atv.encontros) {
+        if (enc.id === req.params.id) {
+          encontroEncontrado = enc;
+          atividadeEncontrada = atv;
+          break;
+        }
+      }
+      if (encontroEncontrado) break;
+    }
+
+    if (!encontroEncontrado) {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Encontro não encontrado.' });
+    }
+
+    if (atividadeEncontrada.cancelada) {
+      return res.status(422).json({ erro: 'ATIVIDADE_CANCELADA', mensagem: 'Atividade cancelada.' });
+    }
+
+    const inicioEnc = new Date(encontroEncontrado.inicio).getTime();
+    const fimEnc = new Date(encontroEncontrado.fim).getTime();
+    const agoraMs = agora().getTime();
+
+    const janelaInicio = inicioEnc - 15 * 60000;
+    const limiteManual = fimEnc + 2 * 3600000;
+
+    if (agoraMs < janelaInicio || agoraMs > limiteManual) {
+      return res.status(422).json({ erro: 'FORA_DA_JANELA', mensagem: 'Fora da janela de presença manual.' });
+    }
+
+    const corpo = req.body || {};
+    const participanteId = corpo.participanteId;
+    const justificativa = (corpo.justificativa || '').toString().trim();
+
+    if (!justificativa || justificativa.length < 10) {
+      return res.status(422).json({ erro: 'JUSTIFICATIVA_OBRIGATORIA', mensagem: 'Justificativa obrigatória (mínimo 10 caracteres).' });
+    }
+
+    const participante = banco.obterUsuario(participanteId);
+    if (!participante || participante.papel !== 'participante') {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Participante não encontrado.' });
+    }
+
+    const inscricoes = banco.listarInscricoesPorAtividade(atividadeEncontrada.id);
+    const inscricao = inscricoes.find(i => i.participanteId === participanteId && i.status === 'confirmada');
+    if (!inscricao) {
+      return res.status(403).json({ erro: 'NAO_INSCRITO', mensagem: 'Participante não inscrito com confirmação.' });
+    }
+
+    const existente = banco.obterPresencaPorParticipanteEncontro(encontroEncontrado.id, participanteId);
+    if (existente) {
+      return res.status(200).json({
+        id: existente.id,
+        encontroId: existente.encontroId,
+        participanteId: existente.participanteId,
+        origem: existente.origem,
+        lidoEm: existente.lidoEm,
+        registradaEm: existente.registradaEm,
+        justificativa: existente.justificativa
+      });
+    }
+
+    const novaPresenca = {
+      id: gerarId('pre_'),
+      encontroId: encontroEncontrado.id,
+      participanteId,
+      origem: 'manual',
+      lidoEm: agora().toISOString(),
+      registradaEm: agora().toISOString(),
+      justificativa
+    };
+
+    banco.inserirPresenca(novaPresenca);
+    res.status(201).json(novaPresenca);
+  });
+
+  app.get('/encontros/:id/presencas', (req, res) => {
+    const usuario = banco.obterUsuario(req.get('X-Usuario'));
+    if (!usuario) {
+      return res.status(401).json({ erro: 'USUARIO_DESCONHECIDO', mensagem: 'Usuário não identificado.' });
+    }
+    if (usuario.papel !== 'organizacao') {
+      return res.status(403).json({ erro: 'SOMENTE_ORGANIZACAO', mensagem: 'Apenas organização pode listar presenças.' });
+    }
+
+    let encontroEncontrado = null;
+    for (const atv of banco.listarAtividades()) {
+      for (const enc of atv.encontros) {
+        if (enc.id === req.params.id) {
+          encontroEncontrado = enc;
+          break;
+        }
+      }
+      if (encontroEncontrado) break;
+    }
+
+    if (!encontroEncontrado) {
+      return res.status(404).json({ erro: 'NAO_ENCONTRADO', mensagem: 'Encontro não encontrado.' });
+    }
+
+    const presencas = banco.listarPresencasPorEncontro(encontroEncontrado.id);
+    res.status(200).json(presencas);
   });
 
   app.use((err, req, res, next) => {
